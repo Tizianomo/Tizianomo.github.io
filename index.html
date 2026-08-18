@@ -3,1077 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>THRASHMC NETWORK | FullPVP</title>
-
-<meta name="description" content="THRASHMC NETWORK - Servidor Minecraft FullPVP. Entra, lucha, consigue kills y domina el servidor.">
-<meta name="theme-color" content="#8e51ff">
-
+<title>THRASHMC | Minecraft Network</title>
+<meta name="description" content="THRASHMC Network - Servidor Minecraft FullPVP">
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:
-        Inter,
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    background:#050309;
-
-    color:#fff;
-
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-}
-
-button{
-    font-family:inherit;
-}
-
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-5;
-
-    background:
-
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(142,81,255,.32),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 100% 50%,
-            rgba(221,108,255,.12),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 0% 80%,
-            rgba(142,81,255,.12),
-            transparent 30%
-        ),
-
-        #050309;
-}
-
-
-body::after{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-4;
-
-    opacity:.035;
-
-    background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.5) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.5) 1px,
-            transparent 1px
-        );
-
-    background-size:55px 55px;
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
-::-webkit-scrollbar-track{
-    background:#050309;
-}
-
-::-webkit-scrollbar-thumb{
-    background:
-        linear-gradient(
-            #8e51ff,
-            #dd6cff
-        );
-
-    border-radius:10px;
-}
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-.navbar{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    height:76px;
-
-    z-index:9999;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:
-        0 6%;
-
-    background:
-        rgba(5,3,9,.70);
-
-    backdrop-filter:
-        blur(18px);
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
-}
-
-
-.logo{
-
-    text-decoration:none;
-
-    font-size:24px;
-
-    font-weight:1000;
-
-    letter-spacing:1px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #ddd6ff,
-            #8e51ff,
-            #dd6cff
-        );
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
-}
-
-
-.nav-links{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:28px;
-}
-
-
-.nav-links a{
-
-    text-decoration:none;
-
-    color:#aaa3b0;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    transition:.2s;
-}
-
-
-.nav-links a:hover{
-
-    color:#ffffff;
-
-    text-shadow:
-        0 0 15px
-        rgba(221,108,255,.7);
-}
-
-
-.nav-shop{
-
-    padding:
-        10px 16px;
-
-    border-radius:9px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8e51ff,
-            #dd6cff
-        );
-
-    color:#fff !important;
-
-    box-shadow:
-        0 8px 30px
-        rgba(142,81,255,.22);
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero{
-
-    min-height:100vh;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:
-        130px 20px
-        90px;
-
-    overflow:hidden;
-}
-
-
-.hero-glow{
-
-    position:absolute;
-
-    width:700px;
-
-    height:700px;
-
-    border-radius:50%;
-
-    background:#8e51ff;
-
-    filter:blur(180px);
-
-    opacity:.13;
-}
-
-
-.hero-content{
-
-    position:relative;
-
-    max-width:1000px;
-
-    z-index:2;
-}
-
-
-.hero-badge{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:
-        9px 17px;
-
-    border-radius:50px;
-
-    background:
-        rgba(142,81,255,.09);
-
-    border:
-        1px solid
-        rgba(221,108,255,.25);
-
-    color:#ddd6ff;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    margin-bottom:25px;
-}
-
-
-.status-dot{
-
-    width:7px;
-
-    height:7px;
-
-    border-radius:50%;
-
-    background:#55e88a;
-
-    box-shadow:
-        0 0 12px
-        #55e88a;
-}
-
-
-.hero h1{
-
-    font-size:
-        clamp(
-            58px,
-            12vw,
-            130px
-        );
-
-    line-height:.88;
-
-    letter-spacing:
-        -6px;
-
-    font-weight:1000;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            #ffffff 0%,
-            #ddd6ff 30%,
-            #8e51ff 65%,
-            #dd6cff 100%
-        );
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
-
-    text-shadow:
-        0 0 90px
-        rgba(142,81,255,.22);
-}
-
-
-.hero-network{
-
-    margin-top:20px;
-
-    color:#c9c1cf;
-
-    letter-spacing:11px;
-
-    font-size:
-        clamp(
-            16px,
-            3vw,
-            25px
-        );
-
-    font-weight:800;
-}
-
-
-.hero-text{
-
-    max-width:650px;
-
-    margin:
-        25px auto;
-
-    color:#918a98;
-
-    font-size:17px;
-
-    line-height:1.7;
-}
-
-
-/* =========================================================
-   HERO BUTTONS
-========================================================= */
-
-.hero-buttons{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:32px;
-}
-
-
-.btn{
-
-    border:none;
-
-    cursor:pointer;
-
-    text-decoration:none;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    padding:
-        15px 25px;
-
-    border-radius:11px;
-
-    font-size:14px;
-
-    font-weight:900;
-
-    transition:
-        transform .2s,
-        box-shadow .2s,
-        background .2s;
-}
-
-
-.btn:hover{
-
-    transform:
-        translateY(-4px);
-}
-
-
-.btn-primary{
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #8e51ff,
-            #dd6cff
-        );
-
-    color:#fff;
-
-    box-shadow:
-        0 12px 40px
-        rgba(142,81,255,.25);
-}
-
-
-.btn-primary:hover{
-
-    box-shadow:
-        0 15px 55px
-        rgba(142,81,255,.4);
-}
-
-
-.btn-secondary{
-
-    background:
-        rgba(255,255,255,.045);
-
-    border:
-        1px solid
-        rgba(255,255,255,.1);
-
-    color:#fff;
-}
-
-
-/* =========================================================
-   IP BOX
-========================================================= */
-
-.ip-box{
-
-    max-width:590px;
-
-    margin:
-        35px auto 0;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
-
-    padding:
-        15px 16px
-        15px 22px;
-
-    border-radius:15px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    text-align:left;
-}
-
-
-.ip-label{
-
-    color:#69616e;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    font-weight:900;
-}
-
-
-.ip-address{
-
-    margin-top:5px;
-
-    font-size:15px;
-
-    font-weight:900;
-
-    letter-spacing:.3px;
-}
-
-
-.copy-btn{
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:
-        11px 17px;
-
-    border-radius:9px;
-
-    background:
-        rgba(142,81,255,.16);
-
-    color:#ddd6ff;
-
-    border:
-        1px solid
-        rgba(142,81,255,.25);
-
-    font-weight:900;
-
-    transition:.2s;
-}
-
-
-.copy-btn:hover{
-
-    background:#8e51ff;
-
-    color:#fff;
-}
-
-
-/* =========================================================
-   GENERAL SECTION
-========================================================= */
-
-section{
-
-    padding:
-        110px 6%;
-}
-
-
-.section-head{
-
-    text-align:center;
-
-    max-width:720px;
-
-    margin:
-        0 auto 55px;
-}
-
-
-.section-label{
-
-    color:#dd6cff;
-
-    font-size:11px;
-
-    font-weight:1000;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
-}
-
-
-.section-head h2{
-
-    margin-top:12px;
-
-    font-size:
-        clamp(
-            34px,
-            5vw,
-            54px
-        );
-
-    letter-spacing:-1px;
-}
-
-
-.section-head p{
-
-    margin-top:14px;
-
-    color:#817a87;
-
-    line-height:1.7;
-
-    font-size:15px;
-}
-
-
-/* =========================================================
-   SERVER STATUS
-========================================================= */
-
-.status-section{
-
-    padding-top:30px;
-}
-
-
-.status-container{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-}
-
-
-.status-card{
-
-    padding:23px;
-
-    border-radius:16px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    text-align:center;
-}
-
-
-.status-icon{
-
-    font-size:26px;
-
-    margin-bottom:9px;
-}
-
-
-.status-card h3{
-
-    font-size:16px;
-
-    margin-bottom:6px;
-}
-
-
-.status-card p{
-
-    color:#7f7785;
-
-    font-size:13px;
-}
-
-
-.online{
-
-    color:#55e88a;
-}
-
-
-/* =========================================================
-   FEATURES
-========================================================= */
-
-.features{
-
-    max-width:1150px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-}
-
-
-.feature{
-
-    padding:31px;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    transition:.25s;
-}
-
-
-.feature:hover{
-
-    transform:
-        translateY(-7px);
-
-    border-color:
-        rgba(221,108,255,.3);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.3);
-}
-
-
-.feature-icon{
-
-    width:52px;
-
-    height:52px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:13px;
-
-    background:
-        rgba(142,81,255,.1);
-
-    border:
-        1px solid
-        rgba(142,81,255,.18);
-
-    font-size:25px;
-
-    margin-bottom:20px;
-}
-
-
-.feature h3{
-
-    font-size:19px;
-
-    margin-bottom:10px;
-}
-
-
-.feature p{
-
-    color:#817a87;
-
-    font-size:14px;
-
-    line-height:1.7;
-}
-
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats{
-
-    max-width:1000px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:15px;
-}
-
-
-.stat{
-
-    padding:30px 15px;
-
-    text-align:center;
-
-    border-radius:17px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-}
-
-
-.stat-number{
-
-    font-size:34px;
-
-    font-weight:1000;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ddd6ff,
-            #dd6cff
-        );
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
-}
-
-
-.stat-label{
-
-    margin-top:7px;
-
-    color:#716a77;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-}
-
-
-/* =========================================================
-   RANKS
-========================================================= */
-
-.ranks{
-
-    max-width:1250px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:17px;
-}
-
-
-.rank{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:
-        30px 20px;
-
-    text-align:center;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #100b16,
-            #09070d
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.065);
-
-    transition:.25s;
-}
-
-
-.rank::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    height:3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #8e51ff,
-            #dd6cff
-        );
-}
-
-
-.rank:hover{
-
-    transform:
-        translateY(-8px);
-
-    border-color:
-        rgba(221,108,255,.35);
-
-    box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.35);
-}
-
-
-.rank-name{
-
-    font-size:22px;
-
-    font-weight:1000;
-
-    margin-bottom:8px;
-}
-
-
-.rank-price{
-
-    color:#77707d;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    margin-bottom:19px;
-}
-
-
-.rank ul{
-
-    list-style:none;
-
-    color:#99919f;
-
-    font-size:12px;
-
-    line-height:2;
-}
-
-
-.rank-link{
-
-    display:inline-block;
-
-    margin-top:20px;
-
-    padding:
-        9px 15px;
-
-    border-radius:8px;
-
-    background:
-        rgba(142,81,255,.1);
-
-    border:
-        1px solid
-        rgba(142,81,255,.2);
-
-    color:#ddd6ff;
-
-    text-decoration:none;
-
-    font
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#05030a;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+body{background:radial-gradient(circle at 50% 0%,rgba(142,81,255,.28),transparent 35%),radial-gradient(circle at 100% 60%,rgba(221,108,255,.12),transparent 30%),#05030a}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:50px 50px}
+.navbar{position:fixed;top:0;left:0;right:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(5,3,10,.82);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.07);z-index:1000}
+.logo{font-size:23px;font-weight:1000;letter-spacing:1px;background:linear-gradient(90deg,#fff,#ddd6ff,#8e51ff,#dd6cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.menu{display:flex;align-items:center;gap:25px}
+.menu a{color:#aaa3b1;font-size:13px;font-weight:bold;transition:.2s}
+.menu a:hover{color:#fff}
+.menu-shop{padding:10px 16px;border-radius:9px;background:linear-gradient(135deg,#8e51ff,#dd6cff);color:#fff!important}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative}
+.hero-content{max-width:1000px}
+.badge{display:inline-block;padding:9px 17px;border-radius:50px;background:rgba(142,81,255,.1);border:1px solid rgba(221,108,255,.25);color:#ddd6ff;font-size:11px;font-weight:900;letter-spacing:2px;margin-bottom:25px}
+.hero h1{font-size:clamp(55px,12vw,125px);line-height:.9;font-weight:1000;letter-spacing:-6px;background:linear-gradient(90deg,#fff,#ddd6ff,#8e51ff,#dd6cff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 80px rgba(142,81,255,.25)}
+.network{margin-top:18px;color:#c4bccb;font-size:clamp(15px,3vw,25px);letter-spacing:10px;font-weight:bold}
+.description{max-width:650px;margin:25px auto;color:#8b8392;font-size:16px;line-height:1.7}
+.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 25px;border-radius:10px;font-size:13px;font-weight:900;cursor:pointer;border:none;transition:.25s}
+.btn:hover{transform:translateY(-4px)}
+.primary{background:linear-gradient(135deg,#8e51ff,#dd6cff);color:#fff;box-shadow:0 12px 40px rgba(142,81,255,.25)}
+.secondary{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);color:#fff}
+.ip-box{max-width:570px;margin:35px auto 0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 16px 15px 20px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
+.ip-title{color:#706978;font-size:9px;letter-spacing:2px;font-weight:bold}
+.ip{margin-top:5px;font-size:15px;font-weight:900}
+.copy{border:none;padding:11px 16px;border-radius:8px;background:#8e51ff;color:#fff;font-weight:bold;cursor:pointer}
+section{padding:100px 6%}
+.section-title{max-width:700px;margin:0 auto 50px;text-align:center}
+.label{color:#dd6cff;font-size:10px;font-weight:1000;letter-spacing:3px}
+.section-title h2{margin-top:12px;font-size:clamp(32px,5vw,50px)}
+.section-title p{margin-top:12px;color:#817987;line-height:1.7}
+.status{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.status-card{padding:25px;text-align:center;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}
+.status-card .icon{font-size:27px;margin-bottom:10px}
+.status-card h3{font-size:16px;margin-bottom:7px}
+.status-card p{color:#77707f;font-size:12px}
+.online{color:#5bea8d}
+.features{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature{padding:30px;border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.07);transition:.25s}
+.feature:hover{transform:translateY(-7px);border-color:rgba(221,108,255,.3)}
+.feature-icon{font-size:30px;margin-bottom:18px}
+.feature h3{font-size:18px;margin-bottom:10px}
+.feature p{color:#817987;font-size:13px;line-height:1.7}
+.stats{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.stat{padding:30px 15px;text-align:center;border-radius:16px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}
+.number{font-size:32px;font-weight:1000;background:linear-gradient(90deg,#ddd6ff,#dd6cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{margin-top:7px;color:#716a78;font-size:10px;font-weight:bold;letter-spacing:1px}
+.ranks{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.rank{position:relative;padding:30px 20px;text-align:center;border-radius:18px;background:linear-gradient(145deg,#100b16,#09070d);border:1px solid rgba(255,255,255,.06);overflow:hidden;transition:.25s}
+.rank:hover{transform:translateY(-8px);border-color:rgba(221,108,255,.3)}
+.rank:before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#8e51ff,#dd6cff)}
+.rank h3{font-size:21px;margin-bottom:8px}
+.rank .price{color:#716a78;font-size:10px;font-weight:bold;margin-bottom:18px}
+.rank ul{list-style:none;color:#948c9c;font-size:12px;line-height:2}
+.rank a{display:inline-block;margin-top:20px;padding:9px 14px;border-radius:8px;background:rgba(142,81,255,.1);border:1px solid rgba(142,81,255,.2);color:#ddd6ff;font-size:10px;font-weight:bold}
+.rank a:hover{background:#8e51ff;color:#fff}
+.user{color:#aaa}.hero-rank{color:#53d9ff}.vip{color:#55e37d}.vipplus{color:#dd6cff}.selva{color:#65d89a}.rey{color:#ffd45a}.mono{color:#ff9d50}.maestro{color:#ff5d87}.inferno{color:#ff4d4d}.lunar{color:#aa8cff}.thrash{color:#e57aff}
+.shop{max-width:1050px;margin:auto;padding:65px 25px;text-align:center;border-radius:25px;background:radial-gradient(circle,rgba(142,81,255,.2),transparent 65%),#0d0814;border:1px solid rgba(221,108,255,.16)}
+.shop h2{font-size:clamp(32px,5vw,48px);margin-top:10px}
+.shop p{max-width:600px;margin:15px auto 25px;color:#817987;line-height:1.7}
+.discord{max-width:1050px;margin:auto;display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.discord-main{padding:45px;border-radius:20px;background:linear-gradient(135deg,rgba(142,81,255,.15),rgba(221,108,255,.04));border:1px solid rgba(221,108,255,.15)}
+.discord-main h2{font-size:34px;margin-bottom:12px}
+.discord-main p{color:#817987;line-height:1.7;margin-bottom:25px}
+.discord-side{padding:35px;border-radius:20px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}
+.discord-side h3{margin-bottom:15px}
+.discord-side p{color:#817987;line-height:2;font-size:13px}
+.news{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.news-card{padding:28px;border-radius:17px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}
+.news-tag{color:#dd6cff;font-size:9px;font-weight:bold;letter-spacing:2px}
+.news-card h3{margin:12px 0 10px;font-size:18px}
+.news-card p{color:#817987;font-size:13px;line-height:1.7}
+.faq{max-width:850px;margin:auto}
+details{margin-bottom:10px;padding:18px 20px;border-radius:11px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06)}
+summary{cursor:pointer;font-size:13px;font-weight:bold}
+details p{margin-top:13px;color:#817987;font-size:12px;line-height:1.7}
+.final{text-align:center;padding:120px 20px}
+.final h2{font-size:clamp(35px,6vw,60px)}
+.final p{max-width:550px;margin:15px auto 25px;color:#817987;line-height:1.7}
+footer{padding:50px 6%;border-top:1px solid rgba(255,255,255,.06);background:rgba(0,0,0,.25)}
+.footer{max-width:1150px;margin:auto;display:flex;justify-content:space-between;gap:30px}
+.footer h3{font-size:19px}
+.footer p{color:#625b68;margin-top:8px;font-size:11px;line-height:1.7}
+.footer-links{display:flex;gap:20px;align-items:center}
+.footer-links a{color:#716a78;font-size:11px;font-weight:bold}
+.footer-links a:hover{color:#dd6cff}
+.copyright{max-width:1150px;margin:30px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.05);color:#4e4854;font-size:10px}
+#toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,30px);opacity:0;padding:12px 20px;border-radius:9px;background:#17101e;border:1px solid rgba(221,108,255,.25);font-size:12px;font-weight:bold;transition:.25s;z-index:9999}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.menu{display:none}.features{grid-template-columns:repeat(2,1fr)}.ranks{grid-template-columns:repeat(2,1fr)}.discord{grid-template-columns:1fr}}
+@media(max-width:600px){section{padding:75px 5%}.hero{padding:110px 15px 70px}.hero h1{letter-spacing:-4px}.status{grid-template-columns:1fr}.features{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.ranks{grid-template-columns:1fr}.news{grid-template-columns:1fr}.ip-box{flex-direction:column;text-align:center}.footer{flex-direction:column}.footer-links{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<a href="#inicio" class="logo">THRASHMC</a>
+<div class="menu">
+<a href="#inicio">Inicio</a>
+<a href="#modalidad">FullPVP</a>
+<a href="#rangos">Rangos</a>
+<a href="#noticias">Noticias</a>
+<a href="#faq">FAQ</a>
+<a href="tienda.html" class="menu-shop">🛒 TIENDA</a>
+</div>
+</nav>
+
+<header class="hero" id="inicio">
+<div class="hero-content">
+<div class="badge">● THRASHMC NETWORK • FULLPVP</div>
+<h1>THRASHMC</h1>
+<div class="network">NETWORK</div>
+<p class="description">La batalla comienza aquí. Entra a THRASHMC, consigue kills, sube de nivel, consigue recompensas y demuestra quién domina el FullPVP.</p>
+<div class="buttons">
+<button class="btn primary" onclick="copyIP()">🎮 JUGAR AHORA</button>
+<a href="https://discord.gg/GBTnQnxEk" target="_blank" class="btn secondary">💬 DISCORD</a>
+</div>
+<div class="ip-box">
+<div><div class="ip-title">IP DEL SERVIDOR</div><div class="ip">puff.visihost.in:2503</div></div>
+<button class="copy" onclick="copyIP()">COPIAR IP</button>
+</div>
+</div>
+</header>
+
+<section>
+<div class="status">
+<div class="status-card"><div class="icon">🟢</div><h3 class="online">SERVIDOR</h3><p>THRASHMC</p></div>
+<div class="status-card"><div class="icon">⚔️</div><h3>MODALIDAD</h3><p>FULLPVP</p></div>
+<div class="status-card"><div class="icon">🌐</div><h3>PLATAFORMA</h3><p>MINECRAFT JAVA</p></div>
+</div>
+</section>
+
+<section id="modalidad">
+<div class="section-title"><span class="label">EXPERIENCIA THRASHMC</span><h2>Todo lo que necesitas para luchar</h2><p>Una experiencia FullPVP pensada para competir, progresar y disfrutar con la comunidad.</p></div>
+<div class="features">
+<div class="feature"><div class="feature-icon">⚔️</div><h3>PvP competitivo</h3><p>Enfréntate a jugadores, consigue kills y conviértete en uno de los mejores.</p></div>
+<div class="feature"><div class="feature-icon">💎</div><h3>Economía</h3><p>Consigue recursos y progresa dentro de la economía de THRASHMC.</p></div>
+<div class="feature"><div class="feature-icon">🏆</div><h3>Rankings</h3><p>Compite por los primeros puestos y demuestra tu habilidad.</p></div>
+<div class="feature"><div class="feature-icon">🎁</div><h3>Recompensas</h3><p>Consigue recompensas especiales y beneficios mientras juegas.</p></div>
+<div class="feature"><div class="feature-icon">🔥</div><h3>Eventos</h3><p>Participa en eventos y desafíos especiales de la comunidad.</p></div>
+<div class="feature"><div class="feature-icon">👑</div><h3>Rangos</h3><p>Desbloquea rangos y beneficios exclusivos dentro del servidor.</p></div>
+</div>
+</section>
+
+<section>
+<div class="section-title"><span class="label">THRASHMC NETWORK</span><h2>Construimos algo grande</h2></div>
+<div class="stats">
+<div class="stat"><div class="number">24/7</div><p>DISPONIBILIDAD</p></div>
+<div class="stat"><div class="number">PvP</div><p>MODALIDAD</p></div>
+<div class="stat"><div class="number">11</div><p>RANGOS</p></div>
+<div class="stat"><div class="number">2026</div><p>NETWORK</p></div>
+</div>
+</section>
+
+<section id="rangos">
+<div class="section-title"><span class="label">THRASHMC STORE</span><h2>Elige tu rango</h2><p>Potencia tu experiencia dentro del servidor.</p></div>
+<div class="ranks">
+<div class="rank"><h3 class="user">USER</h3><div class="price">GRATIS</div><ul><li>✓ Acceso al servidor</li><li>✓ FullPVP</li><li>✓ Sistema de niveles</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="hero-rank">HERO</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit HERO</li><li>✓ Beneficios especiales</li><li>✓ Prefijo HERO</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="vip">VIP</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit VIP</li><li>✓ Beneficios VIP</li><li>✓ Prefijo VIP</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="vipplus">VIP+</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit VIP+</li><li>✓ Beneficios VIP+</li><li>✓ Prefijo VIP+</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="selva">SELVA</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit SELVA</li><li>✓ Beneficios</li><li>✓ Prefijo SELVA</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="rey">REY</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit REY</li><li>✓ Beneficios</li><li>✓ Prefijo REY</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="mono">MONO</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit MONO</li><li>✓ Beneficios</li><li>✓ Prefijo MONO</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="maestro">MAESTRO</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit MAESTRO</li><li>✓ Beneficios</li><li>✓ Prefijo MAESTRO</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="inferno">INFERNO</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit INFERNO</li><li>✓ Beneficios</li><li>✓ Prefijo INFERNO</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="lunar">LUNAR</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Kit LUNAR</li><li>✓ Beneficios</li><li>✓ Prefijo LUNAR</li></ul><a href="tienda.html">VER TIENDA</a></div>
+<div class="rank"><h3 class="thrash">THRASH</h3><div class="price">PRÓXIMAMENTE</div><ul><li>✓ Rango máximo</li><li>✓ Máximos beneficios</li><li>✓ Prefijo THRASH</li></ul><a href="tienda.html">VER TIENDA</a></div>
+</div>
+</section>
+
+<section>
+<div class="shop"><span class="label">THRASHMC STORE</span><h2>Lleva tu experiencia al siguiente nivel</h2><p>Visita nuestra tienda para descubrir rangos, kits y recompensas especiales.</p><a href="tienda.html" class="btn primary">🛒 ABRIR TIENDA</a></div>
+</section>
+
+<section>
+<div class="discord">
+<div class="discord-main"><h2>Únete a nuestra comunidad</h2><p>Sé parte de la comunidad THRASHMC. Recibe noticias, anuncios, eventos y novedades directamente en Discord.</p><a href="https://discord.gg/GBTnQnxEk" target="_blank" class="btn primary">💬 ENTRAR AL DISCORD</a></div>
+<div class="discord-side"><h3>¿Qué encontrarás?</h3><p>📢 Anuncios<br>🎉 Eventos<br>⚔️ Comunidad PvP<br>🏆 Competencias<br>💬 Chat de jugadores</p></div>
+</div>
+</section>
+
+<section id="noticias">
+<div class="section-title"><span class="label">NOVEDADES</span><h2>Noticias</h2></div>
+<div class="news">
+<div class="news-card"><span class="news-tag">THRASHMC</span><h3>Bienvenido a THRASHMC</h3><p>Prepárate para disfrutar de nuestra experiencia FullPVP.</p></div>
+<div class="news-card"><span class="news-tag">PRÓXIMAMENTE</span><h3>Nuevos rangos</h3><p>Próximamente estarán disponibles nuevos beneficios.</p></div>
+<div class="news-card"><span class="news-tag">PRÓXIMAMENTE</span><h3>Eventos</h3><p>Estamos preparando nuevos eventos para la comunidad.</p></div>
+</div>
+</section>
+
+<section id="faq">
+<div class="section-title"><span class="label">AYUDA</span><h2>Preguntas frecuentes</h2></div>
+<div class="faq">
+<details><summary>¿Cuál es la IP?</summary><p>puff.visihost.in:2503</p></details>
+<details><summary>¿Cuál es la modalidad?</summary><p>Actualmente THRASHMC está enfocado en FullPVP.</p></details>
+<details><summary>¿Dónde compro los rangos?</summary><p>Entra en la sección Tienda de nuestra página.</p></details>
+<details><summary>¿Dónde está el Discord?</summary><p>Puedes entrar desde cualquier botón de Discord de esta página.</p></details>
+</div>
+</section>
+
+<section class="final">
+<h2>¿Listo para entrar?</h2>
+<p>Conecta ahora a THRASHMC y demuestra quién domina el FullPVP.</p>
+<div class="buttons">
+<button class="btn primary" onclick="copyIP()">🎮 JUGAR AHORA</button>
+<a href="https://discord.gg/GBTnQnxEk" target="_blank" class="btn secondary">💬 DISCORD</a>
+</div>
+</section>
+
+<footer>
+<div class="footer">
+<div><h3>THRASHMC NETWORK</h3><p>⚔ FULLPVP<br>💜 COMUNIDAD<br>🏆 COMPETENCIA</p></div>
+<div class="footer-links"><a href="#inicio">Inicio</a><a href="#rangos">Rangos</a><a href="tienda.html">Tienda</a><a href="https://discord.gg/GBTnQnxEk" target="_blank">Discord</a></div>
+</div>
+<div class="copyright">IP: puff.visihost.in:2503<br><br>© 2026 THRASHMC NETWORK. Todos los derechos reservados.</div>
+</footer>
+
+<div id="toast">✓ IP copiada correctamente</div>
+
+<script>
+function copyIP(){
+const ip="puff.visihost.in:2503";
+if(navigator.clipboard&&navigator.clipboard.writeText){
+navigator.clipboard.writeText(ip).then(showToast).catch(fallbackCopy);
+}else fallbackCopy();
+}
+function fallbackCopy(){
+const input=document.createElement("input");
+input.value="puff.visihost.in:2503";
+document.body.appendChild(input);
+input.select();
+document.execCommand("copy");
+input.remove();
+showToast();
+}
+function showToast(){
+const toast=document.getElementById("toast");
+toast.classList.add("show");
+setTimeout(()=>toast.classList.remove("show"),2000);
+}
+</script>
+</body>
+</html>
