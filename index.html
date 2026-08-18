@@ -6,862 +6,1074 @@
 
 <title>THRASHMC NETWORK | FullPVP</title>
 
+<meta name="description" content="THRASHMC NETWORK - Servidor Minecraft FullPVP. Entra, lucha, consigue kills y domina el servidor.">
+<meta name="theme-color" content="#8e51ff">
+
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #06040a;
-    color: white;
-    overflow-x: hidden;
+body{
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:#050309;
+
+    color:#fff;
+
+    overflow-x:hidden;
 }
 
-/* ===== FONDO ===== */
+a{
+    color:inherit;
+}
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -3;
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
+
+    background:
+
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(142,81,255,.32),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 100% 50%,
+            rgba(221,108,255,.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 0% 80%,
+            rgba(142,81,255,.12),
+            transparent 30%
+        ),
+
+        #050309;
+}
+
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-4;
+
+    opacity:.035;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.5) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.5) 1px,
+            transparent 1px
+        );
+
+    background-size:55px 55px;
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050309;
+}
+
+::-webkit-scrollbar-thumb{
     background:
         linear-gradient(
-            rgba(6,4,10,.72),
-            rgba(6,4,10,.96)
-        ),
+            #8e51ff,
+            #dd6cff
+        );
+
+    border-radius:10px;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:76px;
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:
+        0 6%;
+
+    background:
+        rgba(5,3,9,.70);
+
+    backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+
+.logo{
+
+    text-decoration:none;
+
+    font-size:24px;
+
+    font-weight:1000;
+
+    letter-spacing:1px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ddd6ff,
+            #8e51ff,
+            #dd6cff
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+}
+
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+}
+
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#aaa3b0;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.2s;
+}
+
+
+.nav-links a:hover{
+
+    color:#ffffff;
+
+    text-shadow:
+        0 0 15px
+        rgba(221,108,255,.7);
+}
+
+
+.nav-shop{
+
+    padding:
+        10px 16px;
+
+    border-radius:9px;
+
+    background:
         linear-gradient(
             135deg,
-            #151020,
-            #08050d 45%,
-            #180b1e
+            #8e51ff,
+            #dd6cff
         );
-}
 
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    opacity: .15;
-    background-image:
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-}
-
-/* ===== NAVBAR ===== */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 18px 7%;
-
-    background: rgba(5,3,9,.75);
-    backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid rgba(221,108,255,.15);
-}
-
-.logo {
-    font-size: 23px;
-    font-weight: 1000;
-    letter-spacing: 1px;
-
-    background: linear-gradient(
-        90deg,
-        #ddd6ff,
-        #8e51ff,
-        #dd6cff
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-}
-
-.nav-links a {
-    color: #bcb4c5;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
-    transition: .2s;
-}
-
-.nav-links a:hover {
-    color: #dd6cff;
-}
-
-/* ===== HERO ===== */
-
-.hero {
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 130px 20px 80px;
-
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-
-    width: 600px;
-    height: 600px;
-
-    background: #8e51ff;
-
-    filter: blur(180px);
-    opacity: .16;
-
-    top: -250px;
-    left: 50%;
-
-    transform: translateX(-50%);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-
-    max-width: 950px;
-}
-
-.badge {
-    display: inline-block;
-
-    padding: 8px 17px;
-
-    border-radius: 50px;
-
-    background: rgba(142,81,255,.1);
-    border: 1px solid rgba(221,108,255,.25);
-
-    color: #ddd6ff;
-
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(55px, 11vw, 110px);
-
-    font-weight: 1000;
-
-    line-height: .9;
-
-    letter-spacing: -5px;
-
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #ddd6ff,
-        #8e51ff,
-        #dd6cff
-    );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-    text-shadow: 0 0 60px rgba(142,81,255,.25);
-}
-
-.network {
-    margin-top: 17px;
-
-    font-size: clamp(17px, 3vw, 28px);
-
-    letter-spacing: 8px;
-
-    color: #c8becf;
-}
-
-.hero-description {
-    max-width: 650px;
-
-    margin: 25px auto;
-
-    color: #9b929f;
-
-    font-size: 17px;
-}
-
-/* ===== BOTONES ===== */
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 30px;
-}
-
-.btn {
-    padding: 15px 26px;
-
-    border-radius: 11px;
-
-    text-decoration: none;
-
-    font-weight: 900;
-
-    border: none;
-
-    cursor: pointer;
-
-    transition: .25s;
-}
-
-.btn-primary {
-    color: white;
-
-    background: linear-gradient(
-        135deg,
-        #8e51ff,
-        #dd6cff
-    );
+    color:#fff !important;
 
     box-shadow:
-        0 10px 35px rgba(142,81,255,.25);
+        0 8px 30px
+        rgba(142,81,255,.22);
 }
 
-.btn-secondary {
-    color: white;
 
-    background: rgba(255,255,255,.05);
+/* =========================================================
+   HERO
+========================================================= */
 
-    border: 1px solid rgba(255,255,255,.1);
+.hero{
+
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+        130px 20px
+        90px;
+
+    overflow:hidden;
 }
 
-.btn:hover {
-    transform: translateY(-4px);
+
+.hero-glow{
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    border-radius:50%;
+
+    background:#8e51ff;
+
+    filter:blur(180px);
+
+    opacity:.13;
 }
 
-/* ===== IP ===== */
 
-.ip-box {
-    max-width: 550px;
+.hero-content{
 
-    margin: 35px auto 0;
+    position:relative;
 
-    padding: 16px 20px;
+    max-width:1000px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 15px;
-
-    background: rgba(255,255,255,.045);
-
-    border: 1px solid rgba(221,108,255,.15);
-
-    border-radius: 14px;
-
-    text-align: left;
+    z-index:2;
 }
 
-.ip-label {
-    color: #82798a;
 
-    font-size: 10px;
+.hero-badge{
 
-    text-transform: uppercase;
+    display:inline-flex;
 
-    letter-spacing: 2px;
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        9px 17px;
+
+    border-radius:50px;
+
+    background:
+        rgba(142,81,255,.09);
+
+    border:
+        1px solid
+        rgba(221,108,255,.25);
+
+    color:#ddd6ff;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:25px;
 }
 
-.ip {
-    margin-top: 4px;
 
-    font-size: 16px;
+.status-dot{
 
-    font-weight: 900;
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:#55e88a;
+
+    box-shadow:
+        0 0 12px
+        #55e88a;
 }
 
-.copy {
-    border: none;
 
-    padding: 10px 15px;
+.hero h1{
 
-    border-radius: 9px;
+    font-size:
+        clamp(
+            58px,
+            12vw,
+            130px
+        );
 
-    background: #8e51ff;
+    line-height:.88;
 
-    color: white;
+    letter-spacing:
+        -6px;
 
-    font-weight: bold;
+    font-weight:1000;
 
-    cursor: pointer;
+    background:
+
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #ddd6ff 30%,
+            #8e51ff 65%,
+            #dd6cff 100%
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 0 90px
+        rgba(142,81,255,.22);
 }
 
-/* ===== SECCIONES ===== */
 
-section {
-    padding: 100px 7%;
+.hero-network{
+
+    margin-top:20px;
+
+    color:#c9c1cf;
+
+    letter-spacing:11px;
+
+    font-size:
+        clamp(
+            16px,
+            3vw,
+            25px
+        );
+
+    font-weight:800;
 }
 
-.section-header {
-    text-align: center;
 
-    margin-bottom: 50px;
+.hero-text{
+
+    max-width:650px;
+
+    margin:
+        25px auto;
+
+    color:#918a98;
+
+    font-size:17px;
+
+    line-height:1.7;
 }
 
-.section-header span {
-    color: #dd6cff;
 
-    font-size: 12px;
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
 
-    font-weight: 900;
+.hero-buttons{
 
-    letter-spacing: 3px;
+    display:flex;
 
-    text-transform: uppercase;
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:32px;
 }
 
-.section-header h2 {
-    margin-top: 10px;
 
-    font-size: clamp(32px, 5vw, 48px);
+.btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:
+        15px 25px;
+
+    border-radius:11px;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        background .2s;
 }
 
-.section-header p {
-    max-width: 650px;
 
-    margin: 12px auto;
+.btn:hover{
 
-    color: #8e8794;
+    transform:
+        translateY(-4px);
 }
 
-/* ===== CARDS ===== */
 
-.cards {
-    max-width: 1100px;
+.btn-primary{
 
-    margin: auto;
+    background:
 
-    display: grid;
+        linear-gradient(
+            135deg,
+            #8e51ff,
+            #dd6cff
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 12px 40px
+        rgba(142,81,255,.25);
+}
+
+
+.btn-primary:hover{
+
+    box-shadow:
+        0 15px 55px
+        rgba(142,81,255,.4);
+}
+
+
+.btn-secondary{
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   IP BOX
+========================================================= */
+
+.ip-box{
+
+    max-width:590px;
+
+    margin:
+        35px auto 0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:
+        15px 16px
+        15px 22px;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    text-align:left;
+}
+
+
+.ip-label{
+
+    color:#69616e;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    font-weight:900;
+}
+
+
+.ip-address{
+
+    margin-top:5px;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    letter-spacing:.3px;
+}
+
+
+.copy-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:
+        11px 17px;
+
+    border-radius:9px;
+
+    background:
+        rgba(142,81,255,.16);
+
+    color:#ddd6ff;
+
+    border:
+        1px solid
+        rgba(142,81,255,.25);
+
+    font-weight:900;
+
+    transition:.2s;
+}
+
+
+.copy-btn:hover{
+
+    background:#8e51ff;
+
+    color:#fff;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+section{
+
+    padding:
+        110px 6%;
+}
+
+
+.section-head{
+
+    text-align:center;
+
+    max-width:720px;
+
+    margin:
+        0 auto 55px;
+}
+
+
+.section-label{
+
+    color:#dd6cff;
+
+    font-size:11px;
+
+    font-weight:1000;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+
+.section-head h2{
+
+    margin-top:12px;
+
+    font-size:
+        clamp(
+            34px,
+            5vw,
+            54px
+        );
+
+    letter-spacing:-1px;
+}
+
+
+.section-head p{
+
+    margin-top:14px;
+
+    color:#817a87;
+
+    line-height:1.7;
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   SERVER STATUS
+========================================================= */
+
+.status-section{
+
+    padding-top:30px;
+}
+
+
+.status-container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
-    gap: 20px;
+    gap:15px;
 }
 
-.card {
-    padding: 30px;
 
-    border-radius: 18px;
+.status-card{
+
+    padding:23px;
+
+    border-radius:16px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    text-align:center;
+}
+
+
+.status-icon{
+
+    font-size:26px;
+
+    margin-bottom:9px;
+}
+
+
+.status-card h3{
+
+    font-size:16px;
+
+    margin-bottom:6px;
+}
+
+
+.status-card p{
+
+    color:#7f7785;
+
+    font-size:13px;
+}
+
+
+.online{
+
+    color:#55e88a;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.features{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+
+.feature{
+
+    padding:31px;
+
+    border-radius:18px;
 
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.045),
-            rgba(255,255,255,.015)
+            rgba(255,255,255,.012)
         );
 
-    border: 1px solid rgba(255,255,255,.07);
+    border:
+        1px solid
+        rgba(255,255,255,.07);
 
-    transition: .25s;
+    transition:.25s;
 }
 
-.card:hover {
-    transform: translateY(-7px);
+
+.feature:hover{
+
+    transform:
+        translateY(-7px);
 
     border-color:
         rgba(221,108,255,.3);
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.3);
+        0 25px 70px
+        rgba(0,0,0,.3);
 }
 
-.card-icon {
-    font-size: 32px;
 
-    margin-bottom: 17px;
+.feature-icon{
+
+    width:52px;
+
+    height:52px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+        rgba(142,81,255,.1);
+
+    border:
+        1px solid
+        rgba(142,81,255,.18);
+
+    font-size:25px;
+
+    margin-bottom:20px;
 }
 
-.card h3 {
-    margin-bottom: 8px;
 
-    font-size: 20px;
+.feature h3{
+
+    font-size:19px;
+
+    margin-bottom:10px;
 }
 
-.card p {
-    color: #8e8794;
 
-    font-size: 14px;
+.feature p{
+
+    color:#817a87;
+
+    font-size:14px;
+
+    line-height:1.7;
 }
 
-/* ===== RANGOS ===== */
 
-.ranks {
-    max-width: 1200px;
+/* =========================================================
+   STATS
+========================================================= */
 
-    margin: auto;
+.stats{
 
-    display: grid;
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(4,1fr);
 
-    gap: 18px;
+    gap:15px;
 }
 
-.rank {
-    padding: 28px 20px;
 
-    text-align: center;
+.stat{
 
-    border-radius: 18px;
+    padding:30px 15px;
 
-    background: #0e0915;
+    text-align:center;
 
-    border: 1px solid rgba(255,255,255,.07);
+    border-radius:17px;
 
-    transition: .25s;
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
 }
 
-.rank:hover {
-    transform: translateY(-8px);
+
+.stat-number{
+
+    font-size:34px;
+
+    font-weight:1000;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ddd6ff,
+            #dd6cff
+        );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+}
+
+
+.stat-label{
+
+    margin-top:7px;
+
+    color:#716a77;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   RANKS
+========================================================= */
+
+.ranks{
+
+    max-width:1250px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:17px;
+}
+
+
+.rank{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        30px 20px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #100b16,
+            #09070d
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.065);
+
+    transition:.25s;
+}
+
+
+.rank::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8e51ff,
+            #dd6cff
+        );
+}
+
+
+.rank:hover{
+
+    transform:
+        translateY(-8px);
 
     border-color:
         rgba(221,108,255,.35);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.35);
 }
 
-.rank-name {
-    font-size: 21px;
 
-    font-weight: 1000;
+.rank-name{
 
-    margin-bottom: 10px;
+    font-size:22px;
+
+    font-weight:1000;
+
+    margin-bottom:8px;
 }
 
-.rank-price {
-    color: #938998;
 
-    margin-bottom: 20px;
+.rank-price{
+
+    color:#77707d;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:19px;
 }
 
-.rank-list {
-    list-style: none;
 
-    color: #aaa1b0;
+.rank ul{
 
-    font-size: 13px;
+    list-style:none;
 
-    line-height: 2;
+    color:#99919f;
+
+    font-size:12px;
+
+    line-height:2;
 }
 
-.rank-button {
-    display: inline-block;
 
-    margin-top: 20px;
+.rank-link{
 
-    padding: 10px 18px;
+    display:inline-block;
 
-    border-radius: 9px;
+    margin-top:20px;
 
-    background: rgba(142,81,255,.12);
+    padding:
+        9px 15px;
 
-    border: 1px solid rgba(142,81,255,.2);
-
-    color: #ddd6ff;
-
-    font-size: 13px;
-
-    font-weight: bold;
-}
-
-/* Colores de rangos */
-
-.user {
-    color: #aaa;
-}
-
-.hero-rank {
-    color: #55d6ff;
-}
-
-.vip {
-    color: #54e37c;
-}
-
-.vipplus {
-    color: #dd6cff;
-}
-
-.selva {
-    color: #65d89a;
-}
-
-.rey {
-    color: #ffd45a;
-}
-
-.mono {
-    color: #ff9c50;
-}
-
-.maestro {
-    color: #ff5e87;
-}
-
-.inferno {
-    color: #ff4d4d;
-}
-
-.lunar {
-    color: #a98cff;
-}
-
-.thrash {
-    color: #e57aff;
-}
-
-/* ===== COMUNIDAD ===== */
-
-.community {
-    max-width: 1000px;
-
-    margin: auto;
-
-    padding: 60px 30px;
-
-    text-align: center;
-
-    border-radius: 25px;
+    border-radius:8px;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(142,81,255,.2),
-            transparent 60%
-        ),
-        #0d0814;
+        rgba(142,81,255,.1);
 
-    border: 1px solid rgba(221,108,255,.18);
-}
+    border:
+        1px solid
+        rgba(142,81,255,.2);
 
-.community h2 {
-    font-size: clamp(30px, 5vw, 45px);
-}
+    color:#ddd6ff;
 
-.community p {
-    color: #918997;
+    text-decoration:none;
 
-    margin: 12px auto 25px;
-
-    max-width: 600px;
-}
-
-/* ===== FOOTER ===== */
-
-footer {
-    padding: 40px 7%;
-
-    text-align: center;
-
-    color: #68616f;
-
-    border-top:
-        1px solid rgba(255,255,255,.06);
-}
-
-footer strong {
-    color: #aaa1b0;
-}
-
-/* ===== TOAST ===== */
-
-#toast {
-    position: fixed;
-
-    bottom: 25px;
-    left: 50%;
-
-    transform:
-        translate(-50%, 20px);
-
-    opacity: 0;
-
-    padding: 12px 20px;
-
-    border-radius: 10px;
-
-    background: #17101e;
-
-    border: 1px solid rgba(221,108,255,.25);
-
-    transition: .25s;
-
-    z-index: 5000;
-}
-
-#toast.show {
-    opacity: 1;
-
-    transform:
-        translate(-50%, 0);
-}
-
-/* ===== MOBILE ===== */
-
-@media(max-width: 850px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-    .ranks {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-}
-
-@media(max-width: 500px) {
-
-    .hero h1 {
-        letter-spacing: -3px;
-    }
-
-    .ip-box {
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-    .ranks {
-        grid-template-columns: 1fr;
-    }
-
-    section {
-        padding: 75px 5%;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- ================= NAVBAR ================= -->
-
-<nav class="navbar">
-
-    <a href="#inicio" class="logo">
-        THRASHMC
-    </a>
-
-    <div class="nav-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#modalidad">FullPVP</a>
-        <a href="#rangos">Rangos</a>
-        <a href="#comunidad">Discord</a>
-        <a href="#tienda">Tienda</a>
-    </div>
-
-</nav>
-
-
-<!-- ================= HERO ================= -->
-
-<header class="hero" id="inicio">
-
-    <div class="hero-content">
-
-        <div class="badge">
-            ⚔ THRASHMC NETWORK • FULLPVP
-        </div>
-
-        <h1>
-            THRASHMC
-        </h1>
-
-        <div class="network">
-            NETWORK
-        </div>
-
-        <p class="hero-description">
-            Entra al campo de batalla, consigue kills,
-            domina el FullPVP y demuestra quién es el mejor.
-        </p>
-
-        <div class="buttons">
-
-            <button
-                class="btn btn-primary"
-                onclick="copyIP()">
-                🎮 JUGAR AHORA
-            </button>
-
-            <a
-                class="btn btn-secondary"
-                href="https://discord.gg/GBTnQnxEk"
-                target="_blank">
-                💬 DISCORD
-            </a>
-
-        </div>
-
-        <div class="ip-box">
-
-            <div>
-
-                <div class="ip-label">
-                    IP DEL SERVIDOR
-                </div>
-
-                <div class="ip">
-                    puff.visihost.in:2503
-                </div>
-
-            </div>
-
-            <button
-                class="copy"
-                onclick="copyIP()">
-                COPIAR
-            </button>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- ================= FULLPVP ================= -->
-
-<section id="modalidad">
-
-    <div class="section-header">
-
-        <span>
-            Modalidad principal
-        </span>
-
-        <h2>
-            FULLPVP
-        </h2>
-
-        <p>
-            Lucha, consigue kills y conviértete
-            en uno de los mejores jugadores de THRASHMC.
-        </p>
-
-    </div>
-
-
-    <div class="cards">
-
-        <div class="card">
-
-            <div class="card-icon">
-                ⚔️
-            </div>
-
-            <h3>
-                PvP competitivo
-            </h3>
-
-            <p>
-                Enfréntate a jugadores y demuestra
-                tus habilidades en combate.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                💎
-            </div>
-
-            <h3>
-                Progresión
-            </h3>
-
-            <p>
-                Consigue recompensas y avanza
-                hasta alcanzar los rangos más altos.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-icon">
-                🏆
-            </div>
-
-            <h3>
-                Competencia
-            </h3>
-
-            <p>
-                Compite por kills, prestigio y
-                un lugar entre los mejores.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= RANGOS ================= -->
-
-<section id="rangos">
-
-    <div class="section-header">
-
-        <span>
-            THRASHMC STORE
-        </span>
-
-        <h2>
-            RANGOS
-        </h2>
-
-        <p>
-            Mejora tu experiencia
+    font
