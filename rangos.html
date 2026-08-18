@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THRASHMC STORE</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(142,81,255,.25), transparent 35%),
+        linear-gradient(135deg, #160d20, #06040a 55%, #100719);
+}
+
+.navbar {
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(5,3,9,.8);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(221,108,255,.15);
+}
+
+.logo {
+    color: #dd6cff;
+    font-size: 24px;
+    font-weight: 1000;
+    text-decoration: none;
+}
+
+.back {
+    color: #aaa1b0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back:hover {
+    color: #dd6cff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header span {
+    color: #dd6cff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.header h1 {
+    margin-top: 10px;
+    font-size: clamp(40px, 7vw, 65px);
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ddd6ff,
+        #8e51ff,
+        #dd6cff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.header p {
+    color: #928a99;
+    margin-top: 12px;
+}
+
+.ranks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.rank {
+    padding: 28px 20px;
+    text-align: center;
+
+    border-radius: 18px;
+
+    background: rgba(14,9,21,.9);
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    transition: .25s;
+}
+
+.rank:hover {
+    transform: translateY(-7px);
+    border-color: rgba(221,108,255,.4);
+}
+
+.rank h2 {
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #938998;
+    margin-bottom: 20px;
+}
+
+.buy {
+    display: inline-block;
+
+    padding: 11px 20px;
+
+    border-radius: 9px;
+
+    background: linear-gradient(
+        135deg,
+        #8e51ff,
+        #dd6cff
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.buy.disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+footer {
+    margin-top: 80px;
+    padding: 30px;
+    text-align: center;
+    color: #68616f;
+    border-top: 1px solid rgba(255,255,255,.06);
+}
+
+@media(max-width: 850px) {
+    .ranks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 500px) {
+    .ranks {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        THRASHMC
+    </a>
+
+    <a href="index.html" class="back">
+        ← Volver
+    </a>
+
+</nav>
+
+<main class="container">
+
+    <div class="header">
+
+        <span>
+            THRASHMC NETWORK
+        </span>
+
+        <h1>
+            TIENDA
+        </h1>
+
+        <p>
+            Mejora tu experiencia dentro de THRASHMC.
+        </p>
+
+    </div>
+
+    <div class="ranks">
+
+        <div class="rank">
+            <h2>HERO</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>VIP</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>VIP+</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>SELVA</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>REY</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>MONO</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>MAESTRO</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>INFERNO</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>LUNAR</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+        <div class="rank">
+            <h2>THRASH</h2>
+            <div class="price">PRÓXIMAMENTE</div>
+            <a class="buy disabled">PRÓXIMAMENTE</a>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    THRASHMC NETWORK • FullPVP
+</footer>
+
+</body>
+  </html>
