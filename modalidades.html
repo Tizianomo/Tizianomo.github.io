@@ -1,600 +1,1354 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Modalidades | THRASHMC NETWORK</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #09070d;
-      color: #ffffff;
-      min-height: 100vh;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(9, 7, 13, 0.92);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    nav {
-      max-width: 1150px;
-      margin: auto;
-      padding: 18px 22px;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-    }
-
-    .logo span {
-      color: #c65cff;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 10px;
-    }
-
-    .nav-links a {
-      padding: 10px 15px;
-      border-radius: 10px;
-      color: #c8c0d0;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .nav-links a:hover,
-    .nav-links .active {
-      background: rgba(198,92,255,.15);
-      color: white;
-    }
-
-    .hero {
-      max-width: 1100px;
-      margin: auto;
-      padding: 85px 20px 55px;
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 8px 15px;
-
-      border-radius: 50px;
-
-      background: rgba(198,92,255,.1);
-      border: 1px solid rgba(198,92,255,.35);
-
-      color: #dcb5ff;
-
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    h1 {
-      margin-top: 20px;
-
-      font-size: clamp(42px, 8vw, 72px);
-
-      line-height: 1;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THRASHMC | Modalidades</title>
+<meta name="description" content="Modalidades oficiales de THRASHMC Network">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:
+radial-gradient(circle at 50% 0%,rgba(142,81,255,.28),transparent 35%),
+radial-gradient(circle at 100% 60%,rgba(221,108,255,.12),transparent 30%),
+#05030a;
+color:#fff;
+overflow-x:hidden;
+}
 
-    h1 span {
-      background: linear-gradient(
-        90deg,
-        #e5b3ff,
-        #a45cff,
-        #e9c4ff
-      );
+body:after{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
 
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
 
-    .hero p {
-      max-width: 650px;
-      margin: 20px auto;
+background-size:50px 50px;
+}
 
-      color: #aaa1b5;
-      font-size: 17px;
-    }
+a{
+text-decoration:none;
+color:inherit;
+}
 
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px 20px 90px;
-    }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
+/* NAVBAR */
 
-    .section-title h2 {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
+.navbar{
+position:fixed;
+top:0;
+left:0;
+right:0;
 
-    .section-title p {
-      color: #968da0;
-    }
+height:72px;
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-    .card {
-      position: relative;
+padding:0 6%;
 
-      padding: 28px;
+background:rgba(5,3,10,.82);
+backdrop-filter:blur(15px);
 
-      border-radius: 20px;
+border-bottom:1px solid rgba(255,255,255,.07);
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255,255,255,.06),
-          rgba(255,255,255,.025)
-        );
+z-index:1000;
+}
 
-      border: 1px solid rgba(255,255,255,.09);
+.logo{
+font-size:23px;
+font-weight:1000;
+letter-spacing:1px;
 
-      transition: .25s;
-    }
+background:
+linear-gradient(
+90deg,
+#fff,
+#ddd6ff,
+#8e51ff,
+#dd6cff
+);
 
-    .card:hover {
-      transform: translateY(-6px);
+-webkit-background-clip:text;
+background-clip:text;
 
-      border-color: rgba(198,92,255,.45);
+color:transparent;
+}
 
-      box-shadow:
-        0 15px 40px rgba(0,0,0,.25);
-    }
+.menu{
+display:flex;
+align-items:center;
+gap:17px;
+}
 
-    .icon {
-      width: 58px;
-      height: 58px;
+.menu a{
+color:#aaa3b1;
+font-size:11px;
+font-weight:bold;
+transition:.2s;
+}
 
-      display: grid;
-      place-items: center;
+.menu a:hover{
+color:#fff;
+}
 
-      border-radius: 16px;
+.menu-shop{
+padding:10px 16px;
 
-      background: rgba(198,92,255,.12);
+border-radius:9px;
 
-      font-size: 28px;
+background:
+linear-gradient(
+135deg,
+#8e51ff,
+#dd6cff
+);
 
-      margin-bottom: 20px;
-    }
+color:#fff!important;
+}
 
-    .status {
-      position: absolute;
 
-      top: 20px;
-      right: 20px;
+/* HERO */
 
-      padding: 6px 10px;
+.hero{
+min-height:58vh;
 
-      border-radius: 20px;
+display:flex;
+align-items:center;
+justify-content:center;
 
-      font-size: 11px;
-      font-weight: bold;
+text-align:center;
 
-      background: rgba(80,200,120,.12);
-      color: #83e6a7;
+padding:120px 20px 70px;
+}
 
-      border: 1px solid rgba(80,200,120,.2);
-    }
+.hero-content{
+max-width:900px;
+}
 
-    .soon {
-      background: rgba(255,180,70,.1);
-      color: #ffc46b;
+.badge{
+display:inline-block;
 
-      border-color: rgba(255,180,70,.2);
-    }
+padding:9px 17px;
 
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
+border-radius:50px;
 
-    .card p {
-      color: #9f96a8;
-      font-size: 14px;
-      line-height: 1.7;
+background:rgba(142,81,255,.1);
 
-      min-height: 72px;
-    }
+border:1px solid rgba(221,108,255,.25);
 
-    .card-button {
-      display: block;
+color:#ddd6ff;
 
-      margin-top: 20px;
+font-size:11px;
 
-      padding: 11px;
+font-weight:900;
 
-      text-align: center;
+letter-spacing:2px;
 
-      border-radius: 10px;
+margin-bottom:25px;
+}
 
-      background: rgba(198,92,255,.1);
+.hero h1{
+font-size:clamp(50px,10vw,100px);
 
-      border: 1px solid rgba(198,92,255,.2);
+line-height:.9;
 
-      color: #ddb8ff;
+font-weight:1000;
 
-      font-weight: bold;
-    }
+letter-spacing:-5px;
 
-    .card-button:hover {
-      background: rgba(198,92,255,.2);
-    }
+background:
+linear-gradient(
+90deg,
+#fff,
+#ddd6ff,
+#8e51ff,
+#dd6cff
+);
 
-    footer {
-      border-top: 1px solid rgba(255,255,255,.08);
+-webkit-background-clip:text;
+background-clip:text;
 
-      background: rgba(0,0,0,.2);
-    }
+color:transparent;
 
-    .footer {
-      max-width: 1100px;
+text-shadow:
+0 0 80px rgba(142,81,255,.25);
+}
 
-      margin: auto;
+.hero p{
+max-width:650px;
 
-      padding: 30px 20px;
+margin:25px auto 0;
 
-      display: flex;
+color:#817987;
 
-      justify-content: space-between;
+font-size:15px;
 
-      gap: 20px;
+line-height:1.7;
+}
 
-      flex-wrap: wrap;
 
-      color: #81788c;
+/* SECTION */
 
-      font-size: 13px;
-    }
+section{
+padding:75px 6%;
+}
 
-    .footer strong {
-      color: #cbbfd4;
-    }
+.section-title{
+max-width:750px;
 
-    @media (max-width: 850px) {
+margin:0 auto 45px;
 
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
+text-align:center;
+}
 
-    }
+.label{
+color:#dd6cff;
 
-    @media (max-width: 550px) {
+font-size:10px;
 
-      .grid {
-        grid-template-columns: 1fr;
-      }
+font-weight:1000;
 
-      .nav-links a:not(.active) {
-        display: none;
-      }
+letter-spacing:3px;
+}
 
-    }
+.section-title h2{
+margin-top:12px;
 
-  </style>
+font-size:clamp(30px,5vw,48px);
+}
+
+.section-title p{
+margin-top:12px;
+
+color:#817987;
+
+line-height:1.7;
+}
+
+
+/* MODALIDADES */
+
+.modes{
+max-width:1200px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:18px;
+}
+
+.mode{
+position:relative;
+
+padding:32px 25px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.045),
+rgba(255,255,255,.01)
+);
+
+border:1px solid rgba(255,255,255,.07);
+
+overflow:hidden;
+
+transition:.25s;
+}
+
+.mode:hover{
+transform:translateY(-8px);
+
+border-color:
+rgba(221,108,255,.35);
+}
+
+.mode:before{
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:3px;
+
+background:
+linear-gradient(
+90deg,
+#8e51ff,
+#dd6cff
+);
+}
+
+.mode-icon{
+width:70px;
+height:70px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:32px;
+
+border-radius:17px;
+
+background:
+rgba(142,81,255,.1);
+
+border:1px solid
+rgba(221,108,255,.15);
+
+margin-bottom:20px;
+}
+
+.mode h3{
+font-size:21px;
+
+margin-bottom:8px;
+}
+
+.mode p{
+color:#817987;
+
+font-size:12px;
+
+line-height:1.7;
+
+margin-bottom:18px;
+}
+
+.status{
+display:inline-block;
+
+padding:7px 11px;
+
+border-radius:7px;
+
+font-size:9px;
+
+font-weight:1000;
+
+letter-spacing:1px;
+}
+
+.available{
+color:#5bea8d;
+
+background:rgba(91,234,141,.08);
+
+border:1px solid rgba(91,234,141,.18);
+}
+
+.soon{
+color:#dd6cff;
+
+background:rgba(221,108,255,.08);
+
+border:1px solid rgba(221,108,255,.18);
+}
+
+
+/* DESTACADA */
+
+.featured{
+max-width:1200px;
+
+margin:0 auto 50px;
+
+padding:40px;
+
+border-radius:24px;
+
+background:
+radial-gradient(
+circle at 80% 20%,
+rgba(221,108,255,.18),
+transparent 35%
+),
+linear-gradient(
+135deg,
+rgba(142,81,255,.16),
+rgba(255,255,255,.025)
+);
+
+border:1px solid
+rgba(221,108,255,.18);
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:30px;
+}
+
+.featured-text{
+max-width:700px;
+}
+
+.featured-label{
+color:#5bea8d;
+
+font-size:10px;
+
+font-weight:1000;
+
+letter-spacing:2px;
+}
+
+.featured h2{
+font-size:38px;
+
+margin:10px 0;
+}
+
+.featured p{
+color:#817987;
+
+line-height:1.7;
+
+font-size:13px;
+}
+
+.featured-icon{
+font-size:75px;
+
+filter:
+drop-shadow(
+0 0 30px
+rgba(142,81,255,.5)
+);
+}
+
+
+/* BOTON */
+
+.btn{
+display:inline-flex;
+
+align-items:center;
+justify-content:center;
+
+padding:13px 22px;
+
+border-radius:10px;
+
+font-size:11px;
+
+font-weight:900;
+
+margin-top:20px;
+
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.primary{
+background:
+linear-gradient(
+135deg,
+#8e51ff,
+#dd6cff
+);
+
+color:#fff;
+
+box-shadow:
+0 12px 35px
+rgba(142,81,255,.25);
+}
+
+
+/* FOOTER */
+
+footer{
+padding:50px 6%;
+
+border-top:
+1px solid rgba(255,255,255,.06);
+
+background:rgba(0,0,0,.25);
+}
+
+.footer{
+max-width:1150px;
+
+margin:auto;
+
+display:flex;
+
+justify-content:space-between;
+
+gap:30px;
+}
+
+.footer h3{
+font-size:19px;
+}
+
+.footer p{
+color:#625b68;
+
+margin-top:8px;
+
+font-size:11px;
+
+line-height:1.7;
+}
+
+.footer-links{
+display:flex;
+
+gap:20px;
+
+align-items:center;
+
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:#716a78;
+
+font-size:11px;
+
+font-weight:bold;
+}
+
+.footer-links a:hover{
+color:#dd6cff;
+}
+
+.copyright{
+max-width:1150px;
+
+margin:30px auto 0;
+
+padding-top:18px;
+
+border-top:
+1px solid rgba(255,255,255,.05);
+
+color:#4e4854;
+
+font-size:10px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.menu{
+display:none;
+}
+
+.modes{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+}
+
+@media(max-width:650px){
+
+section{
+padding:60px 5%;
+}
+
+.modes{
+grid-template-columns:1fr;
+}
+
+.featured{
+flex-direction:column;
+
+text-align:center;
+
+padding:30px 20px;
+}
+
+.featured h2{
+font-size:30px;
+}
+
+.featured-icon{
+font-size:55px;
+}
+
+.footer{
+flex-direction:column;
+}
+
+.hero{
+padding-top:110px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-<header>
 
-  <nav>
+<!-- NAVBAR -->
 
-    <a href="index.html" class="logo">
-      THRASH<span>MC</span>
-    </a>
+<nav class="navbar">
 
-    <div class="nav-links">
+<a href="index.html" class="logo">
+THRASHMC
+</a>
 
-      <a href="index.html">
-        Inicio
-      </a>
+<div class="menu">
 
-      <a href="tienda.html">
-        Tienda
-      </a>
+<a href="index.html">
+Inicio
+</a>
 
-      <a href="modalidades.html" class="active">
-        Modalidades
-      </a>
+<a href="modalidades.html">
+⚔️ Modalidades
+</a>
 
-      <a href="reglas.html">
-        Reglas
-      </a>
+<a href="staff.html">
+👥 Staff
+</a>
 
-    </div>
+<a href="reglas.html">
+📜 Reglas
+</a>
 
-  </nav>
+<a href="contacto.html">
+📞 Contacto
+</a>
+
+<a href="servidor.html">
+🌐 Servidor
+</a>
+
+<a href="tienda.html" class="menu-shop">
+🛒 Tienda
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="hero-content">
+
+<div class="badge">
+● THRASHMC NETWORK • MODALIDADES
+</div>
+
+<h1>
+MODALIDADES
+</h1>
+
+<p>
+Descubrí las diferentes experiencias que
+THRASHMC Network tiene preparadas para vos.
+Luchá, sobreviví, competí y disfrutá con
+nuestra comunidad.
+</p>
+
+</div>
 
 </header>
 
 
-<section class="hero">
+<!-- MODALIDAD DESTACADA -->
 
-  <div class="badge">
-    ⚔️ MODALIDADES
-  </div>
+<section>
 
-  <h1>
-    JUGÁ EN <span>THRASHMC</span>
-  </h1>
+<div class="featured">
 
-  <p>
-    Descubrí nuestras modalidades y preparate
-    para demostrar quién domina el servidor.
-  </p>
+<div class="featured-text">
+
+<div class="featured-label">
+🟢 DISPONIBLE AHORA
+</div>
+
+<h2>
+⚔️ FullPVP
+</h2>
+
+<p>
+La modalidad principal de THRASHMC.
+Enfrentate a otros jugadores, conseguí kills,
+progresá, conseguí recompensas y demostrá
+quién domina el PvP.
+</p>
+
+<a href="servidor.html" class="btn primary">
+🎮 JUGAR FULLPVP
+</a>
+
+</div>
+
+<div class="featured-icon">
+⚔️
+</div>
+
+</div>
 
 </section>
 
 
-<section class="section">
+<!-- MODALIDADES -->
 
-  <div class="section-title">
+<section>
 
-    <h2>
-      Nuestras modalidades
-    </h2>
+<div class="section-title">
 
-    <p>
-      Elegí tu forma de jugar.
-    </p>
+<span class="label">
+THRASHMC NETWORK
+</span>
 
-  </div>
+<h2>
+Nuestras modalidades
+</h2>
 
+<p>
+Estas son las modalidades actuales y futuras
+de THRASHMC.
+</p>
 
-  <div class="grid">
-
-
-    <!-- FULLPVP -->
-
-    <div class="card">
-
-      <div class="status">
-        ● ONLINE
-      </div>
-
-      <div class="icon">
-        ⚔️
-      </div>
-
-      <h3>
-        FullPvP
-      </h3>
-
-      <p>
-        Enfrentate contra otros jugadores,
-        conseguí equipo, acumulá kills y
-        convertite en uno de los mejores
-        guerreros de THRASHMC.
-      </p>
-
-      <a
-        class="card-button"
-        href="index.html"
-      >
-        JUGAR AHORA →
-      </a>
-
-    </div>
+</div>
 
 
-    <!-- SURVIVAL -->
-
-    <div class="card">
-
-      <div class="status soon">
-        PRÓXIMAMENTE
-      </div>
-
-      <div class="icon">
-        🌲
-      </div>
-
-      <h3>
-        Survival
-      </h3>
-
-      <p>
-        Construí, explorá y sobreviví
-        en un mundo lleno de aventuras.
-        Esta modalidad llegará próximamente.
-      </p>
-
-      <a
-        class="card-button"
-        href="index.html"
-      >
-        PRÓXIMAMENTE
-      </a>
-
-    </div>
+<div class="modes">
 
 
-    <!-- BEDWARS -->
+<!-- FULLPVP -->
 
-    <div class="card">
+<div class="mode">
 
-      <div class="status soon">
-        PRÓXIMAMENTE
-      </div>
+<div class="mode-icon">
+⚔️
+</div>
 
-      <div class="icon">
-        🛏️
-      </div>
+<h3>
+FullPVP
+</h3>
 
-      <h3>
-        BedWars
-      </h3>
+<p>
+Combate PvP, kills, economía,
+progresión y competencia entre jugadores.
+</p>
 
-      <p>
-        Protegé tu cama, destruí las camas
-        enemigas y eliminá a tus rivales
-        para conseguir la victoria.
-      </p>
+<span class="status available">
+🟢 DISPONIBLE
+</span>
 
-      <a
-        class="card-button"
-        href="index.html"
-      >
-        PRÓXIMAMENTE
-      </a>
-
-    </div>
+</div>
 
 
-    <!-- ONEBLOCK -->
+<!-- SURVIVAL -->
 
-    <div class="card">
+<div class="mode">
 
-      <div class="status soon">
-        PRÓXIMAMENTE
-      </div>
+<div class="mode-icon">
+🌲
+</div>
 
-      <div class="icon">
-        🧱
-      </div>
+<h3>
+Survival
+</h3>
 
-      <h3>
-        OneBlock
-      </h3>
+<p>
+Un mundo de supervivencia donde podrás
+construir, explorar y progresar con otros jugadores.
+</p>
 
-      <p>
-        Comenzá con un solo bloque y
-        progresá hasta construir una
-        increíble isla.
-      </p>
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
 
-      <a
-        class="card-button"
-        href="index.html"
-      >
-        PRÓXIMAMENTE
-      </a>
-
-    </div>
+</div>
 
 
-    <!-- HCF -->
+<!-- LIFESTEAL -->
 
-    <div class="card">
+<div class="mode">
 
-      <div class="status soon">
-        PRÓXIMAMENTE
-      </div>
+<div class="mode-icon">
+❤️
+</div>
 
-      <div class="icon">
-        🛡️
-      </div>
+<h3>
+Lifesteal
+</h3>
 
-      <h3>
-        HCF
-      </h3>
+<p>
+Sobreviví, luchá contra otros jugadores
+y protegé tu progreso.
+</p>
 
-      <p>
-        Formá tu facción, luchá por dominar
-        el mapa y competí contra otros
-        equipos.
-      </p>
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
 
-      <a
-        class="card-button"
-        href="index.html"
-      >
-        PRÓXIMAMENTE
-      </a>
-
-    </div>
+</div>
 
 
-    <!-- SKYBLOCK -->
+<!-- PRISON -->
 
-    <div class="card">
+<div class="mode">
 
-      <div class="status soon">
-        PRÓXIMAMENTE
-      </div>
+<div class="mode-icon">
+⛏️
+</div>
 
-      <div class="icon">
-        ☁️
-      </div>
+<h3>
+Prison
+</h3>
 
-      <h3>
-        SkyBlock
-      </h3>
+<p>
+Miná, progresá, conseguí dinero y alcanzá
+los rangos más altos.
+</p>
 
-      <p>
-        Empezá desde una pequeña isla
-        flotante y llevá tu progreso
-        hasta el máximo nivel.
-      </p>
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
 
-      <a
-        class="card-button"
-        href="index.html"
-      >
-        PRÓXIMAMENTE
-      </a>
-
-    </div>
+</div>
 
 
-  </div>
+<!-- BEDWARS -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🛏️
+</div>
+
+<h3>
+BedWars
+</h3>
+
+<p>
+Protegé tu cama, conseguí recursos y
+derrotá a los equipos enemigos.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- SKYWARS -->
+
+<div class="mode">
+
+<div class="mode-icon">
+☁️
+</div>
+
+<h3>
+SkyWars
+</h3>
+
+<p>
+Comenzá en una isla, conseguí recursos
+y sé el último jugador en pie.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- ONEBLOCK -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🧱
+</div>
+
+<h3>
+OneBlock
+</h3>
+
+<p>
+Rompé un bloque infinito y avanzá
+por diferentes etapas.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- SKYBLOCK -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🏝️
+</div>
+
+<h3>
+SkyBlock
+</h3>
+
+<p>
+Construí tu propia isla, conseguí recursos
+y llevá tu isla al máximo nivel.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- DUELS -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🥊
+</div>
+
+<h3>
+Duels
+</h3>
+
+<p>
+Enfrentate uno contra uno y demostrale
+a todos quién es el mejor.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- HCF -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🛡️
+</div>
+
+<h3>
+HCF
+</h3>
+
+<p>
+Supervivencia competitiva, clanes,
+PvP y estrategia.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- FACTIONS -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🏰
+</div>
+
+<h3>
+Factions
+</h3>
+
+<p>
+Creá tu facción, conquistá territorios
+y competí contra otros equipos.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- TOWNY -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🏘️
+</div>
+
+<h3>
+Towny
+</h3>
+
+<p>
+Construí ciudades, formá comunidades
+y desarrollá tu propio territorio.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- PRACTICE -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🔥
+</div>
+
+<h3>
+PracticePvP
+</h3>
+
+<p>
+Entrená tus habilidades PvP y enfrentate
+a otros jugadores.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- KITPVP -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🗡️
+</div>
+
+<h3>
+KitPvP
+</h3>
+
+<p>
+Elegí tu kit, entrá a la arena y luchá
+contra otros jugadores.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- BOX -->
+
+<div class="mode">
+
+<div class="mode-icon">
+📦
+</div>
+
+<h3>
+BoxPvP
+</h3>
+
+<p>
+Combatí dentro de una arena cerrada,
+conseguí mejoras y dominá el PvP.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- PARKOUR -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🏃
+</div>
+
+<h3>
+Parkour
+</h3>
+
+<p>
+Superá diferentes circuitos y competí
+por los mejores tiempos.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- BUILDBATTLE -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🎨
+</div>
+
+<h3>
+BuildBattle
+</h3>
+
+<p>
+Construí según el tema y competí
+contra otros constructores.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- UHC -->
+
+<div class="mode">
+
+<div class="mode-icon">
+💎
+</div>
+
+<h3>
+UHC
+</h3>
+
+<p>
+Sobreviví, conseguí recursos y enfrentate
+a otros jugadores sin regeneración natural.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- CLANWARS -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🏆
+</div>
+
+<h3>
+ClanWars
+</h3>
+
+<p>
+Formá un clan y enfrentate a otros equipos
+en grandes batallas.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+<!-- EVENTS -->
+
+<div class="mode">
+
+<div class="mode-icon">
+🎉
+</div>
+
+<h3>
+Events
+</h3>
+
+<p>
+Participá en eventos especiales,
+torneos y actividades de la comunidad.
+</p>
+
+<span class="status soon">
+🟣 PRÓXIMAMENTE
+</span>
+
+</div>
+
+
+</div>
 
 </section>
 
+
+<!-- DISCORD -->
+
+<section>
+
+<div class="featured">
+
+<div class="featured-text">
+
+<div class="featured-label">
+💜 THRASHMC COMMUNITY
+</div>
+
+<h2>
+Más modalidades próximamente
+</h2>
+
+<p>
+THRASHMC seguirá creciendo. Nuevas
+modalidades, eventos y sistemas serán
+agregados con el tiempo.
+</p>
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="btn primary"
+>
+💬 UNIRME AL DISCORD
+</a>
+
+</div>
+
+<div class="featured-icon">
+🚀
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
 
-  <div class="footer">
+<div class="footer">
 
-    <div>
-      © 2026
-      <strong>THRASHMC NETWORK</strong>
-    </div>
+<div>
 
-    <div>
-      FullPvP • Próximamente más modalidades
-    </div>
+<h3>
+THRASHMC NETWORK
+</h3>
 
-  </div>
+<p>
+⚔ FULLPVP<br>
+💜 COMUNIDAD<br>
+🏆 COMPETENCIA
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Inicio
+</a>
+
+<a href="modalidades.html">
+Modalidades
+</a>
+
+<a href="staff.html">
+Staff
+</a>
+
+<a href="reglas.html">
+Reglas
+</a>
+
+<a href="contacto.html">
+Contacto
+</a>
+
+<a href="servidor.html">
+Servidor
+</a>
+
+<a href="tienda.html">
+Tienda
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+IP:
+puff.visihost.in:2503
+
+<br><br>
+
+© 2026 THRASHMC NETWORK.
+Todos los derechos reservados.
+
+</div>
 
 </footer>
 
-
 </body>
-  </html>
+</html>
