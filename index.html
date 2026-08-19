@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>THRASHMC | Minecraft Network</title>
 
@@ -10,6 +13,10 @@
 content="THRASHMC Network - Servidor Minecraft FullPVP">
 
 <style>
+
+/* ==============================
+   RESET
+============================== */
 
 *{
     box-sizing:border-box;
@@ -84,12 +91,13 @@ button{
 }
 
 
-/* =====================================
+/* ==============================
    NAVBAR
-===================================== */
+============================== */
 
 .navbar{
     position:fixed;
+
     top:0;
     left:0;
     right:0;
@@ -102,17 +110,20 @@ button{
 
     padding:0 5%;
 
-    background:rgba(5,3,10,.88);
+    background:rgba(5,3,10,.90);
 
     backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,255,255,.07);
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.07);
 
-    z-index:1000;
+    z-index:3000;
 }
 
 .logo{
     font-size:24px;
+
     font-weight:1000;
 
     letter-spacing:1px;
@@ -132,8 +143,14 @@ button{
     color:transparent;
 }
 
+
+/* ==============================
+   MENU PC
+============================== */
+
 .menu{
     display:flex;
+
     align-items:center;
 
     gap:20px;
@@ -143,6 +160,7 @@ button{
     color:#aaa3b1;
 
     font-size:12px;
+
     font-weight:bold;
 
     transition:.2s;
@@ -168,29 +186,36 @@ button{
 }
 
 
-/* =====================================
-   TRES PUNTITOS
-===================================== */
+/* ==============================
+   BOTON TRES PUNTITOS
+============================== */
 
 .dots-button{
-    display:none;
 
-    width:44px;
-    height:44px;
+    display:flex;
 
     align-items:center;
+
     justify-content:center;
 
+    width:46px;
+    height:46px;
+
     border:none;
+
     border-radius:12px;
 
-    background:rgba(255,255,255,.06);
+    background:
+    rgba(255,255,255,.06);
 
-    border:1px solid rgba(255,255,255,.10);
+    border:
+    1px solid
+    rgba(255,255,255,.10);
 
     color:#fff;
 
-    font-size:29px;
+    font-size:30px;
+
     font-weight:bold;
 
     line-height:1;
@@ -198,64 +223,77 @@ button{
     cursor:pointer;
 
     transition:.2s;
+
+    position:relative;
+
+    z-index:3001;
 }
 
 .dots-button:hover{
-    background:rgba(142,81,255,.25);
+
+    background:
+    rgba(142,81,255,.25);
 
     border-color:
-    rgba(221,108,255,.35);
+    rgba(221,108,255,.4);
 
-    transform:scale(1.04);
+    transform:scale(1.05);
 }
 
 
-/* =====================================
+/* ==============================
    MENU DESPLEGABLE
-===================================== */
+============================== */
 
 .dots-menu{
+
     position:fixed;
 
     top:82px;
+
     right:18px;
 
-    width:255px;
+    width:270px;
 
     padding:12px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(25,14,35,.98),
-        rgba(8,4,13,.98)
+        rgba(25,14,35,.99),
+        rgba(8,4,13,.99)
     );
 
     border:
     1px solid
-    rgba(221,108,255,.22);
+    rgba(221,108,255,.25);
 
     border-radius:18px;
 
     box-shadow:
-    0 20px 60px rgba(0,0,0,.55),
-    0 0 50px rgba(142,81,255,.15);
+    0 20px 60px rgba(0,0,0,.65),
+    0 0 50px rgba(142,81,255,.18);
 
     backdrop-filter:blur(20px);
 
     opacity:0;
+
     visibility:hidden;
 
     transform:
-    translateY(-10px)
-    scale(.96);
+    translateY(-12px)
+    scale(.95);
 
-    transition:.22s;
+    transition:
+    opacity .20s ease,
+    transform .20s ease,
+    visibility .20s ease;
 
-    z-index:2000;
+    z-index:4000;
 }
 
 .dots-menu.active{
+
     opacity:1;
 
     visibility:visible;
@@ -266,11 +304,16 @@ button{
 }
 
 .dots-title{
-    padding:12px 12px 14px;
+
+    padding:
+    12px
+    12px
+    14px;
 
     color:#fff;
 
     font-size:15px;
+
     font-weight:1000;
 
     border-bottom:
@@ -281,9 +324,10 @@ button{
 }
 
 .dots-title span{
+
     display:block;
 
-    margin-top:4px;
+    margin-top:5px;
 
     color:#dd6cff;
 
@@ -293,13 +337,14 @@ button{
 }
 
 .dots-menu a{
+
     display:flex;
 
     align-items:center;
 
     gap:13px;
 
-    padding:12px;
+    padding:13px;
 
     margin:3px 0;
 
@@ -308,22 +353,25 @@ button{
     color:#aaa3b1;
 
     font-size:12px;
+
     font-weight:bold;
 
     transition:.2s;
 }
 
 .dots-menu a:hover{
+
     color:#fff;
 
     background:
-    rgba(142,81,255,.13);
+    rgba(142,81,255,.14);
 
     transform:
-    translateX(3px);
+    translateX(4px);
 }
 
 .dots-shop{
+
     margin-top:8px!important;
 
     background:
@@ -338,22 +386,19 @@ button{
     rgba(221,108,255,.18);
 }
 
-.dots-discord{
-    border:
-    1px solid
-    rgba(255,255,255,.06);
-}
 
-
-/* =====================================
+/* ==============================
    HERO
-===================================== */
+============================== */
 
 .hero{
+
     min-height:100vh;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -361,16 +406,17 @@ button{
     padding:
     130px 20px
     90px;
-
-    position:relative;
 }
 
 .hero-content{
+
     max-width:1050px;
+
     width:100%;
 }
 
 .badge{
+
     display:inline-block;
 
     padding:9px 17px;
@@ -396,6 +442,7 @@ button{
 }
 
 .hero h1{
+
     font-size:
     clamp(60px,13vw,135px);
 
@@ -415,6 +462,7 @@ button{
     );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     color:transparent;
@@ -425,6 +473,7 @@ button{
 }
 
 .network{
+
     margin-top:20px;
 
     color:#c4bccb;
@@ -438,6 +487,7 @@ button{
 }
 
 .description{
+
     max-width:700px;
 
     margin:25px auto;
@@ -450,11 +500,12 @@ button{
 }
 
 
-/* =====================================
+/* ==============================
    BUTTONS
-===================================== */
+============================== */
 
 .buttons{
+
     display:flex;
 
     justify-content:center;
@@ -469,9 +520,11 @@ button{
 }
 
 .btn{
+
     display:inline-flex;
 
     align-items:center;
+
     justify-content:center;
 
     padding:14px 23px;
@@ -486,11 +539,13 @@ button{
 }
 
 .btn:hover{
+
     transform:
     translateY(-4px);
 }
 
 .primary{
+
     background:
     linear-gradient(
         135deg,
@@ -506,6 +561,7 @@ button{
 }
 
 .secondary{
+
     background:
     rgba(255,255,255,.04);
 
@@ -517,11 +573,12 @@ button{
 }
 
 
-/* =====================================
+/* ==============================
    IP
-===================================== */
+============================== */
 
 .ip-box{
+
     max-width:650px;
 
     margin:35px auto 0;
@@ -543,6 +600,7 @@ button{
 }
 
 .ip-inner{
+
     display:flex;
 
     align-items:center;
@@ -559,6 +617,7 @@ button{
 }
 
 .ip-title{
+
     color:#706978;
 
     font-size:9px;
@@ -569,6 +628,7 @@ button{
 }
 
 .ip{
+
     margin-top:5px;
 
     font-size:17px;
@@ -579,6 +639,7 @@ button{
 }
 
 .copy{
+
     border:none;
 
     padding:11px 16px;
@@ -599,19 +660,68 @@ button{
 }
 
 .copy:hover{
+
     background:#9d68ff;
 }
 
 
-/* =====================================
-   STATUS
-===================================== */
+/* ==============================
+   SECCIONES
+============================== */
 
 section{
+
     padding:100px 5%;
 }
 
+.section-title{
+
+    max-width:750px;
+
+    margin:
+    0 auto
+    50px;
+
+    text-align:center;
+}
+
+.label{
+
+    color:#dd6cff;
+
+    font-size:10px;
+
+    font-weight:1000;
+
+    letter-spacing:3px;
+}
+
+.section-title h2{
+
+    margin-top:12px;
+
+    font-size:
+    clamp(32px,5vw,52px);
+}
+
+.section-title p{
+
+    margin-top:13px;
+
+    color:#817987;
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+
+/* ==============================
+   STATUS
+============================== */
+
 .status{
+
     max-width:1100px;
 
     margin:auto;
@@ -625,6 +735,7 @@ section{
 }
 
 .status-card{
+
     padding:28px 20px;
 
     text-align:center;
@@ -642,6 +753,7 @@ section{
 }
 
 .status-card:hover{
+
     transform:
     translateY(-6px);
 
@@ -650,16 +762,19 @@ section{
 }
 
 .status-icon{
+
     font-size:30px;
 
     margin-bottom:10px;
 }
 
 .status-card h3{
+
     font-size:16px;
 }
 
 .status-card p{
+
     margin-top:7px;
 
     color:#77707f;
@@ -668,57 +783,17 @@ section{
 }
 
 .online{
+
     color:#5bea8d;
 }
 
 
-/* =====================================
-   TITLES
-===================================== */
-
-.section-title{
-    max-width:750px;
-
-    margin:
-    0 auto
-    50px;
-
-    text-align:center;
-}
-
-.label{
-    color:#dd6cff;
-
-    font-size:10px;
-
-    font-weight:1000;
-
-    letter-spacing:3px;
-}
-
-.section-title h2{
-    margin-top:12px;
-
-    font-size:
-    clamp(32px,5vw,52px);
-}
-
-.section-title p{
-    margin-top:13px;
-
-    color:#817987;
-
-    line-height:1.8;
-
-    font-size:13px;
-}
-
-
-/* =====================================
+/* ==============================
    FEATURES
-===================================== */
+============================== */
 
 .features{
+
     max-width:1150px;
 
     margin:auto;
@@ -732,6 +807,7 @@ section{
 }
 
 .feature{
+
     padding:30px;
 
     border-radius:18px;
@@ -751,6 +827,7 @@ section{
 }
 
 .feature:hover{
+
     transform:
     translateY(-7px);
 
@@ -759,18 +836,21 @@ section{
 }
 
 .feature-icon{
+
     font-size:30px;
 
     margin-bottom:17px;
 }
 
 .feature h3{
+
     font-size:18px;
 
     margin-bottom:9px;
 }
 
 .feature p{
+
     color:#817987;
 
     font-size:12px;
@@ -779,11 +859,12 @@ section{
 }
 
 
-/* =====================================
-   RANKS
-===================================== */
+/* ==============================
+   RANGOS
+============================== */
 
 .ranks{
+
     max-width:1100px;
 
     margin:auto;
@@ -797,6 +878,7 @@ section{
 }
 
 .rank{
+
     padding:27px 18px;
 
     text-align:center;
@@ -811,1618 +893,4 @@ section{
     );
 
     border:
-    1px solid
-    rgba(255,255,255,.06);
-
-    transition:.25s;
-}
-
-.rank:hover{
-    transform:
-    translateY(-7px);
-
-    border-color:
-    rgba(221,108,255,.3);
-}
-
-.rank h3{
-    font-size:19px;
-
-    margin-bottom:8px;
-}
-
-.rank .price{
-    color:#716a78;
-
-    font-size:9px;
-
-    font-weight:bold;
-
-    margin-bottom:15px;
-}
-
-.rank ul{
-    list-style:none;
-
-    color:#948c9c;
-
-    font-size:11px;
-
-    line-height:2;
-}
-
-.rank a{
-    display:inline-block;
-
-    margin-top:18px;
-
-    padding:9px 13px;
-
-    border-radius:8px;
-
-    background:
-    rgba(142,81,255,.10);
-
-    border:
-    1px solid
-    rgba(142,81,255,.20);
-
-    color:#ddd6ff;
-
-    font-size:9px;
-
-    font-weight:bold;
-}
-
-
-/* RANK COLORS */
-
-.user{
-    color:#aaa;
-}
-
-.hero-rank{
-    color:#53d9ff;
-}
-
-.vip{
-    color:#55e37d;
-}
-
-.vipplus{
-    color:#dd6cff;
-}
-
-.selva{
-    color:#65d89a;
-}
-
-.rey{
-    color:#ffd45a;
-}
-
-.mono{
-    color:#ff9d50;
-}
-
-.maestro{
-    color:#ff5d87;
-}
-
-.inferno{
-    color:#ff4d4d;
-}
-
-.lunar{
-    color:#aa8cff;
-}
-
-.thrash{
-    color:#e57aff;
-}
-
-
-/* =====================================
-   SHOP
-===================================== */
-
-.shop{
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:70px 25px;
-
-    text-align:center;
-
-    border-radius:25px;
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(142,81,255,.22),
-        transparent 65%
-    ),
-    #0d0814;
-
-    border:
-    1px solid
-    rgba(221,108,255,.16);
-}
-
-.shop h2{
-    font-size:
-    clamp(32px,5vw,50px);
-
-    margin-top:10px;
-}
-
-.shop p{
-    max-width:600px;
-
-    margin:15px auto 25px;
-
-    color:#817987;
-
-    line-height:1.8;
-}
-
-
-/* =====================================
-   NEWS
-===================================== */
-
-.news{
-    max-width:1100px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:18px;
-}
-
-.news-card{
-    padding:28px;
-
-    border-radius:17px;
-
-    background:
-    rgba(255,255,255,.025);
-
-    border:
-    1px solid
-    rgba(255,255,255,.06);
-}
-
-.news-tag{
-    color:#dd6cff;
-
-    font-size:9px;
-
-    font-weight:bold;
-
-    letter-spacing:2px;
-}
-
-.news-card h3{
-    margin:
-    12px 0
-    10px;
-
-    font-size:18px;
-}
-
-.news-card p{
-    color:#817987;
-
-    font-size:12px;
-
-    line-height:1.8;
-}
-
-
-/* =====================================
-   FAQ
-===================================== */
-
-.faq{
-    max-width:850px;
-
-    margin:auto;
-}
-
-details{
-    margin-bottom:10px;
-
-    padding:18px 20px;
-
-    border-radius:11px;
-
-    background:
-    rgba(255,255,255,.025);
-
-    border:
-    1px solid
-    rgba(255,255,255,.06);
-}
-
-summary{
-    cursor:pointer;
-
-    font-size:13px;
-
-    font-weight:bold;
-}
-
-details p{
-    margin-top:13px;
-
-    color:#817987;
-
-    font-size:12px;
-
-    line-height:1.7;
-}
-
-
-/* =====================================
-   FINAL
-===================================== */
-
-.final{
-    text-align:center;
-
-    padding:120px 20px;
-}
-
-.final h2{
-    font-size:
-    clamp(35px,6vw,60px);
-
-    margin-top:10px;
-}
-
-.final p{
-    max-width:600px;
-
-    margin:15px auto 25px;
-
-    color:#817987;
-
-    line-height:1.8;
-}
-
-
-/* =====================================
-   FOOTER
-===================================== */
-
-footer{
-    padding:50px 5%;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.06);
-
-    background:rgba(0,0,0,.30);
-}
-
-.footer{
-    max-width:1150px;
-
-    margin:auto;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:30px;
-}
-
-.footer h3{
-    font-size:19px;
-}
-
-.footer p{
-    color:#625b68;
-
-    margin-top:8px;
-
-    font-size:11px;
-
-    line-height:1.7;
-}
-
-.footer-links{
-    display:flex;
-
-    gap:18px;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-}
-
-.footer-links a{
-    color:#716a78;
-
-    font-size:11px;
-
-    font-weight:bold;
-}
-
-.footer-links a:hover{
-    color:#dd6cff;
-}
-
-.copyright{
-    max-width:1150px;
-
-    margin:30px auto 0;
-
-    padding-top:18px;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.05);
-
-    color:#4e4854;
-
-    font-size:10px;
-}
-
-
-/* =====================================
-   TOAST
-===================================== */
-
-#toast{
-    position:fixed;
-
-    bottom:25px;
-
-    left:50%;
-
-    transform:
-    translate(-50%,30px);
-
-    opacity:0;
-
-    padding:12px 20px;
-
-    border-radius:9px;
-
-    background:#17101e;
-
-    border:
-    1px solid
-    rgba(221,108,255,.25);
-
-    font-size:12px;
-
-    font-weight:bold;
-
-    transition:.25s;
-
-    z-index:9999;
-}
-
-#toast.show{
-    opacity:1;
-
-    transform:
-    translate(-50%,0);
-}
-
-
-/* =====================================
-   RESPONSIVE
-===================================== */
-
-@media(max-width:950px){
-
-    .menu{
-        display:none;
-    }
-
-    .dots-button{
-        display:flex;
-    }
-
-    .features{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .ranks{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .news{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-}
-
-
-@media(max-width:600px){
-
-    section{
-        padding:
-        75px 5%;
-    }
-
-    .hero{
-        padding:
-        115px 15px
-        70px;
-    }
-
-    .hero h1{
-        letter-spacing:-5px;
-    }
-
-    .network{
-        letter-spacing:6px;
-    }
-
-    .status{
-        grid-template-columns:1fr;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .ranks{
-        grid-template-columns:1fr;
-    }
-
-    .news{
-        grid-template-columns:1fr;
-    }
-
-    .ip-inner{
-        flex-direction:column;
-
-        text-align:center;
-    }
-
-    .footer{
-        flex-direction:column;
-    }
-
-    .footer-links{
-        justify-content:flex-start;
-    }
-
-}
-
-</style>
-</head>
-
-
-<body>
-
-
-<!-- =====================================
-     NAVBAR
-===================================== -->
-
-<nav class="navbar">
-
-<a href="index.html" class="logo">
-THRASHMC
-</a>
-
-
-<div class="menu">
-
-<a href="index.html">
-Inicio
-</a>
-
-<a href="modalidades.html">
-⚔️ Modalidades
-</a>
-
-<a href="servidor.html">
-🌐 Servidor
-</a>
-
-<a href="staff.html">
-👥 Staff
-</a>
-
-<a href="reglas.html">
-📜 Reglas
-</a>
-
-<a href="contacto.html">
-📞 Contacto
-</a>
-
-<a href="tienda.html" class="menu-shop">
-🛒 Tienda
-</a>
-
-</div>
-
-
-<!-- TRES PUNTITOS -->
-
-<button
-class="dots-button"
-onclick="toggleMenu()"
-aria-label="Abrir menú"
->
-⋮
-</button>
-
-</nav>
-
-
-<!-- =====================================
-     MENU TRES PUNTITOS
-===================================== -->
-
-<div class="dots-menu" id="dotsMenu">
-
-<div class="dots-title">
-
-THRASHMC
-
-<span>
-MENÚ PRINCIPAL
-</span>
-
-</div>
-
-
-<a href="index.html">
-🏠
-<span>Inicio</span>
-</a>
-
-
-<a href="modalidades.html">
-⚔️
-<span>Modalidades</span>
-</a>
-
-
-<a href="servidor.html">
-🌐
-<span>Servidor</span>
-</a>
-
-
-<a href="staff.html">
-👥
-<span>Staff</span>
-</a>
-
-
-<a href="reglas.html">
-📜
-<span>Reglas</span>
-</a>
-
-
-<a href="contacto.html">
-📞
-<span>Contacto</span>
-</a>
-
-
-<a href="tienda.html" class="dots-shop">
-🛒
-<span>Tienda</span>
-</a>
-
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
-class="dots-discord"
->
-💬
-<span>Discord</span>
-</a>
-
-</div>
-
-
-<!-- =====================================
-     HERO
-===================================== -->
-
-<header class="hero" id="inicio">
-
-<div class="hero-content">
-
-<div class="badge">
-● THRASHMC NETWORK • FULLPVP
-</div>
-
-
-<h1>
-THRASHMC
-</h1>
-
-
-<div class="network">
-NETWORK
-</div>
-
-
-<p class="description">
-
-La batalla comienza aquí.
-
-Entrá a THRASHMC, conseguí kills,
-subí de nivel, conseguí recompensas
-y demostrá quién domina el FullPVP.
-
-</p>
-
-
-<div class="buttons">
-
-<button
-class="btn primary"
-onclick="copyIP()"
->
-🎮 JUGAR AHORA
-</button>
-
-
-<a
-href="modalidades.html"
-class="btn secondary"
->
-⚔️ MODALIDADES
-</a>
-
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
-class="btn secondary"
->
-💬 DISCORD
-</a>
-
-</div>
-
-
-<div class="ip-box">
-
-<div class="ip-inner">
-
-<div>
-
-<div class="ip-title">
-IP DEL SERVIDOR
-</div>
-
-<div class="ip">
-puff.visihost.in:2503
-</div>
-
-</div>
-
-
-<button
-class="copy"
-onclick="copyIP()"
->
-COPIAR IP
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</header>
-
-
-<!-- =====================================
-     STATUS
-===================================== -->
-
-<section>
-
-<div class="status">
-
-<div class="status-card">
-
-<div class="status-icon">
-🟢
-</div>
-
-<h3 class="online">
-SERVIDOR
-</h3>
-
-<p>
-THRASHMC
-</p>
-
-</div>
-
-
-<div class="status-card">
-
-<div class="status-icon">
-⚔️
-</div>
-
-<h3>
-MODALIDAD
-</h3>
-
-<p>
-FULLPVP
-</p>
-
-</div>
-
-
-<div class="status-card">
-
-<div class="status-icon">
-🌐
-</div>
-
-<h3>
-PLATAFORMA
-</h3>
-
-<p>
-MINECRAFT JAVA
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     MODALIDAD
-===================================== -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-EXPERIENCIA THRASHMC
-</span>
-
-<h2>
-Una Network que sigue creciendo
-</h2>
-
-<p>
-Conocé todo lo que podés encontrar
-actualmente y lo que llegará próximamente.
-</p>
-
-</div>
-
-
-<div class="features">
-
-
-<div class="feature">
-
-<div class="feature-icon">
-⚔️
-</div>
-
-<h3>
-FullPVP
-</h3>
-
-<p>
-Enfrentate a otros jugadores,
-conseguí kills y competí por
-los primeros puestos.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-💎
-</div>
-
-<h3>
-Economía
-</h3>
-
-<p>
-Conseguí recursos y progresá
-dentro de la economía
-de THRASHMC.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🏆
-</div>
-
-<h3>
-Rankings
-</h3>
-
-<p>
-Competí por aparecer entre
-los mejores jugadores.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🎁
-</div>
-
-<h3>
-Recompensas
-</h3>
-
-<p>
-Conseguí recompensas especiales
-mientras avanzás.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🔥
-</div>
-
-<h3>
-Eventos
-</h3>
-
-<p>
-Participá en eventos especiales
-de la comunidad.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-👑
-</div>
-
-<h3>
-Rangos
-</h3>
-
-<p>
-Desbloqueá rangos y beneficios
-especiales dentro del servidor.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     RANGOS
-===================================== -->
-
-<section id="rangos">
-
-<div class="section-title">
-
-<span class="label">
-THRASHMC STORE
-</span>
-
-<h2>
-Rangos
-</h2>
-
-<p>
-Conocé nuestros rangos disponibles.
-</p>
-
-</div>
-
-
-<div class="ranks">
-
-
-<div class="rank">
-
-<h3 class="user">
-USER
-</h3>
-
-<div class="price">
-GRATIS
-</div>
-
-<ul>
-
-<li>✓ Acceso al servidor</li>
-<li>✓ FullPVP</li>
-<li>✓ Sistema de niveles</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="hero-rank">
-HERO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit HERO</li>
-<li>✓ Beneficios especiales</li>
-<li>✓ Prefijo HERO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="vip">
-VIP
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit VIP</li>
-<li>✓ Beneficios VIP</li>
-<li>✓ Prefijo VIP</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="vipplus">
-VIP+
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit VIP+</li>
-<li>✓ Beneficios VIP+</li>
-<li>✓ Prefijo VIP+</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="selva">
-SELVA
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit SELVA</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo SELVA</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="rey">
-REY
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit REY</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo REY</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="mono">
-MONO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit MONO</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo MONO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="maestro">
-MAESTRO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit MAESTRO</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo MAESTRO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="inferno">
-INFERNO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit INFERNO</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo INFERNO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="lunar">
-LUNAR
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit LUNAR</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo LUNAR</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="thrash">
-THRASH
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Rango máximo</li>
-<li>✓ Máximos beneficios</li>
-<li>✓ Prefijo THRASH</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     TIENDA
-===================================== -->
-
-<section>
-
-<div class="shop">
-
-<span class="label">
-THRASHMC STORE
-</span>
-
-<h2>
-Llevá tu experiencia al siguiente nivel
-</h2>
-
-<p>
-Visitá nuestra tienda para descubrir rangos,
-kits y recompensas especiales.
-</p>
-
-<a
-href="tienda.html"
-class="btn primary"
->
-🛒 ABRIR TIENDA
-</a>
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     NOTICIAS
-===================================== -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-NOVEDADES
-</span>
-
-<h2>
-Noticias
-</h2>
-
-</div>
-
-
-<div class="news">
-
-
-<div class="news-card">
-
-<span class="news-tag">
-THRASHMC
-</span>
-
-<h3>
-Bienvenido a THRASHMC
-</h3>
-
-<p>
-Preparáte para disfrutar de nuestra
-experiencia FullPVP.
-</p>
-
-</div>
-
-
-<div class="news-card">
-
-<span class="news-tag">
-PRÓXIMAMENTE
-</span>
-
-<h3>
-Survival
-</h3>
-
-<p>
-Una nueva modalidad Survival
-llegará próximamente.
-</p>
-
-</div>
-
-
-<div class="news-card">
-
-<span class="news-tag">
-PRÓXIMAMENTE
-</span>
-
-<h3>
-Nuevos eventos
-</h3>
-
-<p>
-Estamos preparando nuevos eventos
-para toda la comunidad.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     FAQ
-===================================== -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-AYUDA
-</span>
-
-<h2>
-Preguntas frecuentes
-</h2>
-
-</div>
-
-
-<div class="faq">
-
-
-<details>
-
-<summary>
-¿Cuál es la IP?
-</summary>
-
-<p>
-puff.visihost.in:2503
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Cuál es la modalidad principal?
-</summary>
-
-<p>
-Actualmente THRASHMC está enfocado
-principalmente en FullPVP.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Habrá Survival?
-</summary>
-
-<p>
-Sí. Survival está marcado como
-<strong>próximamente</strong>.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Dónde puedo ver el Staff?
-</summary>
-
-<p>
-Entrá en la sección
-<strong>Staff</strong> desde el menú.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Dónde están las reglas?
-</summary>
-
-<p>
-Podés encontrarlas en
-<strong>reglas.html</strong>.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Dónde está la tienda?
-</summary>
-
-<p>
-Podés entrar desde el botón
-<strong>Tienda</strong>.
-</p>
-
-</details>
-
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     FINAL
-===================================== -->
-
-<section class="final">
-
-<div class="label">
-THRASHMC NETWORK
-</div>
-
-<h2>
-¿Listo para entrar?
-</h2>
-
-<p>
-Conectate ahora a THRASHMC y demostrá
-quién domina el FullPVP.
-</p>
-
-
-<div class="buttons">
-
-<button
-class="btn primary"
-onclick="copyIP()"
->
-🎮 JUGAR AHORA
-</button>
-
-
-<a
-href="modalidades.html"
-class="btn secondary"
->
-⚔️ MODALIDADES
-</a>
-
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
-class="btn secondary"
->
-💬 DISCORD
-</a>
-
-</div>
-
-</section>
-
-
-<!-- =====================================
-     FOOTER
-===================================== -->
-
-<footer>
-
-<div class="footer">
-
-
-<div>
-
-<h3>
-THRASHMC NETWORK
-</h3>
-
-<p>
-⚔ FULLPVP<br>
-💜 COMUNIDAD<br>
-🏆 COMPETENCIA
-</p>
-
-</div>
-
-
-<div class="footer-links">
-
-<a href="index.html">
-Inicio
-</a>
-
-<a href="modalidades.html">
-Modalidades
-</a>
-
-<a href="servidor.html">
-Servidor
-</a>
-
-<a href="staff.html">
-Staff
-</a>
-
-<a href="reglas.html">
-Reglas
-</a>
-
-<a href="contacto.html">
-Contacto
-</a>
-
-<a href="tienda.html">
-Tienda
-</a>
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
->
-Discord
-</a>
-
-</div>
-
-</div>
-
-
-<div class="copyright">
-
-IP:
-puff.visihost.in:2503
-
-<br><br>
-
-© 2026 THRASHMC NETWORK.
-Todos los derechos reservados.
-
-</div>
-
-</footer>
-
-
-<!-- =====================================
-     TOAST
-===================================== -->
-
-<div id="toast">
-✓ IP copiada correctamente
-</div>
-
-
-<script>
-
-const SERVER_IP =
-"puff.visihost.in:2503";
-
-
-/* COPIAR IP */
-
-function copyIP(){
-
-    if(
-        navigator.clipboard &&
-        navigator.clipboard.writeText
-    ){
-
-        navigator.clipboard
+    1
