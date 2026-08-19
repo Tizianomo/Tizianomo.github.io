@@ -22,18 +22,35 @@ body{
     color:#fff;
     font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
+    overflow-x:hidden;
 }
 
-/* FONDO */
+/* =========================
+   FONDO
+========================= */
+
 body:before{
     content:"";
     position:fixed;
     inset:0;
     z-index:-2;
+
     background:
-        radial-gradient(circle at 10% 10%,rgba(142,81,255,.22),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(255,77,141,.18),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(142,81,255,.12),transparent 35%);
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(142,81,255,.22),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,77,141,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(142,81,255,.12),
+            transparent 35%
+        );
 }
 
 body:after{
@@ -41,41 +58,59 @@ body:after{
     position:fixed;
     inset:0;
     z-index:-1;
-    opacity:.18;
+    opacity:.16;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.04) 1px,
+            transparent 1px
+        );
+
     background-size:35px 35px;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
+
 header{
     position:sticky;
     top:0;
     z-index:1000;
+
     background:rgba(8,6,13,.94);
     backdrop-filter:blur(15px);
+
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav{
     max-width:1450px;
     margin:auto;
+
     min-height:75px;
     padding:14px 25px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     gap:20px;
 }
 
 .logo{
     color:#fff;
     text-decoration:none;
+
     font-size:24px;
     font-weight:900;
     letter-spacing:1px;
+    white-space:nowrap;
 }
 
 .logo span{
@@ -92,122 +127,188 @@ header{
 .menu a{
     color:#aaa5b2;
     text-decoration:none;
+
     padding:10px 13px;
+
     border-radius:9px;
+
     transition:.2s;
+
     font-size:15px;
 }
 
 .menu a:hover,
 .menu a.active{
     color:#fff;
+
     background:rgba(142,81,255,.18);
-    box-shadow:0 0 20px rgba(142,81,255,.15);
+
+    box-shadow:
+        0 0 20px rgba(142,81,255,.15);
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
+
 .hero{
     max-width:1200px;
     margin:auto;
+
     text-align:center;
+
     padding:100px 20px 60px;
 }
 
 .badge{
     display:inline-block;
+
     padding:9px 18px;
+
     border:1px solid rgba(142,81,255,.4);
+
     background:rgba(142,81,255,.1);
+
     border-radius:50px;
+
     color:#d9ccff;
+
     font-size:14px;
+
     letter-spacing:2px;
 }
 
 .hero h1{
     margin-top:25px;
+
     font-size:clamp(38px,7vw,78px);
+
     font-weight:1000;
+
     line-height:1.1;
 
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #d8ccff,
-        #8e51ff,
-        #ff4d8d
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #d8ccff,
+            #8e51ff,
+            #ff4d8d
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 }
 
 .hero p{
     max-width:750px;
+
     margin:22px auto 0;
+
     color:#aaa5b2;
+
     font-size:20px;
+
     line-height:1.5;
 }
 
-/* ESTADÍSTICAS */
+/* =========================
+   STATS
+========================= */
+
 .stats{
     max-width:1100px;
+
     margin:0 auto 70px;
+
     padding:0 20px;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:18px;
 }
 
 .stat{
     padding:25px;
+
     text-align:center;
+
     background:rgba(20,15,28,.9);
+
     border:1px solid rgba(255,255,255,.08);
+
     border-radius:16px;
+
     transition:.25s;
 }
 
 .stat:hover{
     transform:translateY(-5px);
-    border-color:rgba(142,81,255,.45);
+
+    border-color:
+        rgba(142,81,255,.45);
 }
 
 .stat-icon{
     font-size:30px;
+
     margin-bottom:8px;
 }
 
 .stat-title{
     color:#77717e;
+
     font-size:13px;
+
     text-transform:uppercase;
+
     letter-spacing:1px;
 }
 
 .stat-value{
     margin-top:5px;
+
     font-size:24px;
+
     font-weight:900;
 }
 
-/* GRID */
+/* =========================
+   STAFF GRID
+========================= */
+
 .staff-grid{
     max-width:1450px;
+
     margin:auto;
-    padding:0 20px 100px;
+
+    padding:
+        0 20px
+        100px;
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(320px,1fr)
+        );
+
     gap:25px;
 }
 
-/* TARJETA */
+/* =========================
+   CARD
+========================= */
+
 .card{
     position:relative;
+
     overflow:hidden;
 
     background:
@@ -217,26 +318,42 @@ header{
             rgba(10,8,14,.98)
         );
 
-    border:1px solid rgba(255,255,255,.08);
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
     border-radius:20px;
 
     transition:.3s;
 
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.35);
 }
 
 .card:hover{
     transform:translateY(-7px);
-    border-color:rgba(142,81,255,.55);
+
+    border-color:
+        rgba(142,81,255,.55);
+
     box-shadow:
-        0 25px 70px rgba(0,0,0,.55),
-        0 0 35px rgba(142,81,255,.12);
+        0 25px 70px
+        rgba(0,0,0,.55),
+
+        0 0 35px
+        rgba(142,81,255,.12);
 }
 
-/* BANNER */
+/* =========================
+   BANNER
+========================= */
+
 .banner{
     height:180px;
+
     position:relative;
+
     overflow:hidden;
 }
 
@@ -247,7 +364,11 @@ header{
             rgba(255,77,141,.55),
             transparent 55%
         ),
-        linear-gradient(135deg,#26101d,#100812);
+        linear-gradient(
+            135deg,
+            #26101d,
+            #100812
+        );
 }
 
 .banner.admin{
@@ -257,7 +378,11 @@ header{
             rgba(255,75,75,.5),
             transparent 55%
         ),
-        linear-gradient(135deg,#251010,#100808);
+        linear-gradient(
+            135deg,
+            #251010,
+            #100808
+        );
 }
 
 .banner.future{
@@ -267,12 +392,20 @@ header{
             rgba(142,81,255,.4),
             transparent 55%
         ),
-        linear-gradient(135deg,#1b1125,#0c080f);
+        linear-gradient(
+            135deg,
+            #1b1125,
+            #0c080f
+        );
 }
 
-/* AVATAR */
+/* =========================
+   AVATAR
+========================= */
+
 .avatar{
     position:absolute;
+
     left:24px;
     bottom:-10px;
 
@@ -280,6 +413,7 @@ header{
     height:105px;
 
     border:4px solid #08060d;
+
     border-radius:13px;
 
     background:#15101b;
@@ -295,18 +429,21 @@ header{
 
 .avatar img{
     display:block;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     image-rendering:pixelated;
 }
 
-/* PLACEHOLDER SI NO HAY SKIN */
 .avatar-fallback{
     width:100%;
     height:100%;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -320,29 +457,43 @@ header{
         );
 }
 
-/* CUERPO */
+/* =========================
+   MINECRAFT BODY
+========================= */
+
 .body{
     position:absolute;
+
     right:10px;
     bottom:-45px;
+
     height:220px;
+
     z-index:3;
 
     image-rendering:pixelated;
 
-    filter:drop-shadow(
-        0 10px 12px rgba(0,0,0,.7)
-    );
+    filter:
+        drop-shadow(
+            0 10px 12px
+            rgba(0,0,0,.7)
+        );
 }
 
-/* CONTENIDO */
+/* =========================
+   CONTENT
+========================= */
+
 .content{
-    padding:55px 23px 25px;
+    padding:
+        55px 23px 25px;
 }
 
 .name{
     font-size:22px;
+
     font-weight:900;
+
     margin-bottom:10px;
 }
 
@@ -360,52 +511,89 @@ header{
 
 .rank{
     display:inline-block;
+
     padding:7px 12px;
+
     border-radius:7px;
+
     font-size:13px;
+
     font-weight:900;
+
     margin-bottom:16px;
 }
 
 .rank-owner{
     color:#ff6fa5;
-    background:rgba(255,77,141,.1);
-    border:1px solid rgba(255,77,141,.3);
+
+    background:
+        rgba(255,77,141,.1);
+
+    border:
+        1px solid
+        rgba(255,77,141,.3);
 }
 
 .rank-admin{
     color:#ff7777;
-    background:rgba(255,85,85,.1);
-    border:1px solid rgba(255,85,85,.3);
+
+    background:
+        rgba(255,85,85,.1);
+
+    border:
+        1px solid
+        rgba(255,85,85,.3);
 }
 
 .rank-future{
     color:#c78cff;
-    background:rgba(142,81,255,.1);
-    border:1px solid rgba(142,81,255,.25);
+
+    background:
+        rgba(142,81,255,.1);
+
+    border:
+        1px solid
+        rgba(142,81,255,.25);
 }
 
 .description{
     min-height:70px;
+
     color:#aaa5b2;
+
     font-size:17px;
+
     line-height:1.45;
+
     margin-bottom:18px;
 }
 
-/* DETALLES */
+/* =========================
+   DETAILS
+========================= */
+
 .details{
     display:flex;
+
     flex-direction:column;
+
     gap:8px;
 }
 
 .detail{
     padding:11px;
+
     border-radius:8px;
-    background:rgba(255,255,255,.035);
-    border:1px solid rgba(255,255,255,.06);
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
     color:#bdb6c5;
+
     font-size:15px;
 }
 
@@ -413,29 +601,52 @@ header{
     color:#fff;
 }
 
-/* PERMISOS */
+/* =========================
+   PERMISSIONS
+========================= */
+
 .permissions{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:7px;
+
     margin-top:16px;
 }
 
 .permission{
     padding:6px 9px;
+
     border-radius:5px;
-    background:rgba(142,81,255,.1);
-    border:1px solid rgba(142,81,255,.2);
+
+    background:
+        rgba(142,81,255,.1);
+
+    border:
+        1px solid
+        rgba(142,81,255,.2);
+
     color:#d7ccff;
+
     font-size:13px;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
+
 footer{
     text-align:center;
+
     padding:55px 20px;
-    border-top:1px solid rgba(255,255,255,.08);
-    background:rgba(0,0,0,.25);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(0,0,0,.25);
 }
 
 footer h2{
@@ -448,10 +659,14 @@ footer h2 span{
 
 footer p{
     margin-top:10px;
+
     color:#77717e;
 }
 
-/* RESPONSIVE */
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:850px){
 
     .nav{
@@ -470,7 +685,8 @@ footer p{
 @media(max-width:500px){
 
     .hero{
-        padding:70px 15px 45px;
+        padding:
+            70px 15px 45px;
     }
 
     .hero h1{
@@ -483,12 +699,19 @@ footer p{
 
     .staff-grid{
         grid-template-columns:1fr;
-        padding:0 12px 80px;
+
+        padding:
+            0 12px 80px;
     }
 
     .body{
         height:190px;
         right:0;
+    }
+
+    .menu a{
+        font-size:13px;
+        padding:9px 10px;
     }
 }
 </style>
@@ -496,7 +719,10 @@ footer p{
 
 <body>
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
 
 <nav class="nav">
@@ -507,19 +733,34 @@ THRASH<span>MC</span>
 
 <div class="menu">
 
-<a href="index.html">🏠 Inicio</a>
+<a href="index.html">
+🏠 Inicio
+</a>
 
-<a href="modalidades.html">⚔️ Modalidades</a>
+<a href="modalidades.html">
+⚔️ Modalidades
+</a>
 
-<a href="staff.html" class="active">👑 Staff</a>
+<a href="staff.html" class="active">
+👑 Staff
+</a>
 
-<a href="reglas.html">📜 Reglas</a>
+<a href="reglas.html">
+📜 Reglas
+</a>
 
-<a href="servidor.html">🌐 Servidor</a>
+<a href="servidor.html">
+🌐 Servidor
+</a>
 
-<a href="tienda.html">🛒 Tienda</a>
+<a href="tienda.html">
+🛒 Tienda
+</a>
 
-<a href="https://discord.gg/GBTnQnxEk" target="_blank">
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+>
 💬 Discord
 </a>
 
@@ -530,7 +771,10 @@ THRASH<span>MC</span>
 </header>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
 <div class="badge">
@@ -552,12 +796,17 @@ segura, activa y en constante crecimiento.
 </section>
 
 
-<!-- STATS -->
+<!-- =========================
+     STATS
+========================= -->
+
 <section class="stats">
 
 <div class="stat">
 
-<div class="stat-icon">⚔️</div>
+<div class="stat-icon">
+⚔️
+</div>
 
 <div class="stat-title">
 Modalidad principal
@@ -569,9 +818,12 @@ FULLPVP
 
 </div>
 
+
 <div class="stat">
 
-<div class="stat-icon">🌐</div>
+<div class="stat-icon">
+🌐
+</div>
 
 <div class="stat-title">
 Network
@@ -583,12 +835,15 @@ THRASHMC
 
 </div>
 
+
 <div class="stat">
 
-<div class="stat-icon">👑</div>
+<div class="stat-icon">
+👑
+</div>
 
 <div class="stat-title">
-Equipo actual
+Staff actual
 </div>
 
 <div class="stat-value">
@@ -600,11 +855,15 @@ Equipo actual
 </section>
 
 
-<!-- STAFF -->
+<!-- =========================
+     STAFF
+========================= -->
+
 <section class="staff-grid">
 
 
 <!-- TIZIOMARIABEBE01 -->
+
 <article class="card">
 
 <div class="banner owner">
@@ -614,10 +873,16 @@ Equipo actual
 <img
 src="https://mc-heads.net/head/7dn5/left"
 alt="Tiziomariabebe01"
-onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
 >
 
-<div class="avatar-fallback" style="display:none;">
+<div
+class="avatar-fallback"
+style="display:none;"
+>
 👑
 </div>
 
@@ -627,10 +892,13 @@ onerror="this.style.display='none';this.nextElementSibling.style.display='flex';
 class="body"
 src="https://mc-heads.net/body/7dn5/right"
 alt=""
-onerror="this.style.display='none';"
+onerror="
+this.style.display='none';
+"
 >
 
 </div>
+
 
 <div class="content">
 
@@ -650,21 +918,34 @@ de la administración general de la Network.
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong> 2026-01-01
+📅 <strong>Ingreso:</strong>
+2026-01-01
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong> Tiziomariabebe01
+💬 <strong>Discord:</strong>
+Tiziomariabebe01
 </div>
 
 </div>
 
 <div class="permissions">
 
-<span class="permission">✓ All Permissions</span>
-<span class="permission">✓ Server Management</span>
-<span class="permission">✓ Staff Management</span>
-<span class="permission">✓ Administration</span>
+<span class="permission">
+✓ All Permissions
+</span>
+
+<span class="permission">
+✓ Server Management
+</span>
+
+<span class="permission">
+✓ Staff Management
+</span>
+
+<span class="permission">
+✓ Administration
+</span>
 
 </div>
 
@@ -674,6 +955,7 @@ de la administración general de la Network.
 
 
 <!-- ITSTIZII -->
+
 <article class="card">
 
 <div class="banner owner">
@@ -683,3 +965,538 @@ de la administración general de la Network.
 <img
 src="https://mc-heads.net/head/Romanticou/left"
 alt="ItsTizii"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
+>
+
+<div
+class="avatar-fallback"
+style="display:none;"
+>
+👑
+</div>
+
+</div>
+
+<img
+class="body"
+src="https://mc-heads.net/body/Romanticou/right"
+alt=""
+onerror="
+this.style.display='none';
+"
+>
+
+</div>
+
+
+<div class="content">
+
+<div class="name owner-name">
+ItsTizii
+</div>
+
+<div class="rank rank-owner">
+👑 OWNER
+</div>
+
+<p class="description">
+Owner de THRASHMC y responsable de la gestión,
+administración y desarrollo de la Network.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Ingreso:</strong>
+2026-01-01
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong>
+ItsTizii
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Server Management
+</span>
+
+<span class="permission">
+✓ Staff Management
+</span>
+
+<span class="permission">
+✓ Administration
+</span>
+
+<span class="permission">
+✓ Moderation
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PANA_FRAIL -->
+
+<article class="card">
+
+<div class="banner admin">
+
+<div class="avatar">
+
+<img
+src="https://mc-heads.net/head/bear/left"
+alt="Pana_Frail"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
+>
+
+<div
+class="avatar-fallback"
+style="display:none;"
+>
+🐻
+</div>
+
+</div>
+
+<img
+class="body"
+src="https://mc-heads.net/body/bear/right"
+alt=""
+onerror="
+this.style.display='none';
+"
+>
+
+</div>
+
+
+<div class="content">
+
+<div class="name admin-name">
+Pana_Frail
+</div>
+
+<div class="rank rank-admin">
+🛡️ ADMIN
+</div>
+
+<p class="description">
+Administra el servidor y ayuda a mantener
+el orden y las reglas de THRASHMC.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Ingreso:</strong>
+2026
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong>
+Pana_Frail
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Server Management
+</span>
+
+<span class="permission">
+✓ Administration
+</span>
+
+<span class="permission">
+✓ Ban
+</span>
+
+<span class="permission">
+✓ Kick
+</span>
+
+<span class="permission">
+✓ Mute
+</span>
+
+<span class="permission">
+✓ Warn
+</span>
+
+<span class="permission">
+✓ Teleport
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- MANAGER -->
+
+<article class="card">
+
+<div class="banner future">
+
+<div class="avatar">
+
+<img
+src="https://mc-heads.net/head/MHF_Question/left"
+alt="Misterioso"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
+>
+
+<div class="avatar-fallback">
+❓
+</div>
+
+</div>
+
+<img
+class="body"
+src="https://mc-heads.net/body/MHF_Question/right"
+alt=""
+onerror="
+this.style.display='none';
+"
+>
+
+</div>
+
+
+<div class="content">
+
+<div class="name future-name">
+Por definir
+</div>
+
+<div class="rank rank-future">
+👔 MANAGER
+</div>
+
+<p class="description">
+Gestionará el equipo de staff y la organización
+interna de THRASHMC NETWORK.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Ingreso:</strong>
+PRÓXIMAMENTE
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong>
+Por definir
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Staff Management
+</span>
+
+<span class="permission">
+✓ Server Management
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- ADMIN FUTURO -->
+
+<article class="card">
+
+<div class="banner future">
+
+<div class="avatar">
+
+<img
+src="https://mc-heads.net/head/MHF_Question/left"
+alt="Misterioso"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
+>
+
+<div class="avatar-fallback">
+❓
+</div>
+
+</div>
+
+<img
+class="body"
+src="https://mc-heads.net/body/MHF_Question/right"
+alt=""
+onerror="
+this.style.display='none';
+"
+>
+
+</div>
+
+
+<div class="content">
+
+<div class="name future-name">
+Por definir
+</div>
+
+<div class="rank rank-future">
+🛡️ ADMIN
+</div>
+
+<p class="description">
+Próximo integrante del equipo administrativo
+de THRASHMC NETWORK.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Ingreso:</strong>
+PRÓXIMAMENTE
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong>
+Por definir
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Administration
+</span>
+
+<span class="permission">
+✓ Server Management
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- MOD -->
+
+<article class="card">
+
+<div class="banner future">
+
+<div class="avatar">
+
+<img
+src="https://mc-heads.net/head/MHF_Question/left"
+alt="Misterioso"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
+>
+
+<div class="avatar-fallback">
+❓
+</div>
+
+</div>
+
+<img
+class="body"
+src="https://mc-heads.net/body/MHF_Question/right"
+alt=""
+onerror="
+this.style.display='none';
+"
+>
+
+</div>
+
+
+<div class="content">
+
+<div class="name future-name">
+Por definir
+</div>
+
+<div class="rank rank-future">
+⚔️ MOD
+</div>
+
+<p class="description">
+Mantendrá el orden del servidor y aplicará
+las reglas oficiales de THRASHMC.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Ingreso:</strong>
+PRÓXIMAMENTE
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong>
+Por definir
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Ban
+</span>
+
+<span class="permission">
+✓ Kick
+</span>
+
+<span class="permission">
+✓ Mute
+</span>
+
+<span class="permission">
+✓ Warn
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- HELPER -->
+
+<article class="card">
+
+<div class="banner future">
+
+<div class="avatar">
+
+<img
+src="https://mc-heads.net/head/MHF_Question/left"
+alt="Misterioso"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='flex';
+"
+>
+
+<div class="avatar-fallback">
+❓
+</div>
+
+</div>
+
+<img
+class="body"
+src="https://mc-heads.net/body/MHF_Question/right"
+alt=""
+onerror="
+this.style.display='none';
+"
+>
+
+</div>
+
+
+<div class="content">
+
+<div class="name future-name">
+Por definir
+</div>
+
+<div class="rank rank-future">
+💚 HELPER
+</div>
+
+<p class="description">
+Ayudará a los jugadores y responderá dudas
+o reportes básicos de la comunidad.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Ingreso:</strong>
+PRÓXIMAMENTE
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong>
+Por definir
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Help Players
+</span>
+
+<span class="permission">
+✓ Reports
+</span>
+
+<span class="permission">
+✓ Chat Support
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- BUILDER -->
+
+<article class="card">
+
+<div class="banner future">
+
+<div class="avatar">
+
+<img
+src="https://mc-heads.net/head/MHF_Question/left"
+alt="Misterioso"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='
