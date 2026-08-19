@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THRASHMC | Staff</title>
+
+<meta name="description" content="Equipo Staff de THRASHMC Network">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#05030a;
+color:#fff;
+overflow-x:hidden;
+
+background:
+radial-gradient(circle at 50% 0%,rgba(142,81,255,.28),transparent 35%),
+radial-gradient(circle at 100% 60%,rgba(221,108,255,.12),transparent 30%),
+#05030a;
+}
+
+body:after{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-1;
+
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+background-size:50px 50px;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+right:0;
+
+height:72px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 6%;
+
+background:rgba(5,3,10,.82);
+
+backdrop-filter:blur(15px);
+
+border-bottom:1px solid rgba(255,255,255,.07);
+
+z-index:1000;
+}
+
+.logo{
+font-size:23px;
+font-weight:1000;
+letter-spacing:1px;
+
+background:linear-gradient(
+90deg,
+#fff,
+#ddd6ff,
+#8e51ff,
+#dd6cff
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+
+color:transparent;
+}
+
+.menu{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.menu a{
+color:#aaa3b1;
+font-size:12px;
+font-weight:bold;
+transition:.2s;
+}
+
+.menu a:hover{
+color:#fff;
+}
+
+.menu-shop{
+padding:10px 16px;
+
+border-radius:9px;
+
+background:
+linear-gradient(
+135deg,
+#8e51ff,
+#dd6cff
+);
+
+color:#fff!important;
+}
+
+
+/* HERO */
+
+.hero{
+min-height:62vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+padding:120px 20px 70px;
+}
+
+.hero-content{
+max-width:850px;
+}
+
+.badge{
+display:inline-block;
+
+padding:9px 17px;
+
+border-radius:50px;
+
+background:rgba(142,81,255,.1);
+
+border:1px solid rgba(221,108,255,.25);
+
+color:#ddd6ff;
+
+font-size:11px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+}
+
+.hero h1{
+font-size:clamp(50px,9vw,90px);
+
+line-height:.95;
+
+font-weight:1000;
+
+letter-spacing:-4px;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#ddd6ff,
+#8e51ff,
+#dd6cff
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+
+color:transparent;
+
+text-shadow:
+0 0 70px rgba(142,81,255,.25);
+}
+
+.hero p{
+max-width:650px;
+
+margin:25px auto 0;
+
+color:#817987;
+
+font-size:15px;
+
+line-height:1.7;
+}
+
+
+/* SECTIONS */
+
+section{
+padding:70px 6%;
+}
+
+.section-title{
+max-width:700px;
+
+margin:0 auto 45px;
+
+text-align:center;
+}
+
+.label{
+color:#dd6cff;
+
+font-size:10px;
+
+font-weight:1000;
+
+letter-spacing
