@@ -1,374 +1,1169 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reglas | THRASHMC NETWORK</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
+<title>Reglas | THRASHMC Network</title>
+<meta name="description" content="Reglas oficiales de THRASHMC Network">
 
-    body{
-      font-family:Arial,sans-serif;
-      background:#09070d;
-      color:white;
-      min-height:100vh;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#08060d;
+    --bg2:#100b17;
+    --bg3:#181020;
+
+    --purple:#8e51ff;
+    --pink:#dd6cff;
+    --light:#ddd6ff;
+
+    --white:#ffffff;
+    --text:#d6d0dc;
+    --muted:#88808f;
+
+    --border:rgba(221,108,255,.18);
+
+    --glow:0 0 25px rgba(142,81,255,.25);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 20% 0%,rgba(142,81,255,.20),transparent 35%),
+        radial-gradient(circle at 90% 40%,rgba(221,108,255,.12),transparent 30%),
+        var(--bg);
+
+    color:var(--white);
+    font-family:'VT323',monospace;
+    overflow-x:hidden;
+}
+
+/* GRID BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+    background-size:40px 40px;
+}
+
+/* NAVBAR */
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+
+    height:74px;
+
+    z-index:999;
+
+    background:rgba(8,6,13,.94);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:0 5px 30px rgba(0,0,0,.35);
+}
+
+.nav-container{
+    max-width:1400px;
+    height:100%;
+
+    margin:auto;
+
+    padding:0 30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    text-decoration:none;
+
+    font-family:'Press Start 2P',cursive;
+
+    font-size:20px;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        var(--light),
+        var(--purple),
+        var(--pink)
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    transition:.25s;
+}
+
+.logo:hover{
+    transform:scale(1.05);
+}
+
+.nav{
+    display:flex;
+    gap:8px;
+}
+
+.nav a{
+    color:#aaa2b0;
+
+    text-decoration:none;
+
+    padding:11px 13px;
+
+    font-weight:bold;
+
+    border:1px solid transparent;
+
+    transition:.25s;
+
+    text-transform:uppercase;
+}
+
+.nav a:hover,
+.nav a.active{
+    color:white;
+
+    border-color:var(--purple);
+
+    background:rgba(142,81,255,.10);
+
+    box-shadow:var(--glow);
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+    display:none;
+
+    width:45px;
+    height:42px;
+
+    border:1px solid var(--purple);
+
+    background:rgba(142,81,255,.08);
+
+    color:white;
+
+    font-size:23px;
+
+    cursor:pointer;
+
+    border-radius:7px;
+}
+
+/* HERO */
+
+.hero{
+    padding:145px 20px 70px;
+
+    text-align:center;
+
+    max-width:1100px;
+
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:9px 18px;
+
+    border-radius:50px;
+
+    color:var(--light);
+
+    border:1px solid rgba(221,108,255,.25);
+
+    background:rgba(142,81,255,.08);
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-family:'Press Start 2P',cursive;
+
+    font-size:clamp(30px,7vw,65px);
+
+    line-height:1.3;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        var(--light),
+        var(--purple),
+        var(--pink)
+    );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:0 0 50px rgba(142,81,255,.2);
+}
+
+.hero p{
+    max-width:700px;
+
+    margin:25px auto 0;
+
+    color:var(--muted);
+
+    font-size:21px;
+
+    line-height:1.5;
+}
+
+/* SERVER INFO */
+
+.server-info{
+    max-width:1100px;
+
+    margin:0 auto 60px;
+
+    padding:0 20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+}
+
+.info-card{
+    padding:25px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.025);
+
+    border:1px solid var(--border);
+
+    transition:.25s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+
+    border-color:var(--purple);
+
+    box-shadow:var(--glow);
+}
+
+.info-icon{
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+.info-card h3{
+    font-size:20px;
+
+    margin-bottom:5px;
+}
+
+.info-card p{
+    color:var(--muted);
+
+    font-size:17px;
+}
+
+/* RULES */
+
+.rules-container{
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:0 20px 80px;
+}
+
+.rule-category{
+    margin-bottom:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid var(--border);
+
+    overflow:hidden;
+
+    transition:.25s;
+}
+
+.rule-category:hover{
+    border-color:rgba(221,108,255,.35);
+
+    box-shadow:var(--glow);
+}
+
+.category-header{
+    padding:22px 25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:rgba(142,81,255,.08);
+
+    border-bottom:1px solid var(--border);
+}
+
+.category-number{
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        var(--purple),
+        var(--pink)
+    );
+
+    color:white;
+
+    font-family:'Press Start 2P',cursive;
+
+    font-size:12px;
+
+    border-radius:7px;
+}
+
+.category-header h2{
+    font-size:27px;
+}
+
+.rule-list{
+    list-style:none;
+
+    padding:10px 25px 20px;
+}
+
+.rule{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:15px;
+
+    padding:17px 10px;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    color:var(--text);
+
+    font-size:19px;
+
+    line-height:1.4;
+}
+
+.rule:last-child{
+    border-bottom:none;
+}
+
+.rule-number{
+    min-width:32px;
+    height:32px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:6px;
+
+    background:rgba(142,81,255,.12);
+
+    border:1px solid rgba(142,81,255,.25);
+
+    color:var(--light);
+
+    font-weight:bold;
+}
+
+.rule strong{
+    color:white;
+}
+
+/* IMPORTANT */
+
+.warning{
+    max-width:1100px;
+
+    margin:0 auto 70px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,90,120,.25);
+
+    background:rgba(255,60,100,.05);
+
+    text-align:center;
+}
+
+.warning h2{
+    color:#ff7d9c;
+
+    margin-bottom:10px;
+
+    font-size:28px;
+}
+
+.warning p{
+    color:#aaa2ad;
+
+    font-size:18px;
+
+    line-height:1.5;
+}
+
+/* FINAL */
+
+.final{
+    max-width:900px;
+
+    margin:20px auto 100px;
+
+    padding:60px 25px;
+
+    text-align:center;
+
+    border:1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(142,81,255,.16),
+            transparent 70%
+        );
+}
+
+.final h2{
+    font-family:'Press Start 2P',cursive;
+
+    font-size:clamp(22px,5vw,40px);
+
+    margin-bottom:20px;
+}
+
+.final p{
+    color:var(--muted);
+
+    font-size:20px;
+
+    margin-bottom:25px;
+}
+
+.buttons{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 22px;
+
+    text-decoration:none;
+
+    border-radius:7px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.primary{
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        var(--purple),
+        var(--pink)
+    );
+
+    box-shadow:0 10px 30px rgba(142,81,255,.2);
+}
+
+.secondary{
+    color:white;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+
+    background:rgba(0,0,0,.3);
+
+    padding:45px 25px;
+}
+
+.footer{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.footer h3{
+    font-size:22px;
+}
+
+.footer p{
+    color:var(--muted);
+
+    margin-top:8px;
+
+    line-height:1.5;
+
+    font-size:16px;
+}
+
+.footer-links{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    align-items:center;
+}
+
+.footer-links a{
+    color:#88808f;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:var(--pink);
+}
+
+.copyright{
+    max-width:1100px;
+
+    margin:30px auto 0;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+    color:#625b68;
+
+    font-size:14px;
+
+    text-align:center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .nav{
+        display:none;
+
+        position:absolute;
+
+        top:74px;
+
+        left:0;
+        right:0;
+
+        padding:15px;
+
+        background:#100b17;
+
+        border-bottom:1px solid var(--border);
+
+        flex-direction:column;
     }
 
-    a{text-decoration:none;color:inherit}
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      background:rgba(9,7,13,.92);
-      backdrop-filter:blur(15px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .nav.open{
+        display:flex;
     }
 
-    nav{
-      max-width:1100px;
-      margin:auto;
-      padding:18px 20px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+    .nav a{
+        width:100%;
+
+        text-align:center;
     }
 
-    .logo{
-      font-size:24px;
-      font-weight:900;
+    .mobile-menu{
+        display:block;
     }
 
-    .logo span{color:#c65cff}
-
-    .nav-links{
-      display:flex;
-      gap:10px;
-    }
-
-    .nav-links a{
-      padding:10px 14px;
-      border-radius:10px;
-      color:#c8c0d0;
-      font-weight:bold;
-      font-size:14px;
-    }
-
-    .nav-links a:hover,
-    .nav-links .active{
-      background:rgba(198,92,255,.15);
-      color:white;
-    }
-
-    .hero{
-      max-width:1000px;
-      margin:auto;
-      padding:80px 20px 50px;
-      text-align:center;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:8px 15px;
-      border-radius:50px;
-      background:rgba(198,92,255,.1);
-      border:1px solid rgba(198,92,255,.35);
-      color:#dcb5ff;
-      font-size:13px;
-      font-weight:bold;
-    }
-
-    h1{
-      margin-top:20px;
-      font-size:clamp(42px,8vw,70px);
-    }
-
-    h1 span{
-      background:linear-gradient(90deg,#e5b3ff,#a45cff,#e9c4ff);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-
-    .hero p{
-      max-width:650px;
-      margin:18px auto;
-      color:#aaa1b5;
-      font-size:17px;
-    }
-
-    .section{
-      max-width:1000px;
-      margin:auto;
-      padding:20px 20px 90px;
-    }
-
-    .rules{
-      display:grid;
-      gap:16px;
-    }
-
-    .rule{
-      padding:23px;
-      border-radius:18px;
-      background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.06),
-        rgba(255,255,255,.025)
-      );
-      border:1px solid rgba(255,255,255,.09);
-      transition:.2s;
-    }
-
-    .rule:hover{
-      transform:translateY(-3px);
-      border-color:rgba(198,92,255,.4);
-    }
-
-    .number{
-      display:inline-grid;
-      place-items:center;
-      width:38px;
-      height:38px;
-      margin-right:10px;
-      border-radius:12px;
-      background:rgba(198,92,255,.14);
-      color:#ddb8ff;
-      font-weight:900;
-    }
-
-    .rule h3{
-      display:flex;
-      align-items:center;
-      font-size:18px;
-      margin-bottom:9px;
-    }
-
-    .rule p{
-      color:#a59cac;
-      line-height:1.7;
-      font-size:14px;
-      padding-left:48px;
-    }
-
-    .warning{
-      margin-top:25px;
-      padding:20px;
-      border-radius:16px;
-      background:rgba(255,170,50,.07);
-      border:1px solid rgba(255,170,50,.2);
-      color:#c7b9a3;
-      font-size:14px;
-    }
-
-    .warning strong{color:#ffc46b}
-
-    footer{
-      border-top:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.2);
+    .server-info{
+        grid-template-columns:1fr;
     }
 
     .footer{
-      max-width:1100px;
-      margin:auto;
-      padding:30px 20px;
-      display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      color:#81788c;
-      font-size:13px;
+        flex-direction:column;
     }
 
-    .footer strong{color:#cbbfd4}
+}
 
-    @media(max-width:650px){
-      .nav-links a:not(.active){display:none}
+@media(max-width:600px){
+
+    .nav-container{
+        padding:0 15px;
     }
-  </style>
+
+    .logo{
+        font-size:15px;
+    }
+
+    .hero{
+        padding-top:125px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .category-header{
+        padding:18px;
+    }
+
+    .category-header h2{
+        font-size:22px;
+    }
+
+    .rule-list{
+        padding:5px 15px 15px;
+    }
+
+    .rule{
+        font-size:17px;
+        gap:10px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-<header>
-  <nav>
+<header class="header">
 
-    <a href="index.html" class="logo">
-      THRASH<span>MC</span>
-    </a>
+<div class="nav-container">
 
-    <div class="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="tienda.html">Tienda</a>
-      <a href="modalidades.html">Modalidades</a>
-      <a href="reglas.html" class="active">Reglas</a>
-      <a href="staff.html">Staff</a>
-    </div>
+<a href="index.html" class="logo">
+THRASHMC
+</a>
 
-  </nav>
+<button class="mobile-menu" onclick="toggleMenu()" aria-label="Abrir menú">
+☰
+</button>
+
+<nav class="nav" id="nav">
+
+<a href="index.html">🏠 INICIO</a>
+
+<a href="modalidades.html">⚔️ MODALIDADES</a>
+
+<a href="staff.html">👥 STAFF</a>
+
+<a href="reglas.html" class="active">📜 REGLAS</a>
+
+<a href="servidor.html">🌐 SERVIDOR</a>
+
+<a href="contacto.html">📩 CONTACTO</a>
+
+<a href="tienda.html">🛒 TIENDA</a>
+
+</nav>
+
+</div>
+
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-  <div class="badge">
-    📜 REGLAMENTO OFICIAL
-  </div>
+<div class="badge">
+● THRASHMC NETWORK • REGLAS OFICIALES
+</div>
 
-  <h1>
-    REGLAS DE <span>THRASHMC</span>
-  </h1>
+<h1>REGLAS</h1>
 
-  <p>
-    Conocé las reglas del servidor y ayudanos
-    a mantener una comunidad divertida y respetuosa.
-  </p>
+<p>
+Para mantener una comunidad justa, divertida y segura,
+todos los jugadores deben respetar las reglas de THRASHMC.
+</p>
 
 </section>
 
 
-<section class="section">
+<!-- SERVER INFO -->
 
-  <div class="rules">
+<section class="server-info">
 
-    <div class="rule">
-      <h3>
-        <span class="number">01</span>
-        Respeto
-      </h3>
+<div class="info-card">
 
-      <p>
-        No se permiten insultos graves, acoso,
-        amenazas ni comportamientos destinados
-        a molestar o perjudicar a otros jugadores.
-      </p>
-    </div>
+<div class="info-icon">⚔️</div>
+
+<h3>MODALIDAD</h3>
+
+<p>FULLPVP</p>
+
+</div>
 
 
-    <div class="rule">
-      <h3>
-        <span class="number">02</span>
-        Prohibido hacer trampa
-      </h3>
+<div class="info-card">
 
-      <p>
-        Está prohibido utilizar hacks, clientes
-        modificados ilegales, macros o cualquier
-        herramienta que proporcione una ventaja injusta.
-      </p>
-    </div>
+<div class="info-icon">🌐</div>
+
+<h3>IP</h3>
+
+<p>puff.visihost.in:2503</p>
+
+</div>
 
 
-    <div class="rule">
-      <h3>
-        <span class="number">03</span>
-        Bugs y exploits
-      </h3>
+<div class="info-card">
 
-      <p>
-        No está permitido aprovecharse de errores,
-        duplicaciones o exploits. Si encontrás un bug,
-        reportalo al Staff.
-      </p>
-    </div>
+<div class="info-icon">💬</div>
 
+<h3>COMUNIDAD</h3>
 
-    <div class="rule">
-      <h3>
-        <span class="number">04</span>
-        Spam y publicidad
-      </h3>
+<p>DISCORD THRASHMC</p>
 
-      <p>
-        No hagas spam, flood ni publicidad de otros
-        servidores, comunidades o servicios sin
-        autorización.
-      </p>
-    </div>
-
-
-    <div class="rule">
-      <h3>
-        <span class="number">05</span>
-        Suplantación
-      </h3>
-
-      <p>
-        No te hagas pasar por otro jugador,
-        miembro del Staff o propietario de THRASHMC.
-      </p>
-    </div>
-
-
-    <div class="rule">
-      <h3>
-        <span class="number">06</span>
-        Comercio
-      </h3>
-
-      <p>
-        No realices intercambios externos que puedan
-        generar estafas o perjudicar a otros jugadores.
-      </p>
-    </div>
-
-
-    <div class="rule">
-      <h3>
-        <span class="number">07</span>
-        Respeto al Staff
-      </h3>
-
-      <p>
-        Seguí las indicaciones del Staff. Si considerás
-        que una sanción fue incorrecta, utilizá los
-        canales correspondientes para reclamarla.
-      </p>
-    </div>
-
-
-    <div class="rule">
-      <h3>
-        <span class="number">08</span>
-        Sentido común
-      </h3>
-
-      <p>
-        Cualquier conducta que perjudique gravemente
-        la experiencia de la comunidad puede ser
-        sancionada aunque no aparezca expresamente
-        en esta lista.
-      </p>
-    </div>
-
-
-    <div class="warning">
-      <strong>⚠️ Importante:</strong>
-      Las sanciones pueden variar según la gravedad
-      y reincidencia de la infracción. El Staff se reserva
-      la posibilidad de aplicar la medida correspondiente.
-    </div>
-
-  </div>
+</div>
 
 </section>
 
+
+<!-- RULES -->
+
+<main class="rules-container">
+
+
+<!-- GENERAL -->
+
+<section class="rule-category">
+
+<div class="category-header">
+
+<div class="category-number">01</div>
+
+<h2>Reglas generales</h2>
+
+</div>
+
+<ul class="rule-list">
+
+<li class="rule">
+<span class="rule-number">1</span>
+<span><strong>Respeto:</strong> trata con respeto a todos los jugadores y miembros del staff.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">2</span>
+<span><strong>Acerca del comportamiento:</strong> no se permite acoso, amenazas, bullying o comportamiento tóxico excesivo.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">3</span>
+<span><strong>Publicidad:</strong> está prohibida la publicidad de otros servidores o comunidades sin autorización.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">4</span>
+<span><strong>Spam:</strong> evita enviar repetidamente el mismo mensaje.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">5</span>
+<span><strong>Suplantación:</strong> no te hagas pasar por otro jugador, creador de contenido o miembro del staff.</span>
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- HACKS -->
+
+<section class="rule-category">
+
+<div class="category-header">
+
+<div class="category-number">02</div>
+
+<h2>Fair Play y PvP</h2>
+
+</div>
+
+<ul class="rule-list">
+
+<li class="rule">
+<span class="rule-number">1</span>
+<span><strong>Hackers:</strong> está prohibido utilizar clientes modificados que proporcionen ventajas injustas.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">2</span>
+<span><strong>Ventajas externas:</strong> no utilices herramientas externas para obtener una ventaja injusta.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">3</span>
+<span><strong>Exploits:</strong> no está permitido aprovechar errores o bugs para obtener beneficios.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">4</span>
+<span><strong>Anti-Cheat:</strong> las decisiones del sistema anti-cheat y del staff pueden ser revisadas mediante los canales correspondientes.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">5</span>
+<span><strong>Combate:</strong> no intentes abusar de errores del sistema de combate para obtener ventajas.</span>
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- CHAT -->
+
+<section class="rule-category">
+
+<div class="category-header">
+
+<div class="category-number">03</div>
+
+<h2>Chat y comunicación</h2>
+
+</div>
+
+<ul class="rule-list">
+
+<li class="rule">
+<span class="rule-number">1</span>
+<span><strong>Spam:</strong> no inundes el chat con mensajes repetitivos.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">2</span>
+<span><strong>Flood:</strong> evita enviar grandes cantidades de mensajes seguidos.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">3</span>
+<span><strong>Lenguaje:</strong> evita lenguaje ofensivo dirigido a otros jugadores.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">4</span>
+<span><strong>Información personal:</strong> nunca publiques información privada tuya o de otra persona.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">5</span>
+<span><strong>Reportes:</strong> utiliza los canales oficiales para reportar jugadores.</span>
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- BUGS -->
+
+<section class="rule-category">
+
+<div class="category-header">
+
+<div class="category-number">04</div>
+
+<h2>Errores y exploits</h2>
+
+</div>
+
+<ul class="rule-list">
+
+<li class="rule">
+<span class="rule-number">1</span>
+<span><strong>No abusar de bugs:</strong> cualquier bug que genere una ventaja injusta no debe ser explotado.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">2</span>
+<span><strong>Reportar:</strong> informa al staff cuando encuentres un error importante.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">3</span>
+<span><strong>Duplicación:</strong> no utilices errores para duplicar objetos o recursos.</span>
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- CUENTAS -->
+
+<section class="rule-category">
+
+<div class="category-header">
+
+<div class="category-number">05</div>
+
+<h2>Cuentas</h2>
+
+</div>
+
+<ul class="rule-list">
+
+<li class="rule">
+<span class="rule-number">1</span>
+<span><strong>Responsabilidad:</strong> cada jugador es responsable de la seguridad de su cuenta.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">2</span>
+<span><strong>Compartir cuentas:</strong> evita compartir tus datos de acceso.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">3</span>
+<span><strong>Suplantación:</strong> no utilices nombres para hacerte pasar por miembros del staff.</span>
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- STAFF -->
+
+<section class="rule-category">
+
+<div class="category-header">
+
+<div class="category-number">06</div>
+
+<h2>Staff</h2>
+
+</div>
+
+<ul class="rule-list">
+
+<li class="rule">
+<span class="rule-number">1</span>
+<span><strong>Respeta al staff:</strong> las decisiones del equipo deben tratarse de forma respetuosa.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">2</span>
+<span><strong>Reportes:</strong> si consideras que una sanción fue incorrecta, utiliza los canales oficiales para solicitar una revisión.</span>
+</li>
+
+<li class="rule">
+<span class="rule-number">3</span>
+<span><strong>Abuso:</strong> los miembros del staff que abusen de sus permisos pueden ser investigados por la administración.</span>
+</li>
+
+</ul>
+
+</section>
+
+
+</main>
+
+
+<!-- WARNING -->
+
+<section class="warning">
+
+<h2>⚠️ IMPORTANTE</h2>
+
+<p>
+El incumplimiento de las reglas puede resultar en advertencias,
+silencios, expulsiones, suspensiones u otras sanciones dependiendo
+de la gravedad del caso.
+</p>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+<h2>¿Tienes alguna duda?</h2>
+
+<p>
+Si necesitas ayuda o quieres reportar una situación,
+contacta con el equipo oficial de THRASHMC.
+</p>
+
+<div class="buttons">
+
+<a href="contacto.html" class="btn primary">
+📩 CONTACTAR STAFF
+</a>
+
+<a href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="btn secondary">
+💬 DISCORD
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
 
 <footer>
 
-  <div class="footer">
+<div class="footer">
 
-    <div>
-      © 2026 <strong>THRASHMC NETWORK</strong>
-    </div>
+<div>
 
-    <div>
-      Reglamento oficial
-    </div>
+<h3>THRASHMC NETWORK</h3>
 
-  </div>
+<p>
+⚔ FULLPVP<br>
+💜 COMUNIDAD<br>
+🏆 COMPETENCIA
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="index.html">Inicio</a>
+
+<a href="modalidades.html">Modalidades</a>
+
+<a href="staff.html">Staff</a>
+
+<a href="reglas.html">Reglas</a>
+
+<a href="servidor.html">Servidor</a>
+
+<a href="tienda.html">Tienda</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+IP: puff.visihost.in:2503
+<br><br>
+
+© 2026 THRASHMC NETWORK. Todos los derechos reservados.
+
+</div>
 
 </footer>
+
+
+<script>
+
+function toggleMenu(){
+
+    const nav = document.getElementById("nav");
+
+    nav.classList.toggle("open");
+
+}
+
+document.querySelectorAll(".nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document.getElementById("nav").classList.remove("open");
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
