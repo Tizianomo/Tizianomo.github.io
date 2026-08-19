@@ -1,902 +1,185 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+session_start();
 
-<title>THRASHMC | Staff</title>
-<meta name="description" content="Equipo oficial de Staff de THRASHMC Network">
+$staffMembers = [
 
-<style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0
+    [
+        'username' => 'Tiziomariabebe01',
+        'rank' => 'OWNER',
+        'joinDate' => '2026-01-01',
+        'permissions' => [
+            'All Permissions',
+            'Server Management',
+            'Staff Management',
+            'Administration'
+        ],
+        'avatar' => 'https://mc-heads.net/head/Tiziomariabebe01/left',
+        'avatar3d' => 'https://mc-heads.net/body/Tiziomariabebe01/right',
+        'discord' => 'Tiziomariabebe01',
+        'social' => []
+    ],
+
+    [
+        'username' => 'ItsTizii',
+        'rank' => 'CO-OWNER',
+        'joinDate' => '2026-01-01',
+        'permissions' => [
+            'Server Management',
+            'Staff Management',
+            'Administration',
+            'Moderation'
+        ],
+        'avatar' => 'https://mc-heads.net/head/ItsTizii/left',
+        'avatar3d' => 'https://mc-heads.net/body/ItsTizii/right',
+        'discord' => 'ItsTizii',
+        'social' => []
+    ],
+
+    [
+        'username' => 'Por definir',
+        'rank' => 'MANAGER',
+        'joinDate' => 'PRÓXIMAMENTE',
+        'permissions' => [
+            'Staff Management',
+            'Server Management'
+        ],
+        'avatar' => 'https://mc-heads.net/head/Steve/left',
+        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
+        'discord' => 'Por definir',
+        'social' => []
+    ],
+
+    [
+        'username' => 'Por definir',
+        'rank' => 'ADMIN',
+        'joinDate' => 'PRÓXIMAMENTE',
+        'permissions' => [
+            'Ban',
+            'Kick',
+            'Mute',
+            'Warn',
+            'Teleport'
+        ],
+        'avatar' => 'https://mc-heads.net/head/Steve/left',
+        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
+        'discord' => 'Por definir',
+        'social' => []
+    ],
+
+    [
+        'username' => 'Por definir',
+        'rank' => 'MOD',
+        'joinDate' => 'PRÓXIMAMENTE',
+        'permissions' => [
+            'Ban',
+            'Kick',
+            'Mute',
+            'Warn'
+        ],
+        'avatar' => 'https://mc-heads.net/head/Steve/left',
+        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
+        'discord' => 'Por definir',
+        'social' => []
+    ],
+
+    [
+        'username' => 'Por definir',
+        'rank' => 'HELPER',
+        'joinDate' => 'PRÓXIMAMENTE',
+        'permissions' => [
+            'Help Players',
+            'Reports',
+            'Chat Support'
+        ],
+        'avatar' => 'https://mc-heads.net/head/Steve/left',
+        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
+        'discord' => 'Por definir',
+        'social' => []
+    ],
+
+    [
+        'username' => 'Por definir',
+        'rank' => 'BUILDER',
+        'joinDate' => 'PRÓXIMAMENTE',
+        'permissions' => [
+            'Building',
+            'WorldEdit',
+            'Map Development'
+        ],
+        'avatar' => 'https://mc-heads.net/head/Steve/left',
+        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
+        'discord' => 'Por definir',
+        'social' => []
+    ],
+
+    [
+        'username' => 'Por definir',
+        'rank' => 'EVENT MANAGER',
+        'joinDate' => 'PRÓXIMAMENTE',
+        'permissions' => [
+            'Events',
+            'Giveaways',
+            'Community Management'
+        ],
+        'avatar' => 'https://mc-heads.net/head/Steve/left',
+        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
+        'discord' => 'Por definir',
+        'social' => []
+    ]
+
+];
+
+$rankColors = [
+    'OWNER' => '#ff4d8d',
+    'CO-OWNER' => '#ff6bd6',
+    'MANAGER' => '#c56cff',
+    'ADMIN' => '#ff5555',
+    'MOD' => '#55aaff',
+    'HELPER' => '#55ff99',
+    'BUILDER' => '#ffaa55',
+    'EVENT MANAGER' => '#aa88ff'
+];
+
+$rankDescriptions = [
+    'OWNER' =>
+        'Máxima autoridad de THRASHMC y responsable de la administración general de la Network.',
+
+    'CO-OWNER' =>
+        'Apoya al Owner en la gestión general del servidor y del equipo administrativo.',
+
+    'MANAGER' =>
+        'Gestiona el equipo de staff, organización interna y funcionamiento de la Network.',
+
+    'ADMIN' =>
+        'Administra el servidor y se encarga de situaciones importantes de moderación.',
+
+    'MOD' =>
+        'Mantiene el orden del servidor y aplica las reglas de THRASHMC.',
+
+    'HELPER' =>
+        'Ayuda a los jugadores y responde dudas o reportes básicos.',
+
+    'BUILDER' =>
+        'Construye y desarrolla mapas, spawns y diferentes áreas de THRASHMC.',
+
+    'EVENT MANAGER' =>
+        'Organiza eventos, actividades y dinámicas para la comunidad.'
+];
+
+$serverInfo = [
+    'name' => 'THRASHMC NETWORK',
+    'ip' => 'puff.visihost.in:2503',
+    'mode' => 'FULLPVP',
+    'discord' => 'https://discord.gg/GBTnQnxEk',
+    'store' => 'tienda.html'
+];
+
+function getRankColor($rank, $rankColors) {
+    return $rankColors[$rank] ?? '#ffffff';
 }
 
-html{
-scroll-behavior:smooth
+function getRankDescription($rank, $rankDescriptions) {
+    return $rankDescriptions[$rank]
+        ?? 'Miembro del equipo oficial de THRASHMC NETWORK.';
 }
-
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:
-radial-gradient(circle at 50% 0%,rgba(142,81,255,.28),transparent 35%),
-radial-gradient(circle at 100% 60%,rgba(221,108,255,.12),transparent 30%),
-#05030a;
-color:#fff;
-overflow-x:hidden;
-}
-
-body:after{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:-1;
-
-background-image:
-linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-
-background-size:50px 50px;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-/* NAVBAR */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-right:0;
-height:72px;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-padding:0 6%;
-
-background:rgba(5,3,10,.82);
-backdrop-filter:blur(15px);
-
-border-bottom:1px solid rgba(255,255,255,.07);
-
-z-index:1000;
-}
-
-.logo{
-font-size:23px;
-font-weight:1000;
-letter-spacing:1px;
-
-background:linear-gradient(
-90deg,
-#fff,
-#ddd6ff,
-#8e51ff,
-#dd6cff
-);
-
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-}
-
-.menu{
-display:flex;
-align-items:center;
-gap:17px;
-}
-
-.menu a{
-color:#aaa3b1;
-font-size:11px;
-font-weight:bold;
-transition:.2s;
-}
-
-.menu a:hover{
-color:#fff;
-}
-
-.menu-shop{
-padding:10px 16px;
-border-radius:9px;
-
-background:
-linear-gradient(
-135deg,
-#8e51ff,
-#dd6cff
-);
-
-color:#fff!important;
-}
-
-/* HERO */
-
-.hero{
-min-height:60vh;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-text-align:center;
-
-padding:120px 20px 70px;
-}
-
-.hero-content{
-max-width:900px;
-}
-
-.badge{
-display:inline-block;
-
-padding:9px 17px;
-
-border-radius:50px;
-
-background:rgba(142,81,255,.1);
-
-border:1px solid rgba(221,108,255,.25);
-
-color:#ddd6ff;
-
-font-size:11px;
-font-weight:900;
-letter-spacing:2px;
-
-margin-bottom:25px;
-}
-
-.hero h1{
-font-size:clamp(50px,10vw,100px);
-
-line-height:.9;
-
-font-weight:1000;
-
-letter-spacing:-5px;
-
-background:
-linear-gradient(
-90deg,
-#fff,
-#ddd6ff,
-#8e51ff,
-#dd6cff
-);
-
--webkit-background-clip:text;
-background-clip:text;
-
-color:transparent;
-
-text-shadow:
-0 0 80px rgba(142,81,255,.25);
-}
-
-.hero p{
-max-width:650px;
-
-margin:25px auto 0;
-
-color:#817987;
-
-font-size:15px;
-
-line-height:1.7;
-}
-
-/* SECTION */
-
-section{
-padding:70px 6%;
-}
-
-.section-title{
-max-width:750px;
-
-margin:0 auto 45px;
-
-text-align:center;
-}
-
-.label{
-color:#dd6cff;
-
-font-size:10px;
-
-font-weight:1000;
-
-letter-spacing:3px;
-}
-
-.section-title h2{
-margin-top:12px;
-
-font-size:clamp(30px,5vw,48px);
-}
-
-.section-title p{
-margin-top:12px;
-
-color:#817987;
-
-line-height:1.7;
-}
-
-/* STAFF GRID */
-
-.staff-grid{
-max-width:1200px;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:
-repeat(4,1fr);
-
-gap:17px;
-}
-
-.staff-card{
-position:relative;
-
-padding:30px 20px;
-
-text-align:center;
-
-border-radius:18px;
-
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.045),
-rgba(255,255,255,.01)
-);
-
-border:1px solid rgba(255,255,255,.07);
-
-overflow:hidden;
-
-transition:.25s;
-}
-
-.staff-card:hover{
-transform:translateY(-7px);
-
-border-color:
-rgba(221,108,255,.35);
-}
-
-.staff-card:before{
-content:"";
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:100%;
-height:3px;
-
-background:
-linear-gradient(
-90deg,
-#8e51ff,
-#dd6cff
-);
-}
-
-.staff-icon{
-width:70px;
-height:70px;
-
-margin:0 auto 17px;
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-border-radius:50%;
-
-font-size:30px;
-
-background:
-rgba(142,81,255,.12);
-
-border:1px solid
-rgba(221,108,255,.2);
-}
-
-.staff-card h3{
-font-size:18px;
-
-margin-bottom:8px;
-}
-
-.staff-role{
-font-size:9px;
-
-font-weight:1000;
-
-letter-spacing:1.5px;
-
-margin-bottom:12px;
-}
-
-.staff-card p{
-color:#817987;
-
-font-size:11px;
-
-line-height:1.65;
-}
-
-/* COLORS */
-
-.owner{color:#ff4d6d}
-.cowner{color:#ff6b9d}
-.director{color:#ff9d50}
-.manager{color:#ffd45a}
-.supervisor{color:#f5c76a}
-
-.admin{color:#ff704d}
-.sradmin{color:#ff4d4d}
-
-.mod{color:#55e37d}
-.srmod{color:#32c76a}
-
-.helper{color:#53d9ff}
-.trialhelper{color:#42bde5}
-.trialmod{color:#38aee0}
-
-.developer{color:#aa8cff}
-.srdeveloper{color:#8e51ff}
-.configurator{color:#c58cff}
-.tester{color:#b5a3ff}
-
-.builder{color:#65d89a}
-.srbuilder{color:#42bd7b}
-.designer{color:#dd6cff}
-.mapmaker{color:#9d7cff}
-
-.community{color:#ff7ac8}
-.media{color:#ff6b8a}
-.creator{color:#ff8fba}
-.editor{color:#c77dff}
-.social{color:#e57aff}
-
-.support{color:#5bd9ff}
-.chatsupport{color:#54bde0}
-.ticket{color:#63aee8}
-.eventmanager{color:#ffd45a}
-.eventstaff{color:#ffb83d}
-
-.trialstaff{color:#aaa}
-.stafftest{color:#9c9cba}
-.veteran{color:#e0baff}
-
-/* INFO */
-
-.info-box{
-max-width:950px;
-
-margin:auto;
-
-padding:45px;
-
-text-align:center;
-
-border-radius:22px;
-
-background:
-radial-gradient(
-circle,
-rgba(142,81,255,.16),
-transparent 70%
-),
-rgba(255,255,255,.025);
-
-border:1px solid
-rgba(221,108,255,.12);
-}
-
-.info-box h2{
-font-size:30px;
-
-margin-bottom:15px;
-}
-
-.info-box p{
-max-width:650px;
-
-margin:auto;
-
-color:#817987;
-
-line-height:1.8;
-
-font-size:13px;
-}
-
-/* DISCORD */
-
-.discord{
-max-width:950px;
-
-margin:auto;
-
-padding:45px;
-
-text-align:center;
-
-border-radius:22px;
-
-background:
-linear-gradient(
-135deg,
-rgba(142,81,255,.15),
-rgba(221,108,255,.04)
-);
-
-border:1px solid
-rgba(221,108,255,.15);
-}
-
-.discord h2{
-font-size:32px;
-
-margin-bottom:12px;
-}
-
-.discord p{
-max-width:650px;
-
-margin:0 auto 25px;
-
-color:#817987;
-
-line-height:1.7;
-}
-
-.btn{
-display:inline-flex;
-
-align-items:center;
-justify-content:center;
-
-padding:14px 24px;
-
-border-radius:10px;
-
-font-size:12px;
-
-font-weight:900;
-
-transition:.25s;
-}
-
-.btn:hover{
-transform:translateY(-4px);
-}
-
-.primary{
-background:
-linear-gradient(
-135deg,
-#8e51ff,
-#dd6cff
-);
-
-color:#fff;
-
-box-shadow:
-0 12px 40px
-rgba(142,81,255,.25);
-}
-
-/* FOOTER */
-
-footer{
-padding:50px 6%;
-
-border-top:
-1px solid rgba(255,255,255,.06);
-
-background:rgba(0,0,0,.25);
-}
-
-.footer{
-max-width:1150px;
-
-margin:auto;
-
-display:flex;
-
-justify-content:space-between;
-
-gap:30px;
-}
-
-.footer h3{
-font-size:19px;
-}
-
-.footer p{
-color:#625b68;
-
-margin-top:8px;
-
-font-size:11px;
-
-line-height:1.7;
-}
-
-.footer-links{
-display:flex;
-
-gap:20px;
-
-align-items:center;
-
-flex-wrap:wrap;
-}
-
-.footer-links a{
-color:#716a78;
-
-font-size:11px;
-
-font-weight:bold;
-}
-
-.footer-links a:hover{
-color:#dd6cff;
-}
-
-.copyright{
-max-width:1150px;
-
-margin:30px auto 0;
-
-padding-top:18px;
-
-border-top:
-1px solid rgba(255,255,255,.05);
-
-color:#4e4854;
-
-font-size:10px;
-}
-
-/* MOBILE */
-
-@media(max-width:1050px){
-
-.menu{
-display:none;
-}
-
-.staff-grid{
-grid-template-columns:
-repeat(3,1fr);
-}
-
-}
-
-@media(max-width:800px){
-
-.staff-grid{
-grid-template-columns:
-repeat(2,1fr);
-}
-
-}
-
-@media(max-width:550px){
-
-section{
-padding:60px 5%;
-}
-
-.staff-grid{
-grid-template-columns:1fr;
-}
-
-.hero{
-padding-top:110px;
-}
-
-.footer{
-flex-direction:column;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-<a href="index.html" class="logo">
-THRASHMC
-</a>
-
-<div class="menu">
-
-<a href="index.html">Inicio</a>
-
-<a href="modalidades.html">
-⚔️ Modalidades
-</a>
-
-<a href="staff.html">
-👥 Staff
-</a>
-
-<a href="reglas.html">
-📜 Reglas
-</a>
-
-<a href="contacto.html">
-📞 Contacto
-</a>
-
-<a href="servidor.html">
-🌐 Servidor
-</a>
-
-<a href="tienda.html" class="menu-shop">
-🛒 Tienda
-</a>
-
-</div>
-
-</nav>
-
-
-<!-- HERO -->
-
-<header class="hero">
-
-<div class="hero-content">
-
-<div class="badge">
-● THRASHMC NETWORK • STAFF TEAM
-</div>
-
-<h1>
-NUESTRO STAFF
-</h1>
-
-<p>
-Conocé al equipo de THRASHMC Network,
-encargado de la administración, moderación,
-desarrollo, construcción y comunidad.
-</p>
-
-</div>
-
-</header>
-
-
-<!-- DIRECCIÓN -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-THRASHMC • DIRECCIÓN
-</span>
-
-<h2>
-Dirección
-</h2>
-
-<p>
-El equipo encargado de dirigir y coordinar
-THRASHMC Network.
-</p>
-
-</div>
-
-<div class="staff-grid">
-
-
-<div class="staff-card">
-
-<div class="staff-icon">👑</div>
-
-<h3>Tiziomariabebe01</h3>
-
-<div class="staff-role owner">
-OWNER
-</div>
-
-<p>
-Fundador y responsable principal
-de THRASHMC Network.
-</p>
-
-</div>
-
-
-<div class="staff-card">
-
-<div class="staff-icon">👑</div>
-
-<h3>ItsTizii</h3>
-
-<div class="staff-role owner">
-OWNER
-</div>
-
-<p>
-Fundador y responsable principal
-de THRASHMC Network.
-</p>
-
-</div>
-
-
-<div class="staff-card">
-
-<div class="staff-icon">👑</div>
-
-<h3>Próximamente</h3>
-
-<div class="staff-role cowner">
-CO-OWNER
-</div>
-
-<p>
-Apoya directamente a la dirección
-de THRASHMC.
-</p>
-
-</div>
-
-
-<div class="staff-card">
-
-<div class="staff-icon">🏆</div>
-
-<h3>Próximamente</h3>
-
-<div class="staff-role director">
-DIRECTOR
-</div>
-
-<p>
-Coordina las diferentes áreas
-del Network.
-</p>
-
-</div>
-
-
-<div class="staff-card">
-
-<div class="staff-icon">💼</div>
-
-<h3>Próximamente</h3>
-
-<div class="staff-role manager">
-MANAGER
-</div>
-
-<p>
-Gestiona equipos y operaciones
-del servidor.
-</p>
-
-</div>
-
-
-<div class="staff-card">
-
-<div class="staff-icon">📋</div>
-
-<h3>Próximamente</h3>
-
-<div class="staff-role supervisor">
-SUPERVISOR
-</div>
-
-<p>
-Supervisa el funcionamiento
-de los equipos.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- ADMINISTRACIÓN -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-THRASHMC • ADMINISTRACIÓN
-</span>
-
-<h2>
-Administración
-</h2>
-
-<p>
-Equipo encargado de mantener el orden
-y administrar el servidor.
-</p>
-
-</div>
-
-<div class="staff-grid">
-
-
-<div class="staff-card">
-<div class="staff-icon">🛡️</div>
-<h3>Próximamente</h3>
-<div class="staff-role admin">ADMIN</div>
-<p>Administra el servidor y coordina al Staff.</p>
-</div>
-
-
-<div class="staff-card">
-<div class="staff-icon">🔨</div>
-<h3>Próximamente</h3>
-<div class="staff-role sradmin">SR.ADMIN</div>
-<p>Apoya a la administración principal.</p>
-</div>
-
-
-<div class="staff-card">
-<div class="staff-icon">⚔️</div>
-<h3>Próximamente</h3>
-<div class="staff-role mod">MOD</div>
-<p>Modera el servidor y ayuda a mantener el orden.</p>
-</div>
-
-
-<div class="staff-card">
-<div class="staff-icon">🗡️</div>
-<h3>Próximamente</h3>
-<div class="staff-role srmod">SR.MOD</div>
-<p>Supervisa al equipo de moderación.</p>
-</div>
-
-
-<div class="staff-card">
-<div class="staff-icon">💬</div>
-<h3>Próximamente</h3>
-<div class="staff-role helper">HELPER</div>
-<p>Ayuda a los jugadores de la comunidad.</p>
-</div>
-
-
-<div class="staff-card">
-<div class="staff-icon">🧪</div>
-<h3>
+?>
