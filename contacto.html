@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | THRASHMC NETWORK</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #09070d;
+      color: white;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 7, 13, .92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .logo span {
+      color: #c65cff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: #c8c0d0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+      background: rgba(198,92,255,.15);
+      color: white;
+    }
+
+    .hero {
+      max-width: 1000px;
+      margin: auto;
+      padding: 80px 20px 50px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 50px;
+      background: rgba(198,92,255,.1);
+      border: 1px solid rgba(198,92,255,.35);
+      color: #dcb5ff;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: clamp(42px, 8vw, 70px);
+    }
+
+    h1 span {
+      background: linear-gradient(
+        90deg,
+        #e5b3ff,
+        #a45cff,
+        #e9c4ff
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 18px auto;
+      color: #aaa1b5;
+      font-size: 17px;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px 20px 90px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .contact-card {
+      padding: 30px;
+      border-radius: 20px;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.025)
+      );
+      border: 1px solid rgba(255,255,255,.09);
+      text-align: center;
+      transition: .25s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(198,92,255,.4);
+    }
+
+    .icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(198,92,255,.12);
+      font-size: 30px;
+    }
+
+    .contact-card h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: #9f96a8;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 11px;
+      background: linear-gradient(135deg,#c15cff,#7c3cff);
+      font-weight: bold;
+      box-shadow: 0 10px 30px rgba(151,64,255,.25);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .info {
+      margin-top: 20px;
+      padding: 25px;
+      border-radius: 18px;
+      background: rgba(198,92,255,.06);
+      border: 1px solid rgba(198,92,255,.15);
+      text-align: center;
+    }
+
+    .info h2 {
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      color: #a59cac;
+      font-size: 14px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.2);
+    }
+
+    .footer {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #81788c;
+      font-size: 13px;
+    }
+
+    .footer strong {
+      color: #cbbfd4;
+    }
+
+    @media (max-width: 650px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a:not(.active) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      THRASH<span>MC</span>
+    </a>
+
+    <div class="nav-links">
+
+      <a href="index.html">
+        Inicio
+      </a>
+
+      <a href="tienda.html">
+        Tienda
+      </a>
+
+      <a href="modalidades.html">
+        Modalidades
+      </a>
+
+      <a href="reglas.html">
+        Reglas
+      </a>
+
+      <a href="staff.html">
+        Staff
+      </a>
+
+      <a href="contacto.html" class="active">
+        Contacto
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="badge">
+    📞 CONTACTO OFICIAL
+  </div>
+
+  <h1>
+    CONTACTÁ CON <span>THRASHMC</span>
+  </h1>
+
+  <p>
+    ¿Tenés una duda, problema o querés formar parte
+    de la comunidad? Encontrá nuestros canales oficiales.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="contact-grid">
+
+    <!-- DISCORD -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        💬
+      </div>
+
+      <h2>
+        Discord
+      </h2>
+
+      <p>
+        Unite a nuestra comunidad de Discord
+        para recibir noticias, soporte,
+        anuncios y hablar con otros jugadores.
+      </p>
+
+      <!-- REEMPLAZAR POR TU INVITACIÓN DE DISCORD -->
+
+      <a
+        class="button"
+        href="#"
+        target="_blank"
+      >
+        UNIRME A DISCORD
+      </a>
+
+    </div>
+
+
+    <!-- SOPORTE -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        🛠️
+      </div>
+
+      <h2>
+        Soporte
+      </h2>
+
+      <p>
+        Si tenés un problema con el servidor,
+        una compra o necesitás ayuda,
+        contactá con nuestro equipo.
+      </p>
+
+      <a
+        class="button"
+        href="#"
+      >
+        CONTACTAR STAFF
+      </a>
+
+    </div>
+
+
+    <!-- POSTULACIONES -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        📝
+      </div>
+
+      <h2>
+        Postulaciones
+      </h2>
+
+      <p>
+        ¿Querés formar parte del Staff de THRASHMC?
+        Completá nuestro formulario oficial
+        de postulación.
+      </p>
+
+      <a
+        class="button"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScfTZLvO38dQFFaK1HDP7veBkSR6fPRmDiYDJGkQWK4kORF_Q/viewform?usp=publish-editor"
+        target="_blank"
+      >
+        POSTULARME
+      </a>
+
+    </div>
+
+
+    <!-- TIENDA -->
+
+    <div class="contact-card">
+
+      <div class="icon">
+        🛒
+      </div>
+
+      <h2>
+        Tienda
+      </h2>
+
+      <p>
+        Comprá rangos, kits y otros beneficios
+        desde nuestra tienda oficial.
+      </p>
+
+      <a
+        class="button"
+        href="tienda.html"
+      >
+        IR A LA TIENDA
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="info">
+
+    <h2>
+      ⚡ THRASHMC NETWORK
+    </h2>
+
+    <p>
+      Comunidad • FullPvP • Competencia • Diversión
+    </p>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="footer">
+
+    <div>
+      © 2026 <strong>THRASHMC NETWORK</strong>
+    </div>
+
+    <div>
+      Contacto Oficial
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+        </html>
