@@ -1,3161 +1,1008 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THRASHMC | Network</title>
+<title>THRASHMC NETWORK | Minecraft</title>
 
-<meta name="description"
-content="THRASHMC Network - FullPVP Minecraft">
+<meta name="description" content="THRASHMC NETWORK - Servidor Minecraft FullPVP">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================
-   RESET
-========================= */
+:root{
+--bg:#05030a;
+--bg2:#090611;
+--card:rgba(18,12,27,.72);
+--card2:#120b1b;
+--purple:#8e51ff;
+--pink:#dd6cff;
+--light:#ddd6ff;
+--white:#fff;
+--muted:#93899e;
+--border:rgba(255,255,255,.08);
+--green:#5bea8d;
+}
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
+font-family:Inter,Arial,sans-serif;
+background:
+radial-gradient(circle at 15% 0%,rgba(142,81,255,.25),transparent 32%),
+radial-gradient(circle at 85% 15%,rgba(221,108,255,.18),transparent 28%),
+radial-gradient(circle at 50% 100%,rgba(142,81,255,.12),transparent 35%),
+var(--bg);
+color:white;
+overflow-x:hidden;
+}
 
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+z-index:-2;
 
-    color:#fff;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
 
-    background:
-    #08090d;
+background-size:55px 55px;
+}
 
-    overflow-x:hidden;
+body:after{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+background:rgba(142,81,255,.08);
+filter:blur(100px);
+top:25%;
+left:50%;
+transform:translateX(-50%);
+pointer-events:none;
+z-index:-1;
 }
 
 a{
-    text-decoration:none;
-    color:inherit;
+color:inherit;
+text-decoration:none;
 }
 
 button{
-    font-family:inherit;
+font-family:inherit;
 }
-
 
 /* =========================
-   FONDO
-========================= */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-2;
-
-    background:
-
-    radial-gradient(
-        circle at 50% -10%,
-        rgba(142,81,255,.25),
-        transparent 35%
-    ),
-
-    radial-gradient(
-        circle at 90% 50%,
-        rgba(120,80,255,.10),
-        transparent 30%
-    ),
-
-    linear-gradient(
-        180deg,
-        #08090d,
-        #0b0d12 50%,
-        #07080b
-    );
-}
-
-body::after{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-1;
-
-    pointer-events:none;
-
-    opacity:.25;
-
-    background-image:
-
-    linear-gradient(
-        rgba(255,255,255,.03) 1px,
-        transparent 1px
-    ),
-
-    linear-gradient(
-        90deg,
-        rgba(255,255,255,.03) 1px,
-        transparent 1px
-    );
-
-    background-size:55px 55px;
-}
-
-
-/* =========================
-   NAVBAR
+NAVBAR
 ========================= */
 
 .navbar{
+position:fixed;
+top:0;
+left:0;
+right:0;
+height:76px;
+z-index:9999;
 
-    position:fixed;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-    top:0;
-    left:0;
-    right:0;
+padding:0 6%;
 
-    height:72px;
+background:rgba(5,3,10,.78);
+backdrop-filter:blur(18px);
 
-    padding:0 5%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    background:
-    rgba(8,9,13,.82);
-
-    backdrop-filter:blur(18px);
-
-    border-bottom:
-    1px solid
-    rgba(255,255,255,.08);
-
-    z-index:5000;
+border-bottom:1px solid var(--border);
 }
 
 .logo{
+font-size:21px;
+font-weight:900;
+letter-spacing:1px;
 
-    font-size:23px;
+background:linear-gradient(
+90deg,
+#fff,
+#ddd6ff,
+#8e51ff,
+#dd6cff
+);
 
-    font-weight:1000;
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
 
-    letter-spacing:1px;
-
-    color:#fff;
+text-shadow:0 0 30px rgba(142,81,255,.25);
 }
 
-.logo span{
-    color:#9d63ff;
+.nav{
+display:flex;
+align-items:center;
+gap:6px;
 }
 
+.nav a{
+font-size:13px;
+font-weight:700;
+color:#aaa2b2;
 
-/* DESKTOP MENU */
+padding:11px 13px;
+border-radius:8px;
 
-.desktop-menu{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:5px;
+transition:.25s;
 }
 
-.desktop-menu a{
-
-    padding:
-    10px 12px;
-
-    border-radius:8px;
-
-    color:#9297a2;
-
-    font-size:11px;
-
-    font-weight:800;
-
-    transition:.2s;
+.nav a:hover{
+color:#fff;
+background:rgba(142,81,255,.1);
 }
 
-.desktop-menu a:hover{
+.nav .shop-link{
+background:linear-gradient(
+135deg,
+var(--purple),
+var(--pink)
+);
 
-    color:#fff;
+color:#fff;
 
-    background:
-    rgba(255,255,255,.06);
+box-shadow:0 8px 30px rgba(142,81,255,.2);
 }
-
-.desktop-shop{
-
-    color:#fff!important;
-
-    background:
-    #8e51ff!important;
-}
-
-
-/* =========================
-   TRES PUNTITOS
-========================= */
 
 .menu-button{
+display:none;
 
-    width:46px;
-    height:46px;
+width:44px;
+height:44px;
 
-    border-radius:10px;
+border:1px solid rgba(221,108,255,.25);
+border-radius:10px;
 
-    border:
-    1px solid
-    rgba(255,255,255,.12);
+background:rgba(255,255,255,.04);
 
-    background:
-    rgba(255,255,255,.06);
+color:white;
 
-    color:#fff;
-
-    font-size:28px;
-
-    font-weight:bold;
-
-    line-height:35px;
-
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:.25s;
-
-    z-index:9000;
+font-size:22px;
+cursor:pointer;
 }
 
-.menu-button:hover{
+@media(max-width:900px){
 
-    background:#8e51ff;
-
-    border-color:#a978ff;
-
-    transform:scale(1.05);
+.menu-button{
+display:block;
 }
 
+.nav{
+display:none;
+
+position:absolute;
+top:76px;
+left:0;
+right:0;
+
+padding:15px;
+
+background:rgba(8,5,13,.97);
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid var(--border);
+
+flex-direction:column;
+}
+
+.nav.open{
+display:flex;
+}
+
+.nav a{
+width:100%;
+text-align:center;
+padding:15px;
+}
+
+}
 
 /* =========================
-   MENU DESPLEGABLE
-========================= */
-
-.mobile-menu{
-
-    position:fixed;
-
-    top:82px;
-
-    right:20px;
-
-    width:280px;
-
-    padding:12px;
-
-    background:#12151b;
-
-    border:
-    1px solid
-    rgba(255,255,255,.12);
-
-    border-radius:16px;
-
-    box-shadow:
-
-    0 20px 70px
-    rgba(0,0,0,.70),
-
-    0 0 35px
-    rgba(142,81,255,.12);
-
-    z-index:8999;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transform:
-    translateY(-12px)
-    scale(.96);
-
-    transform-origin:
-    top right;
-
-    transition:
-
-    opacity .2s ease,
-
-    transform .2s ease,
-
-    visibility .2s;
-}
-
-.mobile-menu.active{
-
-    opacity:1;
-
-    visibility:visible;
-
-    transform:
-    translateY(0)
-    scale(1);
-}
-
-
-/* CABECERA MENU */
-
-.mobile-menu-header{
-
-    padding:14px;
-
-    margin-bottom:6px;
-
-    border-bottom:
-    1px solid
-    rgba(255,255,255,.08);
-}
-
-.mobile-menu-header strong{
-
-    display:block;
-
-    color:#fff;
-
-    font-size:16px;
-}
-
-.mobile-menu-header span{
-
-    display:block;
-
-    margin-top:4px;
-
-    color:#a978ff;
-
-    font-size:8px;
-
-    font-weight:bold;
-
-    letter-spacing:3px;
-}
-
-
-/* LINKS MENU */
-
-.mobile-menu a{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    width:100%;
-
-    padding:13px;
-
-    margin:3px 0;
-
-    border-radius:9px;
-
-    color:#aeb3bc;
-
-    font-size:12px;
-
-    font-weight:800;
-
-    transition:.2s;
-}
-
-.mobile-menu a:hover{
-
-    color:#fff;
-
-    background:
-    rgba(142,81,255,.16);
-
-    transform:
-    translateX(4px);
-}
-
-.mobile-menu a span{
-    flex:1;
-}
-
-
-/* TIENDA */
-
-.mobile-menu .shop-link{
-
-    margin-top:8px;
-
-    color:#fff;
-
-    background:
-    linear-gradient(
-        135deg,
-        #8e51ff,
-        #a978ff
-    );
-
-    box-shadow:
-    0 7px 25px
-    rgba(142,81,255,.20);
-}
-
-.mobile-menu .shop-link:hover{
-
-    background:
-    linear-gradient(
-        135deg,
-        #9b63ff,
-        #b789ff
-    );
-
-    transform:
-    translateY(-1px);
-}
-
-
-/* =========================
-   HERO
+HERO
 ========================= */
 
 .hero{
+min-height:100vh;
 
-    min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 
-    display:flex;
+text-align:center;
 
-    align-items:center;
+padding:130px 20px 80px;
 
-    justify-content:center;
-
-    text-align:center;
-
-    padding:
-    120px 20px 80px;
-
-    position:relative;
+position:relative;
 }
 
 .hero-content{
-
-    max-width:1000px;
-
-    width:100%;
+max-width:1000px;
 }
 
 .badge{
+display:inline-flex;
+align-items:center;
+gap:9px;
 
-    display:inline-flex;
+padding:10px 18px;
 
-    align-items:center;
+border-radius:50px;
 
-    gap:8px;
+background:rgba(142,81,255,.09);
 
-    padding:
-    9px 16px;
+border:1px solid rgba(221,108,255,.25);
 
-    border-radius:50px;
+color:#ddd6ff;
 
-    background:
-    rgba(255,255,255,.04);
+font-size:11px;
+font-weight:800;
+letter-spacing:2px;
 
-    border:
-    1px solid
-    rgba(255,255,255,.10);
-
-    color:#b9bec8;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
+box-shadow:
+0 0 30px rgba(142,81,255,.08);
 }
 
-.badge b{
-    color:#5de388;
+.dot{
+width:7px;
+height:7px;
+
+border-radius:50%;
+
+background:var(--green);
+
+box-shadow:0 0 12px var(--green);
 }
 
 .hero h1{
+margin-top:30px;
 
-    margin-top:25px;
+font-size:clamp(58px,12vw,140px);
 
-    font-size:
-    clamp(60px,13vw,140px);
+line-height:.86;
 
-    line-height:.85;
+font-weight:900;
 
-    letter-spacing:-7px;
+letter-spacing:-7px;
 
-    font-weight:1000;
+background:linear-gradient(
+90deg,
+#ffffff,
+#ddd6ff 30%,
+#8e51ff 65%,
+#dd6cff
+);
 
-    color:#fff;
+-webkit-background-clip:text;
+background-clip:text;
 
-    text-shadow:
-    0 20px 80px
-    rgba(0,0,0,.6);
-}
+color:transparent;
 
-.hero h1 span{
-    color:#9d63ff;
+filter:drop-shadow(
+0 20px 50px rgba(142,81,255,.2)
+);
 }
 
 .network{
+margin-top:22px;
 
-    margin-top:18px;
+font-size:clamp(15px,3vw,26px);
 
-    color:#777e89;
+font-weight:800;
 
-    font-size:
-    clamp(15px,3vw,25px);
+letter-spacing:12px;
 
-    letter-spacing:11px;
-
-    font-weight:900;
+color:#c3bacb;
 }
 
-.description{
+.hero-description{
+max-width:700px;
 
-    max-width:670px;
+margin:28px auto;
 
-    margin:
-    25px auto;
+color:#8d8497;
 
-    color:#858b96;
+font-size:16px;
 
-    font-size:15px;
-
-    line-height:1.8;
+line-height:1.8;
 }
 
-
-/* =========================
-   BOTONES
-========================= */
+/* BUTTONS */
 
 .buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
 
-    display:flex;
+gap:12px;
 
-    align-items:center;
-
-    justify-content:center;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:30px;
+margin-top:30px;
 }
 
 .btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
 
-    display:inline-flex;
+padding:15px 24px;
 
-    align-items:center;
+border-radius:11px;
 
-    justify-content:center;
+font-size:13px;
+font-weight:800;
 
-    min-height:47px;
+border:1px solid transparent;
 
-    padding:
-    0 22px;
+cursor:pointer;
 
-    border-radius:9px;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    transition:.2s;
+transition:.25s;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
+transform:translateY(-4px);
 }
 
 .primary{
+background:linear-gradient(
+135deg,
+var(--purple),
+var(--pink)
+);
 
-    background:
-    linear-gradient(
-        135deg,
-        #8e51ff,
-        #a978ff
-    );
-
-    color:#fff;
-
-    box-shadow:
-    0 10px 30px
-    rgba(142,81,255,.20);
+box-shadow:
+0 12px 40px rgba(142,81,255,.25);
 }
 
 .secondary{
-
-    background:
-    rgba(255,255,255,.045);
-
-    border:
-    1px solid
-    rgba(255,255,255,.10);
-
-    color:#e3e5e9;
+background:rgba(255,255,255,.035);
+border-color:var(--border);
 }
 
-
-/* =========================
-   IP
-========================= */
+/* IP */
 
 .ip-box{
+max-width:600px;
 
-    max-width:620px;
+margin:35px auto 0;
 
-    margin:
-    35px auto 0;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-    padding:
-    17px 18px;
+padding:12px 13px 12px 20px;
 
-    display:flex;
+background:rgba(255,255,255,.035);
 
-    align-items:center;
+border:1px solid var(--border);
 
-    justify-content:space-between;
+border-radius:14px;
 
-    gap:20px;
-
-    background:#11141a;
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-
-    border-radius:13px;
+text-align:left;
 }
 
-.ip-title{
-
-    color:#686f7a;
-
-    font-size:8px;
-
-    letter-spacing:2px;
-
-    font-weight:900;
+.ip-label{
+font-size:9px;
+letter-spacing:2px;
+color:#706877;
+font-weight:800;
 }
 
 .ip{
-
-    margin-top:5px;
-
-    color:#fff;
-
-    font-size:15px;
-
-    font-weight:900;
+font-size:15px;
+font-weight:900;
+margin-top:4px;
 }
 
 .copy{
+border:none;
 
-    border:0;
+padding:11px 16px;
 
-    padding:
-    11px 16px;
+border-radius:8px;
 
-    border-radius:8px;
+background:var(--purple);
 
-    background:#252a32;
+color:white;
 
-    color:#fff;
+font-weight:800;
 
-    font-size:10px;
-
-    font-weight:900;
-
-    cursor:pointer;
-
-    transition:.2s;
+cursor:pointer;
 }
-
-.copy:hover{
-    background:#8e51ff;
-}
-
 
 /* =========================
-   SECCIONES
+SECTION
 ========================= */
 
 section{
-    padding:
-    100px 5%;
+padding:110px 6%;
 }
 
 .section-title{
+max-width:750px;
+margin:0 auto 55px;
 
-    max-width:750px;
-
-    margin:
-    0 auto 45px;
-
-    text-align:center;
+text-align:center;
 }
 
 .label{
+font-size:10px;
+font-weight:900;
 
-    color:#a978ff;
+letter-spacing:3px;
 
-    font-size:9px;
-
-    font-weight:1000;
-
-    letter-spacing:3px;
+color:var(--pink);
 }
 
 .section-title h2{
+margin-top:15px;
 
-    margin-top:11px;
+font-size:clamp(32px,5vw,55px);
 
-    font-size:
-    clamp(32px,5vw,52px);
-
-    color:#fff;
+letter-spacing:-2px;
 }
 
 .section-title p{
+margin-top:15px;
 
-    margin-top:13px;
+color:#817987;
 
-    color:#7d838d;
-
-    line-height:1.8;
-
-    font-size:13px;
+line-height:1.8;
 }
 
-
 /* =========================
-   STATUS
+STATUS
 ========================= */
 
-.status{
+.status-grid{
+max-width:1150px;
+margin:auto;
 
-    max-width:1100px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
 
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:15px;
+gap:18px;
 }
 
 .status-card{
+padding:28px;
 
-    padding:28px;
+border-radius:17px;
 
-    text-align:center;
+background:rgba(255,255,255,.025);
 
-    background:#11141a;
+border:1px solid var(--border);
 
-    border:
-    1px solid
-    rgba(255,255,255,.07);
+text-align:center;
 
-    border-radius:13px;
-
-    transition:.2s;
+transition:.3s;
 }
 
 .status-card:hover{
+transform:translateY(-7px);
 
-    transform:
-    translateY(-5px);
+border-color:rgba(221,108,255,.25);
 
-    border-color:
-    rgba(169,120,255,.30);
+box-shadow:
+0 20px 50px rgba(0,0,0,.25);
 }
 
 .status-icon{
-
-    font-size:27px;
-
-    margin-bottom:10px;
+font-size:30px;
+margin-bottom:12px;
 }
 
 .status-card h3{
-    font-size:15px;
+font-size:15px;
 }
 
 .status-card p{
+margin-top:7px;
 
-    margin-top:6px;
+color:#77707f;
 
-    color:#727984;
-
-    font-size:10px;
+font-size:12px;
 }
 
 .online{
-    color:#60df87;
+color:var(--green);
 }
 
+/* =========================
+MODALIDADES
+========================= */
+
+.mode-grid{
+max-width:1150px;
+margin:auto;
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:18px;
+}
+
+.mode{
+position:relative;
+
+padding:30px;
+
+min-height:210px;
+
+border-radius:19px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.05),
+rgba(255,255,255,.015)
+);
+
+border:1px solid var(--border);
+
+overflow:hidden;
+
+transition:.3s;
+}
+
+.mode:hover{
+transform:translateY(-8px);
+
+border-color:rgba(221,108,255,.35);
+
+box-shadow:
+0 20px 60px rgba(142,81,255,.12);
+}
+
+.mode:before{
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+right:0;
+
+height:3px;
+
+background:linear-gradient(
+90deg,
+var(--purple),
+var(--pink)
+);
+}
+
+.mode-icon{
+font-size:35px;
+margin-bottom:18px;
+}
+
+.mode h3{
+font-size:20px;
+}
+
+.mode p{
+margin-top:10px;
+
+color:#817987;
+
+font-size:13px;
+
+line-height:1.7;
+}
+
+.mode-badge{
+display:inline-block;
+
+margin-top:18px;
+
+padding:6px 10px;
+
+border-radius:6px;
+
+font-size:9px;
+font-weight:900;
+
+background:rgba(142,81,255,.12);
+
+color:#cfc1ff;
+}
 
 /* =========================
-   FEATURES
+FEATURES
 ========================= */
 
 .features{
+max-width:1150px;
 
-    max-width:1150px;
+margin:auto;
 
-    margin:auto;
+display:grid;
 
-    display:grid;
+grid-template-columns:repeat(3,1fr);
 
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:16px;
+gap:18px;
 }
 
 .feature{
+padding:30px;
 
-    padding:30px;
+border-radius:18px;
 
-    min-height:190px;
+background:rgba(255,255,255,.025);
 
-    background:#11141a;
+border:1px solid var(--border);
 
-    border:
-    1px solid
-    rgba(255,255,255,.07);
-
-    border-radius:14px;
-
-    transition:.2s;
+transition:.3s;
 }
 
 .feature:hover{
+transform:translateY(-7px);
 
-    transform:
-    translateY(-7px);
-
-    background:#15181f;
-
-    border-color:
-    rgba(169,120,255,.35);
+border-color:rgba(221,108,255,.3);
 }
 
 .feature-icon{
-
-    width:46px;
-    height:46px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:10px;
-
-    background:
-    rgba(255,255,255,.055);
-
-    font-size:22px;
-
-    margin-bottom:18px;
+font-size:30px;
+margin-bottom:18px;
 }
 
 .feature h3{
-
-    font-size:17px;
-
-    margin-bottom:9px;
+font-size:18px;
 }
 
 .feature p{
+margin-top:10px;
 
-    color:#7c828d;
+color:#817987;
 
-    font-size:12px;
+font-size:13px;
 
-    line-height:1.8;
+line-height:1.7;
 }
 
-
 /* =========================
-   STATS
+STATS
 ========================= */
 
 .stats{
+max-width:1050px;
 
-    max-width:1000px;
+margin:auto;
 
-    margin:auto;
+display:grid;
 
-    display:grid;
+grid-template-columns:repeat(4,1fr);
 
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:15px;
+gap:15px;
 }
 
 .stat{
+padding:30px 15px;
 
-    padding:30px 15px;
+text-align:center;
 
-    text-align:center;
+background:rgba(255,255,255,.025);
 
-    background:#11141a;
+border:1px solid var(--border);
 
-    border:
-    1px solid
-    rgba(255,255,255,.07);
-
-    border-radius:13px;
+border-radius:16px;
 }
 
-.number{
+.stat-number{
+font-size:31px;
 
-    font-size:31px;
+font-weight:900;
 
-    font-weight:1000;
+background:linear-gradient(
+90deg,
+#ddd6ff,
+#dd6cff
+);
 
-    color:#fff;
+-webkit-background-clip:text;
+background-clip:text;
+
+color:transparent;
 }
 
-.number span{
-    color:#a978ff;
+.stat-text{
+margin-top:8px;
+
+color:#716a78;
+
+font-size:10px;
+
+font-weight:800;
+
+letter-spacing:1px;
 }
-
-.stat p{
-
-    margin-top:7px;
-
-    color:#686e78;
-
-    font-size:9px;
-
-    letter-spacing:1.5px;
-
-    font-weight:bold;
-}
-
 
 /* =========================
-   RANGOS
+STAFF
 ========================= */
 
-.ranks{
+.staff-preview{
+max-width:1050px;
 
-    max-width:1150px;
+margin:auto;
 
-    margin:auto;
+display:grid;
 
-    display:grid;
+grid-template-columns:repeat(2,1fr);
 
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:16px;
+gap:18px;
 }
 
-.rank{
+.staff-card{
+display:flex;
+align-items:center;
 
-    position:relative;
+gap:20px;
 
-    padding:30px 18px;
+padding:24px;
 
-    text-align:center;
+background:rgba(255,255,255,.025);
 
-    background:#11141a;
+border:1px solid var(--border);
 
-    border:
-    1px solid
-    rgba(255,255,255,.07);
+border-radius:17px;
 
-    border-radius:14px;
-
-    overflow:hidden;
-
-    transition:.2s;
+transition:.3s;
 }
 
-.rank:hover{
+.staff-card:hover{
+transform:translateY(-6px);
 
-    transform:
-    translateY(-7px);
-
-    background:#15181f;
+border-color:rgba(221,108,255,.3);
 }
 
-.rank::before{
+.staff-avatar{
+width:70px;
+height:70px;
 
-    content:"";
+border-radius:10px;
 
-    position:absolute;
+overflow:hidden;
 
-    top:0;
-    left:0;
-    right:0;
+border:2px solid rgba(221,108,255,.3);
 
-    height:3px;
-
-    background:
-    linear-gradient(
-        90deg,
-        #8e51ff,
-        #a978ff
-    );
+flex-shrink:0;
 }
 
-.rank h3{
+.staff-avatar img{
+width:100%;
+height:100%;
 
-    font-size:20px;
-
-    margin-bottom:8px;
+image-rendering:pixelated;
 }
 
-.rank .price{
-
-    color:#6e747e;
-
-    font-size:9px;
-
-    font-weight:bold;
-
-    margin-bottom:15px;
+.staff-info h3{
+font-size:18px;
 }
 
-.rank ul{
+.staff-info span{
+display:inline-block;
 
-    list-style:none;
+margin-top:7px;
 
-    color:#858b95;
+font-size:11px;
 
-    font-size:11px;
+font-weight:900;
 
-    line-height:2;
+color:var(--pink);
 }
 
-.rank a{
+.staff-info p{
+margin-top:7px;
 
-    display:inline-block;
+color:#77707f;
 
-    margin-top:17px;
-
-    padding:
-    9px 14px;
-
-    border-radius:7px;
-
-    background:
-    rgba(255,255,255,.05);
-
-    color:#c0c5cd;
-
-    font-size:9px;
-
-    font-weight:900;
+font-size:12px;
 }
 
-.rank a:hover{
+.view-all{
+display:block;
 
-    background:#8e51ff;
+width:max-content;
 
-    color:#fff;
+margin:30px auto 0;
 }
-
-.user{color:#b8bdc5;}
-.hero-rank{color:#62d9ff;}
-.vip{color:#62df8b;}
-.vipplus{color:#d18cff;}
-.selva{color:#65d89a;}
-.rey{color:#ffd55b;}
-.mono{color:#ffad61;}
-.maestro{color:#ff6c96;}
-.inferno{color:#ff6262;}
-.lunar{color:#b595ff;}
-.thrash{color:#df83ff;}
-
 
 /* =========================
-   TIENDA
+SHOP
 ========================= */
 
-.shop{
+.shop-box{
+max-width:1100px;
 
-    max-width:1100px;
+margin:auto;
 
-    margin:auto;
+padding:70px 30px;
 
-    padding:
-    70px 25px;
+text-align:center;
 
-    text-align:center;
+border-radius:25px;
 
-    background:
-    #11141a;
+background:
+radial-gradient(
+circle at center,
+rgba(142,81,255,.2),
+transparent 65%
+),
+#0d0814;
 
-    border:
-    1px solid
-    rgba(255,255,255,.08);
+border:1px solid rgba(221,108,255,.16);
 
-    border-radius:17px;
-
-    position:relative;
-
-    overflow:hidden;
+box-shadow:
+0 25px 80px rgba(0,0,0,.3);
 }
 
-.shop::before{
+.shop-box h2{
+margin-top:12px;
 
-    content:"";
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    left:50%;
-    top:50%;
-
-    transform:
-    translate(-50%,-50%);
-
-    background:
-    radial-gradient(
-        circle,
-        rgba(142,81,255,.14),
-        transparent 68%
-    );
-
-    pointer-events:none;
+font-size:clamp(32px,5vw,52px);
 }
 
-.shop h2{
+.shop-box p{
+max-width:650px;
 
-    position:relative;
+margin:17px auto;
 
-    margin-top:10px;
+color:#817987;
 
-    font-size:
-    clamp(31px,5vw,49px);
+line-height:1.8;
 }
-
-.shop p{
-
-    position:relative;
-
-    max-width:600px;
-
-    margin:
-    15px auto 25px;
-
-    color:#7d838d;
-
-    line-height:1.8;
-}
-
-.shop a{
-    position:relative;
-}
-
 
 /* =========================
-   DISCORD
+DISCORD
 ========================= */
 
 .discord{
+max-width:1100px;
 
-    max-width:1100px;
+margin:auto;
 
-    margin:auto;
+display:grid;
 
-    display:grid;
+grid-template-columns:1.3fr .7fr;
 
-    grid-template-columns:
-    1.4fr .6fr;
-
-    gap:16px;
+gap:18px;
 }
 
 .discord-main{
+padding:45px;
 
-    padding:45px;
+border-radius:20px;
 
-    background:
-    linear-gradient(
-        135deg,
-        #171a21,
-        #11141a
-    );
+background:
+linear-gradient(
+135deg,
+rgba(142,81,255,.16),
+rgba(221,108,255,.04)
+);
 
-    border:
-    1px solid
-    rgba(255,255,255,.08);
-
-    border-radius:15px;
+border:1px solid rgba(221,108,255,.15);
 }
 
 .discord-main h2{
-
-    font-size:32px;
-
-    margin-bottom:12px;
+font-size:34px;
 }
 
 .discord-main p{
+margin:15px 0 25px;
 
-    max-width:620px;
+color:#817987;
 
-    color:#808691;
-
-    line-height:1.8;
-
-    margin-bottom:23px;
+line-height:1.8;
 }
 
 .discord-side{
+padding:35px;
 
-    padding:32px;
+border-radius:20px;
 
-    background:#11141a;
+background:rgba(255,255,255,.025);
 
-    border:
-    1px solid
-    rgba(255,255,255,.07);
-
-    border-radius:15px;
+border:1px solid var(--border);
 }
 
 .discord-side h3{
-    margin-bottom:15px;
+font-size:18px;
 }
 
 .discord-side p{
+margin-top:15px;
 
-    color:#7d838d;
+color:#817987;
 
-    line-height:2;
-
-    font-size:12px;
+line-height:2;
 }
 
-
 /* =========================
-   NOTICIAS
+NEWS
 ========================= */
 
 .news{
+max-width:1100px;
 
-    max-width:1100px;
+margin:auto;
 
-    margin:auto;
+display:grid;
 
-    display:grid;
+grid-template-columns:repeat(3,1fr);
 
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:16px;
+gap:18px;
 }
 
 .news-card{
+padding:28px;
 
-    padding:28px;
+border-radius:17px;
 
-    background:#11141a;
+background:rgba(255,255,255,.025);
 
-    border:
-    1px solid
-    rgba(255,255,255,.07);
-
-    border-radius:14px;
+border:1px solid var(--border);
 }
 
 .news-tag{
+color:var(--pink);
 
-    color:#a978ff;
+font-size:9px;
 
-    font-size:8px;
+font-weight:900;
 
-    font-weight:900;
-
-    letter-spacing:2px;
+letter-spacing:2px;
 }
 
 .news-card h3{
+margin:12px 0 10px;
 
-    margin:
-    12px 0 9px;
-
-    font-size:18px;
+font-size:18px;
 }
 
 .news-card p{
+color:#817987;
 
-    color:#7d838d;
+font-size:13px;
 
-    font-size:12px;
-
-    line-height:1.8;
+line-height:1.7;
 }
 
-
 /* =========================
-   FAQ
+FAQ
 ========================= */
 
 .faq{
+max-width:850px;
 
-    max-width:850px;
-
-    margin:auto;
+margin:auto;
 }
 
 details{
+margin-bottom:10px;
 
-    margin-bottom:10px;
+padding:19px 20px;
 
-    padding:
-    18px 20px;
-
-    background:#11141a;
-
-    border:
-    1px solid
-    rgba(255,255,255,.07);
-
-    border-radius:10px;
-}
-
-summary{
-
-    cursor:pointer;
-
-    font-size:12px;
-
-    font-weight:900;
-}
-
-details p{
-
-    margin-top:12px;
-
-    color:#7d838d;
-
-    font-size:11px;
-
-    line-height:1.8;
-}
-
-
-/* =========================
-   FINAL
-========================= */
-
-.final{
-
-    padding:
-    120px 20px;
-
-    text-align:center;
-}
-
-.final h2{
-
-    margin-top:10px;
-
-    font-size:
-    clamp(36px,6vw,60px);
-}
-
-.final p{
-
-    max-width:600px;
-
-    margin:
-    15px auto 25px;
-
-    color:#7d838d;
-
-    line-height:1.8;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-    padding:
-    50px 5%;
-
-    background:#06070a;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.07);
-}
-
-.footer{
-
-    max-width:1150px;
-
-    margin:auto;
-
-    display:flex;
-
-    align-items:flex-start;
-
-    justify-content:space-between;
-
-    gap:30px;
-}
-
-.footer h3{
-    font-size:18px;
-}
-
-.footer p{
-
-    margin-top:8px;
-
-    color:#626873;
-
-    font-size:10px;
-
-    line-height:1.8;
-}
-
-.footer-links{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:18px;
-}
-
-.footer-links a{
-
-    color:#707680;
-
-    font-size:10px;
-
-    font-weight:800;
-}
-
-.footer-links a:hover{
-    color:#a978ff;
-}
-
-.copyright{
-
-    max-width:1150px;
-
-    margin:
-    30px auto 0;
-
-    padding-top:18px;
-
-    border-top:
-    1px solid
-    rgba(255,255,255,.06);
-
-    color:#4e545d;
-
-    font-size:9px;
-}
-
-
-/* =========================
-   TOAST
-========================= */
-
-#toast{
-
-    position:fixed;
-
-    left:50%;
-
-    bottom:25px;
-
-    transform:
-    translate(-50%,25px);
-
-    padding:
-    12px 20px;
-
-    background:#171a20;
-
-    border:
-    1px solid
-    rgba(142,81,255,.35);
-
-    border-radius:9px;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.2s;
-
-    z-index:9999;
-}
-
-#toast.show{
-
-    opacity:1;
-
-    visibility:visible;
-
-    transform:
-    translate(-50%,0);
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:1000px){
-
-    .desktop-menu{
-        display:none;
-    }
-
-    .features{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .ranks{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-}
-
-
-@media(max-width:700px){
-
-    section{
-        padding:
-        75px 5%;
-    }
-
-    .hero{
-        padding:
-        110px 15px 70px;
-    }
-
-    .hero h1{
-        letter-spacing:-5px;
-    }
-
-    .network{
-        letter-spacing:6px;
-    }
-
-    .status{
-        grid-template-columns:1fr;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
-        grid-template-columns:
-        repeat(2,1fr);
-    }
-
-    .ranks{
-        grid-template-columns:1fr;
-    }
-
-    .news{
-        grid-template-columns:1fr;
-    }
-
-    .discord{
-        grid-template-columns:1fr;
-    }
-
-    .ip-box{
-        flex-direction:column;
-
-        text-align:center;
-    }
-
-    .footer{
-        flex-direction:column;
-    }
-
-}
-
-
-@media(max-width:420px){
-
-    .mobile-menu{
-
-        right:10px;
-
-        width:
-        calc(100% - 20px);
-    }
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-
-}
-
-
-/* =========================
-   MENU DESKTOP OCULTO
-========================= */
-
-@media(min-width:1001px){
-
-    .mobile-menu{
-        display:block;
-    }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
-<nav class="navbar">
-
-<a href="index.html" class="logo">
-THRASH<span>MC</span>
-</a>
-
-
-<div class="desktop-menu">
-
-<a href="index.html">
-Inicio
-</a>
-
-<a href="modalidades.html">
-Modalidades
-</a>
-
-<a href="servidor.html">
-Servidor
-</a>
-
-<a href="staff.html">
-Staff
-</a>
-
-<a href="reglas.html">
-Reglas
-</a>
-
-<a href="contacto.html">
-Contacto
-</a>
-
-<a href="tienda.html" class="desktop-shop">
-🛒 Tienda
-</a>
-
-</div>
-
-
-<!-- TRES PUNTITOS -->
-
-<button
-id="menuButton"
-class="menu-button"
-type="button"
-aria-label="Abrir menú"
-aria-expanded="false">
-
-⋮
-
-</button>
-
-</nav>
-
-
-<!-- =========================
-     MENU
-========================= -->
-
-<div
-id="mobileMenu"
-class="mobile-menu">
-
-
-<div class="mobile-menu-header">
-
-<strong>
-THRASHMC
-</strong>
-
-<span>
-MENÚ PRINCIPAL
-</span>
-
-</div>
-
-
-<a href="index.html">
-
-🏠
-
-<span>
-Inicio
-</span>
-
-</a>
-
-
-<a href="modalidades.html">
-
-⚔️
-
-<span>
-Modalidades
-</span>
-
-</a>
-
-
-<a href="servidor.html">
-
-🌐
-
-<span>
-Servidor
-</span>
-
-</a>
-
-
-<a href="staff.html">
-
-👥
-
-<span>
-Staff
-</span>
-
-</a>
-
-
-<a href="reglas.html">
-
-📜
-
-<span>
-Reglas
-</span>
-
-</a>
-
-
-<a href="contacto.html">
-
-📞
-
-<span>
-Contacto
-</span>
-
-</a>
-
-
-<a
-href="tienda.html"
-class="shop-link">
-
-🛒
-
-<span>
-Tienda
-</span>
-
-</a>
-
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank">
-
-💬
-
-<span>
-Discord
-</span>
-
-</a>
-
-
-</div>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<header class="hero">
-
-<div class="hero-content">
-
-
-<div class="badge">
-
-<b>●</b>
-
-THRASHMC NETWORK
-
-•
-
-FULLPVP
-
-</div>
-
-
-<h1>
-THRASH<span>MC</span>
-</h1>
-
-
-<div class="network">
-NETWORK
-</div>
-
-
-<p class="description">
-
-La batalla comienza acá.
-
-Entrá a THRASHMC, conseguí kills,
-subí de nivel, obtené recompensas
-y demostrale a todos quién domina
-el FullPVP.
-
-</p>
-
-
-<div class="buttons">
-
-
-<button
-class="btn primary"
-onclick="copyIP()">
-
-🎮 JUGAR AHORA
-
-</button>
-
-
-<a
-href="modalidades.html"
-class="btn secondary">
-
-⚔️ MODALIDADES
-
-</a>
-
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
-class="btn secondary">
-
-💬 DISCORD
-
-</a>
-
-
-</div>
-
-
-<div class="ip-box">
-
-
-<div>
-
-<div class="ip-title">
-IP DEL SERVIDOR
-</div>
-
-<div class="ip">
-puff.visihost.in:2503
-</div>
-
-</div>
-
-
-<button
-class="copy"
-onclick="copyIP()">
-
-COPIAR IP
-
-</button>
-
-
-</div>
-
-
-</div>
-
-</header>
-
-
-<!-- =========================
-     STATUS
-========================= -->
-
-<section>
-
-<div class="status">
-
-
-<div class="status-card">
-
-<div class="status-icon">
-🟢
-</div>
-
-<h3 class="online">
-SERVIDOR
-</h3>
-
-<p>
-THRASHMC
-</p>
-
-</div>
-
-
-<div class="status-card">
-
-<div class="status-icon">
-⚔️
-</div>
-
-<h3>
-MODALIDAD
-</h3>
-
-<p>
-FULLPVP
-</p>
-
-</div>
-
-
-<div class="status-card">
-
-<div class="status-icon">
-🌐
-</div>
-
-<h3>
-PLATAFORMA
-</h3>
-
-<p>
-MINECRAFT JAVA
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     MODALIDAD
-========================= -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-EXPERIENCIA THRASHMC
-</span>
-
-<h2>
-Todo lo que necesitás para luchar
-</h2>
-
-<p>
-Una experiencia FullPVP pensada para
-competir, progresar y disfrutar.
-</p>
-
-</div>
-
-
-<div class="features">
-
-
-<div class="feature">
-
-<div class="feature-icon">
-⚔️
-</div>
-
-<h3>
-PvP competitivo
-</h3>
-
-<p>
-Enfrentate a otros jugadores,
-conseguí kills y luchá por
-los primeros puestos.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-💎
-</div>
-
-<h3>
-Economía
-</h3>
-
-<p>
-Conseguí recursos y progresá
-dentro de la economía
-de THRASHMC.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🏆
-</div>
-
-<h3>
-Rankings
-</h3>
-
-<p>
-Competí para formar parte
-de los mejores jugadores.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🎁
-</div>
-
-<h3>
-Recompensas
-</h3>
-
-<p>
-Conseguí recompensas
-especiales mientras jugás.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🔥
-</div>
-
-<h3>
-Eventos
-</h3>
-
-<p>
-Participá en eventos y
-desafíos especiales.
-</p>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-👑
-</div>
-
-<h3>
-Rangos
-</h3>
-
-<p>
-Desbloqueá rangos y
-beneficios exclusivos.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-THRASHMC NETWORK
-</span>
-
-<h2>
-Construimos algo grande
-</h2>
-
-</div>
-
-
-<div class="stats">
-
-
-<div class="stat">
-
-<div class="number">
-24<span>/7</span>
-</div>
-
-<p>
-DISPONIBILIDAD
-</p>
-
-</div>
-
-
-<div class="stat">
-
-<div class="number">
-PvP
-</div>
-
-<p>
-MODALIDAD
-</p>
-
-</div>
-
-
-<div class="stat">
-
-<div class="number">
-11
-</div>
-
-<p>
-RANGOS
-</p>
-
-</div>
-
-
-<div class="stat">
-
-<div class="number">
-2026
-</div>
-
-<p>
-NETWORK
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     RANGOS
-========================= -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-THRASHMC STORE
-</span>
-
-<h2>
-Elegí tu rango
-</h2>
-
-<p>
-Potenciá tu experiencia dentro del servidor.
-</p>
-
-</div>
-
-
-<div class="ranks">
-
-
-<div class="rank">
-
-<h3 class="user">
-USER
-</h3>
-
-<div class="price">
-GRATIS
-</div>
-
-<ul>
-
-<li>✓ Acceso al servidor</li>
-<li>✓ FullPVP</li>
-<li>✓ Sistema de niveles</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="hero-rank">
-HERO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit HERO</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo HERO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="vip">
-VIP
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit VIP</li>
-<li>✓ Beneficios VIP</li>
-<li>✓ Prefijo VIP</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="vipplus">
-VIP+
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit VIP+</li>
-<li>✓ Beneficios VIP+</li>
-<li>✓ Prefijo VIP+</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="selva">
-SELVA
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit SELVA</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo SELVA</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="rey">
-REY
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit REY</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo REY</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="mono">
-MONO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit MONO</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo MONO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="maestro">
-MAESTRO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit MAESTRO</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo MAESTRO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="inferno">
-INFERNO
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit INFERNO</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo INFERNO</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="lunar">
-LUNAR
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Kit LUNAR</li>
-<li>✓ Beneficios</li>
-<li>✓ Prefijo LUNAR</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-<div class="rank">
-
-<h3 class="thrash">
-THRASH
-</h3>
-
-<div class="price">
-PRÓXIMAMENTE
-</div>
-
-<ul>
-
-<li>✓ Rango máximo</li>
-<li>✓ Máximos beneficios</li>
-<li>✓ Prefijo THRASH</li>
-
-</ul>
-
-<a href="tienda.html">
-VER TIENDA
-</a>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     TIENDA
-========================= -->
-
-<section>
-
-<div class="shop">
-
-<span class="label">
-THRASHMC STORE
-</span>
-
-<h2>
-Llevá tu experiencia al siguiente nivel
-</h2>
-
-<p>
-Visitá nuestra tienda para descubrir
-rangos, kits y recompensas especiales.
-</p>
-
-<a
-href="tienda.html"
-class="btn primary">
-
-🛒 ABRIR TIENDA
-
-</a>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     DISCORD
-========================= -->
-
-<section>
-
-<div class="discord">
-
-
-<div class="discord-main">
-
-<h2>
-Únete a nuestra comunidad
-</h2>
-
-<p>
-Sé parte de la comunidad THRASHMC.
-Recibí noticias, anuncios, eventos
-y novedades directamente en Discord.
-</p>
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
-class="btn primary">
-
-💬 ENTRAR AL DISCORD
-
-</a>
-
-</div>
-
-
-<div class="discord-side">
-
-<h3>
-¿Qué encontrarás?
-</h3>
-
-<p>
-
-📢 Anuncios<br>
-🎉 Eventos<br>
-⚔️ Comunidad PvP<br>
-🏆 Competencias<br>
-💬 Chat de jugadores
-
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     NOTICIAS
-========================= -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-NOVEDADES
-</span>
-
-<h2>
-Noticias
-</h2>
-
-</div>
-
-
-<div class="news">
-
-
-<div class="news-card">
-
-<span class="news-tag">
-THRASHMC
-</span>
-
-<h3>
-Bienvenido a THRASHMC
-</h3>
-
-<p>
-Prepárate para disfrutar
-de nuestra experiencia FullPVP.
-</p>
-
-</div>
-
-
-<div class="news-card">
-
-<span class="news-tag">
-PRÓXIMAMENTE
-</span>
-
-<h3>
-Survival
-</h3>
-
-<p>
-La modalidad Survival llegará
-próximamente a THRASHMC.
-</p>
-
-</div>
-
-
-<div class="news-card">
-
-<span class="news-tag">
-PRÓXIMAMENTE
-</span>
-
-<h3>
-Eventos
-</h3>
-
-<p>
-Estamos preparando nuevos
-eventos para la comunidad.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FAQ
-========================= -->
-
-<section>
-
-<div class="section-title">
-
-<span class="label">
-AYUDA
-</span>
-
-<h2>
-Preguntas frecuentes
-</h2>
-
-</div>
-
-
-<div class="faq">
-
-
-<details>
-
-<summary>
-¿Cuál es la IP?
-</summary>
-
-<p>
-puff.visihost.in:2503
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Cuál es la modalidad?
-</summary>
-
-<p>
-Actualmente THRASHMC está
-enfocado en FullPVP.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Habrá Survival?
-</summary>
-
-<p>
-Sí. Survival estará disponible
-próximamente.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Dónde compro los rangos?
-</summary>
-
-<p>
-Entrá en nuestra sección Tienda.
-</p>
-
-</details>
-
-
-<details>
-
-<summary>
-¿Dónde está el Discord?
-</summary>
-
-<p>
-Podés entrar desde cualquier
-botón de Discord de la página.
-</p>
-
-</details>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FINAL
-========================= -->
-
-<section class="final">
-
-<span class="label">
-THRASHMC NETWORK
-</span>
-
-<h2>
-¿Listo para entrar?
-</h2>
-
-<p>
-Conectate ahora a THRASHMC
-y demostrale a todos quién
-domina el FullPVP.
-</p>
-
-
-<div class="buttons">
-
-
-<button
-class="btn primary"
-onclick="copyIP()">
-
-🎮 JUGAR AHORA
-
-</button>
-
-
-<a
-href="modalidades.html"
-class="btn secondary">
-
-⚔️ MODALIDADES
-
-</a>
-
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
-class="btn secondary">
-
-💬 DISCORD
-
-</a>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-<div class="footer">
-
-
-<div>
-
-<h3>
-THRASHMC NETWORK
-</h3>
-
-<p>
-
-⚔ FULLPVP<br>
-💜 COMUNIDAD<br>
-🏆 COMPETENCIA
-
-</p>
-
-</div>
-
-
-<div class="footer-links">
-
-<a href="index.html">
-Inicio
-</a>
-
-<a href="modalidades.html">
-Modalidades
-</a>
-
-<a href="servidor.html">
-Servidor
-</a>
-
-<a href="staff.html">
-Staff
-</a>
-
-<a href="reglas.html">
-Reglas
-</a>
-
-<a href="contacto.html">
-Contacto
-</a>
-
-<a href="tienda.html">
-Tienda
-</a>
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank">
-
-Discord
-
-</a>
-
-</div>
-
-
-</div>
-
-
-<div class="copyright">
-
-IP:
-puff.visihost.in:2503
-
-<br><br>
-
-© 2026 THRASHMC NETWORK.
-Todos los derechos reservados.
-
-</div>
-
-</footer>
-
-
-<!-- TOAST -->
-
-<div id="toast">
-✓ IP copiada correctamente
-</div>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-/* =========================
-   COPIAR IP
-========================= */
-
-const SERVER_IP =
-"puff.visihost.in:2503";
-
-function copyIP(){
-
-    if(
-        navigator.clipboard &&
-        navigator.clipboard.writeText
-    ){
-
-        navigator.clipboard
-        .writeText(SERVER_IP)
-        .then(showToast)
-        .catch(fallbackCopy);
-
-    }else{
-
-        fallbackCopy();
-
-    }
-
-}
-
-
-function fallbackCopy(){
-
-    const input =
-    document.createElement("input");
-
-    input.value =
-    SERVER_IP;
-
-    document.body.appendChild(input);
-
-    input.select();
-
-    document.execCommand("copy");
-
-    input.remove();
-
-    showToast();
-
-}
-
-
-function showToast(){
-
-    const toast =
-    document.getElementById("toast");
-
-    toast.classList.add("show");
-
-    setTimeout(function(){
-
-        toast.classList.remove("show");
-
-    },2200);
-
-}
-
-
-/* =========================
-   TRES PUNTITOS
-========================= */
-
-const menuButton =
-document.getElementById("menuButton");
-
-const mobileMenu =
-document.getElementById("mobileMenu");
-
-
-/* ABRIR / CERRAR */
-
-menuButton.addEventListener(
-"click",
-function(event){
-
-    event.stopPropagation();
-
-    const abierto =
-    mobileMenu.classList.toggle("active");
-
-    menuButton.setAttribute(
-        "aria-expanded",
-        abierto ? "true" : "false"
-    );
-
-});
-
-
-/* =========================
-   CERRAR AL TOCAR AFUERA
-========================= */
-
-document.addEventListener(
-"click",
-function(event){
-
-    if(
-
-        !mobileMenu.contains(
-            event.target
-        )
-
-        &&
-
-        !menuButton.contains(
-            event.target
-        )
-
-    ){
-
-        mobileMenu.classList.remove(
-            "active"
-        );
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-});
-
-
-/* =========================
-   CERRAR AL ELEGIR
-========================= */
-
-mobileMenu
-.querySelectorAll("a")
-.forEach(function(link){
-
-    link.addEventListener(
-    "click",
-    function(){
-
-        mobileMenu.classList.remove(
-            "active"
-        );
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    });
-
-});
-
-
-/* =========================
-   ESC
-========================= */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-    if(event.key === "Escape"){
-
-        mobileMenu.classList.remove(
-            "active"
-        );
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-    }
-
-});
-
-</script>
-
-
-</body>
-</html>
+border-radius:11
