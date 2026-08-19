@@ -4,766 +4,1323 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Servidor | THRASHMC NETWORK</title>
+<title>THRASHMC | Minecraft Network</title>
 
-<meta name="description" content="Información oficial del servidor Minecraft THRASHMC Network">
+<meta name="description"
+content="THRASHMC Network - Servidor Minecraft FullPVP">
 
 <style>
 
 *{
-box-sizing:border-box;
-margin:0;
-padding:0
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-scroll-behavior:smooth
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:#05030a;
-color:#fff;
-overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#05030a;
+    color:#fff;
+    overflow-x:hidden;
+}
 
-background:
-radial-gradient(
-circle at 50% 0%,
-rgba(142,81,255,.28),
-transparent 35%
-),
-radial-gradient(
-circle at 100% 60%,
-rgba(221,108,255,.12),
-transparent 30%
-),
-#05030a;
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        rgba(142,81,255,.40),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 100% 50%,
+        rgba(221,108,255,.18),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 0% 80%,
+        rgba(142,81,255,.16),
+        transparent 30%
+    ),
+    #05030a;
 }
 
 body:after{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:-1;
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
 
-background-image:
-linear-gradient(
-rgba(255,255,255,.025) 1px,
-transparent 1px
-),
-linear-gradient(
-90deg,
-rgba(255,255,255,.025) 1px,
-transparent 1px
-);
+    background-image:
+    linear-gradient(
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    ),
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.025) 1px,
+        transparent 1px
+    );
 
-background-size:50px 50px;
+    background-size:50px 50px;
 }
 
 a{
-text-decoration:none;
-color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
+button{
+    font-family:inherit;
+}
+
+
+/* =====================================
+   NAVBAR
+===================================== */
+
 .navbar{
-position:fixed;
-top:0;
-left:0;
-right:0;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
 
-height:72px;
+    height:72px;
 
-display:flex;
-align-items:center;
-justify-content:space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-padding:0 6%;
+    padding:0 5%;
 
-background:rgba(5,3,10,.82);
-backdrop-filter:blur(15px);
+    background:rgba(5,3,10,.88);
 
-border-bottom:1px solid rgba(255,255,255,.07);
+    backdrop-filter:blur(18px);
 
-z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    z-index:1000;
 }
 
 .logo{
-font-size:23px;
-font-weight:1000;
-letter-spacing:1px;
+    font-size:24px;
+    font-weight:1000;
 
-background:
-linear-gradient(
-90deg,
-#fff,
-#ddd6ff,
-#8e51ff,
-#dd6cff
-);
+    letter-spacing:1px;
 
--webkit-background-clip:text;
-background-clip:text;
+    background:
+    linear-gradient(
+        90deg,
+        #fff,
+        #ddd6ff,
+        #8e51ff,
+        #dd6cff
+    );
 
-color:transparent;
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
 }
 
 .menu{
-display:flex;
-align-items:center;
-gap:25px;
+    display:flex;
+    align-items:center;
+
+    gap:20px;
 }
 
 .menu a{
-color:#aaa3b1;
-font-size:13px;
-font-weight:bold;
-transition:.2s;
+    color:#aaa3b1;
+
+    font-size:12px;
+    font-weight:bold;
+
+    transition:.2s;
 }
 
 .menu a:hover{
-color:#fff;
+    color:#fff;
 }
 
 .menu-shop{
-padding:10px 16px;
-border-radius:9px;
+    padding:10px 15px;
 
-background:
-linear-gradient(
-135deg,
-#8e51ff,
-#dd6cff
-);
+    border-radius:9px;
 
-color:#fff!important;
+    background:
+    linear-gradient(
+        135deg,
+        #8e51ff,
+        #dd6cff
+    );
+
+    color:#fff!important;
 }
 
+
+/* =====================================
+   TRES PUNTITOS
+===================================== */
+
+.dots-button{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    border-radius:12px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    color:#fff;
+
+    font-size:29px;
+    font-weight:bold;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.dots-button:hover{
+    background:rgba(142,81,255,.25);
+
+    border-color:
+    rgba(221,108,255,.35);
+
+    transform:scale(1.04);
+}
+
+
+/* =====================================
+   MENU DESPLEGABLE
+===================================== */
+
+.dots-menu{
+    position:fixed;
+
+    top:82px;
+    right:18px;
+
+    width:255px;
+
+    padding:12px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(25,14,35,.98),
+        rgba(8,4,13,.98)
+    );
+
+    border:
+    1px solid
+    rgba(221,108,255,.22);
+
+    border-radius:18px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.55),
+    0 0 50px rgba(142,81,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:
+    translateY(-10px)
+    scale(.96);
+
+    transition:.22s;
+
+    z-index:2000;
+}
+
+.dots-menu.active{
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+    translateY(0)
+    scale(1);
+}
+
+.dots-title{
+    padding:12px 12px 14px;
+
+    color:#fff;
+
+    font-size:15px;
+    font-weight:1000;
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.07);
+
+    margin-bottom:8px;
+}
+
+.dots-title span{
+    display:block;
+
+    margin-top:4px;
+
+    color:#dd6cff;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+}
+
+.dots-menu a{
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    padding:12px;
+
+    margin:3px 0;
+
+    border-radius:10px;
+
+    color:#aaa3b1;
+
+    font-size:12px;
+    font-weight:bold;
+
+    transition:.2s;
+}
+
+.dots-menu a:hover{
+    color:#fff;
+
+    background:
+    rgba(142,81,255,.13);
+
+    transform:
+    translateX(3px);
+}
+
+.dots-shop{
+    margin-top:8px!important;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(142,81,255,.25),
+        rgba(221,108,255,.12)
+    );
+
+    border:
+    1px solid
+    rgba(221,108,255,.18);
+}
+
+.dots-discord{
+    border:
+    1px solid
+    rgba(255,255,255,.06);
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
 .hero{
-min-height:75vh;
+    min-height:100vh;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-text-align:center;
+    text-align:center;
 
-padding:
-140px 20px
-70px;
+    padding:
+    130px 20px
+    90px;
+
+    position:relative;
 }
 
 .hero-content{
-max-width:900px;
+    max-width:1050px;
+    width:100%;
 }
 
 .badge{
-display:inline-block;
+    display:inline-block;
 
-padding:9px 17px;
+    padding:9px 17px;
 
-border-radius:50px;
+    border-radius:50px;
 
-background:rgba(142,81,255,.1);
+    background:
+    rgba(142,81,255,.12);
 
-border:1px solid rgba(221,108,255,.25);
+    border:
+    1px solid
+    rgba(221,108,255,.25);
 
-color:#ddd6ff;
+    color:#ddd6ff;
 
-font-size:11px;
-font-weight:900;
-letter-spacing:2px;
+    font-size:10px;
 
-margin-bottom:25px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    margin-bottom:25px;
 }
 
 .hero h1{
-font-size:clamp(50px,10vw,100px);
+    font-size:
+    clamp(60px,13vw,135px);
 
-line-height:.9;
+    line-height:.88;
 
-font-weight:1000;
+    font-weight:1000;
 
-letter-spacing:-5px;
+    letter-spacing:-7px;
 
-background:
-linear-gradient(
-90deg,
-#fff,
-#ddd6ff,
-#8e51ff,
-#dd6cff
-);
+    background:
+    linear-gradient(
+        90deg,
+        #fff,
+        #ddd6ff,
+        #8e51ff,
+        #dd6cff
+    );
 
--webkit-background-clip:text;
-background-clip:text;
+    -webkit-background-clip:text;
+    background-clip:text;
 
-color:transparent;
+    color:transparent;
 
-text-shadow:
-0 0 80px rgba(142,81,255,.25);
+    text-shadow:
+    0 0 80px
+    rgba(142,81,255,.30);
 }
 
 .network{
-margin-top:18px;
+    margin-top:20px;
 
-color:#c4bccb;
+    color:#c4bccb;
 
-font-size:clamp(15px,3vw,23px);
+    font-size:
+    clamp(16px,3vw,27px);
 
-letter-spacing:9px;
+    font-weight:bold;
 
-font-weight:bold;
+    letter-spacing:10px;
 }
 
-.hero p{
-max-width:650px;
+.description{
+    max-width:700px;
 
-margin:25px auto;
+    margin:25px auto;
 
-color:#8b8392;
+    color:#8b8392;
 
-font-size:16px;
+    font-size:15px;
 
-line-height:1.7;
+    line-height:1.8;
 }
+
+
+/* =====================================
+   BUTTONS
+===================================== */
 
 .buttons{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:12px;
+    display:flex;
 
-margin-top:30px;
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:28px;
 }
 
 .btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
+    display:inline-flex;
 
-padding:15px 25px;
+    align-items:center;
+    justify-content:center;
 
-border-radius:10px;
+    padding:14px 23px;
 
-font-size:13px;
-font-weight:900;
+    border-radius:10px;
 
-border:none;
+    font-size:11px;
 
-cursor:pointer;
+    font-weight:900;
 
-transition:.25s;
+    transition:.25s;
 }
 
 .btn:hover{
-transform:translateY(-4px);
+    transform:
+    translateY(-4px);
 }
 
 .primary{
-background:
-linear-gradient(
-135deg,
-#8e51ff,
-#dd6cff
-);
+    background:
+    linear-gradient(
+        135deg,
+        #8e51ff,
+        #dd6cff
+    );
 
-color:#fff;
+    color:#fff;
 
-box-shadow:
-0 12px 40px
-rgba(142,81,255,.25);
+    box-shadow:
+    0 12px 35px
+    rgba(142,81,255,.25);
 }
 
 .secondary{
-background:rgba(255,255,255,.04);
+    background:
+    rgba(255,255,255,.04);
 
-border:1px solid
-rgba(255,255,255,.1);
+    border:
+    1px solid
+    rgba(255,255,255,.10);
 
-color:#fff;
+    color:#fff;
 }
 
+
+/* =====================================
+   IP
+===================================== */
+
 .ip-box{
-max-width:600px;
+    max-width:650px;
 
-margin:35px auto 0;
+    margin:35px auto 0;
 
-display:flex;
+    padding:6px;
 
-align-items:center;
+    border-radius:17px;
 
-justify-content:space-between;
+    background:
+    linear-gradient(
+        135deg,
+        rgba(142,81,255,.30),
+        rgba(221,108,255,.10)
+    );
 
-gap:20px;
+    border:
+    1px solid
+    rgba(221,108,255,.18);
+}
 
-padding:15px 16px 15px 20px;
+.ip-inner{
+    display:flex;
 
-border-radius:14px;
+    align-items:center;
 
-background:rgba(255,255,255,.035);
+    justify-content:space-between;
 
-border:1px solid rgba(255,255,255,.07);
+    gap:20px;
+
+    padding:19px;
+
+    border-radius:12px;
+
+    background:#0d0814;
 }
 
 .ip-title{
-color:#706978;
+    color:#706978;
 
-font-size:9px;
+    font-size:9px;
 
-letter-spacing:2px;
+    letter-spacing:2px;
 
-font-weight:bold;
+    font-weight:bold;
 }
 
 .ip{
-margin-top:5px;
+    margin-top:5px;
 
-font-size:15px;
+    font-size:17px;
 
-font-weight:900;
+    font-weight:1000;
+
+    color:#ddd6ff;
 }
 
 .copy{
-border:none;
+    border:none;
 
-padding:11px 16px;
+    padding:11px 16px;
 
-border-radius:8px;
+    border-radius:8px;
 
-background:#8e51ff;
+    background:#8e51ff;
 
-color:#fff;
+    color:#fff;
 
-font-weight:bold;
+    font-size:11px;
 
-cursor:pointer;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
 }
+
+.copy:hover{
+    background:#9d68ff;
+}
+
+
+/* =====================================
+   STATUS
+===================================== */
 
 section{
-padding:90px 6%;
+    padding:100px 5%;
 }
 
-.section-title{
-max-width:700px;
+.status{
+    max-width:1100px;
 
-margin:
-0 auto 45px;
+    margin:auto;
 
-text-align:center;
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
 }
 
-.label{
-color:#dd6cff;
+.status-card{
+    padding:28px 20px;
 
-font-size:10px;
+    text-align:center;
 
-font-weight:1000;
+    border-radius:17px;
 
-letter-spacing:3px;
+    background:
+    rgba(255,255,255,.035);
+
+    border:
+    1px solid
+    rgba(255,255,255,.07);
+
+    transition:.25s;
 }
 
-.section-title h2{
-margin-top:12px;
+.status-card:hover{
+    transform:
+    translateY(-6px);
 
-font-size:
-clamp(32px,5vw,50px);
+    border-color:
+    rgba(221,108,255,.3);
 }
 
-.section-title p{
-margin-top:12px;
+.status-icon{
+    font-size:30px;
 
-color:#817987;
-
-line-height:1.7;
+    margin-bottom:10px;
 }
 
-.info-grid{
-max-width:1100px;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
-gap:18px;
+.status-card h3{
+    font-size:16px;
 }
 
-.info-card{
-padding:30px;
+.status-card p{
+    margin-top:7px;
 
-text-align:center;
+    color:#77707f;
 
-border-radius:18px;
-
-background:
-linear-gradient(
-145deg,
-rgba(255,255,255,.045),
-rgba(255,255,255,.01)
-);
-
-border:
-1px solid
-rgba(255,255,255,.07);
-
-transition:.25s;
-}
-
-.info-card:hover{
-transform:translateY(-7px);
-
-border-color:
-rgba(221,108,255,.3);
-}
-
-.icon{
-font-size:32px;
-
-margin-bottom:18px;
-}
-
-.info-card h3{
-font-size:18px;
-
-margin-bottom:10px;
-}
-
-.info-card p{
-color:#817987;
-
-font-size:13px;
-
-line-height:1.7;
+    font-size:11px;
 }
 
 .online{
-color:#5bea8d;
+    color:#5bea8d;
 }
 
-.steps{
-max-width:900px;
 
-margin:auto;
+/* =====================================
+   TITLES
+===================================== */
 
-display:grid;
+.section-title{
+    max-width:750px;
 
-gap:15px;
+    margin:
+    0 auto
+    50px;
+
+    text-align:center;
 }
 
-.step{
-display:flex;
+.label{
+    color:#dd6cff;
 
-align-items:center;
+    font-size:10px;
 
-gap:20px;
+    font-weight:1000;
 
-padding:25px;
-
-border-radius:16px;
-
-background:
-rgba(255,255,255,.025);
-
-border:
-1px solid
-rgba(255,255,255,.06);
+    letter-spacing:3px;
 }
 
-.step-number{
-min-width:45px;
-height:45px;
+.section-title h2{
+    margin-top:12px;
 
-display:grid;
-
-place-items:center;
-
-border-radius:12px;
-
-background:
-rgba(142,81,255,.13);
-
-color:#dd6cff;
-
-font-weight:1000;
+    font-size:
+    clamp(32px,5vw,52px);
 }
 
-.step h3{
-font-size:16px;
+.section-title p{
+    margin-top:13px;
 
-margin-bottom:6px;
+    color:#817987;
+
+    line-height:1.8;
+
+    font-size:13px;
 }
 
-.step p{
-color:#817987;
 
-font-size:13px;
+/* =====================================
+   FEATURES
+===================================== */
 
-line-height:1.6;
+.features{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:17px;
 }
 
-.version-box{
-max-width:1050px;
+.feature{
+    padding:30px;
 
-margin:auto;
+    border-radius:18px;
 
-padding:45px;
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.012)
+    );
 
-text-align:center;
+    border:
+    1px solid
+    rgba(255,255,255,.07);
 
-border-radius:22px;
-
-background:
-radial-gradient(
-circle,
-rgba(142,81,255,.18),
-transparent 65%
-),
-#0d0814;
-
-border:
-1px solid
-rgba(221,108,255,.16);
+    transition:.25s;
 }
 
-.version-box h2{
-font-size:
-clamp(30px,5vw,45px);
+.feature:hover{
+    transform:
+    translateY(-7px);
 
-margin:10px 0;
+    border-color:
+    rgba(221,108,255,.3);
 }
 
-.version-box p{
-color:#817987;
+.feature-icon{
+    font-size:30px;
 
-line-height:1.7;
-
-max-width:650px;
-
-margin:auto;
+    margin-bottom:17px;
 }
 
-.tags{
-display:flex;
+.feature h3{
+    font-size:18px;
 
-justify-content:center;
-
-flex-wrap:wrap;
-
-gap:10px;
-
-margin-top:25px;
+    margin-bottom:9px;
 }
 
-.tag{
-padding:9px 14px;
+.feature p{
+    color:#817987;
 
-border-radius:8px;
+    font-size:12px;
 
-background:
-rgba(142,81,255,.1);
-
-border:
-1px solid
-rgba(142,81,255,.2);
-
-color:#ddd6ff;
-
-font-size:11px;
-
-font-weight:bold;
+    line-height:1.8;
 }
+
+
+/* =====================================
+   RANKS
+===================================== */
+
+.ranks{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:15px;
+}
+
+.rank{
+    padding:27px 18px;
+
+    text-align:center;
+
+    border-radius:17px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #100b16,
+        #09070d
+    );
+
+    border:
+    1px solid
+    rgba(255,255,255,.06);
+
+    transition:.25s;
+}
+
+.rank:hover{
+    transform:
+    translateY(-7px);
+
+    border-color:
+    rgba(221,108,255,.3);
+}
+
+.rank h3{
+    font-size:19px;
+
+    margin-bottom:8px;
+}
+
+.rank .price{
+    color:#716a78;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+.rank ul{
+    list-style:none;
+
+    color:#948c9c;
+
+    font-size:11px;
+
+    line-height:2;
+}
+
+.rank a{
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:9px 13px;
+
+    border-radius:8px;
+
+    background:
+    rgba(142,81,255,.10);
+
+    border:
+    1px solid
+    rgba(142,81,255,.20);
+
+    color:#ddd6ff;
+
+    font-size:9px;
+
+    font-weight:bold;
+}
+
+
+/* RANK COLORS */
+
+.user{
+    color:#aaa;
+}
+
+.hero-rank{
+    color:#53d9ff;
+}
+
+.vip{
+    color:#55e37d;
+}
+
+.vipplus{
+    color:#dd6cff;
+}
+
+.selva{
+    color:#65d89a;
+}
+
+.rey{
+    color:#ffd45a;
+}
+
+.mono{
+    color:#ff9d50;
+}
+
+.maestro{
+    color:#ff5d87;
+}
+
+.inferno{
+    color:#ff4d4d;
+}
+
+.lunar{
+    color:#aa8cff;
+}
+
+.thrash{
+    color:#e57aff;
+}
+
+
+/* =====================================
+   SHOP
+===================================== */
+
+.shop{
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:70px 25px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(142,81,255,.22),
+        transparent 65%
+    ),
+    #0d0814;
+
+    border:
+    1px solid
+    rgba(221,108,255,.16);
+}
+
+.shop h2{
+    font-size:
+    clamp(32px,5vw,50px);
+
+    margin-top:10px;
+}
+
+.shop p{
+    max-width:600px;
+
+    margin:15px auto 25px;
+
+    color:#817987;
+
+    line-height:1.8;
+}
+
+
+/* =====================================
+   NEWS
+===================================== */
+
+.news{
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.news-card{
+    padding:28px;
+
+    border-radius:17px;
+
+    background:
+    rgba(255,255,255,.025);
+
+    border:
+    1px solid
+    rgba(255,255,255,.06);
+}
+
+.news-tag{
+    color:#dd6cff;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+}
+
+.news-card h3{
+    margin:
+    12px 0
+    10px;
+
+    font-size:18px;
+}
+
+.news-card p{
+    color:#817987;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================
+   FAQ
+===================================== */
+
+.faq{
+    max-width:850px;
+
+    margin:auto;
+}
+
+details{
+    margin-bottom:10px;
+
+    padding:18px 20px;
+
+    border-radius:11px;
+
+    background:
+    rgba(255,255,255,.025);
+
+    border:
+    1px solid
+    rgba(255,255,255,.06);
+}
+
+summary{
+    cursor:pointer;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+details p{
+    margin-top:13px;
+
+    color:#817987;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================
+   FINAL
+===================================== */
 
 .final{
-text-align:center;
+    text-align:center;
 
-padding:
-110px 20px;
+    padding:120px 20px;
 }
 
 .final h2{
-font-size:
-clamp(35px,6vw,60px);
+    font-size:
+    clamp(35px,6vw,60px);
+
+    margin-top:10px;
 }
 
 .final p{
-max-width:550px;
+    max-width:600px;
 
-margin:
-15px auto 25px;
+    margin:15px auto 25px;
 
-color:#817987;
+    color:#817987;
 
-line-height:1.7;
+    line-height:1.8;
 }
 
+
+/* =====================================
+   FOOTER
+===================================== */
+
 footer{
-padding:50px 6%;
+    padding:50px 5%;
 
-border-top:
-1px solid
-rgba(255,255,255,.06);
+    border-top:
+    1px solid
+    rgba(255,255,255,.06);
 
-background:
-rgba(0,0,0,.25);
+    background:rgba(0,0,0,.30);
 }
 
 .footer{
-max-width:1150px;
+    max-width:1150px;
 
-margin:auto;
+    margin:auto;
 
-display:flex;
+    display:flex;
 
-justify-content:space-between;
+    justify-content:space-between;
 
-gap:30px;
+    gap:30px;
 }
 
 .footer h3{
-font-size:19px;
+    font-size:19px;
 }
 
 .footer p{
-color:#625b68;
+    color:#625b68;
 
-margin-top:8px;
+    margin-top:8px;
 
-font-size:11px;
+    font-size:11px;
 
-line-height:1.7;
+    line-height:1.7;
 }
 
 .footer-links{
-display:flex;
+    display:flex;
 
-gap:20px;
+    gap:18px;
 
-align-items:center;
+    align-items:center;
+
+    flex-wrap:wrap;
 }
 
 .footer-links a{
-color:#716a78;
+    color:#716a78;
 
-font-size:11px;
+    font-size:11px;
 
-font-weight:bold;
+    font-weight:bold;
 }
 
 .footer-links a:hover{
-color:#dd6cff;
+    color:#dd6cff;
 }
 
 .copyright{
-max-width:1150px;
+    max-width:1150px;
 
-margin:
-30px auto 0;
+    margin:30px auto 0;
 
-padding-top:18px;
+    padding-top:18px;
 
-border-top:
-1px solid
-rgba(255,255,255,.05);
+    border-top:
+    1px solid
+    rgba(255,255,255,.05);
 
-color:#4e4854;
+    color:#4e4854;
 
-font-size:10px;
+    font-size:10px;
 }
 
+
+/* =====================================
+   TOAST
+===================================== */
+
 #toast{
-position:fixed;
+    position:fixed;
 
-bottom:25px;
+    bottom:25px;
 
-left:50%;
+    left:50%;
 
-transform:
-translate(-50%,30px);
+    transform:
+    translate(-50%,30px);
 
-opacity:0;
+    opacity:0;
 
-padding:12px 20px;
+    padding:12px 20px;
 
-border-radius:9px;
+    border-radius:9px;
 
-background:#17101e;
+    background:#17101e;
 
-border:
-1px solid
-rgba(221,108,255,.25);
+    border:
+    1px solid
+    rgba(221,108,255,.25);
 
-font-size:12px;
+    font-size:12px;
 
-font-weight:bold;
+    font-weight:bold;
 
-transition:.25s;
+    transition:.25s;
 
-z-index:9999;
+    z-index:9999;
 }
 
 #toast.show{
-opacity:1;
+    opacity:1;
 
-transform:
-translate(-50%,0);
+    transform:
+    translate(-50%,0);
 }
 
-@media(max-width:900px){
 
-.menu{
-display:none;
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media(max-width:950px){
+
+    .menu{
+        display:none;
+    }
+
+    .dots-button{
+        display:flex;
+    }
+
+    .features{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .ranks{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .news{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
 }
 
-.info-grid{
-grid-template-columns:
-repeat(2,1fr);
-}
-
-}
 
 @media(max-width:600px){
 
-section{
-padding:70px 5%;
-}
+    section{
+        padding:
+        75px 5%;
+    }
 
-.info-grid{
-grid-template-columns:1fr;
-}
+    .hero{
+        padding:
+        115px 15px
+        70px;
+    }
 
-.ip-box{
-flex-direction:column;
+    .hero h1{
+        letter-spacing:-5px;
+    }
 
-text-align:center;
-}
+    .network{
+        letter-spacing:6px;
+    }
 
-.step{
-align-items:flex-start;
-}
+    .status{
+        grid-template-columns:1fr;
+    }
 
-.footer{
-flex-direction:column;
-}
+    .features{
+        grid-template-columns:1fr;
+    }
 
-.footer-links{
-flex-wrap:wrap;
-}
+    .ranks{
+        grid-template-columns:1fr;
+    }
+
+    .news{
+        grid-template-columns:1fr;
+    }
+
+    .ip-inner{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .footer{
+        flex-direction:column;
+    }
+
+    .footer-links{
+        justify-content:flex-start;
+    }
 
 }
 
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
 
 <nav class="navbar">
 
 <a href="index.html" class="logo">
 THRASHMC
 </a>
+
 
 <div class="menu">
 
@@ -772,51 +1329,147 @@ Inicio
 </a>
 
 <a href="modalidades.html">
-Modalidades
+⚔️ Modalidades
 </a>
 
-<a href="reglas.html">
-Reglas
+<a href="servidor.html">
+🌐 Servidor
 </a>
 
 <a href="staff.html">
-Staff
+👥 Staff
+</a>
+
+<a href="reglas.html">
+📜 Reglas
 </a>
 
 <a href="contacto.html">
-Contacto
+📞 Contacto
 </a>
 
 <a href="tienda.html" class="menu-shop">
-🛒 TIENDA
+🛒 Tienda
 </a>
 
 </div>
+
+
+<!-- TRES PUNTITOS -->
+
+<button
+class="dots-button"
+onclick="toggleMenu()"
+aria-label="Abrir menú"
+>
+⋮
+</button>
 
 </nav>
 
 
-<header class="hero">
+<!-- =====================================
+     MENU TRES PUNTITOS
+===================================== -->
+
+<div class="dots-menu" id="dotsMenu">
+
+<div class="dots-title">
+
+THRASHMC
+
+<span>
+MENÚ PRINCIPAL
+</span>
+
+</div>
+
+
+<a href="index.html">
+🏠
+<span>Inicio</span>
+</a>
+
+
+<a href="modalidades.html">
+⚔️
+<span>Modalidades</span>
+</a>
+
+
+<a href="servidor.html">
+🌐
+<span>Servidor</span>
+</a>
+
+
+<a href="staff.html">
+👥
+<span>Staff</span>
+</a>
+
+
+<a href="reglas.html">
+📜
+<span>Reglas</span>
+</a>
+
+
+<a href="contacto.html">
+📞
+<span>Contacto</span>
+</a>
+
+
+<a href="tienda.html" class="dots-shop">
+🛒
+<span>Tienda</span>
+</a>
+
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="dots-discord"
+>
+💬
+<span>Discord</span>
+</a>
+
+</div>
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<header class="hero" id="inicio">
 
 <div class="hero-content">
 
 <div class="badge">
-● INFORMACIÓN DEL SERVIDOR
+● THRASHMC NETWORK • FULLPVP
 </div>
+
 
 <h1>
 THRASHMC
 </h1>
 
+
 <div class="network">
 NETWORK
 </div>
 
-<p>
-Todo lo que necesitás para comenzar
-tu aventura en THRASHMC Network.
-Entrá, preparate y demuestra quién domina
-el FullPVP.
+
+<p class="description">
+
+La batalla comienza aquí.
+
+Entrá a THRASHMC, conseguí kills,
+subí de nivel, conseguí recompensas
+y demostrá quién domina el FullPVP.
+
 </p>
 
 
@@ -826,8 +1479,17 @@ el FullPVP.
 class="btn primary"
 onclick="copyIP()"
 >
-🎮 COPIAR IP
+🎮 JUGAR AHORA
 </button>
+
+
+<a
+href="modalidades.html"
+class="btn secondary"
+>
+⚔️ MODALIDADES
+</a>
+
 
 <a
 href="https://discord.gg/GBTnQnxEk"
@@ -842,6 +1504,8 @@ class="btn secondary"
 
 <div class="ip-box">
 
+<div class="ip-inner">
+
 <div>
 
 <div class="ip-title">
@@ -854,12 +1518,15 @@ puff.visihost.in:2503
 
 </div>
 
+
 <button
 class="copy"
 onclick="copyIP()"
 >
-COPIAR
+COPIAR IP
 </button>
+
+</div>
 
 </div>
 
@@ -868,132 +1535,507 @@ COPIAR
 </header>
 
 
+<!-- =====================================
+     STATUS
+===================================== -->
+
+<section>
+
+<div class="status">
+
+<div class="status-card">
+
+<div class="status-icon">
+🟢
+</div>
+
+<h3 class="online">
+SERVIDOR
+</h3>
+
+<p>
+THRASHMC
+</p>
+
+</div>
+
+
+<div class="status-card">
+
+<div class="status-icon">
+⚔️
+</div>
+
+<h3>
+MODALIDAD
+</h3>
+
+<p>
+FULLPVP
+</p>
+
+</div>
+
+
+<div class="status-card">
+
+<div class="status-icon">
+🌐
+</div>
+
+<h3>
+PLATAFORMA
+</h3>
+
+<p>
+MINECRAFT JAVA
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================
+     MODALIDAD
+===================================== -->
+
 <section>
 
 <div class="section-title">
 
 <span class="label">
-INFORMACIÓN
+EXPERIENCIA THRASHMC
 </span>
 
 <h2>
-Datos del servidor
+Una Network que sigue creciendo
 </h2>
 
 <p>
-Conocé las características principales
+Conocé todo lo que podés encontrar
+actualmente y lo que llegará próximamente.
+</p>
+
+</div>
+
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚔️
+</div>
+
+<h3>
+FullPVP
+</h3>
+
+<p>
+Enfrentate a otros jugadores,
+conseguí kills y competí por
+los primeros puestos.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+💎
+</div>
+
+<h3>
+Economía
+</h3>
+
+<p>
+Conseguí recursos y progresá
+dentro de la economía
 de THRASHMC.
 </p>
 
 </div>
 
 
-<div class="info-grid">
+<div class="feature">
 
-
-<div class="info-card">
-
-<div class="icon">
-🟢
-</div>
-
-<h3 class="online">
-ONLINE
-</h3>
-
-<p>
-Servidor disponible para que puedas
-entrar y disfrutar de la experiencia.
-</p>
-
-</div>
-
-
-<div class="info-card">
-
-<div class="icon">
-⚔️
-</div>
-
-<h3>
-FULLPVP
-</h3>
-
-<p>
-Nuestra modalidad principal está
-enfocada completamente en PvP.
-</p>
-
-</div>
-
-
-<div class="info-card">
-
-<div class="icon">
-☕
-</div>
-
-<h3>
-JAVA
-</h3>
-
-<p>
-Servidor compatible con Minecraft Java.
-</p>
-
-</div>
-
-
-<div class="info-card">
-
-<div class="icon">
+<div class="feature-icon">
 🏆
 </div>
 
 <h3>
-COMPETENCIA
+Rankings
 </h3>
 
 <p>
-Compite contra otros jugadores,
-consigue kills y sube en los rankings.
+Competí por aparecer entre
+los mejores jugadores.
 </p>
 
 </div>
 
 
-<div class="info-card">
+<div class="feature">
 
-<div class="icon">
-💎
-</div>
-
-<h3>
-ECONOMÍA
-</h3>
-
-<p>
-Progresa consiguiendo recursos y
-participando en la economía del servidor.
-</p>
-
-</div>
-
-
-<div class="info-card">
-
-<div class="icon">
+<div class="feature-icon">
 🎁
 </div>
 
 <h3>
-RECOMPENSAS
+Recompensas
 </h3>
 
 <p>
-Disfruta de sistemas de recompensas
-y beneficios especiales.
+Conseguí recompensas especiales
+mientras avanzás.
 </p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔥
+</div>
+
+<h3>
+Eventos
+</h3>
+
+<p>
+Participá en eventos especiales
+de la comunidad.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+👑
+</div>
+
+<h3>
+Rangos
+</h3>
+
+<p>
+Desbloqueá rangos y beneficios
+especiales dentro del servidor.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================
+     RANGOS
+===================================== -->
+
+<section id="rangos">
+
+<div class="section-title">
+
+<span class="label">
+THRASHMC STORE
+</span>
+
+<h2>
+Rangos
+</h2>
+
+<p>
+Conocé nuestros rangos disponibles.
+</p>
+
+</div>
+
+
+<div class="ranks">
+
+
+<div class="rank">
+
+<h3 class="user">
+USER
+</h3>
+
+<div class="price">
+GRATIS
+</div>
+
+<ul>
+
+<li>✓ Acceso al servidor</li>
+<li>✓ FullPVP</li>
+<li>✓ Sistema de niveles</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="hero-rank">
+HERO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit HERO</li>
+<li>✓ Beneficios especiales</li>
+<li>✓ Prefijo HERO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="vip">
+VIP
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit VIP</li>
+<li>✓ Beneficios VIP</li>
+<li>✓ Prefijo VIP</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="vipplus">
+VIP+
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit VIP+</li>
+<li>✓ Beneficios VIP+</li>
+<li>✓ Prefijo VIP+</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="selva">
+SELVA
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit SELVA</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo SELVA</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="rey">
+REY
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit REY</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo REY</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="mono">
+MONO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit MONO</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo MONO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="maestro">
+MAESTRO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit MAESTRO</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo MAESTRO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="inferno">
+INFERNO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit INFERNO</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo INFERNO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="lunar">
+LUNAR
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit LUNAR</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo LUNAR</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="thrash">
+THRASH
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Rango máximo</li>
+<li>✓ Máximos beneficios</li>
+<li>✓ Prefijo THRASH</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
 
 </div>
 
@@ -1002,113 +2044,112 @@ y beneficios especiales.
 
 </section>
 
+
+<!-- =====================================
+     TIENDA
+===================================== -->
+
+<section>
+
+<div class="shop">
+
+<span class="label">
+THRASHMC STORE
+</span>
+
+<h2>
+Llevá tu experiencia al siguiente nivel
+</h2>
+
+<p>
+Visitá nuestra tienda para descubrir rangos,
+kits y recompensas especiales.
+</p>
+
+<a
+href="tienda.html"
+class="btn primary"
+>
+🛒 ABRIR TIENDA
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================
+     NOTICIAS
+===================================== -->
 
 <section>
 
 <div class="section-title">
 
 <span class="label">
-CÓMO ENTRAR
+NOVEDADES
 </span>
 
 <h2>
-Entrá a THRASHMC
+Noticias
 </h2>
 
-<p>
-Seguí estos simples pasos para comenzar.
-</p>
-
 </div>
 
 
-<div class="steps">
+<div class="news">
 
 
-<div class="step">
+<div class="news-card">
 
-<div class="step-number">
-01
-</div>
-
-<div>
+<span class="news-tag">
+THRASHMC
+</span>
 
 <h3>
-Abrí Minecraft Java
+Bienvenido a THRASHMC
 </h3>
 
 <p>
-Iniciá Minecraft Java Edition desde
-tu launcher.
+Preparáte para disfrutar de nuestra
+experiencia FullPVP.
 </p>
 
 </div>
 
-</div>
 
+<div class="news-card">
 
-<div class="step">
-
-<div class="step-number">
-02
-</div>
-
-<div>
+<span class="news-tag">
+PRÓXIMAMENTE
+</span>
 
 <h3>
-Entrá en Multijugador
+Survival
 </h3>
 
 <p>
-Seleccioná la opción "Multijugador"
-desde el menú principal.
+Una nueva modalidad Survival
+llegará próximamente.
 </p>
 
 </div>
 
-</div>
 
+<div class="news-card">
 
-<div class="step">
-
-<div class="step-number">
-03
-</div>
-
-<div>
+<span class="news-tag">
+PRÓXIMAMENTE
+</span>
 
 <h3>
-Agregá el servidor
+Nuevos eventos
 </h3>
 
 <p>
-Introducí la siguiente dirección:
-<strong>puff.visihost.in:2503</strong>
+Estamos preparando nuevos eventos
+para toda la comunidad.
 </p>
-
-</div>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
-04
-</div>
-
-<div>
-
-<h3>
-Entrá y jugá
-</h3>
-
-<p>
-Conectate a THRASHMC y empezá
-a jugar FullPVP.
-</p>
-
-</div>
 
 </div>
 
@@ -1117,60 +2158,134 @@ a jugar FullPVP.
 
 </section>
 
+
+<!-- =====================================
+     FAQ
+===================================== -->
 
 <section>
 
-<div class="version-box">
+<div class="section-title">
 
 <span class="label">
-COMPATIBILIDAD
+AYUDA
 </span>
 
 <h2>
-Minecraft Java
+Preguntas frecuentes
 </h2>
 
+</div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+¿Cuál es la IP?
+</summary>
+
 <p>
-THRASHMC está preparado para ofrecer
-una experiencia de Minecraft enfocada
-en el PvP y la competencia.
+puff.visihost.in:2503
 </p>
 
+</details>
 
-<div class="tags">
 
-<span class="tag">
-☕ JAVA EDITION
-</span>
+<details>
 
-<span class="tag">
-⚔️ FULLPVP
-</span>
+<summary>
+¿Cuál es la modalidad principal?
+</summary>
 
-<span class="tag">
-🏆 COMPETITIVO
-</span>
+<p>
+Actualmente THRASHMC está enfocado
+principalmente en FullPVP.
+</p>
 
-<span class="tag">
-🎁 RECOMPENSAS
-</span>
+</details>
 
-</div>
+
+<details>
+
+<summary>
+¿Habrá Survival?
+</summary>
+
+<p>
+Sí. Survival está marcado como
+<strong>próximamente</strong>.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Dónde puedo ver el Staff?
+</summary>
+
+<p>
+Entrá en la sección
+<strong>Staff</strong> desde el menú.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Dónde están las reglas?
+</summary>
+
+<p>
+Podés encontrarlas en
+<strong>reglas.html</strong>.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Dónde está la tienda?
+</summary>
+
+<p>
+Podés entrar desde el botón
+<strong>Tienda</strong>.
+</p>
+
+</details>
+
 
 </div>
 
 </section>
 
 
+<!-- =====================================
+     FINAL
+===================================== -->
+
 <section class="final">
+
+<div class="label">
+THRASHMC NETWORK
+</div>
 
 <h2>
 ¿Listo para entrar?
 </h2>
 
 <p>
-Copiá la IP, abrí Minecraft y
-demostrá quién domina THRASHMC.
+Conectate ahora a THRASHMC y demostrá
+quién domina el FullPVP.
 </p>
 
 
@@ -1180,14 +2295,24 @@ demostrá quién domina THRASHMC.
 class="btn primary"
 onclick="copyIP()"
 >
-🎮 COPIAR IP
+🎮 JUGAR AHORA
 </button>
 
+
 <a
-href="tienda.html"
+href="modalidades.html"
 class="btn secondary"
 >
-🛒 TIENDA
+⚔️ MODALIDADES
+</a>
+
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="btn secondary"
+>
+💬 DISCORD
 </a>
 
 </div>
@@ -1195,9 +2320,14 @@ class="btn secondary"
 </section>
 
 
+<!-- =====================================
+     FOOTER
+===================================== -->
+
 <footer>
 
 <div class="footer">
+
 
 <div>
 
@@ -1224,16 +2354,31 @@ Inicio
 Modalidades
 </a>
 
-<a href="reglas.html">
-Reglas
+<a href="servidor.html">
+Servidor
 </a>
 
 <a href="staff.html">
 Staff
 </a>
 
+<a href="reglas.html">
+Reglas
+</a>
+
+<a href="contacto.html">
+Contacto
+</a>
+
 <a href="tienda.html">
 Tienda
+</a>
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+>
+Discord
 </a>
 
 </div>
@@ -1256,6 +2401,10 @@ Todos los derechos reservados.
 </footer>
 
 
+<!-- =====================================
+     TOAST
+===================================== -->
+
 <div id="toast">
 ✓ IP copiada correctamente
 </div>
@@ -1263,66 +2412,17 @@ Todos los derechos reservados.
 
 <script>
 
+const SERVER_IP =
+"puff.visihost.in:2503";
+
+
+/* COPIAR IP */
+
 function copyIP(){
 
-const ip="puff.visihost.in:2503";
+    if(
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ){
 
-if(
-navigator.clipboard &&
-navigator.clipboard.writeText
-){
-
-navigator.clipboard
-.writeText(ip)
-.then(showToast)
-.catch(fallbackCopy);
-
-}else{
-
-fallbackCopy();
-
-}
-
-}
-
-
-function fallbackCopy(){
-
-const input=document.createElement("input");
-
-input.value="puff.visihost.in:2503";
-
-document.body.appendChild(input);
-
-input.select();
-
-document.execCommand("copy");
-
-input.remove();
-
-showToast();
-
-}
-
-
-function showToast(){
-
-const toast=
-document.getElementById("toast");
-
-toast.classList.add("show");
-
-setTimeout(
-()=>{
-toast.classList.remove("show");
-},
-2000
-);
-
-}
-
-</script>
-
-</body>
-  </html>
-  
+        navigator.clipboard
