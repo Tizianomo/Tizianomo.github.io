@@ -1,185 +1,1159 @@
-<?php
-session_start();
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-$staffMembers = [
+<title>Staff | THRASHMC NETWORK</title>
+<meta name="description" content="Equipo oficial de THRASHMC NETWORK">
 
-    [
-        'username' => 'Tiziomariabebe01',
-        'rank' => 'OWNER',
-        'joinDate' => '2026-01-01',
-        'permissions' => [
-            'All Permissions',
-            'Server Management',
-            'Staff Management',
-            'Administration'
-        ],
-        'avatar' => 'https://mc-heads.net/head/Tiziomariabebe01/left',
-        'avatar3d' => 'https://mc-heads.net/body/Tiziomariabebe01/right',
-        'discord' => 'Tiziomariabebe01',
-        'social' => []
-    ],
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    [
-        'username' => 'ItsTizii',
-        'rank' => 'CO-OWNER',
-        'joinDate' => '2026-01-01',
-        'permissions' => [
-            'Server Management',
-            'Staff Management',
-            'Administration',
-            'Moderation'
-        ],
-        'avatar' => 'https://mc-heads.net/head/ItsTizii/left',
-        'avatar3d' => 'https://mc-heads.net/body/ItsTizii/right',
-        'discord' => 'ItsTizii',
-        'social' => []
-    ],
-
-    [
-        'username' => 'Por definir',
-        'rank' => 'MANAGER',
-        'joinDate' => 'PRÓXIMAMENTE',
-        'permissions' => [
-            'Staff Management',
-            'Server Management'
-        ],
-        'avatar' => 'https://mc-heads.net/head/Steve/left',
-        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
-        'discord' => 'Por definir',
-        'social' => []
-    ],
-
-    [
-        'username' => 'Por definir',
-        'rank' => 'ADMIN',
-        'joinDate' => 'PRÓXIMAMENTE',
-        'permissions' => [
-            'Ban',
-            'Kick',
-            'Mute',
-            'Warn',
-            'Teleport'
-        ],
-        'avatar' => 'https://mc-heads.net/head/Steve/left',
-        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
-        'discord' => 'Por definir',
-        'social' => []
-    ],
-
-    [
-        'username' => 'Por definir',
-        'rank' => 'MOD',
-        'joinDate' => 'PRÓXIMAMENTE',
-        'permissions' => [
-            'Ban',
-            'Kick',
-            'Mute',
-            'Warn'
-        ],
-        'avatar' => 'https://mc-heads.net/head/Steve/left',
-        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
-        'discord' => 'Por definir',
-        'social' => []
-    ],
-
-    [
-        'username' => 'Por definir',
-        'rank' => 'HELPER',
-        'joinDate' => 'PRÓXIMAMENTE',
-        'permissions' => [
-            'Help Players',
-            'Reports',
-            'Chat Support'
-        ],
-        'avatar' => 'https://mc-heads.net/head/Steve/left',
-        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
-        'discord' => 'Por definir',
-        'social' => []
-    ],
-
-    [
-        'username' => 'Por definir',
-        'rank' => 'BUILDER',
-        'joinDate' => 'PRÓXIMAMENTE',
-        'permissions' => [
-            'Building',
-            'WorldEdit',
-            'Map Development'
-        ],
-        'avatar' => 'https://mc-heads.net/head/Steve/left',
-        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
-        'discord' => 'Por definir',
-        'social' => []
-    ],
-
-    [
-        'username' => 'Por definir',
-        'rank' => 'EVENT MANAGER',
-        'joinDate' => 'PRÓXIMAMENTE',
-        'permissions' => [
-            'Events',
-            'Giveaways',
-            'Community Management'
-        ],
-        'avatar' => 'https://mc-heads.net/head/Steve/left',
-        'avatar3d' => 'https://mc-heads.net/body/Steve/right',
-        'discord' => 'Por definir',
-        'social' => []
-    ]
-
-];
-
-$rankColors = [
-    'OWNER' => '#ff4d8d',
-    'CO-OWNER' => '#ff6bd6',
-    'MANAGER' => '#c56cff',
-    'ADMIN' => '#ff5555',
-    'MOD' => '#55aaff',
-    'HELPER' => '#55ff99',
-    'BUILDER' => '#ffaa55',
-    'EVENT MANAGER' => '#aa88ff'
-];
-
-$rankDescriptions = [
-    'OWNER' =>
-        'Máxima autoridad de THRASHMC y responsable de la administración general de la Network.',
-
-    'CO-OWNER' =>
-        'Apoya al Owner en la gestión general del servidor y del equipo administrativo.',
-
-    'MANAGER' =>
-        'Gestiona el equipo de staff, organización interna y funcionamiento de la Network.',
-
-    'ADMIN' =>
-        'Administra el servidor y se encarga de situaciones importantes de moderación.',
-
-    'MOD' =>
-        'Mantiene el orden del servidor y aplica las reglas de THRASHMC.',
-
-    'HELPER' =>
-        'Ayuda a los jugadores y responde dudas o reportes básicos.',
-
-    'BUILDER' =>
-        'Construye y desarrolla mapas, spawns y diferentes áreas de THRASHMC.',
-
-    'EVENT MANAGER' =>
-        'Organiza eventos, actividades y dinámicas para la comunidad.'
-];
-
-$serverInfo = [
-    'name' => 'THRASHMC NETWORK',
-    'ip' => 'puff.visihost.in:2503',
-    'mode' => 'FULLPVP',
-    'discord' => 'https://discord.gg/GBTnQnxEk',
-    'store' => 'tienda.html'
-];
-
-function getRankColor($rank, $rankColors) {
-    return $rankColors[$rank] ?? '#ffffff';
+<style>
+:root{
+--bg:#07050b;
+--card:#111018;
+--card2:#17131d;
+--text:#ffffff;
+--muted:#aaa3b1;
+--pink:#dd6cff;
+--purple:#8e51ff;
+--border:rgba(255,255,255,.08);
 }
 
-function getRankDescription($rank, $rankDescriptions) {
-    return $rankDescriptions[$rank]
-        ?? 'Miembro del equipo oficial de THRASHMC NETWORK.';
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-?>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'VT323',monospace;
+background:
+radial-gradient(circle at 20% 0%,rgba(142,81,255,.22),transparent 35%),
+radial-gradient(circle at 90% 50%,rgba(221,108,255,.12),transparent 35%),
+var(--bg);
+color:var(--text);
+min-height:100vh;
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.25;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:40px 40px;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+right:0;
+height:72px;
+z-index:1000;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 6%;
+
+background:rgba(7,5,11,.9);
+backdrop-filter:blur(15px);
+
+border-bottom:1px solid var(--border);
+}
+
+.logo{
+font-family:'Press Start 2P',cursive;
+font-size:18px;
+color:#fff;
+text-shadow:
+0 0 10px var(--purple),
+0 0 25px var(--pink);
+}
+
+.nav{
+display:flex;
+gap:10px;
+}
+
+.nav a{
+color:#aaa3b1;
+text-decoration:none;
+font-size:16px;
+padding:10px 14px;
+transition:.25s;
+}
+
+.nav a:hover{
+color:#fff;
+background:rgba(142,81,255,.12);
+}
+
+.nav .active{
+color:#fff;
+border-bottom:2px solid var(--pink);
+}
+
+/* MOBILE */
+
+.menu-btn{
+display:none;
+background:none;
+border:1px solid rgba(221,108,255,.4);
+color:#fff;
+font-size:24px;
+padding:7px 12px;
+cursor:pointer;
+border-radius:8px;
+}
+
+@media(max-width:800px){
+
+.menu-btn{
+display:block;
+}
+
+.nav{
+display:none;
+position:absolute;
+top:72px;
+left:0;
+right:0;
+
+padding:15px;
+
+background:#0c0910;
+border-bottom:1px solid var(--border);
+
+flex-direction:column;
+}
+
+.nav.open{
+display:flex;
+}
+
+.nav a{
+text-align:center;
+padding:15px;
+}
+}
+
+/* HERO */
+
+.hero{
+padding:150px 20px 70px;
+text-align:center;
+}
+
+.badge{
+display:inline-block;
+padding:9px 17px;
+border-radius:50px;
+
+background:rgba(142,81,255,.1);
+border:1px solid rgba(221,108,255,.3);
+
+color:#ddd6ff;
+font-size:13px;
+letter-spacing:2px;
+}
+
+.hero h1{
+margin-top:25px;
+
+font-family:'Press Start 2P',cursive;
+font-size:clamp(35px,7vw,75px);
+
+background:linear-gradient(
+90deg,
+#fff,
+#ddd6ff,
+#8e51ff,
+#dd6cff
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+
+text-shadow:0 0 50px rgba(142,81,255,.3);
+}
+
+.hero p{
+max-width:700px;
+margin:25px auto;
+
+color:#817987;
+font-size:21px;
+line-height:1.5;
+}
+
+/* STATS */
+
+.stats{
+max-width:1100px;
+margin:0 auto 60px;
+
+padding:0 20px;
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.stat{
+padding:25px;
+text-align:center;
+
+background:rgba(255,255,255,.025);
+
+border:1px solid var(--border);
+border-radius:15px;
+
+transition:.25s;
+}
+
+.stat:hover{
+transform:translateY(-5px);
+border-color:rgba(221,108,255,.4);
+box-shadow:0 10px 40px rgba(142,81,255,.15);
+}
+
+.stat-icon{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.stat strong{
+display:block;
+font-size:25px;
+}
+
+.stat span{
+color:#77707f;
+font-size:15px;
+}
+
+/* STAFF */
+
+.staff-section{
+max-width:1250px;
+margin:auto;
+padding:20px;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:45px;
+}
+
+.section-title small{
+color:var(--pink);
+font-size:14px;
+letter-spacing:3px;
+}
+
+.section-title h2{
+font-family:'Press Start 2P',cursive;
+font-size:clamp(25px,5vw,40px);
+margin-top:15px;
+}
+
+/* GRID */
+
+.staff-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+/* CARD */
+
+.staff-card{
+position:relative;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.055),
+rgba(255,255,255,.015)
+);
+
+border:1px solid var(--border);
+border-radius:18px;
+
+overflow:hidden;
+
+transition:.3s;
+}
+
+.staff-card:hover{
+transform:translateY(-8px);
+border-color:rgba(221,108,255,.4);
+box-shadow:
+0 15px 50px rgba(0,0,0,.4),
+0 0 30px rgba(142,81,255,.12);
+}
+
+.banner{
+height:100px;
+
+background:
+linear-gradient(
+135deg,
+rgba(142,81,255,.5),
+rgba(221,108,255,.25)
+);
+
+position:relative;
+}
+
+.banner:after{
+content:"";
+position:absolute;
+inset:0;
+
+background-image:
+linear-gradient(
+45deg,
+transparent 45%,
+rgba(255,255,255,.08) 50%,
+transparent 55%
+);
+
+background-size:25px 25px;
+}
+
+/* AVATAR */
+
+.avatar{
+position:absolute;
+
+left:25px;
+top:55px;
+
+width:90px;
+height:90px;
+
+border-radius:12px;
+
+overflow:hidden;
+
+border:4px solid var(--bg);
+
+background:#08060c;
+
+z-index:2;
+
+box-shadow:0 8px 25px rgba(0,0,0,.5);
+}
+
+.avatar img{
+width:100%;
+height:100%;
+image-rendering:pixelated;
+}
+
+/* CONTENT */
+
+.content{
+padding:60px 25px 25px;
+}
+
+.name{
+font-family:'Press Start 2P',cursive;
+font-size:18px;
+
+margin-bottom:10px;
+}
+
+.rank{
+display:inline-block;
+
+padding:7px 12px;
+
+border-radius:7px;
+
+font-weight:bold;
+font-size:15px;
+
+margin-bottom:15px;
+}
+
+.description{
+color:#918a99;
+font-size:17px;
+line-height:1.4;
+
+margin-bottom:20px;
+}
+
+/* DETAILS */
+
+.details{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-bottom:20px;
+}
+
+.detail{
+padding:12px;
+
+background:rgba(255,255,255,.035);
+
+border:1px solid rgba(255,255,255,.05);
+
+border-radius:8px;
+
+color:#aaa3b1;
+font-size:15px;
+}
+
+.detail strong{
+display:block;
+color:#fff;
+margin-bottom:3px;
+}
+
+/* PERMISSIONS */
+
+.permissions{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+}
+
+.permission{
+padding:6px 9px;
+
+background:rgba(142,81,255,.1);
+
+border:1px solid rgba(142,81,255,.2);
+
+border-radius:6px;
+
+color:#cfc2ff;
+font-size:13px;
+}
+
+/* COLORS */
+
+.owner{
+color:#ff4d8d;
+}
+
+.coowner{
+color:#ff6bd6;
+}
+
+.manager{
+color:#c56cff;
+}
+
+.admin{
+color:#ff5555;
+}
+
+.mod{
+color:#55aaff;
+}
+
+.helper{
+color:#55ff99;
+}
+
+.builder{
+color:#ffaa55;
+}
+
+.event{
+color:#aa88ff;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:100px;
+
+padding:45px 6%;
+
+border-top:1px solid var(--border);
+
+background:rgba(0,0,0,.25);
+
+text-align:center;
+}
+
+footer h3{
+font-family:'Press Start 2P',cursive;
+font-size:17px;
+
+background:linear-gradient(
+90deg,
+#fff,
+#dd6cff
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+footer p{
+margin-top:12px;
+color:#625b68;
+font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+.staff-grid{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:500px){
+
+.hero{
+padding-top:130px;
+}
+
+.content{
+padding:60px 18px 20px;
+}
+
+.details{
+grid-template-columns:1fr;
+}
+
+.navbar{
+padding:0 20px;
+}
+
+.logo{
+font-size:13px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+THRASHMC
+</a>
+
+<button class="menu-btn" onclick="toggleMenu()">
+☰
+</button>
+
+<div class="nav" id="nav">
+
+<a href="index.html">INICIO</a>
+
+<a href="modalidades.html">MODALIDADES</a>
+
+<a href="servidor.html">SERVIDOR</a>
+
+<a href="reglas.html">REGLAS</a>
+
+<a href="staff.html" class="active">STAFF</a>
+
+<a href="contacto.html">CONTACTO</a>
+
+<a href="tienda.html">TIENDA</a>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="badge">
+● EQUIPO OFICIAL • THRASHMC NETWORK
+</div>
+
+<h1>STAFF</h1>
+
+<p>
+Conoce al equipo encargado de administrar,
+moderar y mantener THRASHMC NETWORK.
+</p>
+
+</header>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-icon">👑</div>
+
+<strong>8</strong>
+
+<span>CARGOS DE STAFF</span>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">⚔️</div>
+
+<strong>FULLPVP</strong>
+
+<span>MODALIDAD PRINCIPAL</span>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-icon">🌐</div>
+
+<strong>THRASHMC</strong>
+
+<span>NETWORK</span>
+
+</div>
+
+</div>
+
+
+<!-- STAFF -->
+
+<section class="staff-section">
+
+<div class="section-title">
+
+<small>THRASHMC NETWORK</small>
+
+<h2>NUESTRO EQUIPO</h2>
+
+</div>
+
+
+<div class="staff-grid">
+
+
+<!-- OWNER -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/Tiziomariabebe01/left">
+
+</div>
+
+<div class="content">
+
+<div class="name owner">
+Tiziomariabebe01
+</div>
+
+<div class="rank owner">
+👑 OWNER
+</div>
+
+<div class="description">
+Máxima autoridad de THRASHMC y responsable
+de la administración general de la Network.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+Tiziomariabebe01
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟢 ACTIVO
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">All Permissions</span>
+<span class="permission">Server Management</span>
+<span class="permission">Staff Management</span>
+<span class="permission">Administration</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CO OWNER -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/ItsTizii/left">
+
+</div>
+
+<div class="content">
+
+<div class="name coowner">
+ItsTizii
+</div>
+
+<div class="rank coowner">
+💎 CO-OWNER
+</div>
+
+<div class="description">
+Apoya al Owner en la gestión general del servidor
+y en la administración del equipo.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+ItsTizii
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟢 ACTIVO
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">Server Management</span>
+<span class="permission">Staff Management</span>
+<span class="permission">Administration</span>
+<span class="permission">Moderation</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MANAGER -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/Steve/left">
+
+</div>
+
+<div class="content">
+
+<div class="name manager">
+Por definir
+</div>
+
+<div class="rank manager">
+🛠 MANAGER
+</div>
+
+<div class="description">
+Gestiona el equipo de staff, la organización interna
+y el funcionamiento de la Network.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+Por definir
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟡 PRÓXIMAMENTE
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">Staff Management</span>
+<span class="permission">Server Management</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ADMIN -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/Steve/left">
+
+</div>
+
+<div class="content">
+
+<div class="name admin">
+Por definir
+</div>
+
+<div class="rank admin">
+🔴 ADMIN
+</div>
+
+<div class="description">
+Administra el servidor y se encarga de situaciones
+importantes de moderación.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+Por definir
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟡 PRÓXIMAMENTE
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">Ban</span>
+<span class="permission">Kick</span>
+<span class="permission">Mute</span>
+<span class="permission">Warn</span>
+<span class="permission">Teleport</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MOD -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/Steve/left">
+
+</div>
+
+<div class="content">
+
+<div class="name mod">
+Por definir
+</div>
+
+<div class="rank mod">
+🛡 MOD
+</div>
+
+<div class="description">
+Mantiene el orden del servidor y aplica
+las reglas de THRASHMC.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+Por definir
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟡 PRÓXIMAMENTE
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">Ban</span>
+<span class="permission">Kick</span>
+<span class="permission">Mute</span>
+<span class="permission">Warn</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- HELPER -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/Steve/left">
+
+</div>
+
+<div class="content">
+
+<div class="name helper">
+Por definir
+</div>
+
+<div class="rank helper">
+💚 HELPER
+</div>
+
+<div class="description">
+Ayuda a los jugadores y responde dudas
+o reportes básicos.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+Por definir
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟡 PRÓXIMAMENTE
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">Help Players</span>
+<span class="permission">Reports</span>
+<span class="permission">Chat Support</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- BUILDER -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/Steve/left">
+
+</div>
+
+<div class="content">
+
+<div class="name builder">
+Por definir
+</div>
+
+<div class="rank builder">
+🔨 BUILDER
+</div>
+
+<div class="description">
+Construye y desarrolla mapas, spawns
+y diferentes áreas de THRASHMC.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+Por definir
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟡 PRÓXIMAMENTE
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">Building</span>
+<span class="permission">WorldEdit</span>
+<span class="permission">Map Development</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- EVENT MANAGER -->
+
+<div class="staff-card">
+
+<div class="banner"></div>
+
+<div class="avatar">
+
+<img src="https://mc-heads.net/head/Steve/left">
+
+</div>
+
+<div class="content">
+
+<div class="name event">
+Por definir
+</div>
+
+<div class="rank event">
+🎉 EVENT MANAGER
+</div>
+
+<div class="description">
+Organiza eventos, actividades y dinámicas
+para la comunidad de THRASHMC.
+</div>
+
+<div class="details">
+
+<div class="detail">
+<strong>Discord</strong>
+Por definir
+</div>
+
+<div class="detail">
+<strong>Estado</strong>
+🟡 PRÓXIMAMENTE
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">Events</span>
+<span class="permission">Giveaways</span>
+<span class="permission">Community Management</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>THRASHMC NETWORK</h3>
+
+<p>
+⚔ FULLPVP &nbsp; • &nbsp;
+💜 COMUNIDAD &nbsp; • &nbsp;
+🏆 COMPETENCIA
+</p>
+
+<p>
+puff.visihost.in:2503
+</p>
+
+<p>
+© 2026 THRASHMC NETWORK
+</p>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+const nav=document.getElementById("nav");
+
+nav.classList.toggle("open");
+
+}
+
+document.querySelectorAll(".nav a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+document.getElementById("nav").classList.remove("open");
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
