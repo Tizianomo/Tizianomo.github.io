@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reglas | THRASHMC NETWORK</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    body{
+      font-family:Arial,sans-serif;
+      background:#09070d;
+      color:white;
+      min-height:100vh;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(9,7,13,.92);
+      backdrop-filter:blur(15px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    nav{
+      max-width:1100px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:900;
+    }
+
+    .logo span{color:#c65cff}
+
+    .nav-links{
+      display:flex;
+      gap:10px;
+    }
+
+    .nav-links a{
+      padding:10px 14px;
+      border-radius:10px;
+      color:#c8c0d0;
+      font-weight:bold;
+      font-size:14px;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active{
+      background:rgba(198,92,255,.15);
+      color:white;
+    }
+
+    .hero{
+      max-width:1000px;
+      margin:auto;
+      padding:80px 20px 50px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 15px;
+      border-radius:50px;
+      background:rgba(198,92,255,.1);
+      border:1px solid rgba(198,92,255,.35);
+      color:#dcb5ff;
+      font-size:13px;
+      font-weight:bold;
+    }
+
+    h1{
+      margin-top:20px;
+      font-size:clamp(42px,8vw,70px);
+    }
+
+    h1 span{
+      background:linear-gradient(90deg,#e5b3ff,#a45cff,#e9c4ff);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:650px;
+      margin:18px auto;
+      color:#aaa1b5;
+      font-size:17px;
+    }
+
+    .section{
+      max-width:1000px;
+      margin:auto;
+      padding:20px 20px 90px;
+    }
+
+    .rules{
+      display:grid;
+      gap:16px;
+    }
+
+    .rule{
+      padding:23px;
+      border-radius:18px;
+      background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.025)
+      );
+      border:1px solid rgba(255,255,255,.09);
+      transition:.2s;
+    }
+
+    .rule:hover{
+      transform:translateY(-3px);
+      border-color:rgba(198,92,255,.4);
+    }
+
+    .number{
+      display:inline-grid;
+      place-items:center;
+      width:38px;
+      height:38px;
+      margin-right:10px;
+      border-radius:12px;
+      background:rgba(198,92,255,.14);
+      color:#ddb8ff;
+      font-weight:900;
+    }
+
+    .rule h3{
+      display:flex;
+      align-items:center;
+      font-size:18px;
+      margin-bottom:9px;
+    }
+
+    .rule p{
+      color:#a59cac;
+      line-height:1.7;
+      font-size:14px;
+      padding-left:48px;
+    }
+
+    .warning{
+      margin-top:25px;
+      padding:20px;
+      border-radius:16px;
+      background:rgba(255,170,50,.07);
+      border:1px solid rgba(255,170,50,.2);
+      color:#c7b9a3;
+      font-size:14px;
+    }
+
+    .warning strong{color:#ffc46b}
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.2);
+    }
+
+    .footer{
+      max-width:1100px;
+      margin:auto;
+      padding:30px 20px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      color:#81788c;
+      font-size:13px;
+    }
+
+    .footer strong{color:#cbbfd4}
+
+    @media(max-width:650px){
+      .nav-links a:not(.active){display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+
+    <a href="index.html" class="logo">
+      THRASH<span>MC</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="modalidades.html">Modalidades</a>
+      <a href="reglas.html" class="active">Reglas</a>
+      <a href="staff.html">Staff</a>
+    </div>
+
+  </nav>
+</header>
+
+
+<section class="hero">
+
+  <div class="badge">
+    📜 REGLAMENTO OFICIAL
+  </div>
+
+  <h1>
+    REGLAS DE <span>THRASHMC</span>
+  </h1>
+
+  <p>
+    Conocé las reglas del servidor y ayudanos
+    a mantener una comunidad divertida y respetuosa.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="rules">
+
+    <div class="rule">
+      <h3>
+        <span class="number">01</span>
+        Respeto
+      </h3>
+
+      <p>
+        No se permiten insultos graves, acoso,
+        amenazas ni comportamientos destinados
+        a molestar o perjudicar a otros jugadores.
+      </p>
+    </div>
+
+
+    <div class="rule">
+      <h3>
+        <span class="number">02</span>
+        Prohibido hacer trampa
+      </h3>
+
+      <p>
+        Está prohibido utilizar hacks, clientes
+        modificados ilegales, macros o cualquier
+        herramienta que proporcione una ventaja injusta.
+      </p>
+    </div>
+
+
+    <div class="rule">
+      <h3>
+        <span class="number">03</span>
+        Bugs y exploits
+      </h3>
+
+      <p>
+        No está permitido aprovecharse de errores,
+        duplicaciones o exploits. Si encontrás un bug,
+        reportalo al Staff.
+      </p>
+    </div>
+
+
+    <div class="rule">
+      <h3>
+        <span class="number">04</span>
+        Spam y publicidad
+      </h3>
+
+      <p>
+        No hagas spam, flood ni publicidad de otros
+        servidores, comunidades o servicios sin
+        autorización.
+      </p>
+    </div>
+
+
+    <div class="rule">
+      <h3>
+        <span class="number">05</span>
+        Suplantación
+      </h3>
+
+      <p>
+        No te hagas pasar por otro jugador,
+        miembro del Staff o propietario de THRASHMC.
+      </p>
+    </div>
+
+
+    <div class="rule">
+      <h3>
+        <span class="number">06</span>
+        Comercio
+      </h3>
+
+      <p>
+        No realices intercambios externos que puedan
+        generar estafas o perjudicar a otros jugadores.
+      </p>
+    </div>
+
+
+    <div class="rule">
+      <h3>
+        <span class="number">07</span>
+        Respeto al Staff
+      </h3>
+
+      <p>
+        Seguí las indicaciones del Staff. Si considerás
+        que una sanción fue incorrecta, utilizá los
+        canales correspondientes para reclamarla.
+      </p>
+    </div>
+
+
+    <div class="rule">
+      <h3>
+        <span class="number">08</span>
+        Sentido común
+      </h3>
+
+      <p>
+        Cualquier conducta que perjudique gravemente
+        la experiencia de la comunidad puede ser
+        sancionada aunque no aparezca expresamente
+        en esta lista.
+      </p>
+    </div>
+
+
+    <div class="warning">
+      <strong>⚠️ Importante:</strong>
+      Las sanciones pueden variar según la gravedad
+      y reincidencia de la infracción. El Staff se reserva
+      la posibilidad de aplicar la medida correspondiente.
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="footer">
+
+    <div>
+      © 2026 <strong>THRASHMC NETWORK</strong>
+    </div>
+
+    <div>
+      Reglamento oficial
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
