@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THRASHMC | Tienda</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#05030a;color:#fff;overflow-x:hidden;background-image:radial-gradient(circle at 50% 0%,rgba(142,81,255,.25),transparent 35%),radial-gradient(circle at 100% 70%,rgba(221,108,255,.12),transparent 30%)}
+a{text-decoration:none;color:inherit}
+.nav{position:sticky;top:0;z-index:10;height:72px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(5,3,10,.88);backdrop-filter:blur(15px);border-bottom:1px solid rgba(255,255,255,.07)}
+.logo{font-size:23px;font-weight:1000;background:linear-gradient(90deg,#fff,#ddd6ff,#8e51ff,#dd6cff);-webkit-background-clip:text;color:transparent}
+.links{display:flex;gap:20px}.links a{font-size:12px;font-weight:bold;color:#aaa}.links a:hover{color:#fff}
+.hero{text-align:center;padding:85px 20px 60px}.badge{display:inline-block;padding:9px 17px;border-radius:50px;background:rgba(142,81,255,.1);border:1px solid rgba(221,108,255,.25);color:#ddd6ff;font-size:10px;font-weight:900;letter-spacing:2px}
+h1{margin-top:20px;font-size:clamp(45px,8vw,82px);letter-spacing:-4px;background:linear-gradient(90deg,#fff,#ddd6ff,#8e51ff,#dd6cff);-webkit-background-clip:text;color:transparent}
+.hero p{max-width:650px;margin:20px auto;color:#817987;line-height:1.7}
+.wrap{max-width:1200px;margin:auto;padding:0 5% 90px}
+.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:35px}.tab{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:#aaa;padding:11px 17px;border-radius:9px;font-size:11px;font-weight:bold;cursor:pointer}.tab.active,.tab:hover{background:#8e51ff;color:#fff}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{position:relative;padding:28px 20px;text-align:center;border-radius:18px;background:linear-gradient(145deg,#100b16,#09070d);border:1px solid rgba(255,255,255,.07);overflow:hidden;transition:.25s}.card:hover{transform:translateY(-7px);border-color:rgba(221,108,255,.35)}.card:before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#8e51ff,#dd6cff)}
+.rank{font-size:22px;font-weight:1000}.price{font-size:22px;font-weight:1000;margin:14px 0 6px}.desc{min-height:55px;color:#817987;font-size:12px;line-height:1.6}.list{list-style:none;text-align:left;padding-left:10px;margin:16px 0;color:#9a92a1;font-size:11px;line-height:2}.buy{width:100%;padding:12px;border:0;border-radius:9px;background:linear-gradient(135deg,#8e51ff,#dd6cff);color:#fff;font-weight:1000;font-size:11px;cursor:pointer}
+.user{color:#aaa}.hero-r{color:#53d9ff}.vip{color:#55d87d}.vipp{color:#dd6cff}.selva{color:#65d89a}.rey{color:#ffd45a}.mono{color:#ff9d50}.maestro{color:#ff5d87}.inferno{color:#ff4d4d}.lunar{color:#aa8cff}.thrash{color:#e57aff}
+.notice{max-width:850px;margin:55px auto 0;padding:25px;text-align:center;border-radius:17px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}.notice p{margin-top:10px;color:#817987;font-size:12px;line-height:1.7}.discord{display:inline-block;margin-top:18px;padding:11px 18px;border-radius:9px;background:#5865f2;font-size:11px;font-weight:bold}
+footer{padding:45px 6%;border-top:1px solid rgba(255,255,255,.06);color:#625b68;font-size:10px}.footer{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:25px}.footer h3{color:#fff;font-size:18px;margin-bottom:7px}.footerlinks{display:flex;gap:20px}.footerlinks a:hover{color:#dd6cff}
+#toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,30px);opacity:0;padding:12px 20px;border-radius:9px;background:#17101e;border:1px solid rgba(221,108,255,.25);font-size:12px;font-weight:bold;transition:.25s;z-index:99}#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:950px){.products{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.links{display:none}.products{grid-template-columns:1fr}.hero{padding-top:60px}.footer{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav class="nav"><a href="index.html" class="logo">THRASHMC</a><div class="links"><a href="index.html">← INICIO</a><a href="https://discord.gg/GBTnQnxEk" target="_blank">DISCORD</a></div></nav>
+<header class="hero"><div class="badge">THRASHMC NETWORK • TIENDA OFICIAL</div><h1>THRASHMC STORE</h1><p>Consigue rangos y beneficios para llevar tu experiencia dentro de THRASHMC al siguiente nivel.</p></header>
+<main class="wrap">
+<div class="tabs"><button class="tab active" onclick="filterProducts('all',this)">TODOS</button><button class="tab" onclick="filterProducts('rank',this)">RANGOS</button><button class="tab" onclick="filterProducts('kit',this)">KITS</button></div>
+<div class="products">
+<div class="card" data-type="rank"><div class="rank user">USER</div><div class="price">GRATIS</div><p class="desc">Rango predeterminado para todos los jugadores.</p><ul class="list"><li>✓ Acceso al servidor</li><li>✓ FullPVP</li><li>✓ Sistema de niveles</li></ul><button class="buy" onclick="coming()">ACTIVADO</button></div>
+<div class="card" data-type="rank"><div class="rank hero-r">HERO</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Un rango para comenzar a destacar.</p><ul class="list"><li>✓ Kit HERO</li><li>✓ Beneficios especiales</li><li>✓ Prefijo HERO</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank vip">VIP</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Beneficios VIP para disfrutar más del servidor.</p><ul class="list"><li>✓ Kit VIP</li><li>✓ Beneficios VIP</li><li>✓ Prefijo VIP</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank vipp">VIP+</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Una mejora superior al rango VIP.</p><ul class="list"><li>✓ Kit VIP+</li><li>✓ Beneficios VIP+</li><li>✓ Prefijo VIP+</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank selva">SELVA</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Un rango especial para jugadores destacados.</p><ul class="list"><li>✓ Kit SELVA</li><li>✓ Beneficios</li><li>✓ Prefijo SELVA</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank rey">REY</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Domina el campo de batalla con REY.</p><ul class="list"><li>✓ Kit REY</li><li>✓ Beneficios</li><li>✓ Prefijo REY</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank mono">MONO</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Un rango superior para jugadores activos.</p><ul class="list"><li>✓ Kit MONO</li><li>✓ Beneficios</li><li>✓ Prefijo MONO</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank maestro">MAESTRO</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Demuestra tu experiencia en THRASHMC.</p><ul class="list"><li>✓ Kit MAESTRO</li><li>✓ Beneficios</li><li>✓ Prefijo MAESTRO</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank inferno">INFERNO</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Un rango de alto nivel para la batalla.</p><ul class="list"><li>✓ Kit INFERNO</li><li>✓ Beneficios</li><li>✓ Prefijo INFERNO</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank lunar">LUNAR</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Uno de los rangos más exclusivos.</p><ul class="list"><li>✓ Kit LUNAR</li><li>✓ Beneficios</li><li>✓ Prefijo LUNAR</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="rank"><div class="rank thrash">THRASH</div><div class="price">PRÓXIMAMENTE</div><p class="desc">El rango máximo de THRASHMC.</p><ul class="list"><li>✓ Rango máximo</li><li>✓ Máximos beneficios</li><li>✓ Prefijo THRASH</li></ul><button class="buy" onclick="coming()">COMPRAR</button></div>
+<div class="card" data-type="kit"><div class="rank thrash">KITS</div><div class="price">PRÓXIMAMENTE</div><p class="desc">Kits especiales para potenciar tu experiencia PvP.</p><ul class="list"><li>✓ Equipamiento especial</li><li>✓ Recompensas</li><li>✓ Contenido exclusivo</li></ul><button class="buy" onclick="coming()">VER KITS</button></div>
+</div>
+<div class="notice"><h2>🛒 ¿Quieres comprar?</h2><p>La tienda de pagos todavía está en preparación. Próximamente podrás adquirir tus productos de THRASHMC de forma segura.</p><a class="discord" href="https://discord.gg/GBTnQnxEk" target="_blank">💬 CONSULTAR EN DISCORD</a></div>
+</main>
+<footer><div class="footer"><div><h3>THRASHMC NETWORK</h3><div>⚔ FULLPVP • 💜 COMUNIDAD • 🏆 COMPETENCIA</div></div><div class="footerlinks"><a href="index.html">Inicio</a><a href="index.html#rangos">Rangos</a><a href="https://discord.gg/GBTnQnxEk" target="_blank">Discord</a></div></div></footer>
+<div id="toast"></div>
+<script>
+function filterProducts(type,button){document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));button.classList.add("active");document.querySelectorAll(".card").forEach(card=>{card.style.display=type==="all"||card.dataset.type===type?"block":"none"})}
+function coming(){let t=document.getElementById("toast");t.textContent="🛒 La tienda de pagos estará disponible próximamente.";t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2500)}
+</script>
+</body>
+                                                                                                                                                                                                                                       </html>
