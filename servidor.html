@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THRASHMC | Servidor</title>
+
+<meta name="description" content="Información oficial de THRASHMC Network. Conectate a nuestro servidor Minecraft.">
+<meta name="theme-color" content="#8e51ff">
+
+<style>
+
+/* =========================================================
+   THRASHMC NETWORK — SERVER PAGE MEGA PRO
+   ========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    background:
+        radial-gradient(circle at 50% -10%,rgba(142,81,255,.35),transparent 35%),
+        radial-gradient(circle at 100% 35%,rgba(221,108,255,.14),transparent 30%),
+        radial-gradient(circle at 0% 70%,rgba(142,81,255,.12),transparent 30%),
+        #05030a;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-2;
+    background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+    background-size:55px 55px;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    background:
+        radial-gradient(circle at 50% 50%,transparent 30%,rgba(0,0,0,.45));
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    height:74px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5.5%;
+
+    background:rgba(5,3,10,.78);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    z-index:1000;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:1000;
+    letter-spacing:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ddd6ff,
+            #8e51ff,
+            #dd6cff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.menu a{
+    color:#aaa3b1;
+    font-size:11px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.menu a:hover{
+    color:#fff;
+    transform:translateY(-1px);
+}
+
+.menu-active{
+    color:#fff!important;
+}
+
+.menu-shop{
+    padding:10px 16px;
+    border-radius:9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8e51ff,
+            #dd6cff
+        );
+
+    color:#fff!important;
+
+    box-shadow:
+        0 8px 25px rgba(142,81,255,.22);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    min-height:800px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:140px 20px 100px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:50%;
+    top:40%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(142,81,255,.18),
+            transparent 65%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1100px;
+
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(142,81,255,.09);
+
+    border:1px solid rgba(221,108,255,.25);
+
+    color:#ddd6ff;
+
+    font-size:10px;
+    font-weight:1000;
+
+    letter-spacing:2px;
+
+    margin-bottom:28px;
+
+    box-shadow:
+        0 0 35px rgba(142,81,255,.08);
+}
+
+.badge-dot{
+    color:#5bea8d;
+}
+
+.hero h1{
+    font-size:clamp(65px,13vw,150px);
+
+    line-height:.85;
+
+    font-weight:1000;
+
+    letter-spacing:-8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff 0%,
+            #ddd6ff 30%,
+            #8e51ff 65%,
+            #dd6cff 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 0 100px rgba(142,81,255,.25);
+}
+
+.network{
+    margin-top:22px;
+
+    color:#c7c0ce;
+
+    font-size:clamp(15px,3vw,25px);
+
+    font-weight:900;
+
+    letter-spacing:12px;
+}
+
+.hero-description{
+    max-width:700px;
+
+    margin:28px auto 0;
+
+    color:#817987;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   SERVER IP
+   ========================================================= */
+
+.ip-panel{
+    max-width:720px;
+
+    margin:38px auto 0;
+
+    padding:7px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(142,81,255,.22),
+            rgba(221,108,255,.08)
+        );
+
+    border:1px solid rgba(221,108,255,.18);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.3);
+}
+
+.ip-inner{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:20px 20px 20px 25px;
+
+    border-radius:13px;
+
+    background:#09060f;
+}
+
+.ip-label{
+    color:#69616f;
+
+    font-size:9px;
+
+    font-weight:1000;
+
+    letter-spacing:2px;
+}
+
+.ip-address{
+    margin-top:7px;
+
+    font-size:21px;
+
+    font-weight:1000;
+
+    letter-spacing:.5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ddd6ff,
+            #dd6cff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.copy-button{
+    border:0;
+
+    padding:13px 18px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8e51ff,
+            #dd6cff
+        );
+
+    color:#fff;
+
+    font-size:11px;
+
+    font-weight:1000;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    white-space:nowrap;
+}
+
+.copy-button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(142,81,255,.3);
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.buttons{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 23px;
+
+    border-radius:10px;
+
+    font-size:11px;
+
+    font-weight:1000;
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.primary{
+    background:
+        linear-gradient(
+            135deg,
+            #8e51ff,
+            #dd6cff
+        );
+
+    box-shadow:
+        0 12px 35px rgba(142,81,255,.25);
+}
+
+.secondary{
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.1);
+}
+
+
+/* =========================================================
+   FLOATING INFO
+   ========================================================= */
+
+.hero-stats{
+    max-width:900px;
+
+    margin:45px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+}
+
+.hero-stat{
+    padding:18px 12px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.025);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    backdrop-filter:blur(10px);
+}
+
+.hero-stat strong{
+    display:block;
+
+    font-size:18px;
+
+    font-weight:1000;
+}
+
+.hero-stat span{
+    display:block;
+
+    margin-top:5px;
+
+    color:#68616e;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+section{
+    padding:100px 5.5%;
+}
+
+.section-title{
+    max-width:760px;
+
+    margin:0 auto 55px;
+
+    text-align:center;
+}
+
+.label{
+    color:#dd6cff;
+
+    font-size:10px;
+
+    font-weight:1000;
+
+    letter-spacing:3px;
+}
+
+.section-title h2{
+    margin-top:12px;
+
+    font-size:clamp(32px,5vw,55px);
+
+    line-height:1;
+}
+
+.section-title p{
+    margin-top:15px;
+
+    color:#817987;
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-grid{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:15px;
+}
+
+.status-card{
+    padding:27px 20px;
+
+    text-align:center;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.25s;
+}
+
+.status-card:hover{
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(221,108,255,.25);
+}
+
+.status-icon{
+    font-size:29px;
+
+    margin-bottom:12px;
+}
+
+.status-card h3{
+    font-size:15px;
+
+    margin-bottom:7px;
+}
+
+.status-card p{
+    color:#716a78;
+
+    font-size:11px;
+}
+
+.online{
+    color:#5bea8d;
+}
+
+
+/* =========================================================
+   SERVER MAIN CARD
+   ========================================================= */
+
+.server-main{
+    max-width:1150px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:20px;
+}
+
+.server-card{
+    padding:40px;
+
+    border-radius:23px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(221,108,255,.15),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(142,81,255,.13),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(221,108,255,.13);
+}
+
+.server-card h2{
+    font-size:32px;
+
+    margin-bottom:15px;
+}
+
+.server-card>p{
+    color:#817987;
+
+   
