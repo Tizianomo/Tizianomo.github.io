@@ -3,9 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Staff | THRASHMC NETWORK</title>
 
+<meta name="description" content="Conoce al equipo oficial de THRASHMC NETWORK.">
+<meta name="theme-color" content="#8e51ff">
+
 <style>
+
+/* =========================================================
+   THRASHMC NETWORK
+   STAFF.HTML
+   HTML + CSS PURO
+   ========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -14,69 +25,117 @@
 
 html{
     scroll-behavior:smooth;
+    min-height:100%;
 }
 
 body{
-    background:#07050b;
-    color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
+    width:100%;
     overflow-x:hidden;
+    overflow-y:auto;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(142,81,255,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,77,141,.15),
+            transparent 30%
+        ),
+        #07050b;
+
+    color:#ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 }
+
+/* =========================================================
+   FONDO
+   ========================================================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-2;
-    background:
-        radial-gradient(circle at 10% 10%,rgba(142,81,255,.20),transparent 30%),
-        radial-gradient(circle at 90% 20%,rgba(255,77,141,.18),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(142,81,255,.12),transparent 35%);
-}
 
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-1;
+    pointer-events:none;
+
     opacity:.12;
+
     background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-    background-size:35px 35px;
+        linear-gradient(
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.08) 1px,
+            transparent 1px
+        );
+
+    background-size:40px 40px;
+
+    z-index:-1;
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header{
     position:sticky;
     top:0;
-    z-index:9999;
-    background:rgba(7,5,11,.96);
+    z-index:1000;
+
+    width:100%;
+
+    background:rgba(7,5,11,.94);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
     backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.nav{
+.navbar{
     width:100%;
     max-width:1500px;
+
+    min-height:80px;
+
     margin:auto;
-    min-height:78px;
-    padding:15px 25px;
+
+    padding:
+        15px
+        25px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
-    gap:20px;
+
+    gap:25px;
 }
 
 .logo{
-    color:#fff;
+    color:#ffffff;
+
     text-decoration:none;
-    font-size:25px;
+
+    font-size:26px;
+
     font-weight:1000;
+
     letter-spacing:1px;
+
     white-space:nowrap;
 }
 
@@ -84,336 +143,464 @@ header{
     color:#ff4d8d;
 }
 
-.menu{
+.navigation{
     display:flex;
+
     flex-wrap:wrap;
+
     justify-content:center;
-    gap:6px;
+
+    gap:7px;
 }
 
-.menu a{
+.navigation a{
     color:#aaa5b2;
+
     text-decoration:none;
-    padding:10px 13px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    padding:
+        10px
+        13px;
+
     border-radius:9px;
-    font-size:15px;
-    transition:.2s;
+
+    transition:.25s;
 }
 
-.menu a:hover,
-.menu a.active{
-    color:#fff;
-    background:rgba(142,81,255,.18);
-    box-shadow:0 0 20px rgba(142,81,255,.15);
+.navigation a:hover{
+    color:#ffffff;
+
+    background:
+        rgba(142,81,255,.16);
+
+    transform:translateY(-2px);
 }
 
-/* HERO */
+.navigation a.active{
+    color:#ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(142,81,255,.25),
+            rgba(255,77,141,.12)
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(142,81,255,.12);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
+    width:100%;
     max-width:1200px;
+
     margin:auto;
-    padding:100px 20px 60px;
+
+    padding:
+        105px
+        20px
+        70px;
+
     text-align:center;
 }
 
-.badge{
+.hero-badge{
     display:inline-block;
-    padding:10px 20px;
+
+    padding:
+        10px
+        20px;
+
     border-radius:50px;
-    color:#ded5ff;
-    background:rgba(142,81,255,.10);
-    border:1px solid rgba(142,81,255,.4);
+
+    color:#dfd5ff;
+
+    background:
+        rgba(142,81,255,.10);
+
+    border:
+        1px solid
+        rgba(142,81,255,.45);
+
+    font-size:13px;
+
+    font-weight:800;
+
     letter-spacing:2px;
-    font-size:14px;
 }
 
 .hero h1{
     margin-top:25px;
-    font-size:clamp(42px,8vw,82px);
-    font-weight:1000;
-    line-height:1.05;
 
-    background:linear-gradient(
-        90deg,
-        #fff,
-        #d8ccff,
-        #8e51ff,
-        #ff4d8d
-    );
+    font-size:
+        clamp(
+            44px,
+            8vw,
+            88px
+        );
+
+    line-height:1;
+
+    font-weight:1000;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #d9ccff,
+            #8e51ff,
+            #ff4d8d
+        );
 
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 }
 
 .hero p{
-    max-width:780px;
-    margin:25px auto 0;
+    max-width:800px;
+
+    margin:
+        28px
+        auto
+        0;
+
     color:#aaa5b2;
-    font-size:20px;
-    line-height:1.6;
+
+    font-size:19px;
+
+    line-height:1.7;
 }
 
-/* STATS */
+.hero strong{
+    color:#ffffff;
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
 
 .stats{
-    max-width:1150px;
-    margin:0 auto 80px;
-    padding:0 20px;
+    width:100%;
+    max-width:1200px;
+
+    margin:
+        0
+        auto
+        90px;
+
+    padding:
+        0
+        20px;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
+
     gap:20px;
 }
 
 .stat{
+    min-height:150px;
+
     padding:28px;
+
     text-align:center;
-    background:rgba(20,15,28,.92);
-    border:1px solid rgba(255,255,255,.08);
+
     border-radius:18px;
-    transition:.3s;
+
+    background:
+        rgba(18,14,25,.92);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    transition:.25s;
 }
 
 .stat:hover{
-    transform:translateY(-6px);
-    border-color:rgba(142,81,255,.5);
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(142,81,255,.5);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.3);
 }
 
 .stat-icon{
     font-size:32px;
+
     margin-bottom:10px;
 }
 
 .stat-title{
-    color:#77717e;
+    color:#77717f;
+
+    font-size:12px;
+
     text-transform:uppercase;
-    font-size:13px;
-    letter-spacing:1px;
+
+    letter-spacing:1.5px;
 }
 
 .stat-value{
-    margin-top:7px;
-    font-size:25px;
-    font-weight:900;
+    margin-top:8px;
+
+    color:#ffffff;
+
+    font-size:24px;
+
+    font-weight:1000;
 }
 
-/* STAFF GRID */
+/* =========================================================
+   STAFF GRID
+   ========================================================= */
 
 .staff-grid{
     width:100%;
     max-width:1500px;
-    margin:0 auto;
-    padding:0 20px 120px;
+
+    margin:
+        0
+        auto;
+
+    padding:
+        0
+        20px
+        150px;
 
     display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:28px;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:32px;
+
+    align-items:stretch;
 }
 
-/* CARD */
+/* =========================================================
+   STAFF CARD
+   ========================================================= */
 
-.card{
+.staff-card{
     position:relative;
-    overflow:hidden;
+
+    width:100%;
 
     min-width:0;
+
+    min-height:690px;
+
+    height:auto;
+
+    overflow:hidden;
+
+    border-radius:24px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(27,20,38,.98),
+            rgba(28,20,40,.98),
             rgba(9,7,13,.98)
         );
 
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:22px;
+    border:
+        1px solid
+        rgba(255,255,255,.09);
 
     box-shadow:
-        0 20px 70px rgba(0,0,0,.4);
+        0 20px 70px
+        rgba(0,0,0,.42);
 
-    transition:.3s;
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
-.card:hover{
+.staff-card:hover{
     transform:translateY(-7px);
 
-    border-color:rgba(142,81,255,.55);
+    border-color:
+        rgba(142,81,255,.55);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.55),
-        0 0 35px rgba(142,81,255,.12);
+        0 30px 90px
+        rgba(0,0,0,.6),
+        0 0 40px
+        rgba(142,81,255,.12);
 }
 
-/* BANNER */
+/* =========================================================
+   BANNER
+   ========================================================= */
 
 .banner{
-    height:210px;
     position:relative;
+
+    width:100%;
+
+    height:235px;
+
     overflow:hidden;
 }
 
-.banner.owner{
+.banner-owner{
     background:
         radial-gradient(
-            circle at 20% 50%,
+            circle at 15% 50%,
             rgba(255,77,141,.55),
             transparent 55%
         ),
-        linear-gradient(135deg,#28101e,#100812);
+        linear-gradient(
+            135deg,
+            #28101e,
+            #100811
+        );
 }
 
-.banner.admin{
+.banner-admin{
     background:
         radial-gradient(
-            circle at 20% 50%,
-            rgba(255,70,70,.55),
+            circle at 15% 50%,
+            rgba(255,80,80,.55),
             transparent 55%
         ),
-        linear-gradient(135deg,#291010,#100808);
+        linear-gradient(
+            135deg,
+            #291010,
+            #100808
+        );
 }
 
-.banner.future{
+.banner-future{
     background:
         radial-gradient(
-            circle at 20% 50%,
-            rgba(142,81,255,.4),
+            circle at 15% 50%,
+            rgba(142,81,255,.5),
             transparent 55%
         ),
-        linear-gradient(135deg,#1b1125,#08060b);
+        linear-gradient(
+            135deg,
+            #1d1128,
+            #08060b
+        );
 }
 
-/* AVATAR */
+/* =========================================================
+   AVATAR
+   ========================================================= */
 
 .avatar{
     position:absolute;
-    left:28px;
-    bottom:-12px;
 
-    width:115px;
-    height:115px;
+    left:30px;
+    bottom:-14px;
 
-    border:4px solid #07050b;
-    border-radius:14px;
+    width:120px;
+    height:120px;
 
     overflow:hidden;
-    background:#111;
 
-    z-index:10;
+    border-radius:14px;
+
+    background:#080808;
+
+    border:
+        4px solid
+        #07050b;
 
     box-shadow:
         0 0 0 2px #8e51ff,
-        0 0 30px rgba(142,81,255,.5);
+        0 0 30px
+        rgba(142,81,255,.55);
+
+    z-index:20;
 }
 
 .avatar img{
     width:100%;
     height:100%;
+
     display:block;
+
     object-fit:cover;
+
     image-rendering:pixelated;
 }
 
-.avatar-fallback{
+/* =========================================================
+   PERSONA 3D
+   ========================================================= */
+
+.minecraft-body{
+    position:absolute;
+
+    right:30px;
+    bottom:-65px;
+
+    height:270px;
+
+    width:auto;
+
+    object-fit:contain;
+
+    image-rendering:pixelated;
+
+    filter:
+        drop-shadow(
+            0 15px 15px
+            rgba(0,0,0,.8)
+        );
+
+    z-index:10;
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.staff-content{
     width:100%;
-    height:100%;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    min-height:455px;
 
-    background:#000;
-    color:#fff;
+    height:auto;
 
-    font-size:65px;
-    font-weight:1000;
+    padding:
+        75px
+        30px
+        35px;
 }
 
-/* PERSONA 3D */
+.staff-name{
+    font-size:27px;
 
-.body{
-    position:absolute;
-    right:25px;
-    bottom:-50px;
-
-    height:245px;
-
-    image-rendering:pixelated;
-
-    filter:drop-shadow(
-        0 12px 15px rgba(0,0,0,.8)
-    );
-
-    z-index:5;
-}
-
-/* PERSONA NEGRA FUTURA */
-
-.future-character{
-    position:absolute;
-
-    right:55px;
-    bottom:0;
-
-    width:125px;
-    height:200px;
-
-    background:#000;
-
-    z-index:5;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:8px 8px 15px 15px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.8),
-        inset 0 0 25px rgba(255,255,255,.03);
-}
-
-.future-character::before{
-    content:"";
-
-    position:absolute;
-
-    top:-55px;
-    left:12px;
-
-    width:101px;
-    height:101px;
-
-    background:#000;
-
-    border-radius:5px;
-}
-
-.future-character span{
-    position:relative;
-    z-index:2;
-
-    color:#fff;
-
-    font-size:78px;
     font-weight:1000;
 
-    text-shadow:
-        0 0 10px #fff,
-        0 0 25px #8e51ff,
-        0 0 45px rgba(142,81,255,.8);
-}
-
-/* CONTENT */
-
-.content{
-    padding:65px 28px 30px;
-}
-
-.name{
-    font-size:25px;
-    font-weight:1000;
-    margin-bottom:10px;
+    margin-bottom:11px;
 }
 
 .owner-name{
@@ -421,7 +608,7 @@ header{
 }
 
 .admin-name{
-    color:#ff5555;
+    color:#ff6666;
 }
 
 .future-name{
@@ -431,1025 +618,8 @@ header{
 .rank{
     display:inline-block;
 
-    padding:8px 14px;
-
-    border-radius:8px;
-
-    font-size:13px;
-    font-weight:900;
-
-    margin-bottom:18px;
-}
-
-.rank-owner{
-    color:#ff78aa;
-    background:rgba(255,77,141,.1);
-    border:1px solid rgba(255,77,141,.3);
-}
-
-.rank-admin{
-    color:#ff7777;
-    background:rgba(255,85,85,.1);
-    border:1px solid rgba(255,85,85,.3);
-}
-
-.rank-future{
-    color:#ca91ff;
-    background:rgba(142,81,255,.1);
-    border:1px solid rgba(142,81,255,.3);
-}
-
-.description{
-    color:#aaa5b2;
-    font-size:17px;
-    line-height:1.6;
-
-    min-height:80px;
-
-    margin-bottom:20px;
-}
-
-/* DETAILS */
-
-.details{
-    display:flex;
-    flex-direction:column;
-    gap:9px;
-}
-
-.detail{
-    padding:12px;
-
-    border-radius:9px;
-
-    background:rgba(255,255,255,.035);
-
-    border:1px solid rgba(255,255,255,.06);
-
-    color:#bdb6c5;
-
-    font-size:15px;
-}
-
-.detail strong{
-    color:#fff;
-}
-
-/* PERMISSIONS */
-
-.permissions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:18px;
-}
-
-.permission{
-    padding:7px 10px;
-
-    border-radius:6px;
-
-    background:rgba(142,81,255,.1);
-
-    border:1px solid rgba(142,81,255,.2);
-
-    color:#d7ccff;
-
-    font-size:13px;
-}
-
-/* FOOTER */
-
-footer{
-    padding:65px 20px;
-
-    text-align:center;
-
-    background:rgba(0,0,0,.35);
-
-    border-top:1px solid rgba(255,255,255,.08);
-}
-
-footer h2{
-    font-size:25px;
-    font-weight:1000;
-}
-
-footer h2 span{
-    color:#ff4d8d;
-}
-
-footer p{
-    margin-top:12px;
-    color:#77717e;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-
-    .nav{
-        flex-direction:column;
-    }
-
-    .staff-grid{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:600px){
-
-    .hero{
-        padding:70px 15px 50px;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    .staff-grid{
-        padding:
-            0 12px 90px;
-    }
-
-    .banner{
-        height:190px;
-    }
-
-    .body{
-        height:205px;
-        right:0;
-    }
-
-    .future-character{
-        right:15px;
-        transform:scale(.85);
-        transform-origin:bottom right;
-    }
-
-    .avatar{
-        left:18px;
-        width:100px;
-        height:100px;
-    }
-
-    .content{
-        padding:
-            60px 20px 25px;
-    }
-
-    .menu a{
-        font-size:13px;
-        padding:8px 9px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-
-<nav class="nav">
-
-<a href="index.html" class="logo">
-THRASH<span>MC</span>
-</a>
-
-<div class="menu">
-
-<a href="index.html">
-🏠 Inicio
-</a>
-
-<a href="modalidades.html">
-⚔️ Modalidades
-</a>
-
-<a href="staff.html" class="active">
-👑 Staff
-</a>
-
-<a href="reglas.html">
-📜 Reglas
-</a>
-
-<a href="servidor.html">
-🌐 Servidor
-</a>
-
-<a href="tienda.html">
-🛒 Tienda
-</a>
-
-<a
-href="https://discord.gg/GBTnQnxEk"
-target="_blank"
->
-💬 Discord
-</a>
-
-</div>
-
-</nav>
-
-</header>
-
-
-<section class="hero">
-
-<div class="badge">
-👑 EQUIPO OFICIAL THRASHMC
-</div>
-
-<h1>
-NUESTRO STAFF
-</h1>
-
-<p>
-Conoce a las personas que forman parte del equipo
-de <strong>THRASHMC NETWORK</strong>.
-<br>
-Nuestro objetivo es mantener una comunidad
-activa, segura y competitiva.
-</p>
-
-</section>
-
-
-<section class="stats">
-
-<div class="stat">
-
-<div class="stat-icon">
-⚔️
-</div>
-
-<div class="stat-title">
-Modalidad principal
-</div>
-
-<div class="stat-value">
-FULLPVP
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-icon">
-🌐
-</div>
-
-<div class="stat-title">
-Network
-</div>
-
-<div class="stat-value">
-THRASHMC
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-icon">
-👑
-</div>
-
-<div class="stat-title">
-Staff actual
-</div>
-
-<div class="stat-value">
-3 STAFF
-</div>
-
-</div>
-
-</section>
-
-
-<section class="staff-grid">
-
-
-<!-- =========================
-     OWNER 1
-========================= -->
-
-<article class="card">
-
-<div class="banner owner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/7dn5/left"
-alt="Tiziomariabebe01"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-"
->
-
-<div
-class="avatar-fallback"
-style="display:none"
->
-👑
-</div>
-
-</div>
-
-<img
-class="body"
-src="https://mc-heads.net/body/7dn5/right"
-alt=""
-onerror="this.style.display='none';"
->
-
-</div>
-
-<div class="content">
-
-<div class="name owner-name">
-Tiziomariabebe01
-</div>
-
-<div class="rank rank-owner">
-👑 OWNER
-</div>
-
-<p class="description">
-Máxima autoridad de THRASHMC y responsable
-de la administración general de la Network.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> 2026-01-01
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Tiziomariabebe01
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ All Permissions
-</span>
-
-<span class="permission">
-✓ Server Management
-</span>
-
-<span class="permission">
-✓ Staff Management
-</span>
-
-<span class="permission">
-✓ Administration
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     OWNER 2
-========================= -->
-
-<article class="card">
-
-<div class="banner owner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Romanticou/left"
-alt="ItsTizii"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-"
->
-
-<div
-class="avatar-fallback"
-style="display:none"
->
-👑
-</div>
-
-</div>
-
-<img
-class="body"
-src="https://mc-heads.net/body/Romanticou/right"
-alt=""
-onerror="this.style.display='none';"
->
-
-</div>
-
-<div class="content">
-
-<div class="name owner-name">
-ItsTizii
-</div>
-
-<div class="rank rank-owner">
-👑 OWNER
-</div>
-
-<p class="description">
-Owner de THRASHMC y responsable de la gestión,
-administración y desarrollo de la Network.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> 2026-01-01
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> ItsTizii
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Server Management
-</span>
-
-<span class="permission">
-✓ Staff Management
-</span>
-
-<span class="permission">
-✓ Administration
-</span>
-
-<span class="permission">
-✓ Moderation
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     ADMIN PANA
-========================= -->
-
-<article class="card">
-
-<div class="banner admin">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/bear/left"
-alt="Pana_Frail"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-"
->
-
-<div
-class="avatar-fallback"
-style="display:none"
->
-🐻
-</div>
-
-</div>
-
-<img
-class="body"
-src="https://mc-heads.net/body/bear/right"
-alt=""
-onerror="this.style.display='none';"
->
-
-</div>
-
-<div class="content">
-
-<div class="name admin-name">
-Pana_Frail
-</div>
-
-<div class="rank rank-admin">
-🛡️ ADMIN
-</div>
-
-<p class="description">
-Administrador de THRASHMC. Ayuda a gestionar
-el servidor, mantener el orden y hacer cumplir
-las reglas de la Network.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> 2026
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Pana_Frail
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Server Management
-</span>
-
-<span class="permission">
-✓ Administration
-</span>
-
-<span class="permission">
-✓ Ban
-</span>
-
-<span class="permission">
-✓ Kick
-</span>
-
-<span class="permission">
-✓ Mute
-</span>
-
-<span class="permission">
-✓ Warn
-</span>
-
-<span class="permission">
-✓ Teleport
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     MANAGER
-========================= -->
-
-<article class="card">
-
-<div class="banner future">
-
-<div class="avatar">
-<div class="avatar-fallback">
-?
-</div>
-</div>
-
-<div class="future-character">
-<span>?</span>
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="name future-name">
-Por definir
-</div>
-
-<div class="rank rank-future">
-👔 MANAGER
-</div>
-
-<p class="description">
-El puesto de Manager estará disponible
-próximamente. Será responsable de organizar
-y coordinar al equipo de Staff.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Estado:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Staff Management
-</span>
-
-<span class="permission">
-✓ Server Management
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     ADMIN FUTURO
-========================= -->
-
-<article class="card">
-
-<div class="banner future">
-
-<div class="avatar">
-<div class="avatar-fallback">
-?
-</div>
-</div>
-
-<div class="future-character">
-<span>?</span>
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="name future-name">
-Por definir
-</div>
-
-<div class="rank rank-future">
-🛡️ ADMIN
-</div>
-
-<p class="description">
-Nuevo puesto administrativo de THRASHMC.
-La incorporación de nuevos miembros se anunciará
-oficialmente cuando llegue el momento.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Estado:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Administration
-</span>
-
-<span class="permission">
-✓ Server Management
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     MOD
-========================= -->
-
-<article class="card">
-
-<div class="banner future">
-
-<div class="avatar">
-<div class="avatar-fallback">
-?
-</div>
-</div>
-
-<div class="future-character">
-<span>?</span>
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="name future-name">
-Por definir
-</div>
-
-<div class="rank rank-future">
-⚔️ MOD
-</div>
-
-<p class="description">
-El próximo Moderador ayudará a mantener
-el orden, revisar reportes y hacer cumplir
-las reglas de THRASHMC.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Estado:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Ban
-</span>
-
-<span class="permission">
-✓ Kick
-</span>
-
-<span class="permission">
-✓ Mute
-</span>
-
-<span class="permission">
-✓ Warn
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     HELPER
-========================= -->
-
-<article class="card">
-
-<div class="banner future">
-
-<div class="avatar">
-<div class="avatar-fallback">
-?
-</div>
-</div>
-
-<div class="future-character">
-<span>?</span>
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="name future-name">
-Por definir
-</div>
-
-<div class="rank rank-future">
-💚 HELPER
-</div>
-
-<p class="description">
-Ayudará a los jugadores, responderá preguntas
-y colaborará con la comunidad de THRASHMC.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Estado:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Help Players
-</span>
-
-<span class="permission">
-✓ Reports
-</span>
-
-<span class="permission">
-✓ Chat Support
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     BUILDER
-========================= -->
-
-<article class="card">
-
-<div class="banner future">
-
-<div class="avatar">
-<div class="avatar-fallback">
-?
-</div>
-</div>
-
-<div class="future-character">
-<span>?</span>
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="name future-name">
-Por definir
-</div>
-
-<div class="rank rank-future">
-🔨 BUILDER
-</div>
-
-<p class="description">
-Se encargará de crear y desarrollar
-spawns, mapas y diferentes zonas
-de THRASHMC NETWORK.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Estado:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Building
-</span>
-
-<span class="permission">
-✓ WorldEdit
-</span>
-
-<span class="permission">
-✓ Map Development
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- =========================
-     EVENT MANAGER
-========================= -->
-
-<article class="card">
-
-<div class="banner future">
-
-<div class="avatar">
-<div class="avatar-fallback">
-?
-</div>
-</div>
-
-<div class="future-character">
-<span>?</span>
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="name future-name">
-Por definir
-</div>
-
-<div class="rank rank-future">
-🎉 EVENT MANAGER
-</div>
-
-<p class="description">
-Organizará eventos, actividades, sorteos
-y dinámicas especiales para toda
-la comunidad de THRASHMC.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Estado:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Events
-</span>
-
-<span class="permission">
-✓ Giveaways
-</span>
-
-<span class="permission">
-✓ Community Management
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-</section>
-
-
-<footer>
-
-<h2>
-💜 THRASH<span>MC</span> NETWORK
-</h2>
-
-<p>
-⚔️ FULLPVP • 👑 STAFF • 🏆 COMPETENCIA
-</p>
-
-<p>
-© 2026 THRASHMC NETWORK
-</p>
-
-</footer>
-
-</body>
-</html>
+    padding:
+        8px
+        14px;
+
+    margin-bottom:20
