@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>THRASHMC | Minecraft Network</title>
+<title>THRASHMC | Network</title>
 
 <meta name="description"
-content="THRASHMC Network - Servidor Minecraft FullPVP">
+content="THRASHMC Network - FullPVP Minecraft">
 
 <style>
 
-/* =====================================================
+/* =========================
    RESET
-===================================================== */
+========================= */
 
 *{
     margin:0;
@@ -26,22 +27,23 @@ html{
 }
 
 body{
+
     font-family:
     Arial,
     Helvetica,
     sans-serif;
 
-    color:#f4f4f7;
+    color:#fff;
 
     background:
-    #0b0d11;
+    #08090d;
 
     overflow-x:hidden;
 }
 
 a{
-    color:inherit;
     text-decoration:none;
+    color:inherit;
 }
 
 button{
@@ -49,9 +51,9 @@ button{
 }
 
 
-/* =====================================================
+/* =========================
    FONDO
-===================================================== */
+========================= */
 
 body::before{
 
@@ -61,29 +63,27 @@ body::before{
 
     inset:0;
 
-    pointer-events:none;
-
     z-index:-2;
 
     background:
 
     radial-gradient(
-        circle at 20% 10%,
-        rgba(142,81,255,.10),
-        transparent 25%
+        circle at 50% -10%,
+        rgba(142,81,255,.25),
+        transparent 35%
     ),
 
     radial-gradient(
-        circle at 80% 30%,
-        rgba(255,255,255,.05),
-        transparent 25%
+        circle at 90% 50%,
+        rgba(120,80,255,.10),
+        transparent 30%
     ),
 
     linear-gradient(
         180deg,
-        #0b0d11 0%,
-        #0e1117 45%,
-        #090b0f 100%
+        #08090d,
+        #0b0d12 50%,
+        #07080b
     );
 }
 
@@ -95,32 +95,32 @@ body::after{
 
     inset:0;
 
-    pointer-events:none;
-
     z-index:-1;
 
-    opacity:.35;
+    pointer-events:none;
+
+    opacity:.25;
 
     background-image:
 
     linear-gradient(
-        rgba(255,255,255,.025) 1px,
+        rgba(255,255,255,.03) 1px,
         transparent 1px
     ),
 
     linear-gradient(
         90deg,
-        rgba(255,255,255,.025) 1px,
+        rgba(255,255,255,.03) 1px,
         transparent 1px
     );
 
-    background-size:60px 60px;
+    background-size:55px 55px;
 }
 
 
-/* =====================================================
+/* =========================
    NAVBAR
-===================================================== */
+========================= */
 
 .navbar{
 
@@ -130,7 +130,7 @@ body::after{
     left:0;
     right:0;
 
-    height:74px;
+    height:72px;
 
     padding:0 5%;
 
@@ -141,13 +141,13 @@ body::after{
     justify-content:space-between;
 
     background:
-    rgba(11,13,17,.88);
+    rgba(8,9,13,.82);
+
+    backdrop-filter:blur(18px);
 
     border-bottom:
     1px solid
     rgba(255,255,255,.08);
-
-    backdrop-filter:blur(18px);
 
     z-index:5000;
 }
@@ -164,34 +164,38 @@ body::after{
 }
 
 .logo span{
-    color:#a978ff;
+    color:#9d63ff;
 }
 
-.menu{
+
+/* DESKTOP MENU */
+
+.desktop-menu{
 
     display:flex;
 
     align-items:center;
 
-    gap:7px;
+    gap:5px;
 }
 
-.menu a{
+.desktop-menu a{
 
-    padding:10px 12px;
+    padding:
+    10px 12px;
 
     border-radius:8px;
 
-    color:#9ca1aa;
+    color:#9297a2;
 
-    font-size:12px;
+    font-size:11px;
 
-    font-weight:700;
+    font-weight:800;
 
     transition:.2s;
 }
 
-.menu a:hover{
+.desktop-menu a:hover{
 
     color:#fff;
 
@@ -199,143 +203,171 @@ body::after{
     rgba(255,255,255,.06);
 }
 
-.menu-shop{
-
-    background:
-    #8e51ff!important;
+.desktop-shop{
 
     color:#fff!important;
 
-    box-shadow:
-    0 5px 20px
-    rgba(142,81,255,.18);
+    background:
+    #8e51ff!important;
 }
 
 
-/* =====================================================
+/* =========================
    TRES PUNTITOS
-===================================================== */
+========================= */
 
-.dots-button{
+.menu-button{
 
-    width:45px;
-    height:45px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border:
-    1px solid
-    rgba(255,255,255,.10);
+    width:46px;
+    height:46px;
 
     border-radius:10px;
 
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
     background:
-    rgba(255,255,255,.05);
+    rgba(255,255,255,.06);
 
     color:#fff;
 
     font-size:28px;
 
-    line-height:1;
+    font-weight:bold;
+
+    line-height:35px;
 
     cursor:pointer;
 
-    transition:.2s;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+    z-index:9000;
 }
 
-.dots-button:hover{
+.menu-button:hover{
 
-    background:
-    rgba(142,81,255,.20);
+    background:#8e51ff;
 
-    border-color:
-    rgba(142,81,255,.45);
+    border-color:#a978ff;
+
+    transform:scale(1.05);
 }
 
 
-/* =====================================================
+/* =========================
    MENU DESPLEGABLE
-===================================================== */
+========================= */
 
-.dots-menu{
+.mobile-menu{
 
     position:fixed;
 
-    top:84px;
+    top:82px;
 
-    right:18px;
+    right:20px;
 
-    width:270px;
+    width:280px;
 
     padding:12px;
 
-    background:
-    #15181e;
+    background:#12151b;
 
     border:
     1px solid
-    rgba(255,255,255,.10);
+    rgba(255,255,255,.12);
 
-    border-radius:14px;
+    border-radius:16px;
 
     box-shadow:
-    0 25px 70px
-    rgba(0,0,0,.65);
+
+    0 20px 70px
+    rgba(0,0,0,.70),
+
+    0 0 35px
+    rgba(142,81,255,.12);
+
+    z-index:8999;
 
     opacity:0;
 
     visibility:hidden;
 
     transform:
-    translateY(-10px);
+    translateY(-12px)
+    scale(.96);
 
-    transition:.2s;
+    transform-origin:
+    top right;
 
-    z-index:6000;
+    transition:
+
+    opacity .2s ease,
+
+    transform .2s ease,
+
+    visibility .2s;
 }
 
-.dots-menu.active{
+.mobile-menu.active{
 
     opacity:1;
 
     visibility:visible;
 
     transform:
-    translateY(0);
+    translateY(0)
+    scale(1);
 }
 
-.dots-title{
 
-    padding:12px;
+/* CABECERA MENU */
 
-    margin-bottom:7px;
+.mobile-menu-header{
+
+    padding:14px;
+
+    margin-bottom:6px;
 
     border-bottom:
     1px solid
-    rgba(255,255,255,.07);
-
-    font-size:14px;
-
-    font-weight:900;
+    rgba(255,255,255,.08);
 }
 
-.dots-title span{
+.mobile-menu-header strong{
 
     display:block;
 
-    margin-top:5px;
+    color:#fff;
+
+    font-size:16px;
+}
+
+.mobile-menu-header span{
+
+    display:block;
+
+    margin-top:4px;
 
     color:#a978ff;
 
     font-size:8px;
 
+    font-weight:bold;
+
     letter-spacing:3px;
 }
 
-.dots-menu a{
+
+/* LINKS MENU */
+
+.mobile-menu a{
 
     display:flex;
 
@@ -343,52 +375,80 @@ body::after{
 
     gap:12px;
 
-    padding:12px;
+    width:100%;
+
+    padding:13px;
 
     margin:3px 0;
 
-    border-radius:8px;
+    border-radius:9px;
 
-    color:#a6aab3;
+    color:#aeb3bc;
 
     font-size:12px;
 
-    font-weight:700;
+    font-weight:800;
 
     transition:.2s;
 }
 
-.dots-menu a:hover{
+.mobile-menu a:hover{
 
     color:#fff;
 
     background:
-    rgba(255,255,255,.06);
+    rgba(142,81,255,.16);
 
     transform:
-    translateX(3px);
+    translateX(4px);
 }
 
-.dots-shop{
+.mobile-menu a span{
+    flex:1;
+}
+
+
+/* TIENDA */
+
+.mobile-menu .shop-link{
+
+    margin-top:8px;
+
+    color:#fff;
 
     background:
-    rgba(142,81,255,.15)!important;
+    linear-gradient(
+        135deg,
+        #8e51ff,
+        #a978ff
+    );
 
-    color:#d9c6ff!important;
+    box-shadow:
+    0 7px 25px
+    rgba(142,81,255,.20);
+}
+
+.mobile-menu .shop-link:hover{
+
+    background:
+    linear-gradient(
+        135deg,
+        #9b63ff,
+        #b789ff
+    );
+
+    transform:
+    translateY(-1px);
 }
 
 
-/* =====================================================
+/* =========================
    HERO
-===================================================== */
+========================= */
 
 .hero{
 
     min-height:100vh;
-
-    padding:
-    140px 20px
-    90px;
 
     display:flex;
 
@@ -398,17 +458,20 @@ body::after{
 
     text-align:center;
 
+    padding:
+    120px 20px 80px;
+
     position:relative;
 }
 
 .hero-content{
 
-    width:100%;
+    max-width:1000px;
 
-    max-width:1050px;
+    width:100%;
 }
 
-.hero-badge{
+.badge{
 
     display:inline-flex;
 
@@ -417,28 +480,28 @@ body::after{
     gap:8px;
 
     padding:
-    8px 14px;
+    9px 16px;
 
-    border-radius:30px;
+    border-radius:50px;
 
     background:
-    rgba(255,255,255,.045);
+    rgba(255,255,255,.04);
 
     border:
     1px solid
-    rgba(255,255,255,.09);
+    rgba(255,255,255,.10);
 
-    color:#b7bbc4;
+    color:#b9bec8;
 
     font-size:10px;
 
     font-weight:900;
 
-    letter-spacing:1.5px;
+    letter-spacing:2px;
 }
 
-.hero-badge b{
-    color:#68e08b;
+.badge b{
+    color:#5de388;
 }
 
 .hero h1{
@@ -446,7 +509,7 @@ body::after{
     margin-top:25px;
 
     font-size:
-    clamp(60px,13vw,145px);
+    clamp(60px,13vw,140px);
 
     line-height:.85;
 
@@ -457,36 +520,36 @@ body::after{
     color:#fff;
 
     text-shadow:
-    0 15px 60px
-    rgba(0,0,0,.5);
+    0 20px 80px
+    rgba(0,0,0,.6);
 }
 
 .hero h1 span{
-    color:#a978ff;
+    color:#9d63ff;
 }
 
 .network{
 
     margin-top:18px;
 
-    color:#777d88;
+    color:#777e89;
 
     font-size:
     clamp(15px,3vw,25px);
 
-    letter-spacing:12px;
+    letter-spacing:11px;
 
-    font-weight:800;
+    font-weight:900;
 }
 
 .description{
 
-    max-width:680px;
+    max-width:670px;
 
     margin:
     25px auto;
 
-    color:#8e949e;
+    color:#858b96;
 
     font-size:15px;
 
@@ -494,9 +557,9 @@ body::after{
 }
 
 
-/* =====================================================
+/* =========================
    BOTONES
-===================================================== */
+========================= */
 
 .buttons{
 
@@ -521,10 +584,10 @@ body::after{
 
     justify-content:center;
 
-    min-height:46px;
+    min-height:47px;
 
     padding:
-    0 21px;
+    0 22px;
 
     border-radius:9px;
 
@@ -536,24 +599,23 @@ body::after{
 }
 
 .btn:hover{
-
-    transform:
-    translateY(-3px);
+    transform:translateY(-3px);
 }
 
 .primary{
 
-    background:#8e51ff;
+    background:
+    linear-gradient(
+        135deg,
+        #8e51ff,
+        #a978ff
+    );
 
     color:#fff;
 
     box-shadow:
-    0 8px 25px
+    0 10px 30px
     rgba(142,81,255,.20);
-}
-
-.primary:hover{
-    background:#9d68ff;
 }
 
 .secondary{
@@ -565,28 +627,23 @@ body::after{
     1px solid
     rgba(255,255,255,.10);
 
-    color:#e5e7eb;
-}
-
-.secondary:hover{
-
-    background:
-    rgba(255,255,255,.08);
+    color:#e3e5e9;
 }
 
 
-/* =====================================================
+/* =========================
    IP
-===================================================== */
+========================= */
 
 .ip-box{
 
-    max-width:650px;
+    max-width:620px;
 
     margin:
     35px auto 0;
 
-    padding:17px 18px;
+    padding:
+    17px 18px;
 
     display:flex;
 
@@ -596,19 +653,18 @@ body::after{
 
     gap:20px;
 
-    background:
-    #111419;
+    background:#11141a;
 
     border:
     1px solid
     rgba(255,255,255,.08);
 
-    border-radius:12px;
+    border-radius:13px;
 }
 
-.ip-label{
+.ip-title{
 
-    color:#6f7580;
+    color:#686f7a;
 
     font-size:8px;
 
@@ -637,12 +693,7 @@ body::after{
 
     border-radius:8px;
 
-    background:
-    #252932;
-
-    border:
-    1px solid
-    rgba(255,255,255,.08);
+    background:#252a32;
 
     color:#fff;
 
@@ -656,17 +707,15 @@ body::after{
 }
 
 .copy:hover{
-
     background:#8e51ff;
 }
 
 
-/* =====================================================
+/* =========================
    SECCIONES
-===================================================== */
+========================= */
 
 section{
-
     padding:
     100px 5%;
 }
@@ -687,28 +736,26 @@ section{
 
     font-size:9px;
 
-    letter-spacing:3px;
-
     font-weight:1000;
+
+    letter-spacing:3px;
 }
 
 .section-title h2{
 
-    margin-top:10px;
-
-    color:#fff;
+    margin-top:11px;
 
     font-size:
-    clamp(31px,5vw,50px);
+    clamp(32px,5vw,52px);
 
-    letter-spacing:-1px;
+    color:#fff;
 }
 
 .section-title p{
 
-    margin-top:12px;
+    margin-top:13px;
 
-    color:#7f858f;
+    color:#7d838d;
 
     line-height:1.8;
 
@@ -716,9 +763,9 @@ section{
 }
 
 
-/* =====================================================
+/* =========================
    STATUS
-===================================================== */
+========================= */
 
 .status{
 
@@ -736,18 +783,17 @@ section{
 
 .status-card{
 
-    padding:25px;
+    padding:28px;
 
-    background:
-    #111419;
+    text-align:center;
+
+    background:#11141a;
 
     border:
     1px solid
     rgba(255,255,255,.07);
 
-    border-radius:12px;
-
-    text-align:center;
+    border-radius:13px;
 
     transition:.2s;
 }
@@ -758,40 +804,37 @@ section{
     translateY(-5px);
 
     border-color:
-    rgba(255,255,255,.14);
+    rgba(169,120,255,.30);
 }
 
 .status-icon{
 
-    font-size:25px;
+    font-size:27px;
 
-    margin-bottom:9px;
+    margin-bottom:10px;
 }
 
 .status-card h3{
-
-    font-size:14px;
+    font-size:15px;
 }
 
 .status-card p{
 
     margin-top:6px;
 
-    color:#737984;
+    color:#727984;
 
     font-size:10px;
-
-    font-weight:700;
 }
 
 .online{
-    color:#62df87;
+    color:#60df87;
 }
 
 
-/* =====================================================
-   CARDS
-===================================================== */
+/* =========================
+   FEATURES
+========================= */
 
 .features{
 
@@ -804,23 +847,22 @@ section{
     grid-template-columns:
     repeat(3,1fr);
 
-    gap:15px;
+    gap:16px;
 }
 
 .feature{
 
+    padding:30px;
+
     min-height:190px;
 
-    padding:27px;
-
-    background:
-    #111419;
+    background:#11141a;
 
     border:
     1px solid
     rgba(255,255,255,.07);
 
-    border-radius:13px;
+    border-radius:14px;
 
     transition:.2s;
 }
@@ -828,10 +870,9 @@ section{
 .feature:hover{
 
     transform:
-    translateY(-6px);
+    translateY(-7px);
 
-    background:
-    #14171d;
+    background:#15181f;
 
     border-color:
     rgba(169,120,255,.35);
@@ -839,12 +880,13 @@ section{
 
 .feature-icon{
 
-    width:45px;
-    height:45px;
+    width:46px;
+    height:46px;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     border-radius:10px;
@@ -861,12 +903,12 @@ section{
 
     font-size:17px;
 
-    margin-bottom:8px;
+    margin-bottom:9px;
 }
 
 .feature p{
 
-    color:#7d838d;
+    color:#7c828d;
 
     font-size:12px;
 
@@ -874,9 +916,9 @@ section{
 }
 
 
-/* =====================================================
-   ESTADISTICAS
-===================================================== */
+/* =========================
+   STATS
+========================= */
 
 .stats{
 
@@ -894,26 +936,26 @@ section{
 
 .stat{
 
-    padding:27px 15px;
+    padding:30px 15px;
 
     text-align:center;
 
-    background:#111419;
+    background:#11141a;
 
     border:
     1px solid
     rgba(255,255,255,.07);
 
-    border-radius:12px;
+    border-radius:13px;
 }
 
 .number{
 
-    color:#fff;
-
-    font-size:29px;
+    font-size:31px;
 
     font-weight:1000;
+
+    color:#fff;
 }
 
 .number span{
@@ -930,13 +972,13 @@ section{
 
     letter-spacing:1.5px;
 
-    font-weight:800;
+    font-weight:bold;
 }
 
 
-/* =====================================================
+/* =========================
    RANGOS
-===================================================== */
+========================= */
 
 .ranks{
 
@@ -949,25 +991,24 @@ section{
     grid-template-columns:
     repeat(4,1fr);
 
-    gap:15px;
+    gap:16px;
 }
 
 .rank{
 
     position:relative;
 
-    padding:28px 18px;
+    padding:30px 18px;
 
-    background:
-    #111419;
+    text-align:center;
+
+    background:#11141a;
 
     border:
     1px solid
     rgba(255,255,255,.07);
 
-    border-radius:13px;
-
-    text-align:center;
+    border-radius:14px;
 
     overflow:hidden;
 
@@ -977,9 +1018,9 @@ section{
 .rank:hover{
 
     transform:
-    translateY(-6px);
+    translateY(-7px);
 
-    background:#14171d;
+    background:#15181f;
 }
 
 .rank::before{
@@ -992,27 +1033,30 @@ section{
     left:0;
     right:0;
 
-    height:2px;
+    height:3px;
 
-    background:#8e51ff;
-
-    opacity:.7;
+    background:
+    linear-gradient(
+        90deg,
+        #8e51ff,
+        #a978ff
+    );
 }
 
 .rank h3{
 
-    font-size:19px;
+    font-size:20px;
 
     margin-bottom:8px;
 }
 
 .rank .price{
 
-    color:#6f7580;
+    color:#6e747e;
 
     font-size:9px;
 
-    font-weight:800;
+    font-weight:bold;
 
     margin-bottom:15px;
 }
@@ -1042,13 +1086,11 @@ section{
     background:
     rgba(255,255,255,.05);
 
-    color:#b8bdc6;
+    color:#c0c5cd;
 
     font-size:9px;
 
     font-weight:900;
-
-    transition:.2s;
 }
 
 .rank a:hover{
@@ -1058,25 +1100,22 @@ section{
     color:#fff;
 }
 
-
-/* COLORES */
-
-.user{color:#b5bac3;}
-.hero-rank{color:#66d9ff;}
-.vip{color:#65df91;}
-.vipplus{color:#c88cff;}
-.selva{color:#69d8a0;}
-.rey{color:#ffd65a;}
-.mono{color:#ffad63;}
-.maestro{color:#ff6f9a;}
-.inferno{color:#ff6868;}
-.lunar{color:#b899ff;}
-.thrash{color:#e08aff;}
+.user{color:#b8bdc5;}
+.hero-rank{color:#62d9ff;}
+.vip{color:#62df8b;}
+.vipplus{color:#d18cff;}
+.selva{color:#65d89a;}
+.rey{color:#ffd55b;}
+.mono{color:#ffad61;}
+.maestro{color:#ff6c96;}
+.inferno{color:#ff6262;}
+.lunar{color:#b595ff;}
+.thrash{color:#df83ff;}
 
 
-/* =====================================================
+/* =========================
    TIENDA
-===================================================== */
+========================= */
 
 .shop{
 
@@ -1085,18 +1124,18 @@ section{
     margin:auto;
 
     padding:
-    65px 25px;
+    70px 25px;
 
     text-align:center;
 
     background:
-    #111419;
+    #11141a;
 
     border:
     1px solid
     rgba(255,255,255,.08);
 
-    border-radius:16px;
+    border-radius:17px;
 
     position:relative;
 
@@ -1109,8 +1148,8 @@ section{
 
     position:absolute;
 
-    width:350px;
-    height:350px;
+    width:500px;
+    height:500px;
 
     left:50%;
     top:50%;
@@ -1121,41 +1160,45 @@ section{
     background:
     radial-gradient(
         circle,
-        rgba(142,81,255,.12),
-        transparent 70%
+        rgba(142,81,255,.14),
+        transparent 68%
     );
 
     pointer-events:none;
 }
 
-.shop > *{
-    position:relative;
-}
-
 .shop h2{
+
+    position:relative;
 
     margin-top:10px;
 
     font-size:
-    clamp(30px,5vw,47px);
+    clamp(31px,5vw,49px);
 }
 
 .shop p{
 
+    position:relative;
+
     max-width:600px;
 
     margin:
-    14px auto 25px;
+    15px auto 25px;
 
     color:#7d838d;
 
     line-height:1.8;
 }
 
+.shop a{
+    position:relative;
+}
 
-/* =====================================================
+
+/* =========================
    DISCORD
-===================================================== */
+========================= */
 
 .discord{
 
@@ -1168,57 +1211,59 @@ section{
     grid-template-columns:
     1.4fr .6fr;
 
-    gap:15px;
+    gap:16px;
 }
 
 .discord-main{
 
-    padding:40px;
+    padding:45px;
 
     background:
-    #171a21;
+    linear-gradient(
+        135deg,
+        #171a21,
+        #11141a
+    );
 
     border:
     1px solid
     rgba(255,255,255,.08);
 
-    border-radius:14px;
+    border-radius:15px;
 }
 
 .discord-main h2{
 
-    font-size:31px;
+    font-size:32px;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 }
 
 .discord-main p{
 
-    max-width:600px;
+    max-width:620px;
 
-    color:#818792;
+    color:#808691;
 
     line-height:1.8;
 
-    margin-bottom:22px;
+    margin-bottom:23px;
 }
 
 .discord-side{
 
-    padding:30px;
+    padding:32px;
 
-    background:
-    #111419;
+    background:#11141a;
 
     border:
     1px solid
     rgba(255,255,255,.07);
 
-    border-radius:14px;
+    border-radius:15px;
 }
 
 .discord-side h3{
-
     margin-bottom:15px;
 }
 
@@ -1232,9 +1277,9 @@ section{
 }
 
 
-/* =====================================================
+/* =========================
    NOTICIAS
-===================================================== */
+========================= */
 
 .news{
 
@@ -1247,21 +1292,20 @@ section{
     grid-template-columns:
     repeat(3,1fr);
 
-    gap:15px;
+    gap:16px;
 }
 
 .news-card{
 
-    padding:27px;
+    padding:28px;
 
-    background:
-    #111419;
+    background:#11141a;
 
     border:
     1px solid
     rgba(255,255,255,.07);
 
-    border-radius:13px;
+    border-radius:14px;
 }
 
 .news-tag{
@@ -1278,9 +1322,9 @@ section{
 .news-card h3{
 
     margin:
-    11px 0 9px;
+    12px 0 9px;
 
-    font-size:17px;
+    font-size:18px;
 }
 
 .news-card p{
@@ -1293,9 +1337,9 @@ section{
 }
 
 
-/* =====================================================
+/* =========================
    FAQ
-===================================================== */
+========================= */
 
 .faq{
 
@@ -1306,12 +1350,12 @@ section{
 
 details{
 
-    margin-bottom:9px;
+    margin-bottom:10px;
 
-    padding:17px 20px;
+    padding:
+    18px 20px;
 
-    background:
-    #111419;
+    background:#11141a;
 
     border:
     1px solid
@@ -1326,7 +1370,7 @@ summary{
 
     font-size:12px;
 
-    font-weight:800;
+    font-weight:900;
 }
 
 details p{
@@ -1341,16 +1385,16 @@ details p{
 }
 
 
-/* =====================================================
+/* =========================
    FINAL
-===================================================== */
+========================= */
 
 .final{
 
-    text-align:center;
-
     padding:
     120px 20px;
+
+    text-align:center;
 }
 
 .final h2{
@@ -1358,7 +1402,7 @@ details p{
     margin-top:10px;
 
     font-size:
-    clamp(35px,6vw,60px);
+    clamp(36px,6vw,60px);
 }
 
 .final p{
@@ -1366,4 +1410,1752 @@ details p{
     max-width:600px;
 
     margin:
-    
+    15px auto 25px;
+
+    color:#7d838d;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    padding:
+    50px 5%;
+
+    background:#06070a;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.07);
+}
+
+.footer{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.footer h3{
+    font-size:18px;
+}
+
+.footer p{
+
+    margin-top:8px;
+
+    color:#626873;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+.footer-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+}
+
+.footer-links a{
+
+    color:#707680;
+
+    font-size:10px;
+
+    font-weight:800;
+}
+
+.footer-links a:hover{
+    color:#a978ff;
+}
+
+.copyright{
+
+    max-width:1150px;
+
+    margin:
+    30px auto 0;
+
+    padding-top:18px;
+
+    border-top:
+    1px solid
+    rgba(255,255,255,.06);
+
+    color:#4e545d;
+
+    font-size:9px;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+#toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:
+    translate(-50%,25px);
+
+    padding:
+    12px 20px;
+
+    background:#171a20;
+
+    border:
+    1px solid
+    rgba(142,81,255,.35);
+
+    border-radius:9px;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.2s;
+
+    z-index:9999;
+}
+
+#toast.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+    translate(-50%,0);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+
+    .desktop-menu{
+        display:none;
+    }
+
+    .features{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .ranks{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    section{
+        padding:
+        75px 5%;
+    }
+
+    .hero{
+        padding:
+        110px 15px 70px;
+    }
+
+    .hero h1{
+        letter-spacing:-5px;
+    }
+
+    .network{
+        letter-spacing:6px;
+    }
+
+    .status{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .ranks{
+        grid-template-columns:1fr;
+    }
+
+    .news{
+        grid-template-columns:1fr;
+    }
+
+    .discord{
+        grid-template-columns:1fr;
+    }
+
+    .ip-box{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .footer{
+        flex-direction:column;
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .mobile-menu{
+
+        right:10px;
+
+        width:
+        calc(100% - 20px);
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================
+   MENU DESKTOP OCULTO
+========================= */
+
+@media(min-width:1001px){
+
+    .mobile-menu{
+        display:block;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+THRASH<span>MC</span>
+</a>
+
+
+<div class="desktop-menu">
+
+<a href="index.html">
+Inicio
+</a>
+
+<a href="modalidades.html">
+Modalidades
+</a>
+
+<a href="servidor.html">
+Servidor
+</a>
+
+<a href="staff.html">
+Staff
+</a>
+
+<a href="reglas.html">
+Reglas
+</a>
+
+<a href="contacto.html">
+Contacto
+</a>
+
+<a href="tienda.html" class="desktop-shop">
+🛒 Tienda
+</a>
+
+</div>
+
+
+<!-- TRES PUNTITOS -->
+
+<button
+id="menuButton"
+class="menu-button"
+type="button"
+aria-label="Abrir menú"
+aria-expanded="false">
+
+⋮
+
+</button>
+
+</nav>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<div
+id="mobileMenu"
+class="mobile-menu">
+
+
+<div class="mobile-menu-header">
+
+<strong>
+THRASHMC
+</strong>
+
+<span>
+MENÚ PRINCIPAL
+</span>
+
+</div>
+
+
+<a href="index.html">
+
+🏠
+
+<span>
+Inicio
+</span>
+
+</a>
+
+
+<a href="modalidades.html">
+
+⚔️
+
+<span>
+Modalidades
+</span>
+
+</a>
+
+
+<a href="servidor.html">
+
+🌐
+
+<span>
+Servidor
+</span>
+
+</a>
+
+
+<a href="staff.html">
+
+👥
+
+<span>
+Staff
+</span>
+
+</a>
+
+
+<a href="reglas.html">
+
+📜
+
+<span>
+Reglas
+</span>
+
+</a>
+
+
+<a href="contacto.html">
+
+📞
+
+<span>
+Contacto
+</span>
+
+</a>
+
+
+<a
+href="tienda.html"
+class="shop-link">
+
+🛒
+
+<span>
+Tienda
+</span>
+
+</a>
+
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank">
+
+💬
+
+<span>
+Discord
+</span>
+
+</a>
+
+
+</div>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+<div class="hero-content">
+
+
+<div class="badge">
+
+<b>●</b>
+
+THRASHMC NETWORK
+
+•
+
+FULLPVP
+
+</div>
+
+
+<h1>
+THRASH<span>MC</span>
+</h1>
+
+
+<div class="network">
+NETWORK
+</div>
+
+
+<p class="description">
+
+La batalla comienza acá.
+
+Entrá a THRASHMC, conseguí kills,
+subí de nivel, obtené recompensas
+y demostrale a todos quién domina
+el FullPVP.
+
+</p>
+
+
+<div class="buttons">
+
+
+<button
+class="btn primary"
+onclick="copyIP()">
+
+🎮 JUGAR AHORA
+
+</button>
+
+
+<a
+href="modalidades.html"
+class="btn secondary">
+
+⚔️ MODALIDADES
+
+</a>
+
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="btn secondary">
+
+💬 DISCORD
+
+</a>
+
+
+</div>
+
+
+<div class="ip-box">
+
+
+<div>
+
+<div class="ip-title">
+IP DEL SERVIDOR
+</div>
+
+<div class="ip">
+puff.visihost.in:2503
+</div>
+
+</div>
+
+
+<button
+class="copy"
+onclick="copyIP()">
+
+COPIAR IP
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     STATUS
+========================= -->
+
+<section>
+
+<div class="status">
+
+
+<div class="status-card">
+
+<div class="status-icon">
+🟢
+</div>
+
+<h3 class="online">
+SERVIDOR
+</h3>
+
+<p>
+THRASHMC
+</p>
+
+</div>
+
+
+<div class="status-card">
+
+<div class="status-icon">
+⚔️
+</div>
+
+<h3>
+MODALIDAD
+</h3>
+
+<p>
+FULLPVP
+</p>
+
+</div>
+
+
+<div class="status-card">
+
+<div class="status-icon">
+🌐
+</div>
+
+<h3>
+PLATAFORMA
+</h3>
+
+<p>
+MINECRAFT JAVA
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     MODALIDAD
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<span class="label">
+EXPERIENCIA THRASHMC
+</span>
+
+<h2>
+Todo lo que necesitás para luchar
+</h2>
+
+<p>
+Una experiencia FullPVP pensada para
+competir, progresar y disfrutar.
+</p>
+
+</div>
+
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚔️
+</div>
+
+<h3>
+PvP competitivo
+</h3>
+
+<p>
+Enfrentate a otros jugadores,
+conseguí kills y luchá por
+los primeros puestos.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+💎
+</div>
+
+<h3>
+Economía
+</h3>
+
+<p>
+Conseguí recursos y progresá
+dentro de la economía
+de THRASHMC.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🏆
+</div>
+
+<h3>
+Rankings
+</h3>
+
+<p>
+Competí para formar parte
+de los mejores jugadores.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🎁
+</div>
+
+<h3>
+Recompensas
+</h3>
+
+<p>
+Conseguí recompensas
+especiales mientras jugás.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔥
+</div>
+
+<h3>
+Eventos
+</h3>
+
+<p>
+Participá en eventos y
+desafíos especiales.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+👑
+</div>
+
+<h3>
+Rangos
+</h3>
+
+<p>
+Desbloqueá rangos y
+beneficios exclusivos.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<span class="label">
+THRASHMC NETWORK
+</span>
+
+<h2>
+Construimos algo grande
+</h2>
+
+</div>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+<div class="number">
+24<span>/7</span>
+</div>
+
+<p>
+DISPONIBILIDAD
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="number">
+PvP
+</div>
+
+<p>
+MODALIDAD
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="number">
+11
+</div>
+
+<p>
+RANGOS
+</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="number">
+2026
+</div>
+
+<p>
+NETWORK
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     RANGOS
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<span class="label">
+THRASHMC STORE
+</span>
+
+<h2>
+Elegí tu rango
+</h2>
+
+<p>
+Potenciá tu experiencia dentro del servidor.
+</p>
+
+</div>
+
+
+<div class="ranks">
+
+
+<div class="rank">
+
+<h3 class="user">
+USER
+</h3>
+
+<div class="price">
+GRATIS
+</div>
+
+<ul>
+
+<li>✓ Acceso al servidor</li>
+<li>✓ FullPVP</li>
+<li>✓ Sistema de niveles</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="hero-rank">
+HERO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit HERO</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo HERO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="vip">
+VIP
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit VIP</li>
+<li>✓ Beneficios VIP</li>
+<li>✓ Prefijo VIP</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="vipplus">
+VIP+
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit VIP+</li>
+<li>✓ Beneficios VIP+</li>
+<li>✓ Prefijo VIP+</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="selva">
+SELVA
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit SELVA</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo SELVA</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="rey">
+REY
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit REY</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo REY</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="mono">
+MONO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit MONO</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo MONO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="maestro">
+MAESTRO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit MAESTRO</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo MAESTRO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="inferno">
+INFERNO
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit INFERNO</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo INFERNO</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="lunar">
+LUNAR
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Kit LUNAR</li>
+<li>✓ Beneficios</li>
+<li>✓ Prefijo LUNAR</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+<div class="rank">
+
+<h3 class="thrash">
+THRASH
+</h3>
+
+<div class="price">
+PRÓXIMAMENTE
+</div>
+
+<ul>
+
+<li>✓ Rango máximo</li>
+<li>✓ Máximos beneficios</li>
+<li>✓ Prefijo THRASH</li>
+
+</ul>
+
+<a href="tienda.html">
+VER TIENDA
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TIENDA
+========================= -->
+
+<section>
+
+<div class="shop">
+
+<span class="label">
+THRASHMC STORE
+</span>
+
+<h2>
+Llevá tu experiencia al siguiente nivel
+</h2>
+
+<p>
+Visitá nuestra tienda para descubrir
+rangos, kits y recompensas especiales.
+</p>
+
+<a
+href="tienda.html"
+class="btn primary">
+
+🛒 ABRIR TIENDA
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DISCORD
+========================= -->
+
+<section>
+
+<div class="discord">
+
+
+<div class="discord-main">
+
+<h2>
+Únete a nuestra comunidad
+</h2>
+
+<p>
+Sé parte de la comunidad THRASHMC.
+Recibí noticias, anuncios, eventos
+y novedades directamente en Discord.
+</p>
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="btn primary">
+
+💬 ENTRAR AL DISCORD
+
+</a>
+
+</div>
+
+
+<div class="discord-side">
+
+<h3>
+¿Qué encontrarás?
+</h3>
+
+<p>
+
+📢 Anuncios<br>
+🎉 Eventos<br>
+⚔️ Comunidad PvP<br>
+🏆 Competencias<br>
+💬 Chat de jugadores
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     NOTICIAS
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<span class="label">
+NOVEDADES
+</span>
+
+<h2>
+Noticias
+</h2>
+
+</div>
+
+
+<div class="news">
+
+
+<div class="news-card">
+
+<span class="news-tag">
+THRASHMC
+</span>
+
+<h3>
+Bienvenido a THRASHMC
+</h3>
+
+<p>
+Prepárate para disfrutar
+de nuestra experiencia FullPVP.
+</p>
+
+</div>
+
+
+<div class="news-card">
+
+<span class="news-tag">
+PRÓXIMAMENTE
+</span>
+
+<h3>
+Survival
+</h3>
+
+<p>
+La modalidad Survival llegará
+próximamente a THRASHMC.
+</p>
+
+</div>
+
+
+<div class="news-card">
+
+<span class="news-tag">
+PRÓXIMAMENTE
+</span>
+
+<h3>
+Eventos
+</h3>
+
+<p>
+Estamos preparando nuevos
+eventos para la comunidad.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section>
+
+<div class="section-title">
+
+<span class="label">
+AYUDA
+</span>
+
+<h2>
+Preguntas frecuentes
+</h2>
+
+</div>
+
+
+<div class="faq">
+
+
+<details>
+
+<summary>
+¿Cuál es la IP?
+</summary>
+
+<p>
+puff.visihost.in:2503
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Cuál es la modalidad?
+</summary>
+
+<p>
+Actualmente THRASHMC está
+enfocado en FullPVP.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Habrá Survival?
+</summary>
+
+<p>
+Sí. Survival estará disponible
+próximamente.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Dónde compro los rangos?
+</summary>
+
+<p>
+Entrá en nuestra sección Tienda.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+¿Dónde está el Discord?
+</summary>
+
+<p>
+Podés entrar desde cualquier
+botón de Discord de la página.
+</p>
+
+</details>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<section class="final">
+
+<span class="label">
+THRASHMC NETWORK
+</span>
+
+<h2>
+¿Listo para entrar?
+</h2>
+
+<p>
+Conectate ahora a THRASHMC
+y demostrale a todos quién
+domina el FullPVP.
+</p>
+
+
+<div class="buttons">
+
+
+<button
+class="btn primary"
+onclick="copyIP()">
+
+🎮 JUGAR AHORA
+
+</button>
+
+
+<a
+href="modalidades.html"
+class="btn secondary">
+
+⚔️ MODALIDADES
+
+</a>
+
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="btn secondary">
+
+💬 DISCORD
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="footer">
+
+
+<div>
+
+<h3>
+THRASHMC NETWORK
+</h3>
+
+<p>
+
+⚔ FULLPVP<br>
+💜 COMUNIDAD<br>
+🏆 COMPETENCIA
+
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Inicio
+</a>
+
+<a href="modalidades.html">
+Modalidades
+</a>
+
+<a href="servidor.html">
+Servidor
+</a>
+
+<a href="staff.html">
+Staff
+</a>
+
+<a href="reglas.html">
+Reglas
+</a>
+
+<a href="contacto.html">
+Contacto
+</a>
+
+<a href="tienda.html">
+Tienda
+</a>
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank">
+
+Discord
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+IP:
+puff.visihost.in:2503
+
+<br><br>
+
+© 2026 THRASHMC NETWORK.
+Todos los derechos reservados.
+
+</div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div id="toast">
+✓ IP copiada correctamente
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   COPIAR IP
+========================= */
+
+const SERVER_IP =
+"puff.visihost.in:2503";
+
+function copyIP(){
+
+    if(
+        navigator.clipboard &&
+        navigator.clipboard.writeText
+    ){
+
+        navigator.clipboard
+        .writeText(SERVER_IP)
+        .then(showToast)
+        .catch(fallbackCopy);
+
+    }else{
+
+        fallbackCopy();
+
+    }
+
+}
+
+
+function fallbackCopy(){
+
+    const input =
+    document.createElement("input");
+
+    input.value =
+    SERVER_IP;
+
+    document.body.appendChild(input);
+
+    input.select();
+
+    document.execCommand("copy");
+
+    input.remove();
+
+    showToast();
+
+}
+
+
+function showToast(){
+
+    const toast =
+    document.getElementById("toast");
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2200);
+
+}
+
+
+/* =========================
+   TRES PUNTITOS
+========================= */
+
+const menuButton =
+document.getElementById("menuButton");
+
+const mobileMenu =
+document.getElementById("mobileMenu");
+
+
+/* ABRIR / CERRAR */
+
+menuButton.addEventListener(
+"click",
+function(event){
+
+    event.stopPropagation();
+
+    const abierto =
+    mobileMenu.classList.toggle("active");
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        abierto ? "true" : "false"
+    );
+
+});
+
+
+/* =========================
+   CERRAR AL TOCAR AFUERA
+========================= */
+
+document.addEventListener(
+"click",
+function(event){
+
+    if(
+
+        !mobileMenu.contains(
+            event.target
+        )
+
+        &&
+
+        !menuButton.contains(
+            event.target
+        )
+
+    ){
+
+        mobileMenu.classList.remove(
+            "active"
+        );
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+});
+
+
+/* =========================
+   CERRAR AL ELEGIR
+========================= */
+
+mobileMenu
+.querySelectorAll("a")
+.forEach(function(link){
+
+    link.addEventListener(
+    "click",
+    function(){
+
+        mobileMenu.classList.remove(
+            "active"
+        );
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+});
+
+
+/* =========================
+   ESC
+========================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(event.key === "Escape"){
+
+        mobileMenu.classList.remove(
+            "active"
+        );
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
+
+});
+
+</script>
+
+
+</body>
+</html>
