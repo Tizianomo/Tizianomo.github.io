@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Staff | THRASHMC NETWORK</title>
 
 <style>
@@ -18,97 +17,65 @@ html{
 }
 
 body{
-    background:#08060d;
+    background:#07050b;
     color:#fff;
     font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
     overflow-x:hidden;
 }
 
-/* =========================
-   FONDO
-========================= */
-
-body:before{
+body::before{
     content:"";
     position:fixed;
     inset:0;
     z-index:-2;
-
     background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(142,81,255,.22),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(255,77,141,.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(142,81,255,.12),
-            transparent 35%
-        );
+        radial-gradient(circle at 10% 10%,rgba(142,81,255,.20),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(255,77,141,.18),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(142,81,255,.12),transparent 35%);
 }
 
-body:after{
+body::after{
     content:"";
     position:fixed;
     inset:0;
     z-index:-1;
-    opacity:.16;
-
+    opacity:.12;
     background-image:
-        linear-gradient(
-            rgba(255,255,255,.04) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.04) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
     background-size:35px 35px;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
     position:sticky;
     top:0;
-    z-index:1000;
-
-    background:rgba(8,6,13,.94);
-    backdrop-filter:blur(15px);
-
+    z-index:9999;
+    background:rgba(7,5,11,.96);
+    backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav{
-    max-width:1450px;
+    width:100%;
+    max-width:1500px;
     margin:auto;
-
-    min-height:75px;
-    padding:14px 25px;
+    min-height:78px;
+    padding:15px 25px;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:20px;
 }
 
 .logo{
     color:#fff;
     text-decoration:none;
-
-    font-size:24px;
-    font-weight:900;
+    font-size:25px;
+    font-weight:1000;
     letter-spacing:1px;
     white-space:nowrap;
 }
@@ -127,233 +94,162 @@ header{
 .menu a{
     color:#aaa5b2;
     text-decoration:none;
-
     padding:10px 13px;
-
     border-radius:9px;
-
-    transition:.2s;
-
     font-size:15px;
+    transition:.2s;
 }
 
 .menu a:hover,
 .menu a.active{
     color:#fff;
-
     background:rgba(142,81,255,.18);
-
-    box-shadow:
-        0 0 20px rgba(142,81,255,.15);
+    box-shadow:0 0 20px rgba(142,81,255,.15);
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     max-width:1200px;
     margin:auto;
-
-    text-align:center;
-
     padding:100px 20px 60px;
+    text-align:center;
 }
 
 .badge{
     display:inline-block;
-
-    padding:9px 18px;
-
-    border:1px solid rgba(142,81,255,.4);
-
-    background:rgba(142,81,255,.1);
-
+    padding:10px 20px;
     border-radius:50px;
-
-    color:#d9ccff;
-
-    font-size:14px;
-
+    color:#ded5ff;
+    background:rgba(142,81,255,.10);
+    border:1px solid rgba(142,81,255,.4);
     letter-spacing:2px;
+    font-size:14px;
 }
 
 .hero h1{
     margin-top:25px;
-
-    font-size:clamp(38px,7vw,78px);
-
+    font-size:clamp(42px,8vw,82px);
     font-weight:1000;
+    line-height:1.05;
 
-    line-height:1.1;
-
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #d8ccff,
-            #8e51ff,
-            #ff4d8d
-        );
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #d8ccff,
+        #8e51ff,
+        #ff4d8d
+    );
 
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
 }
 
 .hero p{
-    max-width:750px;
-
-    margin:22px auto 0;
-
+    max-width:780px;
+    margin:25px auto 0;
     color:#aaa5b2;
-
     font-size:20px;
-
-    line-height:1.5;
+    line-height:1.6;
 }
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
-    max-width:1100px;
-
-    margin:0 auto 70px;
-
+    max-width:1150px;
+    margin:0 auto 80px;
     padding:0 20px;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
 .stat{
-    padding:25px;
-
+    padding:28px;
     text-align:center;
-
-    background:rgba(20,15,28,.9);
-
+    background:rgba(20,15,28,.92);
     border:1px solid rgba(255,255,255,.08);
-
-    border-radius:16px;
-
-    transition:.25s;
+    border-radius:18px;
+    transition:.3s;
 }
 
 .stat:hover{
-    transform:translateY(-5px);
-
-    border-color:
-        rgba(142,81,255,.45);
+    transform:translateY(-6px);
+    border-color:rgba(142,81,255,.5);
 }
 
 .stat-icon{
-    font-size:30px;
-
-    margin-bottom:8px;
+    font-size:32px;
+    margin-bottom:10px;
 }
 
 .stat-title{
     color:#77717e;
-
-    font-size:13px;
-
     text-transform:uppercase;
-
+    font-size:13px;
     letter-spacing:1px;
 }
 
 .stat-value{
-    margin-top:5px;
-
-    font-size:24px;
-
+    margin-top:7px;
+    font-size:25px;
     font-weight:900;
 }
 
-/* =========================
-   STAFF GRID
-========================= */
+/* STAFF GRID */
 
 .staff-grid{
-    max-width:1450px;
-
-    margin:auto;
-
-    padding:
-        0 20px
-        100px;
+    width:100%;
+    max-width:1500px;
+    margin:0 auto;
+    padding:0 20px 120px;
 
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(320px,1fr)
-        );
-
-    gap:25px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px;
 }
 
-/* =========================
-   CARD
-========================= */
+/* CARD */
 
 .card{
     position:relative;
-
     overflow:hidden;
+
+    min-width:0;
 
     background:
         linear-gradient(
             145deg,
-            rgba(25,19,34,.98),
-            rgba(10,8,14,.98)
+            rgba(27,20,38,.98),
+            rgba(9,7,13,.98)
         );
 
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    border-radius:20px;
-
-    transition:.3s;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
 
     box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.35);
+        0 20px 70px rgba(0,0,0,.4);
+
+    transition:.3s;
 }
 
 .card:hover{
     transform:translateY(-7px);
 
-    border-color:
-        rgba(142,81,255,.55);
+    border-color:rgba(142,81,255,.55);
 
     box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.55),
-
-        0 0 35px
-        rgba(142,81,255,.12);
+        0 30px 80px rgba(0,0,0,.55),
+        0 0 35px rgba(142,81,255,.12);
 }
 
-/* =========================
-   BANNER
-========================= */
+/* BANNER */
 
 .banner{
-    height:180px;
-
+    height:210px;
     position:relative;
-
     overflow:hidden;
 }
 
@@ -364,25 +260,17 @@ header{
             rgba(255,77,141,.55),
             transparent 55%
         ),
-        linear-gradient(
-            135deg,
-            #26101d,
-            #100812
-        );
+        linear-gradient(135deg,#28101e,#100812);
 }
 
 .banner.admin{
     background:
         radial-gradient(
             circle at 20% 50%,
-            rgba(255,75,75,.5),
+            rgba(255,70,70,.55),
             transparent 55%
         ),
-        linear-gradient(
-            135deg,
-            #251010,
-            #100808
-        );
+        linear-gradient(135deg,#291010,#100808);
 }
 
 .banner.future{
@@ -392,49 +280,37 @@ header{
             rgba(142,81,255,.4),
             transparent 55%
         ),
-        linear-gradient(
-            135deg,
-            #1b1125,
-            #0c080f
-        );
+        linear-gradient(135deg,#1b1125,#08060b);
 }
 
-/* =========================
-   AVATAR
-========================= */
+/* AVATAR */
 
 .avatar{
     position:absolute;
+    left:28px;
+    bottom:-12px;
 
-    left:24px;
-    bottom:-10px;
+    width:115px;
+    height:115px;
 
-    width:105px;
-    height:105px;
-
-    border:4px solid #08060d;
-
-    border-radius:13px;
-
-    background:#15101b;
+    border:4px solid #07050b;
+    border-radius:14px;
 
     overflow:hidden;
+    background:#111;
+
+    z-index:10;
 
     box-shadow:
         0 0 0 2px #8e51ff,
-        0 0 25px rgba(142,81,255,.45);
-
-    z-index:5;
+        0 0 30px rgba(142,81,255,.5);
 }
 
 .avatar img{
-    display:block;
-
     width:100%;
     height:100%;
-
+    display:block;
     object-fit:cover;
-
     image-rendering:pixelated;
 }
 
@@ -443,57 +319,100 @@ header{
     height:100%;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    font-size:48px;
+    background:#000;
+    color:#fff;
 
-    background:
-        linear-gradient(
-            135deg,
-            #17101f,
-            #312047
-        );
+    font-size:65px;
+    font-weight:1000;
 }
 
-/* =========================
-   MINECRAFT BODY
-========================= */
+/* PERSONA 3D */
 
 .body{
     position:absolute;
+    right:25px;
+    bottom:-50px;
 
-    right:10px;
-    bottom:-45px;
-
-    height:220px;
-
-    z-index:3;
+    height:245px;
 
     image-rendering:pixelated;
 
-    filter:
-        drop-shadow(
-            0 10px 12px
-            rgba(0,0,0,.7)
-        );
+    filter:drop-shadow(
+        0 12px 15px rgba(0,0,0,.8)
+    );
+
+    z-index:5;
 }
 
-/* =========================
-   CONTENT
-========================= */
+/* PERSONA NEGRA FUTURA */
+
+.future-character{
+    position:absolute;
+
+    right:55px;
+    bottom:0;
+
+    width:125px;
+    height:200px;
+
+    background:#000;
+
+    z-index:5;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:8px 8px 15px 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.8),
+        inset 0 0 25px rgba(255,255,255,.03);
+}
+
+.future-character::before{
+    content:"";
+
+    position:absolute;
+
+    top:-55px;
+    left:12px;
+
+    width:101px;
+    height:101px;
+
+    background:#000;
+
+    border-radius:5px;
+}
+
+.future-character span{
+    position:relative;
+    z-index:2;
+
+    color:#fff;
+
+    font-size:78px;
+    font-weight:1000;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 25px #8e51ff,
+        0 0 45px rgba(142,81,255,.8);
+}
+
+/* CONTENT */
 
 .content{
-    padding:
-        55px 23px 25px;
+    padding:65px 28px 30px;
 }
 
 .name{
-    font-size:22px;
-
-    font-weight:900;
-
+    font-size:25px;
+    font-weight:1000;
     margin-bottom:10px;
 }
 
@@ -512,85 +431,60 @@ header{
 .rank{
     display:inline-block;
 
-    padding:7px 12px;
+    padding:8px 14px;
 
-    border-radius:7px;
+    border-radius:8px;
 
     font-size:13px;
-
     font-weight:900;
-
-    margin-bottom:16px;
-}
-
-.rank-owner{
-    color:#ff6fa5;
-
-    background:
-        rgba(255,77,141,.1);
-
-    border:
-        1px solid
-        rgba(255,77,141,.3);
-}
-
-.rank-admin{
-    color:#ff7777;
-
-    background:
-        rgba(255,85,85,.1);
-
-    border:
-        1px solid
-        rgba(255,85,85,.3);
-}
-
-.rank-future{
-    color:#c78cff;
-
-    background:
-        rgba(142,81,255,.1);
-
-    border:
-        1px solid
-        rgba(142,81,255,.25);
-}
-
-.description{
-    min-height:70px;
-
-    color:#aaa5b2;
-
-    font-size:17px;
-
-    line-height:1.45;
 
     margin-bottom:18px;
 }
 
-/* =========================
-   DETAILS
-========================= */
+.rank-owner{
+    color:#ff78aa;
+    background:rgba(255,77,141,.1);
+    border:1px solid rgba(255,77,141,.3);
+}
+
+.rank-admin{
+    color:#ff7777;
+    background:rgba(255,85,85,.1);
+    border:1px solid rgba(255,85,85,.3);
+}
+
+.rank-future{
+    color:#ca91ff;
+    background:rgba(142,81,255,.1);
+    border:1px solid rgba(142,81,255,.3);
+}
+
+.description{
+    color:#aaa5b2;
+    font-size:17px;
+    line-height:1.6;
+
+    min-height:80px;
+
+    margin-bottom:20px;
+}
+
+/* DETAILS */
 
 .details{
     display:flex;
-
     flex-direction:column;
-
-    gap:8px;
+    gap:9px;
 }
 
 .detail{
-    padding:11px;
+    padding:12px;
 
-    border-radius:8px;
+    border-radius:9px;
 
-    background:
-        rgba(255,255,255,.035);
+    background:rgba(255,255,255,.035);
 
-    border:
-        1px solid
-        rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.06);
 
     color:#bdb6c5;
 
@@ -601,56 +495,44 @@ header{
     color:#fff;
 }
 
-/* =========================
-   PERMISSIONS
-========================= */
+/* PERMISSIONS */
 
 .permissions{
     display:flex;
-
     flex-wrap:wrap;
-
-    gap:7px;
-
-    margin-top:16px;
+    gap:8px;
+    margin-top:18px;
 }
 
 .permission{
-    padding:6px 9px;
+    padding:7px 10px;
 
-    border-radius:5px;
+    border-radius:6px;
 
-    background:
-        rgba(142,81,255,.1);
+    background:rgba(142,81,255,.1);
 
-    border:
-        1px solid
-        rgba(142,81,255,.2);
+    border:1px solid rgba(142,81,255,.2);
 
     color:#d7ccff;
 
     font-size:13px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
+    padding:65px 20px;
+
     text-align:center;
 
-    padding:55px 20px;
+    background:rgba(0,0,0,.35);
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.08);
-
-    background:
-        rgba(0,0,0,.25);
+    border-top:1px solid rgba(255,255,255,.08);
 }
 
 footer h2{
-    font-size:22px;
+    font-size:25px;
+    font-weight:1000;
 }
 
 footer h2 span{
@@ -658,23 +540,20 @@ footer h2 span{
 }
 
 footer p{
-    margin-top:10px;
-
+    margin-top:12px;
     color:#77717e;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* RESPONSIVE */
 
-@media(max-width:850px){
+@media(max-width:1000px){
 
     .nav{
         flex-direction:column;
     }
 
-    .menu{
-        width:100%;
+    .staff-grid{
+        grid-template-columns:1fr;
     }
 
     .stats{
@@ -682,46 +561,60 @@ footer p{
     }
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
 
     .hero{
-        padding:
-            70px 15px 45px;
+        padding:70px 15px 50px;
     }
 
     .hero h1{
-        font-size:36px;
+        font-size:43px;
     }
 
     .hero p{
-        font-size:18px;
+        font-size:17px;
     }
 
     .staff-grid{
-        grid-template-columns:1fr;
-
         padding:
-            0 12px 80px;
+            0 12px 90px;
+    }
+
+    .banner{
+        height:190px;
     }
 
     .body{
-        height:190px;
+        height:205px;
         right:0;
+    }
+
+    .future-character{
+        right:15px;
+        transform:scale(.85);
+        transform-origin:bottom right;
+    }
+
+    .avatar{
+        left:18px;
+        width:100px;
+        height:100px;
+    }
+
+    .content{
+        padding:
+            60px 20px 25px;
     }
 
     .menu a{
         font-size:13px;
-        padding:9px 10px;
+        padding:8px 9px;
     }
 }
 </style>
 </head>
 
 <body>
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -771,34 +664,26 @@ target="_blank"
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
 
 <div class="badge">
-👑 EQUIPO OFICIAL
+👑 EQUIPO OFICIAL THRASHMC
 </div>
 
 <h1>
-STAFF
+NUESTRO STAFF
 </h1>
 
 <p>
-Conoce al equipo oficial de
-<strong>THRASHMC NETWORK</strong>.
+Conoce a las personas que forman parte del equipo
+de <strong>THRASHMC NETWORK</strong>.
 <br>
-Ellos trabajan para mantener la Network
-segura, activa y en constante crecimiento.
+Nuestro objetivo es mantener una comunidad
+activa, segura y competitiva.
 </p>
 
 </section>
 
-
-<!-- =========================
-     STATS
-========================= -->
 
 <section class="stats">
 
@@ -855,14 +740,12 @@ Staff actual
 </section>
 
 
-<!-- =========================
-     STAFF
-========================= -->
-
 <section class="staff-grid">
 
 
-<!-- TIZIOMARIABEBE01 -->
+<!-- =========================
+     OWNER 1
+========================= -->
 
 <article class="card">
 
@@ -881,7 +764,7 @@ this.nextElementSibling.style.display='flex';
 
 <div
 class="avatar-fallback"
-style="display:none;"
+style="display:none"
 >
 👑
 </div>
@@ -892,13 +775,10 @@ style="display:none;"
 class="body"
 src="https://mc-heads.net/body/7dn5/right"
 alt=""
-onerror="
-this.style.display='none';
-"
+onerror="this.style.display='none';"
 >
 
 </div>
-
 
 <div class="content">
 
@@ -918,13 +798,11 @@ de la administración general de la Network.
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong>
-2026-01-01
+📅 <strong>Ingreso:</strong> 2026-01-01
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong>
-Tiziomariabebe01
+💬 <strong>Discord:</strong> Tiziomariabebe01
 </div>
 
 </div>
@@ -954,7 +832,9 @@ Tiziomariabebe01
 </article>
 
 
-<!-- ITSTIZII -->
+<!-- =========================
+     OWNER 2
+========================= -->
 
 <article class="card">
 
@@ -973,7 +853,7 @@ this.nextElementSibling.style.display='flex';
 
 <div
 class="avatar-fallback"
-style="display:none;"
+style="display:none"
 >
 👑
 </div>
@@ -984,13 +864,10 @@ style="display:none;"
 class="body"
 src="https://mc-heads.net/body/Romanticou/right"
 alt=""
-onerror="
-this.style.display='none';
-"
+onerror="this.style.display='none';"
 >
 
 </div>
-
 
 <div class="content">
 
@@ -1010,13 +887,11 @@ administración y desarrollo de la Network.
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong>
-2026-01-01
+📅 <strong>Ingreso:</strong> 2026-01-01
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong>
-ItsTizii
+💬 <strong>Discord:</strong> ItsTizii
 </div>
 
 </div>
@@ -1046,7 +921,9 @@ ItsTizii
 </article>
 
 
-<!-- PANA_FRAIL -->
+<!-- =========================
+     ADMIN PANA
+========================= -->
 
 <article class="card">
 
@@ -1065,7 +942,7 @@ this.nextElementSibling.style.display='flex';
 
 <div
 class="avatar-fallback"
-style="display:none;"
+style="display:none"
 >
 🐻
 </div>
@@ -1076,13 +953,10 @@ style="display:none;"
 class="body"
 src="https://mc-heads.net/body/bear/right"
 alt=""
-onerror="
-this.style.display='none';
-"
+onerror="this.style.display='none';"
 >
 
 </div>
-
 
 <div class="content">
 
@@ -1095,20 +969,19 @@ Pana_Frail
 </div>
 
 <p class="description">
-Administra el servidor y ayuda a mantener
-el orden y las reglas de THRASHMC.
+Administrador de THRASHMC. Ayuda a gestionar
+el servidor, mantener el orden y hacer cumplir
+las reglas de la Network.
 </p>
 
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong>
-2026
+📅 <strong>Ingreso:</strong> 2026
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong>
-Pana_Frail
+💬 <strong>Discord:</strong> Pana_Frail
 </div>
 
 </div>
@@ -1150,40 +1023,25 @@ Pana_Frail
 </article>
 
 
-<!-- MANAGER -->
+<!-- =========================
+     MANAGER
+========================= -->
 
 <article class="card">
 
 <div class="banner future">
 
 <div class="avatar">
-
-<img
-src="https://mc-heads.net/head/MHF_Question/left"
-alt="Misterioso"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-"
->
-
 <div class="avatar-fallback">
-❓
+?
+</div>
+</div>
+
+<div class="future-character">
+<span>?</span>
 </div>
 
 </div>
-
-<img
-class="body"
-src="https://mc-heads.net/body/MHF_Question/right"
-alt=""
-onerror="
-this.style.display='none';
-"
->
-
-</div>
-
 
 <div class="content">
 
@@ -1196,20 +1054,19 @@ Por definir
 </div>
 
 <p class="description">
-Gestionará el equipo de staff y la organización
-interna de THRASHMC NETWORK.
+El puesto de Manager estará disponible
+próximamente. Será responsable de organizar
+y coordinar al equipo de Staff.
 </p>
 
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong>
-PRÓXIMAMENTE
+📅 <strong>Estado:</strong> PRÓXIMAMENTE
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong>
-Por definir
+💬 <strong>Discord:</strong> Por definir
 </div>
 
 </div>
@@ -1231,40 +1088,25 @@ Por definir
 </article>
 
 
-<!-- ADMIN FUTURO -->
+<!-- =========================
+     ADMIN FUTURO
+========================= -->
 
 <article class="card">
 
 <div class="banner future">
 
 <div class="avatar">
-
-<img
-src="https://mc-heads.net/head/MHF_Question/left"
-alt="Misterioso"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-"
->
-
 <div class="avatar-fallback">
-❓
+?
+</div>
+</div>
+
+<div class="future-character">
+<span>?</span>
 </div>
 
 </div>
-
-<img
-class="body"
-src="https://mc-heads.net/body/MHF_Question/right"
-alt=""
-onerror="
-this.style.display='none';
-"
->
-
-</div>
-
 
 <div class="content">
 
@@ -1277,20 +1119,19 @@ Por definir
 </div>
 
 <p class="description">
-Próximo integrante del equipo administrativo
-de THRASHMC NETWORK.
+Nuevo puesto administrativo de THRASHMC.
+La incorporación de nuevos miembros se anunciará
+oficialmente cuando llegue el momento.
 </p>
 
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong>
-PRÓXIMAMENTE
+📅 <strong>Estado:</strong> PRÓXIMAMENTE
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong>
-Por definir
+💬 <strong>Discord:</strong> Por definir
 </div>
 
 </div>
@@ -1312,40 +1153,25 @@ Por definir
 </article>
 
 
-<!-- MOD -->
+<!-- =========================
+     MOD
+========================= -->
 
 <article class="card">
 
 <div class="banner future">
 
 <div class="avatar">
-
-<img
-src="https://mc-heads.net/head/MHF_Question/left"
-alt="Misterioso"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-"
->
-
 <div class="avatar-fallback">
-❓
+?
+</div>
+</div>
+
+<div class="future-character">
+<span>?</span>
 </div>
 
 </div>
-
-<img
-class="body"
-src="https://mc-heads.net/body/MHF_Question/right"
-alt=""
-onerror="
-this.style.display='none';
-"
->
-
-</div>
-
 
 <div class="content">
 
@@ -1358,20 +1184,19 @@ Por definir
 </div>
 
 <p class="description">
-Mantendrá el orden del servidor y aplicará
-las reglas oficiales de THRASHMC.
+El próximo Moderador ayudará a mantener
+el orden, revisar reportes y hacer cumplir
+las reglas de THRASHMC.
 </p>
 
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong>
-PRÓXIMAMENTE
+📅 <strong>Estado:</strong> PRÓXIMAMENTE
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong>
-Por definir
+💬 <strong>Discord:</strong> Por definir
 </div>
 
 </div>
@@ -1401,40 +1226,25 @@ Por definir
 </article>
 
 
-<!-- HELPER -->
+<!-- =========================
+     HELPER
+========================= -->
 
 <article class="card">
 
 <div class="banner future">
 
 <div class="avatar">
-
-<img
-src="https://mc-heads.net/head/MHF_Question/left"
-alt="Misterioso"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='flex';
-"
->
-
 <div class="avatar-fallback">
-❓
+?
+</div>
+</div>
+
+<div class="future-character">
+<span>?</span>
 </div>
 
 </div>
-
-<img
-class="body"
-src="https://mc-heads.net/body/MHF_Question/right"
-alt=""
-onerror="
-this.style.display='none';
-"
->
-
-</div>
-
 
 <div class="content">
 
@@ -1447,20 +1257,18 @@ Por definir
 </div>
 
 <p class="description">
-Ayudará a los jugadores y responderá dudas
-o reportes básicos de la comunidad.
+Ayudará a los jugadores, responderá preguntas
+y colaborará con la comunidad de THRASHMC.
 </p>
 
 <div class="details">
 
 <div class="detail">
-📅 <strong>Ingreso:</strong>
-PRÓXIMAMENTE
+📅 <strong>Estado:</strong> PRÓXIMAMENTE
 </div>
 
 <div class="detail">
-💬 <strong>Discord:</strong>
-Por definir
+💬 <strong>Discord:</strong> Por definir
 </div>
 
 </div>
@@ -1486,17 +1294,162 @@ Por definir
 </article>
 
 
-<!-- BUILDER -->
+<!-- =========================
+     BUILDER
+========================= -->
 
 <article class="card">
 
 <div class="banner future">
 
 <div class="avatar">
+<div class="avatar-fallback">
+?
+</div>
+</div>
 
-<img
-src="https://mc-heads.net/head/MHF_Question/left"
-alt="Misterioso"
-onerror="
-this.style.display='none';
-this.nextElementSibling.style.display='
+<div class="future-character">
+<span>?</span>
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="name future-name">
+Por definir
+</div>
+
+<div class="rank rank-future">
+🔨 BUILDER
+</div>
+
+<p class="description">
+Se encargará de crear y desarrollar
+spawns, mapas y diferentes zonas
+de THRASHMC NETWORK.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Estado:</strong> PRÓXIMAMENTE
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong> Por definir
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Building
+</span>
+
+<span class="permission">
+✓ WorldEdit
+</span>
+
+<span class="permission">
+✓ Map Development
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- =========================
+     EVENT MANAGER
+========================= -->
+
+<article class="card">
+
+<div class="banner future">
+
+<div class="avatar">
+<div class="avatar-fallback">
+?
+</div>
+</div>
+
+<div class="future-character">
+<span>?</span>
+</div>
+
+</div>
+
+<div class="content">
+
+<div class="name future-name">
+Por definir
+</div>
+
+<div class="rank rank-future">
+🎉 EVENT MANAGER
+</div>
+
+<p class="description">
+Organizará eventos, actividades, sorteos
+y dinámicas especiales para toda
+la comunidad de THRASHMC.
+</p>
+
+<div class="details">
+
+<div class="detail">
+📅 <strong>Estado:</strong> PRÓXIMAMENTE
+</div>
+
+<div class="detail">
+💬 <strong>Discord:</strong> Por definir
+</div>
+
+</div>
+
+<div class="permissions">
+
+<span class="permission">
+✓ Events
+</span>
+
+<span class="permission">
+✓ Giveaways
+</span>
+
+<span class="permission">
+✓ Community Management
+</span>
+
+</div>
+
+</div>
+
+</article>
+
+
+</section>
+
+
+<footer>
+
+<h2>
+💜 THRASH<span>MC</span> NETWORK
+</h2>
+
+<p>
+⚔️ FULLPVP • 👑 STAFF • 🏆 COMPETENCIA
+</p>
+
+<p>
+© 2026 THRASHMC NETWORK
+</p>
+
+</footer>
+
+</body>
+</html>
