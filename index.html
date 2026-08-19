@@ -10,10 +10,6 @@
 
 <style>
 
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
@@ -26,70 +22,34 @@ html{
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#07030d;
+    background:#07040c;
     color:white;
-    min-height:100vh;
     overflow-x:hidden;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-button{
-    font-family:inherit;
-}
-
 /* =========================
-   BACKGROUND
+   FONDO
 ========================= */
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-3;
-
+body{
     background:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(142,81,255,.35),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(221,108,255,.22),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(142,81,255,.18),
-            transparent 35%
-        );
-
-    pointer-events:none;
+    radial-gradient(circle at 20% 0%,rgba(142,81,255,.30),transparent 35%),
+    radial-gradient(circle at 90% 30%,rgba(221,108,255,.18),transparent 30%),
+    radial-gradient(circle at 50% 100%,rgba(142,81,255,.15),transparent 35%),
+    #07040c;
 }
 
-body::after{
+body:before{
     content:"";
     position:fixed;
     inset:0;
-    z-index:-2;
-
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
-    background-size:50px 50px;
     pointer-events:none;
+    opacity:.25;
+    background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:50px 50px;
+    z-index:-1;
 }
 
 /* =========================
@@ -101,8 +61,8 @@ body::after{
     top:0;
     left:0;
     right:0;
-
-    height:76px;
+    height:75px;
+    z-index:9999;
 
     display:flex;
     align-items:center;
@@ -110,16 +70,14 @@ body::after{
 
     padding:0 6%;
 
-    background:rgba(7,3,13,.82);
+    background:rgba(7,4,12,.88);
     backdrop-filter:blur(18px);
 
     border-bottom:1px solid rgba(255,255,255,.08);
-
-    z-index:9999;
 }
 
 .logo{
-    font-size:22px;
+    font-size:23px;
     font-weight:1000;
     letter-spacing:2px;
 
@@ -136,149 +94,99 @@ body::after{
     color:transparent;
 }
 
-/* =========================
-   DESKTOP MENU
-========================= */
-
-.desktop-menu{
+.nav-links{
     display:flex;
     align-items:center;
-    gap:25px;
+    gap:8px;
 }
 
-.desktop-menu a{
-    color:#aaa1b5;
+.nav-links a{
+    color:#aaa3b1;
+    text-decoration:none;
     font-size:13px;
     font-weight:bold;
-    transition:.2s;
-}
 
-.desktop-menu a:hover{
-    color:white;
-}
-
-.shop-button{
-    padding:11px 17px;
+    padding:11px 14px;
     border-radius:9px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8e51ff,
-            #dd6cff
-        );
-
-    color:white!important;
-
-    box-shadow:
-        0 8px 30px rgba(142,81,255,.25);
-}
-
-/* =========================
-   THREE DOT BUTTON
-========================= */
-
-.menu-button{
-    width:45px;
-    height:45px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
-    gap:5px;
-
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:10px;
-
-    background:rgba(255,255,255,.05);
-
-    cursor:pointer;
 
     transition:.25s;
 }
 
-.menu-button:hover{
-    background:rgba(142,81,255,.2);
-    border-color:#8e51ff;
+.nav-links a:hover{
+    color:white;
+    background:rgba(142,81,255,.15);
 }
 
-.menu-button span{
-    width:5px;
-    height:5px;
+.shop-button{
+    background:linear-gradient(135deg,#8e51ff,#dd6cff)!important;
+    color:white!important;
+}
 
-    border-radius:50%;
+/* BOTÓN MENÚ */
 
-    background:white;
+.menu-button{
+    display:none;
+
+    width:45px;
+    height:45px;
+
+    border:1px solid rgba(221,108,255,.4);
+    border-radius:10px;
+
+    background:rgba(142,81,255,.12);
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
 }
 
 /* =========================
-   MOBILE MENU
+   MENÚ MÓVIL
 ========================= */
 
 .mobile-menu{
+    display:none;
+
     position:fixed;
 
-    top:86px;
-    right:20px;
+    top:75px;
+    left:0;
+    right:0;
 
-    width:260px;
+    background:rgba(8,5,13,.98);
 
-    padding:12px;
+    border-bottom:1px solid rgba(221,108,255,.25);
 
-    background:rgba(12,7,20,.97);
-
-    border:1px solid rgba(221,108,255,.2);
-
-    border-radius:16px;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.6),
-        0 0 40px rgba(142,81,255,.12);
-
-    display:none;
+    padding:15px;
 
     z-index:9998;
 }
 
 .mobile-menu.active{
     display:block;
-    animation:menuIn .2s ease;
-}
-
-@keyframes menuIn{
-
-    from{
-        opacity:0;
-        transform:translateY(-10px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
 }
 
 .mobile-menu a{
     display:block;
 
-    padding:15px;
+    padding:16px;
 
-    border-radius:10px;
+    margin-bottom:8px;
 
-    color:#c7bfce;
+    color:#ddd6ff;
+    text-decoration:none;
 
-    font-size:14px;
     font-weight:bold;
 
-    transition:.2s;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:10px;
+
+    background:rgba(255,255,255,.035);
 }
 
 .mobile-menu a:hover{
-    background:rgba(142,81,255,.16);
-    color:white;
+    background:rgba(142,81,255,.2);
 }
 
 /* =========================
@@ -300,8 +208,7 @@ body::after{
 }
 
 .hero-content{
-    width:100%;
-    max-width:1000px;
+    max-width:1100px;
 }
 
 .badge{
@@ -311,7 +218,7 @@ body::after{
 
     border-radius:50px;
 
-    background:rgba(142,81,255,.12);
+    background:rgba(142,81,255,.10);
 
     border:1px solid rgba(221,108,255,.3);
 
@@ -322,71 +229,56 @@ body::after{
 
     letter-spacing:2px;
 
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
 .hero h1{
-    font-size:clamp(
-        55px,
-        13vw,
-        135px
-    );
+    font-size:clamp(60px,13vw,145px);
 
-    line-height:.9;
-
-    font-weight:1000;
+    line-height:.85;
 
     letter-spacing:-7px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #ddd6ff,
-            #8e51ff,
-            #dd6cff
-        );
+    font-weight:1000;
+
+    background:linear-gradient(
+        90deg,
+        #ffffff,
+        #ddd6ff,
+        #8e51ff,
+        #dd6cff
+    );
 
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
 
-    text-shadow:
-        0 0 80px rgba(142,81,255,.25);
+    text-shadow:0 0 90px rgba(142,81,255,.3);
 }
 
 .network{
-    margin-top:20px;
+    margin-top:25px;
 
-    color:#c9c0d0;
+    font-size:clamp(18px,3vw,28px);
 
-    font-size:clamp(
-        15px,
-        3vw,
-        25px
-    );
+    letter-spacing:12px;
 
-    letter-spacing:10px;
+    color:#c8c0d0;
 
     font-weight:bold;
 }
 
 .description{
-    max-width:680px;
+    max-width:700px;
 
     margin:28px auto;
 
-    color:#958b9d;
-
-    font-size:16px;
+    color:#938a9d;
 
     line-height:1.8;
-}
 
-/* =========================
-   BUTTONS
-========================= */
+    font-size:16px;
+}
 
 .buttons{
     display:flex;
@@ -406,16 +298,23 @@ body::after{
     align-items:center;
     justify-content:center;
 
-    padding:15px 25px;
+    min-width:170px;
 
-    border-radius:10px;
+    padding:16px 24px;
+
+    border-radius:11px;
+
+    text-decoration:none;
 
     font-size:13px;
+
     font-weight:900;
 
     cursor:pointer;
 
     transition:.25s;
+
+    border:none;
 }
 
 .btn:hover{
@@ -423,47 +322,44 @@ body::after{
 }
 
 .primary{
-    background:
-        linear-gradient(
-            135deg,
-            #8e51ff,
-            #dd6cff
-        );
-
     color:white;
 
-    box-shadow:
-        0 12px 40px rgba(142,81,255,.25);
+    background:linear-gradient(
+        135deg,
+        #8e51ff,
+        #dd6cff
+    );
+
+    box-shadow:0 15px 45px rgba(142,81,255,.25);
 }
 
 .secondary{
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.1);
-
     color:white;
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.12);
 }
 
 /* =========================
-   IP BOX
+   IP
 ========================= */
 
 .ip-box{
-    max-width:580px;
+    max-width:650px;
 
-    margin:35px auto 0;
+    margin:38px auto 0;
+
+    padding:18px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:space-between;
 
     gap:20px;
 
-    padding:16px 17px 16px 21px;
-
-    border-radius:14px;
+    border-radius:15px;
 
     background:rgba(255,255,255,.035);
 
@@ -471,29 +367,31 @@ body::after{
 }
 
 .ip-title{
-    color:#746c7b;
+    color:#716978;
 
     font-size:9px;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 
     font-weight:bold;
 }
 
 .ip{
-    margin-top:5px;
+    margin-top:6px;
 
-    font-size:15px;
+    font-size:17px;
 
     font-weight:900;
+
+    color:#eee;
 }
 
 .copy{
     border:none;
 
-    padding:11px 16px;
+    padding:12px 18px;
 
-    border-radius:8px;
+    border-radius:9px;
 
     background:#8e51ff;
 
@@ -505,17 +403,17 @@ body::after{
 }
 
 /* =========================
-   SECTIONS
+   SECCIONES
 ========================= */
 
 section{
-    padding:100px 6%;
+    padding:110px 6%;
 }
 
 .section-title{
-    max-width:750px;
+    max-width:800px;
 
-    margin:0 auto 50px;
+    margin:0 auto 55px;
 
     text-align:center;
 }
@@ -525,109 +423,104 @@ section{
 
     font-size:10px;
 
-    font-weight:1000;
+    letter-spacing:4px;
 
-    letter-spacing:3px;
+    font-weight:1000;
 }
 
 .section-title h2{
-    margin-top:12px;
+    margin-top:14px;
 
-    font-size:clamp(
-        32px,
-        5vw,
-        52px
-    );
+    font-size:clamp(35px,6vw,60px);
 }
 
 .section-title p{
-    margin-top:14px;
+    margin-top:15px;
 
     color:#817987;
 
-    line-height:1.7;
+    line-height:1.8;
 }
 
 /* =========================
-   QUICK LINKS
+   TARJETAS
 ========================= */
 
-.quick-grid{
+.cards{
     max-width:1200px;
 
     margin:auto;
 
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap:18px;
+    gap:20px;
 }
 
-.quick-card{
-    padding:30px 20px;
+.card{
+    padding:32px;
 
-    text-align:center;
+    min-height:220px;
 
     border-radius:18px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.015)
-        );
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.055),
+        rgba(255,255,255,.015)
+    );
 
     border:1px solid rgba(255,255,255,.07);
 
     transition:.25s;
 }
 
-.quick-card:hover{
+.card:hover{
     transform:translateY(-8px);
 
-    border-color:
-        rgba(221,108,255,.4);
+    border-color:rgba(221,108,255,.4);
 
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.25);
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
-.quick-icon{
-    font-size:35px;
+.icon{
+    font-size:38px;
 
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
-.quick-card h3{
-    font-size:18px;
+.card h3{
+    font-size:21px;
 
-    margin-bottom:9px;
+    margin-bottom:12px;
 }
 
-.quick-card p{
+.card p{
     color:#817987;
 
-    font-size:13px;
+    line-height:1.7;
 
-    line-height:1.6;
+    font-size:14px;
 }
 
-.quick-card .go{
+.card-button{
     display:inline-block;
 
-    margin-top:17px;
+    margin-top:20px;
 
-    padding:9px 14px;
+    padding:10px 15px;
 
     border-radius:8px;
 
-    background:rgba(142,81,255,.12);
+    background:rgba(142,81,255,.13);
 
     border:1px solid rgba(142,81,255,.25);
 
     color:#ddd6ff;
+
+    text-decoration:none;
 
     font-size:11px;
 
@@ -635,202 +528,97 @@ section{
 }
 
 /* =========================
-   FEATURES
+   SERVIDOR
 ========================= */
 
-.features{
-    max-width:1150px;
+.server-box{
+    max-width:1200px;
 
     margin:auto;
 
     display:grid;
 
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-}
-
-.feature{
-    padding:30px;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.01)
-        );
-
-    border:1px solid rgba(255,255,255,.07);
-
-    transition:.25s;
-}
-
-.feature:hover{
-    transform:translateY(-7px);
-
-    border-color:
-        rgba(221,108,255,.3);
-}
-
-.feature-icon{
-    font-size:32px;
-
-    margin-bottom:18px;
-}
-
-.feature h3{
-    font-size:18px;
-
-    margin-bottom:10px;
-}
-
-.feature p{
-    color:#817987;
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-/* =========================
-   SERVER STATUS
-========================= */
-
-.status{
-    max-width:1100px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
 
     gap:15px;
 }
 
-.status-card{
-    padding:27px;
-
+.server-card{
     text-align:center;
+
+    padding:30px 20px;
 
     border-radius:16px;
 
-    background:rgba(255,255,255,.025);
+    background:rgba(255,255,255,.035);
 
-    border:1px solid rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.07);
 }
 
-.status-card .icon{
-    font-size:28px;
+.server-card .big{
+    font-size:32px;
 
-    margin-bottom:10px;
+    font-weight:1000;
+
+    color:#ddd6ff;
 }
 
-.status-card h3{
-    font-size:16px;
+.server-card span{
+    display:block;
 
-    margin-bottom:7px;
-}
+    margin-top:8px;
 
-.status-card p{
-    color:#77707f;
+    color:#716a78;
 
-    font-size:12px;
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    font-weight:bold;
 }
 
 .online{
-    color:#5bea8d;
+    color:#55e37d!important;
 }
 
 /* =========================
-   STORE
+   CTA
 ========================= */
 
-.store{
-    max-width:1100px;
+.cta{
+    max-width:1150px;
 
     margin:auto;
 
-    padding:70px 25px;
+    padding:75px 30px;
 
     text-align:center;
 
     border-radius:25px;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(142,81,255,.25),
-            transparent 65%
-        ),
-        #0d0814;
+    radial-gradient(
+        circle,
+        rgba(142,81,255,.25),
+        transparent 65%
+    ),
+    #0e0816;
 
-    border:1px solid rgba(221,108,255,.16);
+    border:1px solid rgba(221,108,255,.18);
 }
 
-.store h2{
-    margin-top:10px;
-
-    font-size:clamp(
-        32px,
-        5vw,
-        50px
-    );
+.cta h2{
+    font-size:clamp(35px,6vw,60px);
 }
 
-.store p{
-    max-width:620px;
-
-    margin:15px auto 25px;
-
-    color:#817987;
-
-    line-height:1.7;
-}
-
-/* =========================
-   DISCORD
-========================= */
-
-.discord{
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:45px;
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(142,81,255,.16),
-            rgba(221,108,255,.04)
-        );
-
-    border:1px solid rgba(221,108,255,.15);
-
-    text-align:center;
-}
-
-.discord h2{
-    font-size:35px;
-
-    margin-bottom:12px;
-}
-
-.discord p{
+.cta p{
     max-width:650px;
 
-    margin:0 auto 25px;
+    margin:15px auto;
 
     color:#817987;
 
-    line-height:1.7;
+    line-height:1.8;
 }
 
 /* =========================
@@ -840,14 +628,13 @@ section{
 footer{
     padding:55px 6%;
 
-    border-top:
-        1px solid rgba(255,255,255,.06);
+    border-top:1px solid rgba(255,255,255,.07);
 
-    background:rgba(0,0,0,.25);
+    background:#05030a;
 }
 
-.footer{
-    max-width:1150px;
+.footer-content{
+    max-width:1200px;
 
     margin:auto;
 
@@ -858,34 +645,36 @@ footer{
     gap:30px;
 }
 
-.footer h3{
-    font-size:19px;
+.footer-brand h3{
+    font-size:20px;
 }
 
-.footer p{
+.footer-brand p{
     color:#625b68;
 
-    margin-top:8px;
+    margin-top:10px;
 
-    font-size:11px;
+    font-size:12px;
 
-    line-height:1.7;
+    line-height:1.8;
 }
 
 .footer-links{
     display:flex;
 
-    gap:20px;
+    flex-wrap:wrap;
+
+    gap:18px;
 
     align-items:center;
-
-    flex-wrap:wrap;
 }
 
 .footer-links a{
-    color:#716a78;
+    color:#817987;
 
-    font-size:11px;
+    text-decoration:none;
+
+    font-size:12px;
 
     font-weight:bold;
 }
@@ -895,14 +684,13 @@ footer{
 }
 
 .copyright{
-    max-width:1150px;
+    max-width:1200px;
 
-    margin:30px auto 0;
+    margin:35px auto 0;
 
-    padding-top:18px;
+    padding-top:20px;
 
-    border-top:
-        1px solid rgba(255,255,255,.05);
+    border-top:1px solid rgba(255,255,255,.05);
 
     color:#4e4854;
 
@@ -917,27 +705,26 @@ footer{
     position:fixed;
 
     bottom:25px;
+
     left:50%;
 
-    transform:
-        translate(-50%,30px);
+    transform:translate(-50%,30px);
 
     opacity:0;
 
-    padding:13px 20px;
+    padding:13px 22px;
 
-    border-radius:9px;
+    border-radius:10px;
 
     background:#17101e;
 
-    border:
-        1px solid rgba(221,108,255,.25);
+    border:1px solid rgba(221,108,255,.3);
 
     font-size:12px;
 
     font-weight:bold;
 
-    transition:.25s;
+    transition:.3s;
 
     z-index:99999;
 }
@@ -945,8 +732,7 @@ footer{
 #toast.show{
     opacity:1;
 
-    transform:
-        translate(-50%,0);
+    transform:translate(-50%,0);
 }
 
 /* =========================
@@ -955,47 +741,48 @@ footer{
 
 @media(max-width:900px){
 
-    .desktop-menu{
+    .nav-links{
         display:none;
     }
 
-    .quick-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+    .menu-button{
+        display:block;
     }
 
-    .features{
-        grid-template-columns:
-            repeat(2,1fr);
+    .cards{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .status{
-        grid-template-columns:1fr;
+    .server-box{
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
 
 @media(max-width:600px){
 
+    .navbar{
+        padding:0 20px;
+    }
+
     section{
-        padding:75px 5%;
+        padding:80px 5%;
     }
 
     .hero{
-        padding:
-            120px 15px 70px;
+        padding:120px 15px 80px;
     }
 
     .hero h1{
         letter-spacing:-4px;
     }
 
-    .quick-grid{
-        grid-template-columns:1fr;
+    .network{
+        letter-spacing:7px;
     }
 
-    .features{
-        grid-template-columns:1fr;
+    .description{
+        font-size:14px;
     }
 
     .ip-box{
@@ -1004,8 +791,20 @@ footer{
         text-align:center;
     }
 
-    .footer{
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .server-box{
+        grid-template-columns:1fr;
+    }
+
+    .footer-content{
         flex-direction:column;
+    }
+
+    .footer-links{
+        justify-content:flex-start;
     }
 
 }
@@ -1025,27 +824,19 @@ footer{
         THRASHMC
     </a>
 
-    <div class="desktop-menu">
+    <div class="nav-links">
 
-        <a href="index.html">
-            Inicio
-        </a>
+        <a href="index.html">INICIO</a>
 
-        <a href="modalidades.html">
-            Modalidades
-        </a>
+        <a href="modalidades.html">MODALIDADES</a>
 
-        <a href="staff.html">
-            Staff
-        </a>
+        <a href="staff.html">STAFF</a>
 
-        <a href="reglas.html">
-            Reglas
-        </a>
+        <a href="reglas.html">REGLAS</a>
 
-        <a href="servidor.html">
-            Servidor
-        </a>
+        <a href="servidor.html">SERVIDOR</a>
+
+        <a href="contacto.html">CONTACTO</a>
 
         <a href="tienda.html" class="shop-button">
             🛒 TIENDA
@@ -1053,58 +844,59 @@ footer{
 
     </div>
 
-    <!-- TRES PUNTITOS -->
+    <!-- BOTÓN TRES LÍNEAS -->
 
     <button
         class="menu-button"
         id="menuButton"
+        onclick="toggleMenu()"
         aria-label="Abrir menú"
     >
-
-        <span></span>
-        <span></span>
-        <span></span>
-
+        ☰
     </button>
 
 </nav>
 
 
 <!-- =========================
-     MOBILE MENU
+     MENÚ MÓVIL
 ========================= -->
 
 <div class="mobile-menu" id="mobileMenu">
 
     <a href="index.html">
-        🏠 Inicio
+        🏠 INICIO
     </a>
 
     <a href="modalidades.html">
-        ⚔️ Modalidades
+        ⚔️ MODALIDADES
     </a>
 
     <a href="staff.html">
-        👑 Staff
+        👑 STAFF
     </a>
 
     <a href="reglas.html">
-        📜 Reglas
+        📜 REGLAS
     </a>
 
     <a href="servidor.html">
-        🌐 Servidor
+        🌐 SERVIDOR
+    </a>
+
+    <a href="contacto.html">
+        📩 CONTACTO
     </a>
 
     <a href="tienda.html">
-        🛒 Tienda
+        🛒 TIENDA
     </a>
 
     <a
         href="https://discord.gg/GBTnQnxEk"
         target="_blank"
     >
-        💬 Discord
+        💬 DISCORD
     </a>
 
 </div>
@@ -1116,75 +908,141 @@ footer{
 
 <header class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="badge">
-            ● THRASHMC NETWORK • MINECRAFT
-        </div>
+    <div class="badge">
+        ● THRASHMC NETWORK • ONLINE
+    </div>
 
-        <h1>
-            THRASHMC
-        </h1>
+    <h1>
+        THRASHMC
+    </h1>
 
-        <div class="network">
-            NETWORK
-        </div>
+    <div class="network">
+        NETWORK
+    </div>
 
-        <p class="description">
+    <p class="description">
+        Bienvenido a THRASHMC NETWORK.
+        Entra al servidor, consigue kills,
+        sube de nivel, consigue recompensas
+        y demuestra quién domina el FullPVP.
+    </p>
 
-            Bienvenido a THRASHMC NETWORK.
-            Una nueva experiencia de Minecraft
-            enfocada en PvP, competencia,
-            progresión y comunidad.
+    <div class="buttons">
 
-        </p>
+        <button
+            class="btn primary"
+            onclick="copyIP()"
+        >
+            🎮 COPIAR IP
+        </button>
 
-        <div class="buttons">
+        <a
+            href="modalidades.html"
+            class="btn secondary"
+        >
+            ⚔️ VER MODALIDADES
+        </a>
 
-            <button
-                class="btn primary"
-                onclick="copyIP()"
-            >
-                🎮 JUGAR AHORA
-            </button>
-
-            <a
-                href="https://discord.gg/GBTnQnxEk"
-                target="_blank"
-                class="btn secondary"
-            >
-                💬 DISCORD
-            </a>
-
-        </div>
-
-
-        <div class="ip-box">
-
-            <div>
-
-                <div class="ip-title">
-                    IP DEL SERVIDOR
-                </div>
-
-                <div class="ip">
-                    puff.visihost.in:2503
-                </div>
-
-            </div>
-
-            <button
-                class="copy"
-                onclick="copyIP()"
-            >
-                COPIAR IP
-            </button>
-
-        </div>
+        <a
+            href="https://discord.gg/GBTnQnxEk"
+            target="_blank"
+            class="btn secondary"
+        >
+            💬 DISCORD
+        </a>
 
     </div>
 
+
+    <div class="ip-box">
+
+        <div>
+
+            <div class="ip-title">
+                IP DEL SERVIDOR
+            </div>
+
+            <div class="ip">
+                puff.visihost.in:2503
+            </div>
+
+        </div>
+
+        <button
+            class="copy"
+            onclick="copyIP()"
+        >
+            COPIAR
+        </button>
+
+    </div>
+
+</div>
+
 </header>
+
+
+<!-- =========================
+     SERVIDOR
+========================= -->
+
+<section>
+
+<div class="server-box">
+
+    <div class="server-card">
+
+        <div class="big online">
+            ● ONLINE
+        </div>
+
+        <span>
+            ESTADO
+        </span>
+
+    </div>
+
+    <div class="server-card">
+
+        <div class="big">
+            ⚔️ FULLPVP
+        </div>
+
+        <span>
+            MODALIDAD
+        </span>
+
+    </div>
+
+    <div class="server-card">
+
+        <div class="big">
+            JAVA
+        </div>
+
+        <span>
+            PLATAFORMA
+        </span>
+
+    </div>
+
+    <div class="server-card">
+
+        <div class="big">
+            24/7
+        </div>
+
+        <span>
+            DISPONIBILIDAD
+        </span>
+
+    </div>
+
+</div>
+
+</section>
 
 
 <!-- =========================
@@ -1193,35 +1051,165 @@ footer{
 
 <section>
 
-    <div class="section-title">
+<div class="section-title">
 
-        <span class="label">
-            THRASHMC NETWORK
-        </span>
+    <span class="label">
+        THRASHMC NETWORK
+    </span>
 
-        <h2>
-            Explora nuestra Network
-        </h2>
+    <h2>
+        Explora THRASHMC
+    </h2>
+
+    <p>
+        Encuentra rápidamente todo lo que necesitas
+        para conocer nuestra Network.
+    </p>
+
+</div>
+
+
+<div class="cards">
+
+    <div class="card">
+
+        <div class="icon">
+            ⚔️
+        </div>
+
+        <h3>
+            Modalidades
+        </h3>
 
         <p>
-            Encuentra rápidamente toda la información
-            de THRASHMC desde un solo lugar.
+            Descubre FullPVP, Survival y las próximas
+            modalidades que llegarán a THRASHMC.
         </p>
+
+        <a
+            href="modalidades.html"
+            class="card-button"
+        >
+            VER MODALIDADES →
+        </a>
 
     </div>
 
 
-    <div class="quick-grid">
+    <div class="card">
+
+        <div class="icon">
+            👑
+        </div>
+
+        <h3>
+            Nuestro Staff
+        </h3>
+
+        <p>
+            Conoce al equipo encargado de administrar,
+            moderar y ayudar a la comunidad.
+        </p>
 
         <a
-            href="modalidades.html"
-            class="quick-card"
+            href="staff.html"
+            class="card-button"
         >
+            VER STAFF →
+        </a>
 
-            <div class="quick-icon">
-                ⚔️
-            </div>
+    </div>
 
-            <h3>
-                Modalidades
-            </h
+
+    <div class="card">
+
+        <div class="icon">
+            📜
+        </div>
+
+        <h3>
+            Reglas
+        </h3>
+
+        <p>
+            Revisa las normas oficiales que todos
+            los jugadores deben respetar.
+        </p>
+
+        <a
+            href="reglas.html"
+            class="card-button"
+        >
+            VER REGLAS →
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon">
+            🌐
+        </div>
+
+        <h3>
+            Servidor
+        </h3>
+
+        <p>
+            Información del servidor, IP, plataforma,
+            estado y características de THRASHMC.
+        </p>
+
+        <a
+            href="servidor.html"
+            class="card-button"
+        >
+            VER SERVIDOR →
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon">
+            📩
+        </div>
+
+        <h3>
+            Contacto
+        </h3>
+
+        <p>
+            Ponte en contacto con THRASHMC y
+            encuentra nuestros canales oficiales.
+        </p>
+
+        <a
+            href="contacto.html"
+            class="card-button"
+        >
+            CONTACTARNOS →
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="icon">
+            🛒
+        </div>
+
+        <h3>
+            Tienda
+        </h3>
+
+        <p>
+            Descubre nuestros rangos, kits y productos
+            disponibles para apoyar la Network.
+        </p>
+
+        <a
+            href="
