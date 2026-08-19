@@ -6,11 +6,8 @@
 
 <title>Staff | THRASHMC NETWORK</title>
 
-<meta name="description" content="Conoce al equipo oficial de THRASHMC NETWORK.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
@@ -18,10 +15,8 @@
 :root{
     --bg:#07050a;
     --card:#120d17;
-    --card2:#19131f;
     --purple:#8e51ff;
     --pink:#ff4d8d;
-    --violet:#dd6cff;
     --white:#ffffff;
     --muted:#aaa3b1;
     --border:rgba(255,255,255,.08);
@@ -78,7 +73,10 @@ body::before{
     background-size:32px 32px;
 }
 
-/* NAVBAR */
+
+/* ========================================
+   HEADER
+======================================== */
 
 .header{
     position:sticky;
@@ -113,8 +111,6 @@ body::before{
 
     text-shadow:
         0 0 20px rgba(142,81,255,.7);
-
-    white-space:nowrap;
 }
 
 .logo span{
@@ -157,7 +153,10 @@ body::before{
         0 0 20px rgba(142,81,255,.12);
 }
 
-/* HERO */
+
+/* ========================================
+   HERO
+======================================== */
 
 .hero{
     max-width:1200px;
@@ -222,16 +221,22 @@ body::before{
     line-height:1.4;
 }
 
-/* STATS */
+
+/* ========================================
+   STATS
+======================================== */
 
 .stats{
     max-width:1100px;
+
     margin:0 auto 70px;
 
     padding:0 20px;
 
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
 
     gap:16px;
 }
@@ -262,6 +267,7 @@ body::before{
 
 .stat-icon{
     font-size:30px;
+
     margin-bottom:10px;
 }
 
@@ -281,10 +287,14 @@ body::before{
     font-weight:bold;
 }
 
-/* STAFF GRID */
+
+/* ========================================
+   STAFF GRID
+======================================== */
 
 .staff-grid{
     max-width:1400px;
+
     margin:auto;
 
     padding:0 25px 110px;
@@ -292,12 +302,13 @@ body::before{
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(330px,1fr));
+        repeat(
+            auto-fit,
+            minmax(330px,1fr)
+        );
 
     gap:25px;
 }
-
-/* CARD */
 
 .staff-card{
     position:relative;
@@ -332,10 +343,13 @@ body::before{
         0 0 35px rgba(142,81,255,.12);
 }
 
-/* BANNER */
+
+/* ========================================
+   BANNERS
+======================================== */
 
 .banner{
-    height:155px;
+    height:180px;
 
     position:relative;
 
@@ -384,21 +398,31 @@ body::before{
         );
 }
 
-.banner::after{
+.banner::before{
     content:"";
 
     position:absolute;
-    inset:0;
+
+    width:400px;
+    height:400px;
+
+    top:-220px;
+    right:-100px;
+
+    border-radius:50%;
 
     background:
-        linear-gradient(
-            135deg,
-            transparent,
-            rgba(255,255,255,.03)
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.08),
+            transparent 65%
         );
 }
 
-/* HEAD */
+
+/* ========================================
+   MINECRAFT AVATAR
+======================================== */
 
 .avatar{
     position:absolute;
@@ -406,7 +430,7 @@ body::before{
     z-index:5;
 
     left:25px;
-    top:92px;
+    top:105px;
 
     width:105px;
     height:105px;
@@ -434,17 +458,20 @@ body::before{
     image-rendering:pixelated;
 }
 
-/* 3D BODY */
+
+/* ========================================
+   MINECRAFT BODY
+======================================== */
 
 .body-skin{
     position:absolute;
 
     z-index:4;
 
-    right:15px;
-    bottom:-45px;
+    right:20px;
+    bottom:-40px;
 
-    height:215px;
+    height:220px;
 
     image-rendering:pixelated;
 
@@ -454,7 +481,10 @@ body::before{
         );
 }
 
-/* CONTENT */
+
+/* ========================================
+   CONTENT
+======================================== */
 
 .content{
     padding:65px 25px 25px;
@@ -485,910 +515,5 @@ body::before{
 .owner{
     color:#ff4d8d;
 
-    background:rgba(255,77,141,.09);
-
-    border:1px solid rgba(255,77,141,.3);
-}
-
-.admin{
-    color:#ff5555;
-
-    background:rgba(255,85,85,.09);
-
-    border:1px solid rgba(255,85,85,.3);
-}
-
-.future{
-    color:#c56cff;
-
-    background:rgba(197,108,255,.08);
-
-    border:1px solid rgba(197,108,255,.25);
-}
-
-.description{
-    color:var(--muted);
-
-    font-size:18px;
-
-    line-height:1.4;
-
-    min-height:76px;
-
-    margin-bottom:20px;
-}
-
-/* DETAILS */
-
-.details{
-    display:flex;
-    flex-direction:column;
-
-    gap:9px;
-}
-
-.detail{
-    padding:12px;
-
-    background:rgba(255,255,255,.035);
-
-    border:1px solid rgba(255,255,255,.06);
-
-    border-radius:8px;
-
-    color:#c8c2cc;
-
-    font-size:17px;
-}
-
-.detail strong{
-    color:white;
-}
-
-/* PERMISSIONS */
-
-.permissions{
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:7px;
-
-    margin-top:17px;
-}
-
-.permission{
-    padding:6px 9px;
-
-    border-radius:5px;
-
-    background:rgba(142,81,255,.1);
-
-    border:1px solid rgba(142,81,255,.2);
-
-    color:#d4c8ff;
-
-    font-size:14px;
-}
-
-/* FOOTER */
-
-footer{
-    padding:55px 25px;
-
-    text-align:center;
-
-    border-top:1px solid var(--border);
-
-    background:rgba(0,0,0,.3);
-}
-
-footer h2{
-    font-family:'Press Start 2P',cursive;
-
-    font-size:18px;
-}
-
-footer p{
-    margin-top:12px;
-
-    color:#77717d;
-
-    font-size:17px;
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-    .nav{
-        flex-direction:column;
-    }
-
-    .nav-links{
-        width:100%;
-    }
-
-    .nav-links a{
-        font-size:14px;
-    }
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-
-}
-
-@media(max-width:500px){
-
-    .hero{
-        padding-top:70px;
-    }
-
-    .hero h1{
-        font-size:30px;
-    }
-
-    .hero p{
-        font-size:20px;
-    }
-
-    .staff-grid{
-        grid-template-columns:1fr;
-
-        padding-left:15px;
-        padding-right:15px;
-    }
-
-    .staff-card{
-        min-width:0;
-    }
-
-    .body-skin{
-        height:185px;
-        right:5px;
-    }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<header class="header">
-
-<nav class="nav">
-
-<a href="index.html" class="logo">
-THRASH<span>MC</span>
-</a>
-
-<div class="nav-links">
-
-<a href="index.html">
-🏠 Inicio
-</a>
-
-<a href="modalidades.html">
-⚔️ Modalidades
-</a>
-
-<a href="staff.html" class="active">
-👑 Staff
-</a>
-
-<a href="reglas.html">
-📜 Reglas
-</a>
-
-<a href="servidor.html">
-🌐 Servidor
-</a>
-
-<a href="tienda.html">
-🛒 Tienda
-</a>
-
-<a href="https://discord.gg/GBTnQnxEk" target="_blank">
-💬 Discord
-</a>
-
-</div>
-
-</nav>
-
-</header>
-
-
-<section class="hero">
-
-<div class="badge">
-👑 EQUIPO OFICIAL THRASHMC
-</div>
-
-<h1>
-STAFF THRASHMC
-</h1>
-
-<p>
-Conocé al equipo que administra, desarrolla
-y mantiene la comunidad de THRASHMC NETWORK.
-</p>
-
-</section>
-
-
-<section class="stats">
-
-<div class="stat">
-
-<div class="stat-icon">
-⚔️
-</div>
-
-<div class="stat-title">
-Modalidad
-</div>
-
-<div class="stat-value">
-FULLPVP
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-icon">
-🌐
-</div>
-
-<div class="stat-title">
-Network
-</div>
-
-<div class="stat-value">
-THRASHMC
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-icon">
-👥
-</div>
-
-<div class="stat-title">
-Staff oficial
-</div>
-
-<div class="stat-value">
-3 MIEMBROS
-</div>
-
-</div>
-
-</section>
-
-
-<section class="staff-grid">
-
-
-<!-- OWNER 1 -->
-
-<article class="staff-card">
-
-<div class="banner owner-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Tiziomariabebe01/left"
-alt="Skin de Tiziomariabebe01"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/Tiziomariabebe01/right"
-alt="Skin de Tiziomariabebe01"
->
-
-</div>
-
-
-<div class="content">
-
-<div class="name" style="color:#ff4d8d;">
-Tiziomariabebe01
-</div>
-
-<div class="rank owner">
-👑 OWNER
-</div>
-
-<p class="description">
-Máxima autoridad de THRASHMC y responsable
-de la administración general de la Network.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> 2026-01-01
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Tiziomariabebe01
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ All Permissions
-</span>
-
-<span class="permission">
-✓ Server Management
-</span>
-
-<span class="permission">
-✓ Staff Management
-</span>
-
-<span class="permission">
-✓ Administration
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- OWNER 2 -->
-
-<article class="staff-card">
-
-<div class="banner owner-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/ItsTizii/left"
-alt="Skin de ItsTizii"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/ItsTizii/right"
-alt="Skin de ItsTizii"
->
-
-</div>
-
-
-<div class="content">
-
-<div class="name" style="color:#ff4d8d;">
-ItsTizii
-</div>
-
-<div class="rank owner">
-👑 OWNER
-</div>
-
-<p class="description">
-Owner de THRASHMC. Responsable de la gestión
-general, administración y desarrollo de la Network.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> 2026-01-01
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> ItsTizii
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Server Management
-</span>
-
-<span class="permission">
-✓ Staff Management
-</span>
-
-<span class="permission">
-✓ Administration
-</span>
-
-<span class="permission">
-✓ Moderation
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- ADMIN -->
-
-<article class="staff-card">
-
-<div class="banner admin-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Pana_Frail/left"
-alt="Skin de Pana_Frail"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/Pana_Frail/right"
-alt="Skin de Pana_Frail"
->
-
-</div>
-
-
-<div class="content">
-
-<div class="name" style="color:#ff5555;">
-Pana_Frail
-</div>
-
-<div class="rank admin">
-🛡️ ADMIN
-</div>
-
-<p class="description">
-Administra el servidor y se encarga de situaciones
-importantes de moderación y administración.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> 2026-08-19
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Pana_Frail
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Server Management
-</span>
-
-<span class="permission">
-✓ Administration
-</span>
-
-<span class="permission">
-✓ Ban
-</span>
-
-<span class="permission">
-✓ Kick
-</span>
-
-<span class="permission">
-✓ Mute
-</span>
-
-<span class="permission">
-✓ Warn
-</span>
-
-<span class="permission">
-✓ Teleport
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- MANAGER -->
-
-<article class="staff-card">
-
-<div class="banner future-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Steve/left"
-alt="Por definir"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/Steve/right"
-alt=""
->
-
-</div>
-
-<div class="content">
-
-<div class="name" style="color:#c56cff;">
-Por definir
-</div>
-
-<div class="rank future">
-👔 MANAGER
-</div>
-
-<p class="description">
-Gestionará el equipo de staff, la organización
-interna y el funcionamiento de la Network.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Staff Management
-</span>
-
-<span class="permission">
-✓ Server Management
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- MOD -->
-
-<article class="staff-card">
-
-<div class="banner future-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Steve/left"
-alt="Por definir"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/Steve/right"
-alt=""
->
-
-</div>
-
-<div class="content">
-
-<div class="name" style="color:#55aaff;">
-Por definir
-</div>
-
-<div class="rank future">
-⚔️ MOD
-</div>
-
-<p class="description">
-Mantendrá el orden del servidor y aplicará
-las reglas oficiales de THRASHMC.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Ban
-</span>
-
-<span class="permission">
-✓ Kick
-</span>
-
-<span class="permission">
-✓ Mute
-</span>
-
-<span class="permission">
-✓ Warn
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- HELPER -->
-
-<article class="staff-card">
-
-<div class="banner future-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Steve/left"
-alt="Por definir"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/Steve/right"
-alt=""
->
-
-</div>
-
-<div class="content">
-
-<div class="name" style="color:#55ff99;">
-Por definir
-</div>
-
-<div class="rank future">
-💚 HELPER
-</div>
-
-<p class="description">
-Ayudará a los jugadores y responderá dudas
-o reportes básicos de la comunidad.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Help Players
-</span>
-
-<span class="permission">
-✓ Reports
-</span>
-
-<span class="permission">
-✓ Chat Support
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- BUILDER -->
-
-<article class="staff-card">
-
-<div class="banner future-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Steve/left"
-alt="Por definir"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/Steve/right"
-alt=""
->
-
-</div>
-
-<div class="content">
-
-<div class="name" style="color:#ffaa55;">
-Por definir
-</div>
-
-<div class="rank future">
-🔨 BUILDER
-</div>
-
-<p class="description">
-Construirá y desarrollará mapas, spawns
-y diferentes áreas de THRASHMC.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Building
-</span>
-
-<span class="permission">
-✓ WorldEdit
-</span>
-
-<span class="permission">
-✓ Map Development
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-
-<!-- EVENT MANAGER -->
-
-<article class="staff-card">
-
-<div class="banner future-banner">
-
-<div class="avatar">
-
-<img
-src="https://mc-heads.net/head/Steve/left"
-alt="Por definir"
->
-
-</div>
-
-<img
-class="body-skin"
-src="https://mc-heads.net/body/Steve/right"
-alt=""
->
-
-</div>
-
-<div class="content">
-
-<div class="name" style="color:#aa88ff;">
-Por definir
-</div>
-
-<div class="rank future">
-🎉 EVENT MANAGER
-</div>
-
-<p class="description">
-Organizará eventos, actividades y dinámicas
-para toda la comunidad de THRASHMC.
-</p>
-
-<div class="details">
-
-<div class="detail">
-📅 <strong>Ingreso:</strong> PRÓXIMAMENTE
-</div>
-
-<div class="detail">
-💬 <strong>Discord:</strong> Por definir
-</div>
-
-</div>
-
-<div class="permissions">
-
-<span class="permission">
-✓ Events
-</span>
-
-<span class="permission">
-✓ Giveaways
-</span>
-
-<span class="permission">
-✓ Community Management
-</span>
-
-</div>
-
-</div>
-
-</article>
-
-</section>
-
-
-<footer>
-
-<h2>
-💜 THRASHMC NETWORK
-</h2>
-
-<p>
-⚔️ FULLPVP • 👑 STAFF • 🏆 COMPETENCIA
-</p>
-
-<p>
-© 2026 THRASHMC NETWORK
-</p>
-
-</footer>
-
-</body>
-</html>
+    background:
+        rgba(255,77,141,.09
