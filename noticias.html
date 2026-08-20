@@ -31,9 +31,9 @@ body::before{
     inset:0;
     z-index:-2;
     background:
-        radial-gradient(circle at 10% 10%,rgba(142,81,255,.24),transparent 30%),
+        radial-gradient(circle at 10% 10%,rgba(142,81,255,.25),transparent 30%),
         radial-gradient(circle at 90% 20%,rgba(255,77,141,.20),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(142,81,255,.14),transparent 35%);
+        radial-gradient(circle at 50% 100%,rgba(142,81,255,.15),transparent 35%);
 }
 
 body::after{
@@ -41,7 +41,7 @@ body::after{
     position:fixed;
     inset:0;
     z-index:-1;
-    opacity:.045;
+    opacity:.035;
     background-image:
         linear-gradient(#fff 1px,transparent 1px),
         linear-gradient(90deg,#fff 1px,transparent 1px);
@@ -107,8 +107,6 @@ nav a.active{
     background:rgba(142,81,255,.20);
 }
 
-/* MOBILE MENU */
-
 .menu-button{
     display:none;
     width:45px;
@@ -117,7 +115,7 @@ nav a.active{
     border-radius:12px;
     background:rgba(142,81,255,.12);
     color:#fff;
-    font-size:24px;
+    font-size:25px;
     cursor:pointer;
 }
 
@@ -142,26 +140,21 @@ nav a.active{
     font-weight:700;
 }
 
-.mobile-nav a:hover{
-    color:#fff;
-    background:rgba(142,81,255,.18);
-}
-
 /* HERO */
 
 .hero{
-    max-width:1150px;
+    max-width:1100px;
     margin:auto;
-    padding:110px 20px 75px;
+    padding:100px 20px 65px;
     text-align:center;
 }
 
 .badge{
     display:inline-block;
     padding:10px 18px;
+    border-radius:50px;
     border:1px solid rgba(142,81,255,.45);
     background:rgba(142,81,255,.10);
-    border-radius:50px;
     color:#d9caff;
     font-size:12px;
     font-weight:900;
@@ -170,12 +163,12 @@ nav a.active{
 
 .hero h1{
     margin-top:25px;
-    font-size:clamp(48px,8vw,86px);
+    font-size:clamp(45px,8vw,80px);
     font-weight:1000;
     background:linear-gradient(
         90deg,
         #fff,
-        #ddd1ff,
+        #d9caff,
         #8e51ff,
         #ff4d8d
     );
@@ -186,150 +179,191 @@ nav a.active{
 
 .hero p{
     max-width:750px;
-    margin:22px auto 0;
+    margin:20px auto 0;
     color:#aaa5b2;
     line-height:1.8;
-    font-size:17px;
 }
 
 /* NEWS */
 
 .news-container{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
-    padding:0 20px 140px;
+    padding:0 20px 130px;
 }
 
-.news-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:25px;
-}
-
-.news-card{
+.featured{
     position:relative;
     overflow:hidden;
-    min-height:310px;
-    padding:32px;
-    border-radius:22px;
-    background:linear-gradient(145deg,#1c1428,#0c0910);
-    border:1px solid rgba(255,255,255,.08);
-    transition:.3s;
+    min-height:370px;
+    margin-bottom:25px;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.09);
+    background:
+        radial-gradient(circle at 80% 20%,rgba(255,77,141,.35),transparent 35%),
+        radial-gradient(circle at 20% 80%,rgba(142,81,255,.35),transparent 40%),
+        linear-gradient(135deg,#1c1328,#0c0910);
+    box-shadow:0 25px 70px rgba(0,0,0,.4);
 }
 
-.news-card:hover{
-    transform:translateY(-6px);
-    border-color:#8e51ff;
-    box-shadow:0 25px 70px rgba(0,0,0,.55);
+.featured-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    padding:55px;
 }
 
-.news-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:4px;
-    background:linear-gradient(90deg,#8e51ff,#ff4d8d);
-}
-
-.news-icon{
-    width:58px;
-    height:58px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:15px;
-    background:rgba(142,81,255,.14);
-    border:1px solid rgba(142,81,255,.28);
-    font-size:27px;
-    margin-bottom:22px;
-}
-
-.news-tag{
+.featured-label{
     display:inline-block;
-    padding:7px 11px;
-    border-radius:7px;
-    background:rgba(255,77,141,.10);
-    border:1px solid rgba(255,77,141,.25);
-    color:#ff7eac;
+    padding:8px 13px;
+    border-radius:8px;
+    background:linear-gradient(90deg,#8e51ff,#ff4d8d);
     font-size:11px;
     font-weight:900;
     letter-spacing:1px;
 }
 
-.news-card h2{
-    margin-top:17px;
-    font-size:25px;
+.featured h2{
+    margin-top:20px;
+    font-size:clamp(30px,5vw,48px);
+    line-height:1.1;
     font-weight:1000;
 }
 
-.news-date{
-    margin-top:9px;
+.featured p{
+    margin-top:18px;
+    color:#bbb5c4;
+    line-height:1.8;
+}
+
+.date{
+    display:block;
+    margin-top:22px;
     color:#77717f;
     font-size:12px;
+    font-weight:800;
+}
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px;
+}
+
+.news-card{
+    overflow:hidden;
+    border-radius:20px;
+    background:linear-gradient(145deg,#17111f,#0c0910);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+    border-color:#8e51ff;
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+.news-image{
+    height:180px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
+    background:
+        radial-gradient(circle,rgba(142,81,255,.35),transparent 60%),
+        #100b17;
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.news-content{
+    padding:28px;
+}
+
+.news-category{
+    color:#ff78a8;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+.news-card h3{
+    margin-top:10px;
+    font-size:24px;
+    line-height:1.25;
 }
 
 .news-card p{
-    margin-top:20px;
-    color:#aaa5b2;
-    line-height:1.75;
-    font-size:15px;
+    margin-top:13px;
+    color:#9993a2;
+    line-height:1.7;
+    font-size:14px;
 }
 
-.news-button{
+.news-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.news-date{
+    color:#6f6977;
+    font-size:11px;
+    font-weight:800;
+}
+
+.read-more{
+    color:#cdbbff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:900;
+}
+
+.read-more:hover{
+    color:#ff78a8;
+}
+
+/* DISCORD */
+
+.discord-box{
+    margin-top:25px;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    background:
+        linear-gradient(135deg,rgba(142,81,255,.13),rgba(255,77,141,.08));
+    border:1px solid rgba(142,81,255,.25);
+}
+
+.discord-box h2{
+    font-size:28px;
+}
+
+.discord-box p{
+    margin:10px auto 20px;
+    max-width:650px;
+    color:#aaa5b2;
+    line-height:1.7;
+}
+
+.discord-button{
     display:inline-block;
-    margin-top:23px;
-    padding:11px 16px;
-    border-radius:10px;
-    background:rgba(142,81,255,.14);
-    border:1px solid rgba(142,81,255,.30);
-    color:#d9caff;
+    padding:14px 23px;
+    border-radius:11px;
+    background:linear-gradient(90deg,#8e51ff,#ff4d8d);
+    color:#fff;
     text-decoration:none;
     font-size:13px;
-    font-weight:800;
+    font-weight:900;
     transition:.25s;
 }
 
-.news-button:hover{
-    color:#fff;
-    background:#8e51ff;
-}
-
-/* FEATURE */
-
-.feature{
-    max-width:1250px;
-    margin:0 auto 35px;
-    padding:0 20px;
-}
-
-.feature-card{
-    padding:42px;
-    border-radius:24px;
-    background:
-        radial-gradient(circle at 90% 10%,rgba(255,77,141,.16),transparent 30%),
-        linear-gradient(145deg,#21152e,#0c0910);
-    border:1px solid rgba(255,255,255,.09);
-}
-
-.feature-label{
-    color:#ff78a8;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.feature h2{
-    margin-top:13px;
-    font-size:32px;
-}
-
-.feature p{
-    max-width:900px;
-    margin-top:15px;
-    color:#aaa5b2;
-    line-height:1.8;
+.discord-button:hover{
+    transform:translateY(-3px);
 }
 
 /* FOOTER */
@@ -353,12 +387,11 @@ footer{
 footer p{
     margin-top:12px;
     color:#77717f;
-    line-height:1.7;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
     nav{
         display:none;
@@ -366,10 +399,6 @@ footer p{
 
     .menu-button{
         display:block;
-    }
-
-    .header{
-        padding:14px 18px;
     }
 
     .news-grid{
@@ -380,33 +409,28 @@ footer p{
 @media(max-width:600px){
 
     .hero{
-        padding:75px 15px 60px;
+        padding:75px 15px 55px;
     }
 
     .hero h1{
-        font-size:47px;
+        font-size:45px;
     }
 
-    .hero p{
-        font-size:15px;
-    }
-
-    .news-container,
-    .feature{
+    .news-container{
         padding-left:13px;
         padding-right:13px;
     }
 
-    .news-card{
-        padding:25px;
+    .featured-content{
+        padding:35px 25px;
     }
 
-    .feature-card{
-        padding:28px;
+    .featured{
+        min-height:400px;
     }
 
-    .feature h2{
-        font-size:25px;
+    .news-content{
+        padding:22px;
     }
 }
 </style>
@@ -428,7 +452,10 @@ THRASH<span>MC</span>
 <a href="staff.html">Staff</a>
 <a href="reglas.html">Reglas</a>
 <a href="noticias.html" class="active">Noticias</a>
-<a href="eventos.html">Eventos</a>
+<a href="spoilers.html">Spoilers</a>
+<a href="votaciones.html">Votar</a>
+<a href="perfil.html">Perfil</a>
+<a href="jugadores.html">Jugadores</a>
 <a href="tienda.html">Tienda</a>
 <a href="https://discord.gg/GBTnQnxEk" target="_blank">Discord</a>
 </nav>
@@ -437,8 +464,7 @@ THRASH<span>MC</span>
 class="menu-button"
 id="menuButton"
 type="button"
-aria-label="Abrir menú"
-aria-expanded="false">
+aria-label="Abrir menú">
 ⋮
 </button>
 
@@ -451,7 +477,10 @@ aria-expanded="false">
 <a href="staff.html">👑 Staff</a>
 <a href="reglas.html">📜 Reglas</a>
 <a href="noticias.html">📰 Noticias</a>
-<a href="eventos.html">🎉 Eventos</a>
+<a href="spoilers.html">🔮 Spoilers</a>
+<a href="votaciones.html">⭐ Votar</a>
+<a href="perfil.html">👤 Perfil</a>
+<a href="jugadores.html">👥 Jugadores</a>
 <a href="tienda.html">🛒 Tienda</a>
 <a href="https://discord.gg/GBTnQnxEk" target="_blank">💬 Discord</a>
 
@@ -469,219 +498,307 @@ aria-expanded="false">
 <h1>NOTICIAS</h1>
 
 <p>
-Mantente informado sobre todo lo que ocurre en
-<strong>THRASHMC NETWORK</strong>.
-Actualizaciones, novedades, cambios, eventos y anuncios
-oficiales de nuestra comunidad.
+Todas las novedades, actualizaciones y anuncios importantes
+de THRASHMC NETWORK en un solo lugar.
 </p>
-
-</section>
-
-
-<section class="feature">
-
-<div class="feature-card">
-
-<div class="feature-label">
-🔥 DESTACADO
-</div>
-
-<h2>
-THRASHMC NETWORK sigue creciendo
-</h2>
-
-<p>
-Estamos preparando nuevas funciones, sistemas y
-contenido para nuestra comunidad. Mantente atento
-a nuestros canales oficiales para conocer todas las
-novedades antes que nadie.
-</p>
-
-</div>
 
 </section>
 
 
 <main class="news-container">
 
-<div class="news-grid">
 
+<!-- NOTICIA DESTACADA -->
 
-<article class="news-card">
+<section class="featured">
 
-<div class="news-icon">🌐</div>
+<div class="featured-content">
 
-<span class="news-tag">
-NETWORK
-</span>
-
-<h2>
-Nueva etapa de THRASHMC
-</h2>
-
-<div class="news-date">
-📅 2026
+<div class="featured-label">
+🔥 NOTICIA DESTACADA
 </div>
 
+<h2>
+THRASHMC NETWORK SE PREPARA PARA LO GRANDE
+</h2>
+
 <p>
-THRASHMC NETWORK continúa su desarrollo con nuevos
-sistemas y mejoras enfocadas en ofrecer una experiencia
-FullPvP cada vez más completa.
+La Network continúa creciendo. Estamos trabajando en nuevas
+funciones, mejoras para la comunidad y contenido para llevar
+la experiencia de THRASHMC al siguiente nivel.
 </p>
 
-<a class="news-button" href="discord.html">
-Ver comunidad →
-</a>
+<span class="date">
+📅 19 DE AGOSTO DE 2026 • THRASHMC NETWORK
+</span>
 
-</article>
+</div>
+
+</section>
+
+
+<!-- NOTICIAS -->
+
+<section class="news-grid">
 
 
 <article class="news-card">
 
-<div class="news-icon">⚔️</div>
+<div class="news-image">
+⚔️
+</div>
 
-<span class="news-tag">
+<div class="news-content">
+
+<div class="news-category">
 FULLPVP
-</span>
-
-<h2>
-Nuevas funciones en preparación
-</h2>
-
-<div class="news-date">
-📅 Próximamente
 </div>
 
+<h3>
+Nuevas mejoras para FullPVP
+</h3>
+
 <p>
-Estamos trabajando en nuevos sistemas para mejorar
-la experiencia PvP, progresión, estadísticas, eventos
-y competencia entre jugadores.
+Estamos preparando diferentes mejoras para la modalidad
+FullPVP, incluyendo nuevas funciones, sistemas y contenido
+para nuestros jugadores.
 </p>
 
-<a class="news-button" href="modalidades.html">
-Ver modalidad →
+<div class="news-footer">
+
+<span class="news-date">
+19/08/2026
+</span>
+
+<a href="discord.html" class="read-more">
+LEER MÁS →
 </a>
+
+</div>
+
+</div>
 
 </article>
 
 
 <article class="news-card">
 
-<div class="news-icon">👑</div>
+<div class="news-image">
+👑
+</div>
 
-<span class="news-tag">
+<div class="news-content">
+
+<div class="news-category">
 STAFF
-</span>
-
-<h2>
-Nuevo equipo administrativo
-</h2>
-
-<div class="news-date">
-📅 Actualización oficial
 </div>
 
+<h3>
+Nuevo integrante del Staff
+</h3>
+
 <p>
-Conoce al equipo encargado de administrar y mantener
-THRASHMC NETWORK. Consulta los cargos actuales y los
-puestos que próximamente estarán disponibles.
+Damos la bienvenida a <strong>Pana_Frail</strong> al equipo
+administrativo de THRASHMC NETWORK.
 </p>
 
-<a class="news-button" href="staff.html">
-Ver Staff →
+<div class="news-footer">
+
+<span class="news-date">
+19/08/2026
+</span>
+
+<a href="staff.html" class="read-more">
+VER STAFF →
 </a>
+
+</div>
+
+</div>
 
 </article>
 
 
 <article class="news-card">
 
-<div class="news-icon">🎉</div>
-
-<span class="news-tag">
-EVENTOS
-</span>
-
-<h2>
-Eventos próximamente
-</h2>
-
-<div class="news-date">
-📅 PRÓXIMAMENTE
+<div class="news-image">
+🌐
 </div>
 
+<div class="news-content">
+
+<div class="news-category">
+NETWORK
+</div>
+
+<h3>
+La nueva web de THRASHMC
+</h3>
+
 <p>
-La comunidad podrá participar en diferentes eventos,
-actividades y dinámicas especiales. Los anuncios serán
-publicados oficialmente cuando estén disponibles.
+Ya puedes visitar nuestra nueva página oficial para conocer
+las modalidades, noticias, staff, reglas y mucho más.
 </p>
 
-<a class="news-button" href="eventos.html">
-Ver eventos →
+<div class="news-footer">
+
+<span class="news-date">
+18/08/2026
+</span>
+
+<a href="index.html" class="read-more">
+IR A LA WEB →
 </a>
+
+</div>
+
+</div>
 
 </article>
 
 
 <article class="news-card">
 
-<div class="news-icon">🎁</div>
-
-<span class="news-tag">
-SORTEOS
-</span>
-
-<h2>
-Sorteos para la comunidad
-</h2>
-
-<div class="news-date">
-📅 PRÓXIMAMENTE
+<div class="news-image">
+💬
 </div>
 
+<div class="news-content">
+
+<div class="news-category">
+COMUNIDAD
+</div>
+
+<h3>
+Únete al Discord oficial
+</h3>
+
 <p>
-Habrá diferentes sorteos y actividades especiales
-para la comunidad de THRASHMC. Revisa nuestros
-canales oficiales para participar.
+Forma parte de nuestra comunidad, recibe anuncios y participa
+en eventos, sorteos y novedades de THRASHMC.
 </p>
 
-<a class="news-button" href="sorteos.html">
-Ver sorteos →
+<div class="news-footer">
+
+<span class="news-date">
+18/08/2026
+</span>
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="read-more">
+UNIRSE →
 </a>
+
+</div>
+
+</div>
 
 </article>
 
 
 <article class="news-card">
 
-<div class="news-icon">🔮</div>
-
-<span class="news-tag">
-SPOILERS
-</span>
-
-<h2>
-Contenido secreto
-</h2>
-
-<div class="news-date">
-📅 Próximamente
+<div class="news-image">
+⭐
 </div>
 
+<div class="news-content">
+
+<div class="news-category">
+VOTACIONES
+</div>
+
+<h3>
+Apoya a THRASHMC votando
+</h3>
+
 <p>
-Tenemos contenido en desarrollo que todavía no
-podemos revelar. Algunos avances podrán aparecer
-en nuestra sección oficial de spoilers.
+Tu apoyo ayuda a que más jugadores conozcan la Network.
+Próximamente tendremos recompensas especiales por votar.
 </p>
 
-<a class="news-button" href="spoilers.html">
-Ver spoilers →
+<div class="news-footer">
+
+<span class="news-date">
+PRÓXIMAMENTE
+</span>
+
+<a href="votaciones.html" class="read-more">
+VOTAR →
 </a>
+
+</div>
+
+</div>
 
 </article>
 
 
+<article class="news-card">
+
+<div class="news-image">
+🔮
 </div>
+
+<div class="news-content">
+
+<div class="news-category">
+SPOILER
+</div>
+
+<h3>
+Tenemos algo preparado...
+</h3>
+
+<p>
+El equipo de THRASHMC está preparando nuevo contenido.
+¿Quieres descubrir qué estamos preparando?
+</p>
+
+<div class="news-footer">
+
+<span class="news-date">
+PRÓXIMAMENTE
+</span>
+
+<a href="spoilers.html" class="read-more">
+VER SPOILERS →
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+</section>
+
+
+<!-- DISCORD -->
+
+<section class="discord-box">
+
+<h2>
+💜 No te pierdas ninguna novedad
+</h2>
+
+<p>
+Los anuncios más importantes se publicarán también en nuestro
+Discord oficial. Únete a la comunidad y mantente informado.
+</p>
+
+<a
+href="https://discord.gg/GBTnQnxEk"
+target="_blank"
+class="discord-button">
+💬 UNIRME AL DISCORD
+</a>
+
+</section>
+
 
 </main>
 
@@ -693,7 +810,7 @@ THRASH<span>MC</span> NETWORK
 </div>
 
 <p>
-⚔️ FULLPVP • 👑 STAFF • 📰 NOTICIAS • 🏆 COMPETENCIA
+⚔️ FULLPVP • 📰 NOTICIAS • 💜 COMUNIDAD
 </p>
 
 <p>
@@ -704,36 +821,29 @@ THRASH<span>MC</span> NETWORK
 
 
 <script>
-const menuButton = document.getElementById("menuButton");
-const mobileNav = document.getElementById("mobileNav");
 
-menuButton.addEventListener("click", function(){
+const menuButton=document.getElementById("menuButton");
+const mobileNav=document.getElementById("mobileNav");
 
-    const isOpen = mobileNav.classList.toggle("open");
+menuButton.addEventListener("click",function(){
 
-    menuButton.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-    );
+    const open=mobileNav.classList.toggle("open");
 
-    menuButton.textContent = isOpen ? "×" : "⋮";
+    menuButton.textContent=open?"×":"⋮";
+
 });
 
 document.querySelectorAll("#mobileNav a").forEach(function(link){
 
-    link.addEventListener("click", function(){
+    link.addEventListener("click",function(){
 
         mobileNav.classList.remove("open");
+        menuButton.textContent="⋮";
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuButton.textContent = "⋮";
     });
 
 });
+
 </script>
 
 </body>
