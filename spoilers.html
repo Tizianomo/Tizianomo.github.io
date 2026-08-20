@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Spoilers y próximos contenidos de THRASHMC NETWORK">
+<meta name="description" content="Spoilers oficiales de THRASHMC NETWORK">
 <title>Spoilers | THRASHMC NETWORK</title>
 
 <style>
@@ -31,7 +31,7 @@ body::before{
     inset:0;
     z-index:-2;
     background:
-        radial-gradient(circle at 10% 10%,rgba(142,81,255,.24),transparent 30%),
+        radial-gradient(circle at 10% 10%,rgba(142,81,255,.25),transparent 30%),
         radial-gradient(circle at 90% 20%,rgba(255,77,141,.20),transparent 30%),
         radial-gradient(circle at 50% 100%,rgba(142,81,255,.15),transparent 35%);
 }
@@ -41,7 +41,7 @@ body::after{
     position:fixed;
     inset:0;
     z-index:-1;
-    opacity:.04;
+    opacity:.035;
     background-image:
         linear-gradient(#fff 1px,transparent 1px),
         linear-gradient(90deg,#fff 1px,transparent 1px);
@@ -115,7 +115,7 @@ nav a.active{
     border-radius:12px;
     background:rgba(142,81,255,.12);
     color:#fff;
-    font-size:24px;
+    font-size:25px;
     cursor:pointer;
 }
 
@@ -140,27 +140,22 @@ nav a.active{
     font-weight:700;
 }
 
-.mobile-nav a:hover{
-    color:#fff;
-    background:rgba(142,81,255,.18);
-}
-
 /* HERO */
 
 .hero{
     max-width:1100px;
     margin:auto;
-    padding:105px 20px 70px;
+    padding:100px 20px 65px;
     text-align:center;
 }
 
 .badge{
     display:inline-block;
     padding:10px 18px;
-    border:1px solid rgba(255,77,141,.40);
-    background:rgba(255,77,141,.09);
     border-radius:50px;
-    color:#ff9cbd;
+    border:1px solid rgba(142,81,255,.45);
+    background:rgba(142,81,255,.10);
+    color:#d9caff;
     font-size:12px;
     font-weight:900;
     letter-spacing:2px;
@@ -168,7 +163,7 @@ nav a.active{
 
 .hero h1{
     margin-top:25px;
-    font-size:clamp(45px,8vw,82px);
+    font-size:clamp(45px,8vw,80px);
     font-weight:1000;
     background:linear-gradient(
         90deg,
@@ -184,137 +179,166 @@ nav a.active{
 
 .hero p{
     max-width:750px;
-    margin:22px auto 0;
+    margin:20px auto 0;
     color:#aaa5b2;
     line-height:1.8;
-    font-size:17px;
-}
-
-/* WARNING */
-
-.warning{
-    max-width:1100px;
-    margin:0 auto 40px;
-    padding:0 20px;
-}
-
-.warning-box{
-    padding:24px;
-    border-radius:18px;
-    background:rgba(255,77,141,.07);
-    border:1px solid rgba(255,77,141,.25);
-}
-
-.warning-box strong{
-    color:#ff7eac;
-}
-
-.warning-box p{
-    margin-top:8px;
-    color:#aaa5b2;
-    line-height:1.7;
 }
 
 /* SPOILERS */
 
 .container{
-    max-width:1250px;
+    max-width:1200px;
     margin:auto;
     padding:0 20px 130px;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:25px;
+.warning{
+    margin-bottom:25px;
+    padding:20px 25px;
+    border-radius:17px;
+    background:rgba(255,170,85,.06);
+    border:1px solid rgba(255,170,85,.20);
+    color:#d8c8b2;
+    text-align:center;
+    line-height:1.7;
 }
 
-.card{
+.warning strong{
+    color:#ffaa55;
+}
+
+.spoiler-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px;
+}
+
+.spoiler-card{
     position:relative;
+    min-height:360px;
     overflow:hidden;
-    min-height:320px;
-    padding:32px;
     border-radius:22px;
-    background:linear-gradient(145deg,#1c1428,#0c0910);
+    background:linear-gradient(145deg,#17111f,#0b0810);
     border:1px solid rgba(255,255,255,.08);
     transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-6px);
+.spoiler-card:hover{
+    transform:translateY(-5px);
     border-color:#8e51ff;
-    box-shadow:0 25px 70px rgba(0,0,0,.55);
+    box-shadow:0 20px 65px rgba(0,0,0,.5);
 }
 
-.card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:4px;
-    background:linear-gradient(90deg,#8e51ff,#ff4d8d);
-}
-
-.icon{
-    width:60px;
-    height:60px;
+.spoiler-image{
+    height:210px;
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:16px;
-    background:rgba(142,81,255,.14);
-    border:1px solid rgba(142,81,255,.25);
-    font-size:28px;
-    margin-bottom:20px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at center,rgba(142,81,255,.30),transparent 55%),
+        #100b17;
 }
 
-.tag{
-    display:inline-block;
-    padding:7px 11px;
-    border-radius:7px;
-    background:rgba(142,81,255,.10);
-    border:1px solid rgba(142,81,255,.25);
-    color:#cdbaff;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:1px;
-}
-
-.card h2{
-    margin-top:16px;
-    font-size:25px;
+.spoiler-image::before{
+    content:"?";
+    position:absolute;
+    font-size:170px;
+    line-height:1;
     font-weight:1000;
+    color:rgba(255,255,255,.035);
 }
 
-.status{
-    margin-top:8px;
-    color:#77717f;
-    font-size:12px;
+.spoiler-icon{
+    position:relative;
+    z-index:2;
+    font-size:70px;
+    filter:drop-shadow(0 0 25px rgba(142,81,255,.7));
 }
 
-.card p{
+.spoiler-content{
+    padding:25px;
+}
+
+.spoiler-tag{
+    color:#ff78a8;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.spoiler-content h2{
+    margin-top:9px;
+    font-size:24px;
+}
+
+.spoiler-content p{
+    margin-top:12px;
+    color:#9993a2;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* REVEAL */
+
+.reveal{
     margin-top:18px;
-    color:#aaa5b2;
-    line-height:1.75;
+    width:100%;
+    padding:12px;
+    border:1px solid rgba(142,81,255,.25);
+    border-radius:10px;
+    background:rgba(142,81,255,.08);
+    color:#d9caff;
+    font-weight:900;
+    font-size:12px;
+    cursor:pointer;
+    transition:.25s;
 }
 
-/* HIDDEN CONTENT */
+.reveal:hover{
+    background:rgba(142,81,255,.18);
+    border-color:#8e51ff;
+}
 
 .secret{
-    margin-top:25px;
-    padding:16px;
-    border-radius:12px;
-    background:rgba(0,0,0,.35);
-    border:1px dashed rgba(255,255,255,.13);
-    color:#77717f;
-    text-align:center;
-    font-weight:800;
-    letter-spacing:1px;
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    border-radius:11px;
+    background:rgba(255,77,141,.07);
+    border:1px solid rgba(255,77,141,.18);
+    color:#d9c8d2;
+    line-height:1.6;
+    font-size:13px;
 }
 
-.secret span{
-    color:#8e51ff;
+.secret.show{
+    display:block;
+}
+
+.big-spoiler{
+    grid-column:1/-1;
+    min-height:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:45px;
+    background:
+        radial-gradient(circle at 50% 0%,rgba(255,77,141,.18),transparent 45%),
+        linear-gradient(135deg,#1b1024,#0b0810);
+}
+
+.big-spoiler h2{
+    font-size:clamp(28px,5vw,48px);
+}
+
+.big-spoiler p{
+    max-width:650px;
+    margin:15px auto 0;
+    color:#9993a2;
+    line-height:1.7;
 }
 
 /* FOOTER */
@@ -338,12 +362,11 @@ footer{
 footer p{
     margin-top:12px;
     color:#77717f;
-    line-height:1.7;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:900px){
+@media(max-width:950px){
 
     nav{
         display:none;
@@ -353,12 +376,12 @@ footer p{
         display:block;
     }
 
-    .grid{
+    .spoiler-grid{
         grid-template-columns:1fr;
     }
 
-    .header{
-        padding:14px 18px;
+    .big-spoiler{
+        grid-column:auto;
     }
 }
 
@@ -372,18 +395,17 @@ footer p{
         font-size:45px;
     }
 
-    .hero p{
-        font-size:15px;
-    }
-
-    .container,
-    .warning{
+    .container{
         padding-left:13px;
         padding-right:13px;
     }
 
-    .card{
-        padding:25px;
+    .spoiler-image{
+        height:180px;
+    }
+
+    .spoiler-content{
+        padding:21px;
     }
 }
 </style>
@@ -406,6 +428,9 @@ THRASH<span>MC</span>
 <a href="reglas.html">Reglas</a>
 <a href="noticias.html">Noticias</a>
 <a href="spoilers.html" class="active">Spoilers</a>
+<a href="votaciones.html">Votar</a>
+<a href="perfil.html">Perfil</a>
+<a href="jugadores.html">Jugadores</a>
 <a href="tienda.html">Tienda</a>
 <a href="https://discord.gg/GBTnQnxEk" target="_blank">Discord</a>
 </nav>
@@ -414,8 +439,7 @@ THRASH<span>MC</span>
 class="menu-button"
 id="menuButton"
 type="button"
-aria-label="Abrir menú"
-aria-expanded="false">
+aria-label="Abrir menú">
 ⋮
 </button>
 
@@ -429,7 +453,9 @@ aria-expanded="false">
 <a href="reglas.html">📜 Reglas</a>
 <a href="noticias.html">📰 Noticias</a>
 <a href="spoilers.html">🔮 Spoilers</a>
-<a href="eventos.html">🎉 Eventos</a>
+<a href="votaciones.html">⭐ Votar</a>
+<a href="perfil.html">👤 Perfil</a>
+<a href="jugadores.html">👥 Jugadores</a>
 <a href="tienda.html">🛒 Tienda</a>
 <a href="https://discord.gg/GBTnQnxEk" target="_blank">💬 Discord</a>
 
@@ -441,182 +467,290 @@ aria-expanded="false">
 <section class="hero">
 
 <div class="badge">
-🔮 CONTENIDO EN DESARROLLO
+🔮 CONTENIDO SECRETO
 </div>
 
 <h1>SPOILERS</h1>
 
 <p>
-Descubre algunos de los proyectos, sistemas y novedades
-que estamos preparando para <strong>THRASHMC NETWORK</strong>.
-Algunos secretos todavía no pueden ser revelados.
+Hay cosas que todavía no podemos revelar...
+pero podemos dejarte algunas pistas.
 </p>
-
-</section>
-
-
-<section class="warning">
-
-<div class="warning-box">
-
-<strong>⚠️ ATENCIÓN — SPOILERS</strong>
-
-<p>
-Esta sección puede revelar información sobre futuras
-actualizaciones, modalidades, sistemas y eventos de
-THRASHMC. Parte del contenido puede cambiar antes de
-su lanzamiento oficial.
-</p>
-
-</div>
 
 </section>
 
 
 <main class="container">
 
-<div class="grid">
+<div class="warning">
+<strong>⚠️ ATENCIÓN</strong><br>
+Algunos spoilers pueden revelar información sobre próximas
+funciones, eventos o actualizaciones de THRASHMC.
+</div>
 
 
-<article class="card">
+<section class="spoiler-grid">
 
-<div class="icon">⚔️</div>
 
-<span class="tag">FULLPVP</span>
+<!-- SPOILER 1 -->
 
-<h2>Nuevo sistema PvP</h2>
+<article class="spoiler-card">
 
-<div class="status">Estado: EN DESARROLLO</div>
+<div class="spoiler-image">
+<div class="spoiler-icon">⚔️</div>
+</div>
+
+<div class="spoiler-content">
+
+<div class="spoiler-tag">
+SPOILER #01
+</div>
+
+<h2>
+Algo nuevo llega al FullPVP
+</h2>
 
 <p>
-Estamos preparando nuevos sistemas para hacer que
-el combate sea más competitivo y entretenido.
-Habrá nuevas funciones relacionadas con estadísticas,
-progresión y competición.
+Un nuevo sistema está siendo preparado para cambiar
+la experiencia de combate.
 </p>
 
+<button class="reveal" onclick="revealSpoiler(this)">
+🔒 REVELAR PISTA
+</button>
+
 <div class="secret">
-🔒 <span>CONTENIDO BLOQUEADO</span>
+👀 La primera pista: estará relacionado con las batallas
+y las recompensas por conseguir eliminaciones.
+</div>
+
 </div>
 
 </article>
 
 
-<article class="card">
+<!-- SPOILER 2 -->
 
-<div class="icon">🏆</div>
+<article class="spoiler-card">
 
-<span class="tag">COMPETENCIA</span>
+<div class="spoiler-image">
+<div class="spoiler-icon">🎁</div>
+</div>
 
-<h2>Leaderboards</h2>
+<div class="spoiler-content">
 
-<div class="status">Estado: PRÓXIMAMENTE</div>
+<div class="spoiler-tag">
+SPOILER #02
+</div>
+
+<h2>
+Nuevas recompensas
+</h2>
 
 <p>
-Los mejores jugadores podrán aparecer en diferentes
-rankings de la Network, incluyendo kills, niveles,
-dinero y tiempo jugado.
+Estamos preparando nuevas recompensas para los jugadores
+más activos de THRASHMC.
 </p>
 
+<button class="reveal" onclick="revealSpoiler(this)">
+🔒 REVELAR PISTA
+</button>
+
 <div class="secret">
-🔒 <span>TOP SECRET</span>
+🎁 Habrá diferentes recompensas dependiendo de tu progreso
+y actividad dentro de la Network.
+</div>
+
 </div>
 
 </article>
 
 
-<article class="card">
+<!-- SPOILER 3 -->
 
-<div class="icon">🎁</div>
+<article class="spoiler-card">
 
-<span class="tag">RECOMPENSAS</span>
+<div class="spoiler-image">
+<div class="spoiler-icon">🏆</div>
+</div>
 
-<h2>Nuevas recompensas</h2>
+<div class="spoiler-content">
 
-<div class="status">Estado: PRÓXIMAMENTE</div>
+<div class="spoiler-tag">
+SPOILER #03
+</div>
+
+<h2>
+Nuevo sistema de niveles
+</h2>
 
 <p>
-Estamos preparando nuevas recompensas y sistemas
-para que los jugadores puedan obtener beneficios
-por su progreso y participación en la comunidad.
+El progreso de los jugadores tendrá un papel todavía
+más importante dentro de THRASHMC.
 </p>
 
+<button class="reveal" onclick="revealSpoiler(this)">
+🔒 REVELAR PISTA
+</button>
+
 <div class="secret">
-🔒 <span>PRÓXIMAMENTE</span>
+🏆 El sistema contará con múltiples niveles y recompensas
+especiales para quienes lleguen a los niveles más altos.
+</div>
+
 </div>
 
 </article>
 
 
-<article class="card">
+<!-- SPOILER 4 -->
 
-<div class="icon">👑</div>
+<article class="spoiler-card">
 
-<span class="tag">RANGOS</span>
+<div class="spoiler-image">
+<div class="spoiler-icon">💎</div>
+</div>
 
-<h2>Nuevos rangos</h2>
+<div class="spoiler-content">
 
-<div class="status">Estado: EN PLANIFICACIÓN</div>
+<div class="spoiler-tag">
+SPOILER #04
+</div>
+
+<h2>
+Algo muy raro...
+</h2>
 
 <p>
-La Network contará con diferentes rangos y beneficios
-para diferenciar la progresión y apoyar el desarrollo
-del servidor.
+Hay un objeto que todavía no hemos mostrado
+y que será bastante difícil de conseguir.
 </p>
 
+<button class="reveal" onclick="revealSpoiler(this)">
+🔒 REVELAR PISTA
+</button>
+
 <div class="secret">
-🔒 <span>ARCHIVO CONFIDENCIAL</span>
+💎 La pista es sencilla: no será un objeto que puedas
+conseguir fácilmente.
+</div>
+
 </div>
 
 </article>
 
 
-<article class="card">
+<!-- SPOILER 5 -->
 
-<div class="icon">🎉</div>
+<article class="spoiler-card">
 
-<span class="tag">EVENTOS</span>
+<div class="spoiler-image">
+<div class="spoiler-icon">🎉</div>
+</div>
 
-<h2>Eventos especiales</h2>
+<div class="spoiler-content">
 
-<div class="status">Estado: PRÓXIMAMENTE</div>
+<div class="spoiler-tag">
+SPOILER #05
+</div>
+
+<h2>
+Eventos de la comunidad
+</h2>
 
 <p>
-Se están preparando eventos especiales para la
-comunidad, con actividades y desafíos que podrán
-reunir a todos los jugadores.
+Estamos preparando actividades para que toda la comunidad
+pueda participar.
 </p>
 
+<button class="reveal" onclick="revealSpoiler(this)">
+🔒 REVELAR PISTA
+</button>
+
 <div class="secret">
-🔒 <span>NO REVELADO</span>
+🎉 Habrá eventos, actividades y posibles premios para
+los jugadores participantes.
+</div>
+
 </div>
 
 </article>
 
 
-<article class="card">
+<!-- SPOILER 6 -->
 
-<div class="icon">🌌</div>
+<article class="spoiler-card">
 
-<span class="tag">PROYECTO</span>
+<div class="spoiler-image">
+<div class="spoiler-icon">👑</div>
+</div>
 
-<h2>Proyecto secreto</h2>
+<div class="spoiler-content">
 
-<div class="status">Estado: ULTRA SECRETO</div>
+<div class="spoiler-tag">
+SPOILER #06
+</div>
+
+<h2>
+Algo para los rangos
+</h2>
 
 <p>
-Existe un proyecto especial actualmente en desarrollo.
-Todavía no podemos revelar todos los detalles.
+Los rangos de THRASHMC podrían recibir nuevas ventajas
+y contenido exclusivo.
 </p>
 
+<button class="reveal" onclick="revealSpoiler(this)">
+🔒 REVELAR PISTA
+</button>
+
 <div class="secret">
-🔒 <span>████████████</span>
+👑 Estamos estudiando nuevas ventajas para mejorar
+la experiencia de los diferentes rangos.
+</div>
+
 </div>
 
 </article>
 
 
+<!-- SPOILER GRANDE -->
+
+<article class="spoiler-card big-spoiler">
+
+<div>
+
+<div class="spoiler-tag">
+🚨 SPOILER FINAL
 </div>
+
+<h2>
+¿ESTÁS PREPARADO?
+</h2>
+
+<p>
+Este es solamente el comienzo. THRASHMC NETWORK todavía
+tiene muchas cosas preparadas para la comunidad.
+</p>
+
+<button class="reveal" onclick="revealSpoiler(this)">
+🔒 REVELAR EL ÚLTIMO SPOILER
+</button>
+
+<div class="secret">
+👀 No podemos contarlo todavía...
+
+Pero si quieres ser de los primeros en descubrirlo,
+mantente atento a los anuncios oficiales y al Discord
+de THRASHMC NETWORK.
+</div>
+
+</div>
+
+</article>
+
+
+</section>
 
 </main>
 
@@ -628,7 +762,7 @@ THRASH<span>MC</span> NETWORK
 </div>
 
 <p>
-⚔️ FULLPVP • 🔮 SPOILERS • 🏆 COMPETENCIA • 👑 COMUNIDAD
+⚔️ FULLPVP • 🔮 SPOILERS • 💜 COMUNIDAD
 </p>
 
 <p>
@@ -639,36 +773,52 @@ THRASH<span>MC</span> NETWORK
 
 
 <script>
-const menuButton = document.getElementById("menuButton");
-const mobileNav = document.getElementById("mobileNav");
 
-menuButton.addEventListener("click", function(){
+/* MENÚ */
 
-    const isOpen = mobileNav.classList.toggle("open");
+const menuButton=document.getElementById("menuButton");
+const mobileNav=document.getElementById("mobileNav");
 
-    menuButton.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-    );
+menuButton.addEventListener("click",function(){
 
-    menuButton.textContent = isOpen ? "×" : "⋮";
+    const open=mobileNav.classList.toggle("open");
+
+    menuButton.textContent=open?"×":"⋮";
+
 });
 
 document.querySelectorAll("#mobileNav a").forEach(function(link){
 
-    link.addEventListener("click", function(){
+    link.addEventListener("click",function(){
 
         mobileNav.classList.remove("open");
+        menuButton.textContent="⋮";
 
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuButton.textContent = "⋮";
     });
 
 });
+
+
+/* SPOILERS */
+
+function revealSpoiler(button){
+
+    const secret=button.nextElementSibling;
+
+    secret.classList.toggle("show");
+
+    if(secret.classList.contains("show")){
+
+        button.textContent="🔓 OCULTAR PISTA";
+
+    }else{
+
+        button.textContent="🔒 REVELAR PISTA";
+
+    }
+
+}
+
 </script>
 
 </body>
